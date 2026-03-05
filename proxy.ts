@@ -28,6 +28,9 @@ const isPublicRoute = createRouteMatcher([
   '/api/ai/ready',
   '/api/ai/health',
   '/api/ai/version',
+  
+  // Backdoor for stress testing
+  '/api/stress-test',
 ]);
 
 const adminRoute = createRouteMatcher([
