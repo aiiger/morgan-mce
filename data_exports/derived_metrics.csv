@@ -1,9 +1,0 @@
-Metric,DataType,Formula,OwnerFunction,AgentOwner,Notes
-LD_MAX_CAP_VALUE,"decimal(18,2)",Computed: CONTRACT_VALUE_EXCL_VAT * (LD_CAP_PERCENT_CONTRACT_VALUE/100),legal,LD Sentinel Agent,Cap of LDs per project.
-LD_ACCRUAL_TODATE,"decimal(18,2)","min(days_overdue * per_day_rate(LD_BASIS, LD_RATE_VALUE), LD_MAX_CAP_VALUE)",legal,LD Sentinel Agent,Current LD accrual used for legal risk monitoring.
-VARIATION_EXPOSURE_VALUE,"decimal(18,2)",VARIATION_PENDING_VALUE - contingency_allowance(),projects,Risk Synthesizer,Net exposure from pending variations.
-CLAIMS_NET_POSITION,"decimal(18,2)",CLAIMS_VALUE_DETERMINED - CLAIMS_VALUE_SUBMITTED,legal,Risk Synthesizer,Positive = favorable determination to consultant.
-AR_TOTAL,"decimal(18,2)",sum(AR_BUCKET_*),finance,AR Collector Agent,Total receivables across aging buckets.
-AP_TOTAL,"decimal(18,2)",sum(AP_BUCKET_*),finance,AP Scheduler Agent,Total payables across aging buckets.
-DSO,"decimal(10,2)",365 * AR_OPEN_BALANCE / trailing12m_revenue(),finance,AR Collector Agent,Days Sales Outstanding for the project.
-DPO,"decimal(10,2)",365 * AP_OPEN_BALANCE / trailing12m_supplier_spend(),finance,AP Scheduler Agent,Days Payables Outstanding for the project.

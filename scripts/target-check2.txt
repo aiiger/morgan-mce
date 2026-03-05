@@ -1,3 +1,0 @@
-RESIDUAL: components\tenders\RequirementsChecklist.tsx
-  L28: <input type="checkbox" className="w-4 h-4 rounded bg-white border-gray-200 text-blue-600 focus:ring-
-Total residual hits in target files: 1
