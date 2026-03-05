@@ -61,18 +61,34 @@ const configuredMiddleware = clerkMiddleware(async (auth, req) => {
   if (isPublicRoute(req) || isAuthDisabled) return;
 
   await auth.protect();
-  const { sessionClaims, user } = await auth();
+  const { sessionClaims, userId } = await auth();
 
   // Hard lock to a single user for initial deployment
-  if (user && user.primaryEmailAddress?.emailAddress !== ALLOWED_EMAIL) {
-    if (req.nextUrl.pathname.startsWith('/api/')) {
-        return NextResponse.json({ error: 'Access denied.' }, { status: 403 });
+  if (userId) {
+    let email = '';
+    // if email is in sessionClaims, use it
+    if (sessionClaims && (sessionClaims as any).email) {
+      email = (sessionClaims as any).email;
+    } else {
+      try {
+        const { clerkClient } = await import('@clerk/nextjs/server');
+        const client = await clerkClient();
+        const user = await client.users.getUser(userId);
+        email = user.emailAddresses.find((e: any) => e.id === user.primaryEmailAddressId)?.emailAddress || '';
+      } catch (e) {
+        console.error('Failed to fetch user email in middleware', e);
+      }
     }
-    // For non-API routes, just show a simple forbidden page.
-    return new NextResponse('<h1>Access Denied</h1><p>This application is currently restricted.</p>', {
-      status: 403,
-      headers: { 'Content-Type': 'text/html' }
-    });
+
+    if (email && email !== ALLOWED_EMAIL) {
+      if (req.nextUrl.pathname.startsWith('/api/')) {
+          return NextResponse.json({ error: 'Access denied.' }, { status: 403 });
+      }
+      return new NextResponse('<h1>Access Denied</h1><p>This application is currently restricted.</p>', {
+        status: 403,
+        headers: { 'Content-Type': 'text/html' }
+      });
+    }
   }
 
   const currentTier = tierScore(sessionClaims);
