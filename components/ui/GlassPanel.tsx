@@ -12,9 +12,9 @@ export const GlassPanel = React.forwardRef<HTMLDivElement, GlassPanelProps>(
         const baseStyles = "rounded-xl border transition-all duration-300 backdrop-blur-xl relative overflow-hidden";
 
         const variants = {
-            base: "bg-[var(--surface-base)]/60 border-[var(--surface-border)]",
-            elevated: "bg-[var(--surface-elevated)]/80 border-glass shadow-2xl",
-            bordered: "bg-transparent border-white/10"
+            base: "bg-white/60 border-[var(--surface-border)]",
+            elevated: "bg-[var(--surface-elevated)]/80 border-gray-200 shadow-2xl",
+            bordered: "bg-transparent border-gray-200"
         };
 
         const intensities = {
@@ -29,7 +29,7 @@ export const GlassPanel = React.forwardRef<HTMLDivElement, GlassPanelProps>(
                 className={cn(baseStyles, variants[variant], intensities[intensity], className)}
                 {...props}
             >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
                 <div className="relative z-10">
                     {children}
                 </div>

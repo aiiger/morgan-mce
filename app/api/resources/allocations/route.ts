@@ -28,8 +28,8 @@ export async function GET() {
     if (error) throw error;
 
     return NextResponse.json(data);
-  } catch (error: any) {
-    logger.error('ALLOCATIONS_LIST_FAILURE', { error: error.message });
+  } catch (error: unknown) {
+    logger.error('ALLOCATIONS_LIST_FAILURE', { error: error instanceof Error ? error.message : 'Unknown error' });
     return NextResponse.json({ error: 'Failed to fetch allocations' }, { status: 500 });
   }
 }

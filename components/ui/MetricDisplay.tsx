@@ -37,10 +37,10 @@ export const MetricDisplay: React.FC<MetricDisplayProps> = ({
     showTrendIcon = true
 }) => {
     const sizeClasses = {
-        sm: { label: "text-[10px]", value: "text-lg" },
-        md: { label: "text-[11px]", value: "text-2xl" },
-        lg: { label: "text-[12px]", value: "text-3xl" },
-        xl: { label: "text-[13px]", value: "text-4xl" }
+        sm: { label: "text-caption", value: "text-lg" },
+        md: { label: "text-gov-label", value: "text-2xl" },
+        lg: { label: "text-xs", value: "text-3xl" },
+        xl: { label: "text-gov-body", value: "text-4xl" }
     };
 
     const currentSize = sizeClasses[size];
@@ -49,7 +49,7 @@ export const MetricDisplay: React.FC<MetricDisplayProps> = ({
     // Default: up is green (success), down is red (critical).
     // If isGood is false (e.g. Debt): up is red (critical), down is green (success).
     const getTrendColor = (direction: 'up' | 'down' | 'neutral', isGood: boolean = true) => {
-        if (direction === 'neutral') return 'text-zinc-500';
+        if (direction === 'neutral') return 'text-gray-500';
 
         if (direction === 'up') {
             return isGood ? 'text-emerald-500' : 'text-rose-500';
@@ -66,7 +66,7 @@ export const MetricDisplay: React.FC<MetricDisplayProps> = ({
             <Text
                 variant="gov-label"
                 color="tertiary"
-                className={cn("mb-0.5 transition-colors group-hover:text-zinc-400", currentSize.label)}
+                className={cn("mb-0.5 transition-colors group-hover:text-gray-500", currentSize.label)}
             >
                 {label}
             </Text>
@@ -75,21 +75,21 @@ export const MetricDisplay: React.FC<MetricDisplayProps> = ({
                 <Text
                     variant="gov-metric"
                     className={cn(
-                        "text-white leading-none flex items-baseline",
+                        "text-gray-900 leading-none flex items-baseline",
                         currentSize.value,
                         valueClassName
                     )}
                 >
-                    {prefix && <Text as="span" variant="gov-label" color="tertiary" className="mr-1 opacity-50 font-bold italic uppercase tracking-widest">{prefix}</Text>}
+                    {prefix && <Text as="span" variant="gov-label" color="tertiary" className="mr-1 opacity-50 font-bold tracking-widest">{prefix}</Text>}
                     {value}
-                    {suffix && <Text as="span" variant="gov-label" color="tertiary" className="ml-1 opacity-50 font-bold italic uppercase tracking-widest">{suffix}</Text>}
+                    {suffix && <Text as="span" variant="gov-label" color="tertiary" className="ml-1 opacity-50 font-bold tracking-widest">{suffix}</Text>}
                 </Text>
 
                 {trend && (
                     <Box className={cn("flex items-center mb-1", trendColor)}>
                         {showTrendIcon && TrendIcon && <TrendIcon size={12} className="mr-0.5" strokeWidth={3} />}
-                        <Text variant="gov-label" className="text-[10px] font-bold italic">{Math.abs(trend.value)}%</Text>
-                        {trend.label && <Text variant="gov-label" color="tertiary" className="ml-1 opacity-50 font-bold italic uppercase tracking-widest">{trend.label}</Text>}
+                        <Text variant="gov-label" className="text-caption font-bold italic">{Math.abs(trend.value)}%</Text>
+                        {trend.label && <Text variant="gov-label" color="tertiary" className="ml-1 opacity-50 font-bold tracking-widest">{trend.label}</Text>}
                     </Box>
                 )}
             </Box>

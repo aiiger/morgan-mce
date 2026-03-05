@@ -30,7 +30,7 @@ export function SystemRiskCommand({
     <Card variant="elevated" padding="md" className="w-full">
       <CardHeader>
         <CardTitle>System Risk Command</CardTitle>
-        <div className="text-sm font-medium text-[#51a2a8]">{systemStatus}</div>
+        <div className="text-sm font-medium text-[var(--brand-accent)]">{systemStatus}</div>
       </CardHeader>
       <CardContent className="space-y-6">
         {/* Progress Bar - Primary Risk Indicator */}
@@ -51,7 +51,7 @@ export function SystemRiskCommand({
           {riskLevels.map((risk) => (
             <div
               key={risk.level}
-              className="p-3 rounded-lg bg-[#f4ede8] border border-[#a0d0d7]"
+              className="p-3 rounded-lg bg-bg-surface border border-[var(--brand-accent)]"
             >
               <div className="text-xs font-medium text-text-secondary capitalize mb-1">
                 {risk.level}
@@ -62,7 +62,7 @@ export function SystemRiskCommand({
         </div>
 
         {/* Live Signals Status */}
-        <div className="p-4 rounded-lg bg-[#a8dadc]/20 border border-[#a8dadc]">
+        <div className="p-4 rounded-lg bg-teal-50 border border-[var(--brand-accent)]">
           <div className="text-xs font-semibold text-text-secondary uppercase tracking-wide mb-1">
             Live Signals
           </div>

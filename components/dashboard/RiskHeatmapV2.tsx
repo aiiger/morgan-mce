@@ -129,7 +129,7 @@ export const RiskHeatmapV2: React.FC<RiskHeatmapV2Props> = ({ projects = [], ale
             />
 
             {/* LEFT HUD: CORRELATION MATRIX */}
-            <div className="relative flex-1 min-h-[400px] flex items-center justify-center p-8 border-b lg:border-b-0 lg:border-r border-white/5 overflow-hidden">
+            <div className="relative flex-1 min-h-[400px] flex items-center justify-center p-8 border-b lg:border-b-0 lg:border-r border-gray-200 overflow-hidden">
 
                 {/* INTERACTIVE LAYER */}
                 <div className="relative w-full h-full max-w-[600px] max-h-[600px] aspect-square">
@@ -180,9 +180,9 @@ export const RiskHeatmapV2: React.FC<RiskHeatmapV2Props> = ({ projects = [], ale
 
                                 <div className={cn(
                                     "w-3 h-3 rounded-sm border transform rotate-45 transition-all duration-300 shadow-[0_0_15px_rgba(0,0,0,0.8)]",
-                                    selectedId === node.id ? "scale-150 border-white bg-white" : "border-white/20 bg-black/60"
+                                    selectedId === node.id ? "scale-150 border-white bg-white" : "border-gray-300 bg-white/80"
                                 )}
-                                    style={{ borderColor: selectedId === node.id ? '#fff' : node.color }}>
+                                    style={{ borderColor: selectedId === node.id ? 'var(--white)' : node.color }}>
                                     <div className="w-full h-full opacity-50" style={{ backgroundColor: node.color }} />
                                 </div>
 
@@ -192,11 +192,11 @@ export const RiskHeatmapV2: React.FC<RiskHeatmapV2Props> = ({ projects = [], ale
                                         initial={{ opacity: 0, y: 5 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         className={cn(
-                                            "absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2 py-1 bg-zinc-950/90 border border-white/10 backdrop-blur-md rounded pointer-events-none whitespace-nowrap z-50",
+                                            "absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2 py-1 bg-white border border-gray-200 shadow-lg backdrop-blur-md rounded pointer-events-none whitespace-nowrap z-50",
                                             selectedId === node.id ? "border-brand-500/50" : ""
                                         )}
                                     >
-                                        <Text variant="label" className="text-[9px] text-white tracking-widest leading-none font-bold italic">
+                                        <Text variant="label" className="text-gov-label text-gray-900 tracking-widest leading-none font-bold italic">
                                             {node.project_name}
                                         </Text>
                                         {selectedId === node.id && (
@@ -210,9 +210,9 @@ export const RiskHeatmapV2: React.FC<RiskHeatmapV2Props> = ({ projects = [], ale
                 </div>
 
                 {/* QUADRANT LABELS */}
-                <div className="absolute top-4 left-4 text-xs font-bold italic text-white/20">HIGH_VELOCITY</div>
+                <div className="absolute top-4 left-4 text-xs font-bold italic text-gray-300">HIGH_VELOCITY</div>
                 <div className="absolute top-4 right-4 text-xs font-bold italic text-red-500/40">CRITICAL_MASS</div>
-                <div className="absolute bottom-4 left-4 text-xs font-bold italic text-white/20">STABLE_CORE</div>
+                <div className="absolute bottom-4 left-4 text-xs font-bold italic text-gray-300">STABLE_CORE</div>
                 <div className="absolute bottom-4 right-4 text-xs font-bold italic text-blue-500/40">MODERATE_FLUX</div>
             </div>
 
@@ -222,32 +222,32 @@ export const RiskHeatmapV2: React.FC<RiskHeatmapV2Props> = ({ projects = [], ale
                 <div className="space-y-4">
                     <div className="flex justify-between items-end">
                         <div className="space-y-1">
-                            <Text variant="label" color="tertiary" className="text-[10px]">Hazard Correlation</Text>
+                            <Text variant="label" color="tertiary" className="text-caption">Hazard Correlation</Text>
                             <div className="flex items-baseline gap-1">
-                                <Text variant="h2" className="text-3xl leading-none text-white">{exposureRate.toFixed(1)}</Text>
-                                <Text variant="label" className="text-zinc-500">%</Text>
+                                <Text variant="h2" className="text-3xl leading-none text-gray-900">{exposureRate.toFixed(1)}</Text>
+                                <Text variant="label" className="text-gray-500">%</Text>
                             </div>
                         </div>
                         <div className="text-right">
-                            <Text variant="label" color="tertiary" className="text-[10px]">Active Nodes</Text>
+                            <Text variant="label" color="tertiary" className="text-caption">Active Nodes</Text>
                             <Text variant="h2" className="text-2xl leading-none text-red-500">{stats.critical}</Text>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-4 gap-1 h-1 w-full bg-zinc-900 rounded-sm overflow-hidden p-[1px]">
+                    <div className="grid grid-cols-4 gap-1 h-1 w-full bg-gray-200 rounded-sm overflow-hidden p-[1px]">
                         {Array.from({ length: 20 }).map((_, i) => (
                             <div key={i} className={cn(
-                                "h-full rounded-[1px]",
-                                i < (exposureRate / 5) ? "bg-red-500" : "bg-zinc-800"
+                                "h-full rounded-sm",
+                                i < (exposureRate / 5) ? "bg-red-500" : "bg-gray-300"
                             )} />
                         ))}
                     </div>
                 </div>
 
                 {/* SELECTED PROJECT INTEL */}
-                <div className="flex-1 min-h-0 flex flex-col bg-white/[0.02] -mx-6 px-6 py-4 border-y border-white/5">
+                <div className="flex-1 min-h-0 flex flex-col bg-bg-surface -mx-6 px-6 py-4 border-y border-gray-200">
                     <div className="flex items-center justify-between mb-3">
-                        <Text variant="label" color="tertiary" className="text-[10px]">Target Analysis</Text>
+                        <Text variant="label" color="tertiary" className="text-caption">Target Analysis</Text>
                         {selectedId && <span className="w-1.5 h-1.5 bg-brand-500 rounded-full animate-pulse" />}
                     </div>
 
@@ -264,24 +264,24 @@ export const RiskHeatmapV2: React.FC<RiskHeatmapV2Props> = ({ projects = [], ale
                                     <div className="relative group p-3 bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-lg backdrop-blur-sm shadow-sm">
                                         <div className="flex items-start justify-between">
                                             <div>
-                                                <Text variant="h4" className="text-white text-sm mb-1">{selectedProject.project_name}</Text>
-                                                <Text variant="label" className="text-[10px] text-zinc-500 italic block">{selectedProject.client_name}</Text>
+                                                <Text variant="h4" className="text-gray-900 text-sm mb-1">{selectedProject.project_name}</Text>
+                                                <Text variant="label" className="text-caption text-gray-500 italic block">{selectedProject.client_name}</Text>
                                             </div>
-                                            <div className="p-1.5 bg-white/5 rounded border border-white/10">
-                                                <Target size={14} className="text-white/70" />
+                                            <div className="p-1.5 bg-gray-100 rounded border border-gray-200">
+                                                <Target size={14} className="text-gray-500" />
                                             </div>
                                         </div>
 
                                         <div className="mt-4 grid grid-cols-2 gap-2">
-                                            <div className="bg-white/5 p-2 rounded">
-                                                <Text variant="label" className="text-[8px] text-zinc-500 block mb-1">RISK_RATING</Text>
-                                                <Text variant="label" className="text-[10px] text-white font-bold" style={{ color: selectedProject.color }}>
+                                            <div className="bg-gray-50 p-2 rounded">
+                                                <Text variant="label" className="text-caption text-gray-500 block mb-1">RISK_RATING</Text>
+                                                <Text variant="label" className="text-caption font-bold" style={{ color: selectedProject.color }}>
                                                     {selectedProject.delivery_risk_rating?.toUpperCase()}
                                                 </Text>
                                             </div>
-                                            <div className="bg-white/5 p-2 rounded">
-                                                <Text variant="label" className="text-[8px] text-zinc-500 block mb-1">CONTAGION</Text>
-                                                <Text variant="label" className="text-[10px] text-white font-bold">HIGH</Text>
+                                            <div className="bg-gray-50 p-2 rounded">
+                                                <Text variant="label" className="text-caption text-gray-500 block mb-1">CONTAGION</Text>
+                                                <Text variant="label" className="text-caption text-gray-900 font-bold">HIGH</Text>
                                             </div>
                                         </div>
                                     </div>
@@ -290,18 +290,18 @@ export const RiskHeatmapV2: React.FC<RiskHeatmapV2Props> = ({ projects = [], ale
                                     <div className="space-y-2">
                                         <div className="flex items-center gap-2 text-red-400">
                                             <AlertTriangle size={12} />
-                                            <Text variant="label" className="text-[9px]">Live Signals</Text>
+                                            <Text variant="label" className="text-gov-label">Live Signals</Text>
                                         </div>
                                         {alerts.slice(0, 2).map((alert, idx) => (
                                             <div key={idx} className="flex gap-3 p-2 border-l-2 border-red-500/50 bg-red-500/5">
-                                                <Text variant="label" className="text-[9px] text-white/90 leading-tight">{alert.title}</Text>
+                                                <Text variant="label" className="text-gov-label text-gray-800 leading-tight">{alert.title}</Text>
                                             </div>
                                         ))}
                                     </div>
 
                                     <button
                                         onClick={() => setSelectedId(null)}
-                                        className="w-full py-2 flex items-center justify-center gap-2 border border-white/10 hover:bg-white/5 rounded text-[10px] font-bold text-zinc-400 hover:text-white transition-colors uppercase tracking-wider"
+                                        className="w-full py-2 flex items-center justify-center gap-2 border border-gray-200 hover:bg-gray-50 rounded text-caption font-bold text-gray-500 hover:text-gray-900 transition-colors uppercase tracking-wider"
                                     >
                                         <Crosshair size={12} />
                                         Disengage Target
@@ -309,10 +309,10 @@ export const RiskHeatmapV2: React.FC<RiskHeatmapV2Props> = ({ projects = [], ale
                                 </motion.div>
                             ) : (
                                 <div className="h-full flex flex-col items-center justify-center text-center opacity-40 space-y-3">
-                                    <Network size={32} className="text-zinc-600" />
+                                    <Network size={32} className="text-gray-500" />
                                     <div className="space-y-1">
-                                        <Text variant="label" className="text-[11px] text-white">No Target Locked</Text>
-                                        <Text variant="label" className="text-[9px] text-zinc-500 block max-w-[180px]">Select a node from the correlation matrix to view detailed hazard intelligence.</Text>
+                                        <Text variant="label" className="text-gov-label text-gray-900">No Target Locked</Text>
+                                        <Text variant="label" className="text-gov-label text-gray-500 block max-w-[180px]">Select a node from the correlation matrix to view detailed hazard intelligence.</Text>
                                     </div>
                                 </div>
                             )}
@@ -324,9 +324,9 @@ export const RiskHeatmapV2: React.FC<RiskHeatmapV2Props> = ({ projects = [], ale
                 <div className="pt-2 flex items-center justify-between opacity-60 hover:opacity-100 transition-opacity">
                     <div className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
-                        <Text variant="label" className="text-[9px] text-zinc-400">LIVE_FEED_01</Text>
+                        <Text variant="label" className="text-gov-label text-gray-500">LIVE_FEED_01</Text>
                     </div>
-                    <Share2 size={12} className="text-white/40" />
+                    <Share2 size={12} className="text-gray-400" />
                 </div>
             </div>
         </div>

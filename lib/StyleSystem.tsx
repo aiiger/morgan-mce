@@ -43,7 +43,7 @@ const defaultStyle: StyleConfig = {
     surface: 'bordered',
     signal: 'standard',
     hierarchy: 'balanced',
-    theme: 'system',
+    theme: 'light',
     sidebarOptimized: false,
     sidebarWeight: 'normal',
     sidebarSize: 'normal',

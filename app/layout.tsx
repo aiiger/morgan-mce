@@ -2,7 +2,7 @@
 import type { Metadata } from 'next';
 import { Providers } from './providers';
 import { Inter, JetBrains_Mono, Oswald } from 'next/font/google';
-import './style-v1.css';
+import '../index.css';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -46,35 +46,25 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" suppressHydrationWarning={true} className={`${inter.variable} ${jetbrainsMono.variable} ${oswald.variable} font-sans antialiased bg-base text-default selection:bg-brand-500/30`}>
+    <html lang="en" data-theme="light" suppressHydrationWarning={true} className={`${inter.variable} ${jetbrainsMono.variable} ${oswald.variable} font-sans antialiased`}>
       <head>
         <script
           id="theme-script"
           dangerouslySetInnerHTML={{
             __html: `(function () {
-  const setInitialTheme = () => {
-    const savedConfig = localStorage.getItem('mce-style-config');
-    let theme = 'light'; // Default to light mode for now
-
-    if (savedConfig) {
-      try {
-        const parsedConfig = JSON.parse(savedConfig);
-        if (parsedConfig.theme) {
-          theme = parsedConfig.theme;
-        }
-      } catch (e) {
-        console.error("Failed to parse mce-style-config from localStorage", e);
+  // Force light theme — dark mode is not supported in this version
+  document.documentElement.dataset.theme = 'light';
+  // Clear any stale theme config that might cause dark flashes
+  try {
+    var cfg = localStorage.getItem('mce-style-config');
+    if (cfg) {
+      var parsed = JSON.parse(cfg);
+      if (parsed.theme && parsed.theme !== 'light') {
+        parsed.theme = 'light';
+        localStorage.setItem('mce-style-config', JSON.stringify(parsed));
       }
     }
-
-    if (theme === 'system') {
-      document.documentElement.dataset.theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    } else {
-      document.documentElement.dataset.theme = theme;
-    }
-  };
-
-  setInitialTheme();
+  } catch(e) {}
 })();`
           }}
         />

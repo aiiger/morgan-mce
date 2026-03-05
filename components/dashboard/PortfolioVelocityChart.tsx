@@ -27,16 +27,16 @@ export const PortfolioVelocityChart: React.FC<PortfolioVelocityChartProps> = ({ 
                     <Text variant="gov-hero" className="text-4xl tracking-tight text-[color:var(--text-primary)]">
                         <AnimatedCounter value={totalValue / 1000000} format="decimal" decimals={1} />
                     </Text>
-                    <Text variant="gov-label" color="secondary" className="mb-1.5 text-xs font-black italic text-[color:var(--text-secondary)]">AED/M</Text>
+                    <Text variant="gov-label" color="secondary" className="mb-1.5 text-xs font-bold italic text-[color:var(--text-secondary)]">AED/M</Text>
                 </Box>
                 <Box className="flex items-center space-x-3 mt-2">
                     <Box className="flex bg-[var(--overlay-2)] border border-[var(--surface-border)] rounded overflow-hidden">
-                        <button className="px-3 py-1 text-[10px] font-black italic text-[color:var(--text-primary)] bg-[var(--surface-layer)] transition-all">7D</button>
-                        <button className="px-3 py-1 text-[10px] font-bold italic text-[color:var(--text-tertiary)] hover:text-[color:var(--text-primary)] hover:bg-[var(--overlay-2)] transition-all">30D</button>
+                        <button className="px-3 py-1 text-caption font-bold italic text-[color:var(--text-primary)] bg-[var(--surface-layer)] transition-all">7D</button>
+                        <button className="px-3 py-1 text-caption font-bold italic text-[color:var(--text-tertiary)] hover:text-[color:var(--text-primary)] hover:bg-[var(--overlay-2)] transition-all">30D</button>
                     </Box>
                     <div className="flex items-center gap-1.5 text-[color:var(--chart-series-success)]">
                         <TrendingUp size={12} />
-                        <Text variant="label" className="text-[10px] font-bold">+12.4%</Text>
+                        <Text variant="label" className="text-caption font-bold">+12.4%</Text>
                     </div>
                 </Box>
             </Box>
@@ -111,16 +111,16 @@ export const PortfolioVelocityChart: React.FC<PortfolioVelocityChartProps> = ({ 
                 <Box className="flex items-center space-x-4">
                     <Box className="flex items-center space-x-2">
                         <Box className="w-1.5 h-1.5 rounded-sm bg-[var(--chart-series-success)] shadow-[0_0_8px_rgba(0,0,0,0.2)]" />
-                        <Text variant="gov-label" color="secondary" className="font-black italic text-[9px]">REVENUE_FLUX</Text>
+                        <Text variant="gov-label" color="secondary" className="font-bold italic text-gov-label">REVENUE_FLUX</Text>
                     </Box>
                     <Box className="flex items-center space-x-2 opacity-70">
                         <Box className="w-2 h-[2px] bg-[var(--chart-series-critical)]" />
-                        <Text variant="gov-label" color="tertiary" className="font-bold italic text-[9px]">DRAIN_LIMIT</Text>
+                        <Text variant="gov-label" color="tertiary" className="font-bold italic text-gov-label">DRAIN_LIMIT</Text>
                     </Box>
                 </Box>
                 <div className="flex items-center gap-1.5 opacity-60">
                     <Activity size={10} className="text-[color:var(--text-tertiary)]" />
-                    <Text variant="gov-label" className="text-[8px] font-mono text-[color:var(--text-tertiary)]">SIGNAL_LIVE</Text>
+                    <Text variant="gov-label" className="text-caption font-mono text-[color:var(--text-tertiary)]">SIGNAL_LIVE</Text>
                 </div>
             </Box>
         </Box>

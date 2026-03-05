@@ -51,11 +51,8 @@ export const TenderIntakeWizard: React.FC<TenderIntakeWizardProps> = ({ tenderId
             });
             if (error) throw error;
 
-            // Artificial delay for specific "CALIBRATING..." effect
-            setTimeout(() => {
-                setLoading(false);
-                setStep(3); // Move to success step
-            }, 1500);
+            setLoading(false);
+            setStep(3);
         } catch (err: any) {
             setError(err.message || 'Failed to initialize checklist nodes.');
             setLoading(false);
@@ -65,46 +62,46 @@ export const TenderIntakeWizard: React.FC<TenderIntakeWizardProps> = ({ tenderId
     const template = TEMPLATES.find(t => t.id === selectedTemplate);
 
     return (
-        <div className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[100] flex items-center justify-center p-4">
-            <div className={`border border-white/5 w-full max-w-4xl rounded-3xl shadow-5xl flex flex-col overflow-hidden animate-in zoom-in-95 duration-300 transition-all ${step === 3 ? 'bg-black scale-105 border-emerald-500/20' : 'bg-[var(--surface-base)]'}`}>
+        <div className="fixed inset-0 bg-white/30 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+            <div className={`border border-gray-200 w-full max-w-4xl rounded-2xl shadow-5xl flex flex-col overflow-hidden animate-in zoom-in-95 duration-300 transition-all ${step === 3 ? 'bg-white scale-105 border-emerald-500/20' : 'bg-white'}`}>
 
                 {/* Header - Dynamic based on Step */}
-                <div className="bg-zinc-900/10 p-8 border-b border-white/5 flex justify-between items-start">
+                <div className="bg-gray-50 p-8 border-b border-gray-200 flex justify-between items-start">
                     <div>
                         {tenderTitle ? (
                             <>
-                                <h2 className="text-xl font-bold italic text-white tracking-tighter mb-1">{tenderTitle}</h2>
-                                <p className="text-[10px] text-zinc-500 font-bold italic tracking-[0.3em]">
-                                    Client: <span className="text-white">{clientName || 'Unknown'}</span> | Priority: <span className="text-emerald-500">High</span>
+                                <h2 className="text-xl font-bold italic text-gray-900 tracking-tighter mb-1">{tenderTitle}</h2>
+                                <p className="text-caption text-gray-500 font-bold italic tracking-[0.3em]">
+                                    Client: <span className="text-gray-900">{clientName || 'Unknown'}</span> | Priority: <span className="text-emerald-500">High</span>
                                 </p>
                             </>
                         ) : (
-                            <p className="text-[10px] font-bold italic tracking-[0.4em] text-zinc-500">Registry Calibration Framework v2.0</p>
+                            <p className="text-caption font-bold italic tracking-[0.4em] text-gray-500">Registry Calibration Framework v2.0</p>
                         )}
                     </div>
                     {step !== 3 && (
-                        <button onClick={onCancel} className="text-zinc-600 hover:text-white transition-colors">
+                        <button onClick={onCancel} className="text-gray-500 hover:text-gray-900 transition-colors">
                             <X size={20} />
                         </button>
                     )}
                 </div>
 
                 {/* Content */}
-                <div className="p-12 min-h-[500px] bg-black/40 flex flex-col relative">
+                <div className="p-12 min-h-[500px] bg-gray-50 flex flex-col relative">
                     {error && (
                         <div className="mb-6 p-4 bg-rose-500/10 border border-rose-500/20 text-rose-500 flex items-center gap-3 rounded-lg">
                             <AlertTriangle size={18} />
-                            <span className="text-[10px] font-bold italic tracking-widest">{error}</span>
+                            <span className="text-caption font-bold italic tracking-widest">{error}</span>
                         </div>
                     )}
 
                     {step === 1 && (
                         <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
                             <div>
-                                <h4 className="text-[11px] font-bold italic tracking-[0.3em] text-zinc-400 mb-8 flex items-center gap-3">
-                                    <span className="w-6 h-px bg-zinc-700"></span>
+                                <h4 className="text-gov-label font-bold italic tracking-[0.3em] text-gray-500 mb-8 flex items-center gap-3">
+                                    <span className="w-6 h-px bg-gray-200"></span>
                                     Select Template Framework
-                                    <span className="w-6 h-px bg-zinc-700"></span>
+                                    <span className="w-6 h-px bg-gray-200"></span>
                                 </h4>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                     {TEMPLATES.map(t => (
@@ -113,15 +110,15 @@ export const TenderIntakeWizard: React.FC<TenderIntakeWizardProps> = ({ tenderId
                                             onClick={() => setSelectedTemplate(t.id)}
                                             className={`p-10 rounded-2xl border transition-all text-left group relative overflow-hidden ${selectedTemplate === t.id
                                                 ? 'border-emerald-500 bg-emerald-500/[0.03] shadow-[0_0_30px_rgba(16,185,129,0.1)]'
-                                                : 'border-white/5 bg-zinc-900/40 hover:border-zinc-700'
+                                                : 'border-gray-200 bg-gray-50 hover:border-gray-200'
                                                 }`}
                                         >
-                                            <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-8 border transition-all ${selectedTemplate === t.id ? 'bg-emerald-500 text-black border-emerald-500 shadow-lg scale-110' : 'bg-zinc-900 text-zinc-600 border-white/5 group-hover:bg-zinc-800 group-hover:text-zinc-400'
+                                            <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-8 border transition-all ${selectedTemplate === t.id ? 'bg-emerald-500 text-black border-emerald-500 shadow-lg scale-110' : 'bg-gray-100 text-gray-500 border-gray-200 group-hover:bg-gray-100 group-hover:text-gray-500'
                                                 }`}>
                                                 <Layers size={24} strokeWidth={selectedTemplate === t.id ? 2.5 : 2} />
                                             </div>
-                                            <h5 className={`text-base font-bold italic tracking-widest leading-tight mb-4 ${selectedTemplate === t.id ? 'text-white' : 'text-zinc-400 group-hover:text-zinc-200'}`}>{t.name}</h5>
-                                            <p className="text-[10px] font-mono text-zinc-600 tracking-widest font-bold italic group-hover:text-zinc-500 transition-colors">
+                                            <h5 className={`text-base font-bold italic tracking-widest leading-tight mb-4 ${selectedTemplate === t.id ? 'text-gray-900' : 'text-gray-500 group-hover:text-gray-700'}`}>{t.name}</h5>
+                                            <p className="text-caption font-mono text-gray-500 tracking-widest font-bold italic group-hover:text-gray-500 transition-colors">
                                                 {t.sections.length} Clusters • {t.sections.reduce((acc, s) => acc + s.items.length, 0)} Nodes
                                             </p>
                                         </button>
@@ -133,22 +130,22 @@ export const TenderIntakeWizard: React.FC<TenderIntakeWizardProps> = ({ tenderId
 
                     {step === 2 && template && (
                         <div className="space-y-8 animate-in fade-in slide-in-from-right-8 duration-500 h-full flex flex-col">
-                            <h4 className="text-[11px] font-bold italic tracking-[0.3em] text-zinc-400 flex items-center gap-3">
-                                <span className="w-6 h-px bg-zinc-700"></span>
+                            <h4 className="text-gov-label font-bold italic tracking-[0.3em] text-gray-500 flex items-center gap-3">
+                                <span className="w-6 h-px bg-gray-200"></span>
                                 Review Requirements Structure
-                                <span className="w-6 h-px bg-zinc-700"></span>
+                                <span className="w-6 h-px bg-gray-200"></span>
                             </h4>
-                            <div className="bg-black border border-white/5 rounded-xl p-8 overflow-y-auto custom-scrollbar flex flex-col divide-y divide-zinc-900 shadow-inner flex-1">
+                            <div className="bg-white border border-gray-200 rounded-xl p-8 overflow-y-auto overflow-auto flex flex-col divide-y divide-gray-100 shadow-inner flex-1">
                                 {template.sections.map((section, idx) => (
                                     <div key={idx} className="py-6 first:pt-0 last:pb-0">
-                                        <h5 className="text-emerald-500 font-bold italic text-[10px] mb-5 tracking-[0.2em] flex items-center">
+                                        <h5 className="text-emerald-500 font-bold italic text-caption mb-5 tracking-[0.2em] flex items-center">
                                             <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-3 shadow-[0_0_8px_var(--color-success)]"></div>
                                             {section.title}
                                         </h5>
                                         <div className="space-y-3 ml-6">
                                             {section.items.map((item, i) => (
-                                                <div key={i} className="flex items-center text-[10px] font-mono font-bold italic text-zinc-500 tracking-tight group hover:text-zinc-200 transition-colors cursor-default">
-                                                    <div className="w-1 h-1 bg-zinc-800 rounded-full mr-3 group-hover:bg-emerald-500 transition-colors"></div>
+                                                <div key={i} className="flex items-center text-caption font-mono font-bold italic text-gray-500 tracking-tight group hover:text-gray-700 transition-colors cursor-default">
+                                                    <div className="w-1 h-1 bg-gray-100 rounded-full mr-3 group-hover:bg-emerald-500 transition-colors"></div>
                                                     {item}
                                                 </div>
                                             ))}
@@ -171,10 +168,10 @@ export const TenderIntakeWizard: React.FC<TenderIntakeWizardProps> = ({ tenderId
                             </div>
 
                             <div className="text-center space-y-4">
-                                <h2 className="text-4xl font-bold italic text-white tracking-tighter">
+                                <h2 className="text-4xl font-bold italic text-gray-900 tracking-tighter">
                                     Project Registry<br />Synchronized
                                 </h2>
-                                <p className="text-[10px] font-bold italic text-zinc-500 tracking-[0.2em] max-w-sm mx-auto leading-relaxed">
+                                <p className="text-caption font-bold italic text-gray-500 tracking-[0.2em] max-w-sm mx-auto leading-relaxed">
                                     Technical requirements have been mapped. 100% traceability achieved via Neural Vault Linking.
                                 </p>
                             </div>
@@ -189,10 +186,10 @@ export const TenderIntakeWizard: React.FC<TenderIntakeWizardProps> = ({ tenderId
                             </div>
 
                             <div className="absolute bottom-0 w-full flex justify-between items-center pt-12 opacity-50">
-                                <span className="text-[9px] font-mono text-zinc-600 tracking-widest font-bold italic flex items-center gap-2">
-                                    <span className="w-2 h-2 rounded-full bg-zinc-800"></span> Auth: L3-Executive
+                                <span className="text-gov-label font-mono text-gray-500 tracking-widest font-bold italic flex items-center gap-2">
+                                    <span className="w-2 h-2 rounded-full bg-gray-100"></span> Auth: L3-Executive
                                 </span>
-                                <button className="text-[9px] font-bold italic text-rose-900/50 hover:text-rose-500 tracking-widest transition-colors">
+                                <button className="text-gov-label font-bold italic text-rose-900/50 hover:text-rose-500 tracking-widest transition-colors">
                                     Hard Reset Registry
                                 </button>
                             </div>
@@ -202,13 +199,13 @@ export const TenderIntakeWizard: React.FC<TenderIntakeWizardProps> = ({ tenderId
 
                 {/* Footer */}
                 {step < 3 && (
-                    <div className="p-8 border-t border-white/5 flex justify-between items-center bg-zinc-900/30 backdrop-blur-md">
-                        <span className="text-[10px] font-bold italic text-zinc-600 tracking-[0.4em]">Step 0{step} / 02</span>
+                    <div className="p-8 border-t border-gray-200 flex justify-between items-center bg-gray-50 backdrop-blur-md">
+                        <span className="text-caption font-bold italic text-gray-500 tracking-[0.4em]">Step 0{step} / 02</span>
                         <div className="flex items-center gap-4">
                             {step > 1 && (
                                 <button
                                     onClick={() => setStep(step - 1)}
-                                    className="text-zinc-500 hover:text-white px-6 py-2 text-[10px] font-bold italic tracking-widest transition-all hover:-translate-x-1"
+                                    className="text-gray-500 hover:text-gray-900 px-6 py-2 text-caption font-bold italic tracking-widest transition-all hover:-translate-x-1"
                                 >
                                     Back
                                 </button>
@@ -220,9 +217,9 @@ export const TenderIntakeWizard: React.FC<TenderIntakeWizardProps> = ({ tenderId
                                 }}
                                 disabled={!selectedTemplate || loading}
                                 className={`
-                            px-10 py-3 rounded-lg text-[10px] font-bold italic tracking-[0.2em] flex items-center shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed
+                            px-10 py-3 rounded-lg text-caption font-bold italic tracking-[0.2em] flex items-center shadow-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed
                             ${loading
-                                        ? 'bg-zinc-800 text-zinc-500 cursor-wait'
+                                        ? 'bg-gray-100 text-gray-500 cursor-wait'
                                         : 'bg-[var(--color-success)] text-black hover:bg-emerald-400 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,220,130,0.4)]'
                                     }
                         `}

@@ -9,14 +9,14 @@ interface TypographyProps {
 }
 
 const variantStyles = {
-  h1: 'text-3xl font-bold italic text-white tracking-tighter',
-  h2: 'text-2xl font-bold italic text-white tracking-tight',
-  h3: 'text-xl font-bold italic text-white tracking-tight',
-  h4: 'text-lg font-bold italic text-white tracking-normal',
-  body: 'text-sm text-zinc-300 leading-relaxed',
-  caption: 'text-xs text-zinc-500 leading-normal',
-  code: 'text-[11px] font-mono bg-glass text-emerald-500 px-1.5 py-0.5 rounded border border-glass',
-  meta: 'text-[10px] font-mono text-zinc-500 tracking-widest',
+  h1: 'text-3xl font-bold italic text-gray-900 tracking-tighter',
+  h2: 'text-2xl font-bold italic text-gray-900 tracking-tight',
+  h3: 'text-xl font-bold italic text-gray-900 tracking-tight',
+  h4: 'text-lg font-bold italic text-gray-900 tracking-normal',
+  body: 'text-sm text-gray-700 leading-relaxed',
+  caption: 'text-xs text-gray-500 leading-normal',
+  code: 'text-gov-label font-mono bg-white text-emerald-500 px-1.5 py-0.5 rounded border border-gray-200',
+  meta: 'text-caption font-mono text-gray-500 tracking-widest',
 };
 
 export function Typography({ 

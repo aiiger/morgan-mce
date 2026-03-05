@@ -41,9 +41,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         };
 
         const sizes = {
-            sm: "h-[32px] px-3 text-[12px] rounded-[var(--radius-sm)]",
-            md: "h-[40px] px-4 text-[13px] rounded-[var(--radius-md)]",
-            lg: "h-[44px] px-6 text-[14px] rounded-[var(--radius-md)]",
+            sm: "h-[32px] px-3 text-xs rounded-[var(--radius-sm)]",
+            md: "h-[40px] px-4 text-gov-body rounded-[var(--radius-md)]",
+            lg: "h-[44px] px-6 text-sm rounded-[var(--radius-md)]",
         };
 
         return (
@@ -51,7 +51,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 ref={ref}
                 disabled={disabled || isLoading}
                 className={cn(
-                    "inline-flex items-center justify-center font-bold italic uppercase transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed",
+                    "inline-flex items-center justify-center font-bold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed",
                     variants[variant],
                     sizes[size],
                     className

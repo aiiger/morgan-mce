@@ -124,7 +124,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
             value={searchValue}
             onValueChange={setSearchValue}
             placeholder="Search registry, documents, or ask Intelligence Core..." 
-            className="w-full bg-transparent text-[13px] text-[var(--text-primary)] outline-none placeholder:text-[var(--text-tertiary)]"
+            className="w-full bg-transparent text-gov-body text-[var(--text-primary)] outline-none placeholder:text-[var(--text-tertiary)]"
           />
           {isRagLoading && <Loader2 size={14} className="animate-spin text-[var(--color-success)] ml-2" />}
         </div>
@@ -134,7 +134,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
 
           {/* RAG Neural Results */}
           {ragResults.length > 0 && (
-            <Command.Group heading="Neural Intelligence Results" className="px-2 py-1.5 text-[10px] font-bold tracking-widest text-[var(--color-success)]/80">
+            <Command.Group heading="Neural Intelligence Results" className="px-2 py-1.5 text-caption font-bold tracking-widest text-[var(--color-success)]/80">
               {ragResults.map((result) => (
                 <Command.Item 
                   key={result.id}
@@ -151,14 +151,14 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
             </Command.Group>
           )}
 
-          <Command.Group heading="Navigation" className="px-2 py-1.5 text-[10px] font-bold tracking-widest text-[var(--text-tertiary)]">
+          <Command.Group heading="Navigation" className="px-2 py-1.5 text-caption font-bold tracking-widest text-[var(--text-tertiary)]">
             <Command.Item 
               onSelect={() => runCommand(() => onNavigate?.('dashboard'))}
               className="flex items-center gap-3 rounded-lg px-2 py-2.5 text-xs text-[var(--text-secondary)] aria-selected:bg-[var(--bg-hover)] aria-selected:text-[var(--text-primary)] cursor-pointer"
             >
               <LayoutDashboard size={14} className="text-[var(--text-tertiary)]" />
               <span>Executive Overview</span>
-              <kbd className="ml-auto font-mono text-[9px] text-[var(--text-tertiary)]">G D</kbd>
+              <kbd className="ml-auto font-mono text-gov-label text-[var(--text-tertiary)]">G D</kbd>
             </Command.Item>
             <Command.Item 
               onSelect={() => runCommand(() => onNavigate?.('projects'))}
@@ -166,7 +166,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
             >
               <Building2 size={14} className="text-[var(--text-tertiary)]" />
               <span>Global Projects Ledger</span>
-              <kbd className="ml-auto font-mono text-[9px] text-[var(--text-tertiary)]">G P</kbd>
+              <kbd className="ml-auto font-mono text-gov-label text-[var(--text-tertiary)]">G P</kbd>
             </Command.Item>
             <Command.Item 
               onSelect={() => runCommand(() => onNavigate?.('agents'))}
@@ -174,11 +174,11 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
             >
               <Zap size={14} className="text-[var(--color-success)]" />
               <span>Agent Intelligence Console</span>
-              <kbd className="ml-auto font-mono text-[9px] text-[var(--text-tertiary)]">G A</kbd>
+              <kbd className="ml-auto font-mono text-gov-label text-[var(--text-tertiary)]">G A</kbd>
             </Command.Item>
           </Command.Group>
 
-          <Command.Group heading="Project Registry" className="mt-2 px-2 py-1.5 text-[10px] font-bold tracking-widest text-[var(--text-tertiary)]">
+          <Command.Group heading="Project Registry" className="mt-2 px-2 py-1.5 text-caption font-bold tracking-widest text-[var(--text-tertiary)]">
             {projects.map((p) => (
               <Command.Item 
                 key={p.id}
@@ -191,13 +191,13 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                 <Building2 size={14} className="text-[var(--text-tertiary)]" />
                 <div className="flex flex-col">
                   <span className="font-semibold">{p.project_name || p.PROJECT_NAME}</span>
-                  <span className="text-[9px] text-[var(--text-tertiary)]">{p.client_name || p.CLIENT_NAME} • {p.project_code || p.PROJECT_CODE}</span>
+                  <span className="text-gov-label text-[var(--text-tertiary)]">{p.client_name || p.CLIENT_NAME} • {p.project_code || p.PROJECT_CODE}</span>
                 </div>
               </Command.Item>
             ))}
           </Command.Group>
 
-          <Command.Group heading="System" className="mt-2 px-2 py-1.5 text-[10px] font-bold tracking-widest text-[var(--text-tertiary)]">
+          <Command.Group heading="System" className="mt-2 px-2 py-1.5 text-caption font-bold tracking-widest text-[var(--text-tertiary)]">
             <Command.Item 
               onSelect={() => runCommand(() => onNavigate?.('settings'))}
               className="flex items-center gap-3 rounded-lg px-2 py-2.5 text-xs text-[var(--text-secondary)] aria-selected:bg-[var(--bg-hover)] aria-selected:text-[var(--text-primary)] cursor-pointer"

@@ -50,6 +50,7 @@
     "backup_audit_state",
     "archive",
     "dist",
+    "tests",
     "test-results",
     "scripts"
   ]

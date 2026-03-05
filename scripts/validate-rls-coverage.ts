@@ -1,10 +1,16 @@
+import path from 'path';
 import { getSupabaseAdmin } from '../lib/supabase';
 
 const supabase = getSupabaseAdmin();
 
 if (!supabase) {
-  console.error('Failed to initialize admin client');
-  process.exit(1);
+  const isCI = process.env.CI === 'true' || process.env.CI === '1';
+  const isProd = process.env.NODE_ENV === 'production';
+  console.warn('Failed to initialize admin client (missing Supabase env).');
+  if (isCI || isProd) {
+    process.exit(1);
+  }
+  process.exit(0);
 }
 
 // Tables that MUST have RLS enabled

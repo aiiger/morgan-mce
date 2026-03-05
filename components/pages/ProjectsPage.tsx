@@ -78,26 +78,32 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({
 
   const columns = [
     {
-      header: 'IDENTITY REGISTRY',
-      width: '40%', // 2fr approx
+      header: 'IDENTITY',
+      width: '25%',
       accessor: (p: any) => {
         const isFocus = (p.project_name || p.PROJECT_NAME || '').toUpperCase().includes('MAJALIS');
         return (
           <Box className="flex items-center gap-3">
-            <Box className={cn(
-              "w-8 h-8 flex items-center justify-center shrink-0 rounded",
-              isFocus ? "text-[var(--color-critical)] bg-[var(--color-critical)]/10" : "text-[var(--text-tertiary)]"
-            )}>
-              <Building2 size={15} strokeWidth={1.5} />
-            </Box>
+            <div className="shrink-0">
+              {p.project_logo_url ? (
+                <img src={p.project_logo_url} alt="Logo" className="w-8 h-8 rounded object-cover border border-gray-200" />
+              ) : (
+                <Box className={cn(
+                  "w-8 h-8 flex items-center justify-center rounded",
+                  isFocus ? "text-[var(--color-critical)] bg-[var(--color-critical)]/10" : "text-[var(--text-tertiary)] bg-gray-50"
+                )}>
+                  <Building2 size={15} strokeWidth={1.5} />
+                </Box>
+              )}
+            </div>
             <Box className="min-w-0 flex flex-col gap-0.5">
               <Text className={cn(
-                "font-medium text-[15px] truncate tracking-tight",
+                "font-medium text-sm truncate tracking-tight",
                 isFocus ? "text-red-500" : "text-[var(--text-primary)]"
               )}>
                 {p.project_name || p.PROJECT_NAME}
               </Text>
-              <Text className="text-[13px] font-normal text-[var(--text-secondary)] uppercase opacity-100">
+              <Text className="text-gov-label font-normal text-[var(--text-secondary)] uppercase opacity-100 italic">
                 {p.client_name || p.CLIENT_NAME || 'MCE INTERNAL'}
               </Text>
             </Box>
@@ -106,47 +112,78 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({
       }
     },
     {
-      header: 'PREDICTIVE PULSE',
-      width: '20%', // 1fr
+      header: 'PORTFOLIO',
+      width: '12%',
+      accessor: (p: any) => (
+        <Text className="text-xs font-mono text-gray-500 uppercase tracking-tighter">
+          {p.portfolio || 'GENERAL'}
+        </Text>
+      )
+    },
+    {
+      header: 'PRIORITY',
+      width: '10%',
+      accessor: (p: any) => {
+        const priority = p.project_priority || 'Medium';
+        const colorClass =
+          priority === 'Critical' ? 'text-rose-500 bg-rose-500/10' :
+            priority === 'High' ? 'text-amber-500 bg-amber-500/10' :
+              priority === 'Medium' ? 'text-emerald-500 bg-emerald-500/10' :
+                'text-gray-500 bg-gray-100';
+
+        return (
+          <span className={cn("px-2 py-0.5 rounded text-caption font-bold uppercase tracking-widest border border-gray-100", colorClass)}>
+            {priority}
+          </span>
+        )
+      }
+    },
+    {
+      header: 'TYPE',
+      width: '10%',
+      accessor: (p: any) => (
+        <Text className="text-gov-label font-medium text-gray-500 uppercase">
+          {p.project_type || 'AGILE'}
+        </Text>
+      )
+    },
+    {
+      header: 'PULSE',
+      width: '13%',
       accessor: (p: any) => (
         <Box className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)]" />
-          <Text className="text-emerald-500 font-medium text-sm">
-            Node Stable
+          <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)] animate-pulse" />
+          <Text className="text-emerald-500/80 font-mono text-gov-label uppercase">
+            Nodes OK
           </Text>
         </Box>
       )
     },
     {
-      header: 'TEMPORAL LOCK',
-      width: '20%', // 1fr
+      header: 'TEMPORAL',
+      width: '15%',
       accessor: (p: any) => {
         const date = (p.project_completion_date_planned || p.PROJECT_COMPLETION_DATE_PLANNED || '').split('T')[0];
         const drift = Math.floor((new Date(date).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24));
         const isMajorDrift = drift < -300;
 
         return (
-          <Box className="flex flex-col items-start gap-1">
-            <Box className="flex items-center gap-2">
-              <Text className="text-[var(--text-primary)] font-semibold text-[15px]">
-                {date}
-              </Text>
-              {isMajorDrift && (
-                <span className="bg-amber-500/10 text-amber-500 text-[10px] font-bold px-1.5 py-0.5 rounded-sm uppercase">
-                  MAJOR DRIFT
-                </span>
-              )}
-            </Box>
-            <Text className="text-caption text-tertiary uppercase tracking-wide">
-              LOCKED ON
+          <Box className="flex flex-col items-start gap-0.5">
+            <Text className="text-[var(--text-primary)] font-semibold text-gov-body">
+              {date || 'UNSET'}
             </Text>
+            {isMajorDrift && (
+              <span className="text-gov-label font-bold text-rose-500/80 uppercase tracking-tighter">
+                DRIFT_DETECTED
+              </span>
+            )}
           </Box>
         )
       }
     },
     {
-      header: 'SATURATION & STATUS',
-      width: '20%', // 1fr
+      header: 'SATURATION',
+      width: '15%',
       accessor: (p: any) => {
         const progress = p.completion_percent || p.COMPLETION_PERCENT || 0;
         const status = (p.project_status || p.PROJECT_STATUS || '').toUpperCase();
@@ -155,25 +192,18 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({
         else if (progress <= 50) barColor = 'bg-amber-500';
         else if (progress <= 75) barColor = 'bg-blue-500';
 
-        const showPhaseBadge = status.includes('DLP') || status.includes('REVIEW');
-
         return (
-          <Box className="flex flex-col gap-1 w-full pl-4">
-            {/* Saturation Bar */}
-            <div className="h-2 w-full bg-[var(--bg-subtle)] rounded-full overflow-hidden">
-              <div className={`h-full ${barColor} w-full`} style={{ width: `${progress}%` }} />
+          <Box className="flex flex-col gap-1 w-full pr-4">
+            <div className="h-1 w-full bg-gray-50 rounded-full overflow-hidden">
+              <div className={`h-full ${barColor} transition-all duration-500`} style={{ width: `${progress}%` }} />
             </div>
-
-            {/* Status Row */}
-            <div className="flex items-center justify-between gap-2 mt-1">
-              <Text className="font-normal text-[13px] text-[var(--text-secondary)] uppercase tracking-wide">
+            <div className="flex items-center justify-between mt-0.5">
+              <Text className="text-caption text-gray-500 uppercase font-bold tracking-tighter">
                 {status || 'ACTIVE'}
               </Text>
-              {showPhaseBadge && (
-                <span className="bg-blue-500 text-white text-[10px] font-medium px-2 py-1 rounded-sm uppercase tracking-wide">
-                  {status.includes('DLP') ? 'DLP PERIOD' : 'CLIENT REVIEW'}
-                </span>
-              )}
+              <Text className="text-caption text-gray-500 font-mono">
+                {progress}%
+              </Text>
             </div>
           </Box>
         );
@@ -202,31 +232,31 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({
           activeTab={activeTab}
           onChange={setActiveTab}
           variant="category"
-          className="text-[13px] font-medium text-[var(--color-text-secondary)]"
+          className="text-gov-body font-medium text-[var(--color-text-secondary)]"
         />
 
         <div className="flex items-center gap-4">
           <div className="relative group">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-600 group-focus-within:text-emerald-500 transition-colors" size={14} />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-emerald-500 transition-colors" size={14} />
             <input
               type="text"
               placeholder="REGISTRY QUERY (⌘K)..."
               value={localSearchQuery}
               onChange={(e) => setLocalSearchQuery(e.target.value)}
-              className="bg-black/40 border border-glass rounded-lg pl-9 pr-4 py-2 text-[10px] font-mono text-zinc-400 w-48 focus:outline-none focus:border-emerald-500/30 transition-all placeholder:text-zinc-700"
+              className="bg-gray-50 border border-gray-200 rounded-lg pl-9 pr-4 py-2 text-caption font-mono text-gray-700 w-48 focus:outline-none focus:border-blue-300 transition-all placeholder:text-gray-400"
             />
           </div>
 
-          <div className="flex items-center bg-black/40 p-1 rounded-lg border border-glass">
-            <button onClick={() => setViewMode('list')} className={`p-1.5 rounded transition-all ${viewMode === 'list' ? 'bg-white/10 text-white' : 'text-zinc-600'}`}>
+          <div className="flex items-center bg-gray-50 p-1 rounded-lg border border-gray-200">
+            <button onClick={() => setViewMode('list')} className={`p-1.5 rounded transition-all ${viewMode === 'list' ? 'bg-gray-200 text-gray-900' : 'text-gray-500'}`}>
               <List size={14} />
             </button>
-            <button onClick={() => setViewMode('timeline')} className={`p-1.5 rounded transition-all ${viewMode === 'timeline' ? 'bg-white/10 text-white' : 'text-zinc-600'}`}>
+            <button onClick={() => setViewMode('timeline')} className={`p-1.5 rounded transition-all ${viewMode === 'timeline' ? 'bg-gray-200 text-gray-900' : 'text-gray-500'}`}>
               <GanttChartSquare size={14} />
             </button>
           </div>
 
-          <button onClick={() => safeExportToCSV(sortedProjects, 'MCE_Ledger')} className="p-2 text-zinc-600 hover:text-white transition-colors">
+          <button onClick={() => safeExportToCSV(sortedProjects, 'MCE_Ledger')} className="p-2 text-gray-500 hover:text-gray-900 transition-colors">
             <Download size={16} />
           </button>
 
@@ -261,13 +291,13 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({
                 toast.error("RAG Sync Failed", "Intelligence Core synchronization interrupted.");
               }
             }}
-            className="p-2 text-zinc-600 hover:text-emerald-500 transition-colors"
+            className="p-2 text-gray-500 hover:text-blue-600 transition-colors"
             title="Sync RAG Data"
           >
             <Zap size={16} />
           </button>
 
-          <GlassButton onClick={() => setIsFormOpen(true)} className="px-6 py-2 rounded-lg text-[9px] font-bold tracking-widest">
+          <GlassButton onClick={() => setIsFormOpen(true)} className="px-6 py-2 rounded-lg text-gov-label font-bold tracking-widest">
             <Plus size={14} className="mr-2" /> Initialize node
           </GlassButton>
         </div>
@@ -277,12 +307,12 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({
       {isFormOpen && <ProjectForm onClose={() => setIsFormOpen(false)} onSuccess={onRefresh} />}
 
       {viewMode === 'list' ? (
-        <div className="flex flex-col h-full bg-[var(--bg-base)]">
+        <div className="flex flex-col h-full bg-white">
 
-          <div className="px-6 py-3 border-b border-glass !bg-transparent flex items-center justify-between">
+          <div className="px-6 py-3 border-b border-gray-200 !bg-transparent flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Zap size={12} className="text-emerald-500 animate-pulse" />
-              <span className="text-[10px] font-mono text-zinc-500">{sortedProjects.length} Verified records synced</span>
+              <span className="text-caption font-mono text-gray-500">{sortedProjects.length} Verified records synced</span>
             </div>
           </div>
           <div className="flex-1 overflow-hidden">
@@ -295,7 +325,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({
                   const baseClass = "registry-row border-b border-[var(--color-border)] bg-[var(--surface-registry)] hover:bg-[var(--bg-hover)] transition-colors";
                   const name = (p.project_name || p.PROJECT_NAME || '').toUpperCase();
                   if (name.includes('SSMC STAFF PARKING') || name.includes('AL GHURAIR')) {
-                    return `${baseClass} shadow-[0_0_15px_rgba(239,81,70,0.35)] border border-[var(--color-critical)]/40 z-10 my-1 rounded-lg bg-[var(--color-critical)]/5`;
+                                return `${baseClass} shadow-[0_0_15px_rgba(239,81,70,0.35)] border border-[var(--color-critical)]/40 z-10 my-1 rounded-lg bg-[var(--color-critical)]/5`;
                   }
                   return baseClass;
                 }}

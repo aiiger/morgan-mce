@@ -96,7 +96,10 @@ const config: Config = {
           card: '#0A0A0A',
           border: 'rgba(255,255,255,0.05)',
           text: '#71717A',
-        }
+        },
+        'neon-cyan': '#00f5ff',
+        'void-black': '#000000',
+        'void-gray': '#0a0a0a',
       },
       spacing: {
         // 4px Scale

@@ -3,6 +3,8 @@ import { supabase } from '../lib/supabase';
 export type EntityType = 'project' | 'tender';
 export type WorkflowAction = 'approve' | 'reject' | 'submit' | 'complete' | 'cancel';
 
+export type ProjectStatus = 'Draft' | 'Submitted' | 'Approved' | 'In Progress' | 'Completed' | 'Cancelled';
+
 interface Transition {
   from: string;
   to: string;
@@ -15,16 +17,20 @@ interface WorkflowDefinition {
   transitions: Transition[];
 }
 
+const PROJECT_HISTORY_TABLE = 'project_status_history';
+
 const ProjectWorkflow: WorkflowDefinition = {
-  initial: 'planning',
+  initial: 'Draft',
   transitions: [
-    { from: 'planning', to: 'design', action: 'submit' },
-    { from: 'design', to: 'tender', action: 'approve', guard: async (id) => checkDocuments(id, 'DESIGN_APPROVAL') },
-    { from: 'tender', to: 'construction', action: 'approve', guard: async (id) => checkDocuments(id, 'CONTRACT_SIGNED') },
-    { from: 'construction', to: 'completed', action: 'complete' },
-    { from: 'planning', to: 'cancelled', action: 'cancel' },
-    { from: 'design', to: 'cancelled', action: 'cancel' },
-    { from: 'tender', to: 'cancelled', action: 'cancel' },
+    { from: 'Draft', to: 'Submitted', action: 'submit' },
+    { from: 'Submitted', to: 'Approved', action: 'approve' },
+    { from: 'Approved', to: 'In Progress', action: 'approve' },
+    { from: 'In Progress', to: 'Completed', action: 'complete' },
+    { from: 'Draft', to: 'Cancelled', action: 'cancel' },
+    { from: 'Submitted', to: 'Cancelled', action: 'cancel' },
+    { from: 'Approved', to: 'Cancelled', action: 'cancel' },
+    { from: 'In Progress', to: 'Cancelled', action: 'cancel' },
+    { from: 'Approved', to: 'Draft', action: 'reject' },
   ]
 };
 
@@ -32,24 +38,24 @@ const TenderWorkflow: WorkflowDefinition = {
   initial: 'draft',
   transitions: [
     { from: 'draft', to: 'review', action: 'submit' },
-    { from: 'review', to: 'submitted', action: 'approve', guard: async (id) => checkDocuments(id, 'TENDER_PACK') },
+    { from: 'review', to: 'submitted', action: 'approve' },
     { from: 'submitted', to: 'awarded', action: 'complete' },
     { from: 'submitted', to: 'lost', action: 'reject' },
     { from: 'review', to: 'draft', action: 'reject' }
   ]
 };
 
-// --- Guard Helpers ---
+// --- State Normalizer ---
 
-async function checkDocuments(entityId: string, docType: string): Promise<boolean> {
-  // In a real app, this queries the 'documents' table for a linked doc of the specific type
-  const { count } = await (supabase
-    .from('documents' as any) as any)
-    .select('*', { count: 'exact', head: true })
-    .eq('category', docType) // Simplified check
-    .or(`project_id.eq.${entityId},tender_id.eq.${entityId}`);
-
-  return (count || 0) > 0;
+export function normalizeProjectStatus(status: string): ProjectStatus {
+  const s = (status || '').toLowerCase().trim();
+  if (s.includes('submit')) return 'Submitted';
+  if (s.includes('approve')) return 'Approved';
+  if (s.includes('progress') || s.includes('active') || s.includes('construct') || s.includes('ongoing')) return 'In Progress';
+  if (s.includes('complete')) return 'Completed';
+  if (s.includes('cancel')) return 'Cancelled';
+  if (s.includes('draft') || s.includes('plan')) return 'Draft';
+  return 'Draft';
 }
 
 // --- Engine ---
@@ -84,33 +90,52 @@ export const workflowEngine = {
     return { allowed: true };
   },
 
-  async executeTransition(type: EntityType, entityId: string, action: WorkflowAction) {
-    // 1. Fetch current state
+  async executeTransition(
+    type: EntityType,
+    entityId: string,
+    action: WorkflowAction,
+    options?: { actorId?: string; notes?: string }
+  ) {
     const table = type === 'project' ? 'projects_master' : 'tenders';
     const stateField = type === 'project' ? 'project_status' : 'status';
 
-    const { data: entity } = await (supabase.from(table as any) as any).select(stateField).eq('id', entityId).single();
+    const { data: entity } = await (supabase.from(table as any) as any)
+      .select(stateField)
+      .eq('id', entityId)
+      .single();
     if (!entity) throw new Error('Entity not found');
 
-    const currentState = entity[stateField]?.toLowerCase() || 'planning'; // Normalize
+    const currentState = type === 'project'
+      ? normalizeProjectStatus(entity[stateField] || '')
+      : (entity[stateField]?.toLowerCase() || 'draft');
 
-    // 2. Validate
     const check = await this.canTransition(type, currentState, action, entityId);
     if (!check.allowed) throw new Error(check.reason);
 
-    // 3. Determine next state
     const def = this.getDefinition(type);
     const transition = def.transitions.find(t => t.from === currentState && t.action === action);
+    if (!transition) throw new Error('Transition logic error');
 
-    if (!transition) throw new Error('Transition logic error'); // Should be caught by canTransition
-
-    // 4. Update DB
-    const { error } = await (supabase
-      .from(table as any) as any)
+    const { error } = await (supabase.from(table as any) as any)
       .update({ [stateField]: transition.to })
       .eq('id', entityId);
 
     if (error) throw error;
+
+    if (type === 'project') {
+      const changedAt = new Date().toISOString();
+      const { error: historyError } = await (supabase.from(PROJECT_HISTORY_TABLE as any) as any)
+        .insert({
+          project_id: entityId,
+          from_status: currentState,
+          to_status: transition.to,
+          changed_by: options?.actorId || null,
+          changed_at: changedAt,
+          notes: options?.notes || null,
+        });
+
+      if (historyError) throw historyError;
+    }
 
     return transition.to;
   }

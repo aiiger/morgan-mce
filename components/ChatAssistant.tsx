@@ -184,7 +184,7 @@ export const ChatAssistant: React.FC = () => {
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={() => setIsOpen(true)}
-                        className="w-16 h-16 rounded-full bg-[var(--brand-accent)] shadow-[0_0_30px_rgba(81,162,168,0.4)] flex items-center justify-center text-white border-2 border-white/20 relative group"
+                        className="w-16 h-16 rounded-full bg-[var(--brand-accent)] shadow-[0_0_30px_rgba(81,162,168,0.4)] flex items-center justify-center text-gray-900 border-2 border-gray-200 relative group"
                     >
                         <Bot size={28} strokeWidth={2.5} />
                         <div className="absolute -top-1 -right-1 w-4 h-4 bg-[var(--mce-red)] rounded-full border-2 border-white animate-pulse" />
@@ -194,28 +194,28 @@ export const ChatAssistant: React.FC = () => {
                         initial={{ opacity: 0, y: 20, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.95 }}
-                        className="w-[420px] h-[600px] bg-[var(--bg-surface)] rounded-3xl shadow-5xl flex flex-col border-[3px] border-[var(--brand-accent)] overflow-hidden relative"
+                        className="w-[420px] h-[600px] bg-[var(--bg-surface)] rounded-2xl shadow-5xl flex flex-col border-[3px] border-[var(--brand-accent)] overflow-hidden relative"
                     >
                         {/* HEADER */}
                         <div className="bg-[var(--brand-accent)] p-4 flex justify-between items-center shrink-0">
                             <div className="flex items-center space-x-3">
-                                <Terminal size={18} className="text-white opacity-80" />
+                                <Terminal size={18} className="text-gray-900 opacity-80" />
                                 <div>
-                                    <h3 className="text-sm font-bold italic text-white font-oswald uppercase tracking-widest">Mr. Morgan</h3>
-                                    <p className="text-[7px] font-bold text-white/50 uppercase tracking-[0.3em]">Neural_Interface_v4</p>
+                                    <h3 className="text-sm font-bold italic text-gray-900 font-oswald uppercase tracking-widest">Mr. Morgan</h3>
+                                    <p className="text-caption font-bold text-gray-400 uppercase tracking-[0.3em]">Neural_Interface_v4</p>
                                 </div>
                             </div>
                             <div className="flex items-center space-x-2">
                                 <button
                                     onClick={resetChat}
-                                    className="p-1.5 hover:bg-white/10 rounded-full text-white/80 transition-colors"
+                                    className="p-1.5 hover:bg-gray-50 rounded-full text-gray-900/80 transition-colors"
                                     title="Restart Neural Link"
                                 >
                                     <RefreshCw size={14} />
                                 </button>
                                 <button
                                     onClick={() => setIsOpen(false)}
-                                    className="p-1.5 hover:bg-white/10 rounded-full text-white/80 transition-colors"
+                                    className="p-1.5 hover:bg-gray-50 rounded-full text-gray-900/80 transition-colors"
                                 >
                                     <X size={16} />
                                 </button>
@@ -223,7 +223,7 @@ export const ChatAssistant: React.FC = () => {
                         </div>
 
                         {/* MESSAGES */}
-                        <div ref={scrollRef} className="flex-1 overflow-y-auto p-5 space-y-4 custom-scrollbar bg-[var(--bg-base)]">
+                        <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-4 overflow-auto bg-[var(--bg-base)]">
                             {messages.map((msg, i) => (
                                 <motion.div
                                     initial={{ opacity: 0, y: 5 }}
@@ -232,9 +232,9 @@ export const ChatAssistant: React.FC = () => {
                                     className={cn("flex w-full", msg.role === 'user' ? 'justify-end' : 'justify-start')}
                                 >
                                     <div className={cn(
-                                        "max-w-[88%] px-4 py-3 rounded-2xl text-[13px] leading-relaxed shadow-sm",
+                                        "max-w-[88%] px-4 py-3 rounded-2xl text-gov-body leading-relaxed shadow-sm",
                                         msg.role === 'user'
-                                            ? 'bg-[var(--brand-accent)] text-white rounded-br-none font-oswald font-bold italic'
+                                            ? 'bg-[var(--brand-accent)] text-gray-900 rounded-br-none font-oswald font-bold italic'
                                             : 'bg-[var(--bg-surface)] border border-[var(--surface-border)] text-[var(--text-primary)] rounded-bl-none font-oswald italic font-bold'
                                     )}>
                                         {msg.text}
@@ -245,7 +245,7 @@ export const ChatAssistant: React.FC = () => {
                                 <div className="flex justify-start">
                                     <div className="bg-[var(--bg-surface)] border border-[var(--surface-border)] px-4 py-3 rounded-2xl rounded-bl-none flex items-center space-x-2">
                                         <Loader2 className="animate-spin text-[var(--brand-accent)]" size={14} />
-                                        <span className="text-[9px] text-[var(--text-tertiary)] font-bold uppercase tracking-widest italic">Syncing...</span>
+                                        <span className="text-gov-label text-[var(--text-tertiary)] font-bold uppercase tracking-widest italic">Syncing...</span>
                                     </div>
                                 </div>
                             )}
@@ -259,7 +259,7 @@ export const ChatAssistant: React.FC = () => {
                                     <button
                                         key={preset.label}
                                         onClick={() => handleSend(preset.query)}
-                                        className="px-1 py-2 rounded-lg border border-[var(--brand-accent)]/40 bg-[var(--brand-accent)]/10 text-[9px] font-black italic uppercase tracking-wider text-[var(--brand-accent)] hover:bg-[var(--brand-accent)] hover:text-white transition-all font-oswald text-center truncate shadow-sm"
+                                        className="px-1 py-2 rounded-lg border border-[var(--brand-accent)]/40 bg-[var(--brand-accent)]/10 text-gov-label font-bold tracking-wider text-[var(--brand-accent)] hover:bg-[var(--brand-accent)] hover:text-gray-900 transition-all font-oswald text-center truncate shadow-sm"
                                     >
                                         {preset.label}
                                     </button>
@@ -274,7 +274,7 @@ export const ChatAssistant: React.FC = () => {
                                         key={idx}
                                         ref={el => { suggestionRefs.current[idx] = el; }}
                                         onClick={() => handleSend(s.query)}
-                                        className="px-1 py-2 rounded-lg border border-[var(--mce-teal-soft)]/60 bg-[var(--mce-teal-soft)]/10 text-[9px] font-black italic uppercase tracking-wider text-[var(--mce-teal-soft)] hover:bg-[var(--mce-teal-soft)] hover:text-white transition-all font-oswald text-center truncate shadow-sm"
+                                        className="px-1 py-2 rounded-lg border border-[var(--mce-teal-soft)]/60 bg-[var(--mce-teal-soft)]/10 text-gov-label font-bold tracking-wider text-[var(--mce-teal-soft)] hover:bg-[var(--mce-teal-soft)] hover:text-gray-900 transition-all font-oswald text-center truncate shadow-sm"
                                     >
                                         {s.label}
                                     </button>
@@ -292,12 +292,12 @@ export const ChatAssistant: React.FC = () => {
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
                                     placeholder="Execute command sequence..."
-                                    className="flex-1 bg-transparent border-none outline-none text-[14px] px-4 py-3 text-[var(--text-primary)] placeholder-[var(--text-tertiary)]/50 font-oswald font-bold italic tracking-wide"
+                                    className="flex-1 bg-transparent border-none outline-none text-sm px-4 py-3 text-[var(--text-primary)] placeholder-[var(--text-tertiary)]/50 font-oswald font-bold italic tracking-wide"
                                 />
                                 <button
                                     type="submit"
                                     disabled={!input.trim() || loading}
-                                    className="mr-2 p-2 bg-[var(--brand-accent)] text-white rounded-lg disabled:opacity-20 hover:scale-105 transition-all"
+                                    className="mr-2 p-2 bg-[var(--brand-accent)] text-gray-900 rounded-lg disabled:opacity-20 hover:scale-105 transition-all"
                                 >
                                     <Send size={16} />
                                 </button>

@@ -1,0 +1,16 @@
+{"ts":"2026-02-28T02:25:57.858Z","type":"request","data":{"url":"https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation","method":"GET","resourceType":"document"}}
+{"ts":"2026-02-28T02:25:58.898Z","type":"response","data":{"url":"https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation","status":200,"ok":true,"method":"GET"}}
+{"ts":"2026-02-28T02:25:58.902Z","type":"request","data":{"url":"https://app.veropm.app/assets/index-BuMOCyv8.js","method":"GET","resourceType":"script"}}
+{"ts":"2026-02-28T02:25:58.902Z","type":"request","data":{"url":"https://app.veropm.app/assets/index-BoCS3zAW.css","method":"GET","resourceType":"stylesheet"}}
+{"ts":"2026-02-28T02:25:59.573Z","type":"response","data":{"url":"https://app.veropm.app/assets/index-BoCS3zAW.css","status":200,"ok":true,"method":"GET"}}
+{"ts":"2026-02-28T02:25:59.794Z","type":"request","data":{"url":"https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap","method":"GET","resourceType":"stylesheet"}}
+{"ts":"2026-02-28T02:25:59.794Z","type":"request","data":{"url":"https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap","method":"GET","resourceType":"stylesheet"}}
+{"ts":"2026-02-28T02:26:00.089Z","type":"response","data":{"url":"https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap","status":200,"ok":true,"method":"GET"}}
+{"ts":"2026-02-28T02:26:00.212Z","type":"response","data":{"url":"https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap","status":200,"ok":true,"method":"GET"}}
+{"ts":"2026-02-28T02:26:18.606Z","type":"response","data":{"url":"https://app.veropm.app/assets/index-BuMOCyv8.js","status":200,"ok":true,"method":"GET"}}
+{"ts":"2026-02-28T02:26:18.764Z","type":"request","data":{"url":"https://apis-veropm.veropm.app/api/v1/health","method":"GET","resourceType":"fetch"}}
+{"ts":"2026-02-28T02:26:18.892Z","type":"request","data":{"url":"https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2","method":"GET","resourceType":"font"}}
+{"ts":"2026-02-28T02:26:18.893Z","type":"request","data":{"url":"https://app.veropm.app/assets/login-illustration-DO-_GyVy.png","method":"GET","resourceType":"image"}}
+{"ts":"2026-02-28T02:26:18.893Z","type":"request","data":{"url":"https://app.veropm.app/assets/logo-three60-ed3e6b59-oLmZZ1Kv.svg","method":"GET","resourceType":"image"}}
+{"ts":"2026-02-28T02:26:18.893Z","type":"request","data":{"url":"https://app.veropm.app/favicon.png","method":"GET","resourceType":"other"}}
+{"ts":"2026-02-28T02:26:18.898Z","type":"request","data":{"url":"https://app.veropm.app/favicon.png","method":"GET","resourceType":"other"}}

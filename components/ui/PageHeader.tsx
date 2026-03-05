@@ -12,7 +12,7 @@ export function PageHeader({ title, subtitle, actions, className }: PageHeaderPr
   return (
     <header className={cn('flex items-center justify-between mb-[var(--space-6)] pt-[var(--space-8)]', className)}>
       <Box className="flex flex-col gap-y-[var(--space-1)] items-start text-left">
-        <Text as="h1" className="text-[24px] font-oswald font-black italic text-[var(--text-primary)] truncate leading-tight">
+        <Text as="h1" className="text-2xl font-oswald font-bold italic text-[var(--text-primary)] truncate leading-tight">
           {title}
         </Text>
         {subtitle && (

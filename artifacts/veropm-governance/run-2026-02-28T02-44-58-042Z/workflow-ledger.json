@@ -1,0 +1,2488 @@
+{
+  "generatedAt": "2026-02-28T06:34:48.656Z",
+  "runDir": "C:\\Users\\t1glish\\Downloads\\nexus-construct-erp (2)\\artifacts\\veropm-governance\\run-2026-02-28T02-44-58-042Z",
+  "terminalState": "TERMINAL_BLOCKED_NON_DETERMINISTIC",
+  "states": [
+    {
+      "id": "S000",
+      "kind": "implicit_entry",
+      "checkpoint": "auto-baseline",
+      "entryCondition": "session established and target page loaded",
+      "exitCondition": "before auto-tick-1",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:44:58.091Z"
+    },
+    {
+      "id": "S001",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-1",
+      "entryCondition": "after auto-baseline",
+      "exitCondition": "before auto-tick-2",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:45:13.177Z"
+    },
+    {
+      "id": "S002",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-2",
+      "entryCondition": "after auto-tick-1",
+      "exitCondition": "before auto-tick-3",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:45:28.291Z"
+    },
+    {
+      "id": "S003",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-3",
+      "entryCondition": "after auto-tick-2",
+      "exitCondition": "before auto-tick-4",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:45:43.419Z"
+    },
+    {
+      "id": "S004",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-4",
+      "entryCondition": "after auto-tick-3",
+      "exitCondition": "before auto-tick-5",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:45:58.484Z"
+    },
+    {
+      "id": "S005",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-5",
+      "entryCondition": "after auto-tick-4",
+      "exitCondition": "before auto-tick-6",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:46:13.542Z"
+    },
+    {
+      "id": "S006",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-6",
+      "entryCondition": "after auto-tick-5",
+      "exitCondition": "before auto-tick-7",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:46:28.598Z"
+    },
+    {
+      "id": "S007",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-7",
+      "entryCondition": "after auto-tick-6",
+      "exitCondition": "before auto-tick-8",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:46:43.658Z"
+    },
+    {
+      "id": "S008",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-8",
+      "entryCondition": "after auto-tick-7",
+      "exitCondition": "before auto-tick-9",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:46:58.716Z"
+    },
+    {
+      "id": "S009",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-9",
+      "entryCondition": "after auto-tick-8",
+      "exitCondition": "before auto-tick-10",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:47:13.778Z"
+    },
+    {
+      "id": "S010",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-10",
+      "entryCondition": "after auto-tick-9",
+      "exitCondition": "before auto-tick-11",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:47:28.822Z"
+    },
+    {
+      "id": "S011",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-11",
+      "entryCondition": "after auto-tick-10",
+      "exitCondition": "before auto-tick-12",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:47:43.883Z"
+    },
+    {
+      "id": "S012",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-12",
+      "entryCondition": "after auto-tick-11",
+      "exitCondition": "before auto-tick-13",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:47:58.931Z"
+    },
+    {
+      "id": "S013",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-13",
+      "entryCondition": "after auto-tick-12",
+      "exitCondition": "before auto-tick-14",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:48:13.981Z"
+    },
+    {
+      "id": "S014",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-14",
+      "entryCondition": "after auto-tick-13",
+      "exitCondition": "before auto-tick-15",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:48:29.039Z"
+    },
+    {
+      "id": "S015",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-15",
+      "entryCondition": "after auto-tick-14",
+      "exitCondition": "before auto-tick-16",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:48:44.087Z"
+    },
+    {
+      "id": "S016",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-16",
+      "entryCondition": "after auto-tick-15",
+      "exitCondition": "before auto-tick-17",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:48:59.132Z"
+    },
+    {
+      "id": "S017",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-17",
+      "entryCondition": "after auto-tick-16",
+      "exitCondition": "before auto-tick-18",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:49:14.175Z"
+    },
+    {
+      "id": "S018",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-18",
+      "entryCondition": "after auto-tick-17",
+      "exitCondition": "before auto-tick-19",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:49:29.239Z"
+    },
+    {
+      "id": "S019",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-19",
+      "entryCondition": "after auto-tick-18",
+      "exitCondition": "before auto-tick-20",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:49:44.290Z"
+    },
+    {
+      "id": "S020",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-20",
+      "entryCondition": "after auto-tick-19",
+      "exitCondition": "before auto-tick-21",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:49:59.351Z"
+    },
+    {
+      "id": "S021",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-21",
+      "entryCondition": "after auto-tick-20",
+      "exitCondition": "before auto-tick-22",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:50:14.413Z"
+    },
+    {
+      "id": "S022",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-22",
+      "entryCondition": "after auto-tick-21",
+      "exitCondition": "before auto-tick-23",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:50:29.462Z"
+    },
+    {
+      "id": "S023",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-23",
+      "entryCondition": "after auto-tick-22",
+      "exitCondition": "before auto-tick-24",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:50:44.524Z"
+    },
+    {
+      "id": "S024",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-24",
+      "entryCondition": "after auto-tick-23",
+      "exitCondition": "before auto-tick-25",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:50:59.574Z"
+    },
+    {
+      "id": "S025",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-25",
+      "entryCondition": "after auto-tick-24",
+      "exitCondition": "before auto-tick-26",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:51:14.618Z"
+    },
+    {
+      "id": "S026",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-26",
+      "entryCondition": "after auto-tick-25",
+      "exitCondition": "before auto-tick-27",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:51:29.676Z"
+    },
+    {
+      "id": "S027",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-27",
+      "entryCondition": "after auto-tick-26",
+      "exitCondition": "before auto-tick-28",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:51:44.735Z"
+    },
+    {
+      "id": "S028",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-28",
+      "entryCondition": "after auto-tick-27",
+      "exitCondition": "before auto-tick-29",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:51:59.796Z"
+    },
+    {
+      "id": "S029",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-29",
+      "entryCondition": "after auto-tick-28",
+      "exitCondition": "before auto-tick-30",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:52:14.863Z"
+    },
+    {
+      "id": "S030",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-30",
+      "entryCondition": "after auto-tick-29",
+      "exitCondition": "before auto-tick-31",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:52:29.935Z"
+    },
+    {
+      "id": "S031",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-31",
+      "entryCondition": "after auto-tick-30",
+      "exitCondition": "before auto-tick-32",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:52:45.017Z"
+    },
+    {
+      "id": "S032",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-32",
+      "entryCondition": "after auto-tick-31",
+      "exitCondition": "before auto-tick-33",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:53:00.096Z"
+    },
+    {
+      "id": "S033",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-33",
+      "entryCondition": "after auto-tick-32",
+      "exitCondition": "before auto-tick-34",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:53:15.168Z"
+    },
+    {
+      "id": "S034",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-34",
+      "entryCondition": "after auto-tick-33",
+      "exitCondition": "before auto-tick-35",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:53:30.247Z"
+    },
+    {
+      "id": "S035",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-35",
+      "entryCondition": "after auto-tick-34",
+      "exitCondition": "before auto-tick-36",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:53:45.317Z"
+    },
+    {
+      "id": "S036",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-36",
+      "entryCondition": "after auto-tick-35",
+      "exitCondition": "before auto-tick-37",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:54:00.399Z"
+    },
+    {
+      "id": "S037",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-37",
+      "entryCondition": "after auto-tick-36",
+      "exitCondition": "before auto-tick-38",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:54:15.471Z"
+    },
+    {
+      "id": "S038",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-38",
+      "entryCondition": "after auto-tick-37",
+      "exitCondition": "before auto-tick-39",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:54:30.539Z"
+    },
+    {
+      "id": "S039",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-39",
+      "entryCondition": "after auto-tick-38",
+      "exitCondition": "before auto-tick-40",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:54:45.618Z"
+    },
+    {
+      "id": "S040",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-40",
+      "entryCondition": "after auto-tick-39",
+      "exitCondition": "before auto-tick-41",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:55:00.703Z"
+    },
+    {
+      "id": "S041",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-41",
+      "entryCondition": "after auto-tick-40",
+      "exitCondition": "before auto-tick-42",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:55:15.779Z"
+    },
+    {
+      "id": "S042",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-42",
+      "entryCondition": "after auto-tick-41",
+      "exitCondition": "before auto-tick-43",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:55:30.860Z"
+    },
+    {
+      "id": "S043",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-43",
+      "entryCondition": "after auto-tick-42",
+      "exitCondition": "before auto-tick-44",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:55:45.930Z"
+    },
+    {
+      "id": "S044",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-44",
+      "entryCondition": "after auto-tick-43",
+      "exitCondition": "before auto-tick-45",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:56:01.008Z"
+    },
+    {
+      "id": "S045",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-45",
+      "entryCondition": "after auto-tick-44",
+      "exitCondition": "before auto-tick-46",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:56:16.078Z"
+    },
+    {
+      "id": "S046",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-46",
+      "entryCondition": "after auto-tick-45",
+      "exitCondition": "before auto-tick-47",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:56:31.158Z"
+    },
+    {
+      "id": "S047",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-47",
+      "entryCondition": "after auto-tick-46",
+      "exitCondition": "before auto-tick-48",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:56:46.237Z"
+    },
+    {
+      "id": "S048",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-48",
+      "entryCondition": "after auto-tick-47",
+      "exitCondition": "before auto-tick-49",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:57:01.314Z"
+    },
+    {
+      "id": "S049",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-49",
+      "entryCondition": "after auto-tick-48",
+      "exitCondition": "before auto-tick-50",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:57:16.385Z"
+    },
+    {
+      "id": "S050",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-50",
+      "entryCondition": "after auto-tick-49",
+      "exitCondition": "before auto-tick-51",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:57:31.456Z"
+    },
+    {
+      "id": "S051",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-51",
+      "entryCondition": "after auto-tick-50",
+      "exitCondition": "before auto-tick-52",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:57:46.542Z"
+    },
+    {
+      "id": "S052",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-52",
+      "entryCondition": "after auto-tick-51",
+      "exitCondition": "before auto-tick-53",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:58:01.621Z"
+    },
+    {
+      "id": "S053",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-53",
+      "entryCondition": "after auto-tick-52",
+      "exitCondition": "before auto-tick-54",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:58:16.699Z"
+    },
+    {
+      "id": "S054",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-54",
+      "entryCondition": "after auto-tick-53",
+      "exitCondition": "before auto-tick-55",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:58:31.778Z"
+    },
+    {
+      "id": "S055",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-55",
+      "entryCondition": "after auto-tick-54",
+      "exitCondition": "before auto-tick-56",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:58:46.854Z"
+    },
+    {
+      "id": "S056",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-56",
+      "entryCondition": "after auto-tick-55",
+      "exitCondition": "before auto-tick-57",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:59:01.932Z"
+    },
+    {
+      "id": "S057",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-57",
+      "entryCondition": "after auto-tick-56",
+      "exitCondition": "before auto-tick-58",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:59:17.009Z"
+    },
+    {
+      "id": "S058",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-58",
+      "entryCondition": "after auto-tick-57",
+      "exitCondition": "before auto-tick-59",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:59:32.085Z"
+    },
+    {
+      "id": "S059",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-59",
+      "entryCondition": "after auto-tick-58",
+      "exitCondition": "before auto-tick-60",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T02:59:47.171Z"
+    },
+    {
+      "id": "S060",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-60",
+      "entryCondition": "after auto-tick-59",
+      "exitCondition": "before auto-tick-61",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:00:02.251Z"
+    },
+    {
+      "id": "S061",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-61",
+      "entryCondition": "after auto-tick-60",
+      "exitCondition": "before auto-tick-62",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:00:17.325Z"
+    },
+    {
+      "id": "S062",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-62",
+      "entryCondition": "after auto-tick-61",
+      "exitCondition": "before auto-tick-63",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:00:32.396Z"
+    },
+    {
+      "id": "S063",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-63",
+      "entryCondition": "after auto-tick-62",
+      "exitCondition": "before auto-tick-64",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:00:47.470Z"
+    },
+    {
+      "id": "S064",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-64",
+      "entryCondition": "after auto-tick-63",
+      "exitCondition": "before auto-tick-65",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:01:02.538Z"
+    },
+    {
+      "id": "S065",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-65",
+      "entryCondition": "after auto-tick-64",
+      "exitCondition": "before auto-tick-66",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:01:17.614Z"
+    },
+    {
+      "id": "S066",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-66",
+      "entryCondition": "after auto-tick-65",
+      "exitCondition": "before auto-tick-67",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:01:32.694Z"
+    },
+    {
+      "id": "S067",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-67",
+      "entryCondition": "after auto-tick-66",
+      "exitCondition": "before auto-tick-68",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:01:47.765Z"
+    },
+    {
+      "id": "S068",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-68",
+      "entryCondition": "after auto-tick-67",
+      "exitCondition": "before auto-tick-69",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:02:02.842Z"
+    },
+    {
+      "id": "S069",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-69",
+      "entryCondition": "after auto-tick-68",
+      "exitCondition": "before auto-tick-70",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:02:17.914Z"
+    },
+    {
+      "id": "S070",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-70",
+      "entryCondition": "after auto-tick-69",
+      "exitCondition": "before auto-tick-71",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:02:32.995Z"
+    },
+    {
+      "id": "S071",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-71",
+      "entryCondition": "after auto-tick-70",
+      "exitCondition": "before auto-tick-72",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:02:48.071Z"
+    },
+    {
+      "id": "S072",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-72",
+      "entryCondition": "after auto-tick-71",
+      "exitCondition": "before auto-tick-73",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:03:03.155Z"
+    },
+    {
+      "id": "S073",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-73",
+      "entryCondition": "after auto-tick-72",
+      "exitCondition": "before auto-tick-74",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:03:18.222Z"
+    },
+    {
+      "id": "S074",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-74",
+      "entryCondition": "after auto-tick-73",
+      "exitCondition": "before auto-tick-75",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:03:33.296Z"
+    },
+    {
+      "id": "S075",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-75",
+      "entryCondition": "after auto-tick-74",
+      "exitCondition": "before auto-tick-76",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:03:48.370Z"
+    },
+    {
+      "id": "S076",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-76",
+      "entryCondition": "after auto-tick-75",
+      "exitCondition": "before auto-tick-77",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:04:03.449Z"
+    },
+    {
+      "id": "S077",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-77",
+      "entryCondition": "after auto-tick-76",
+      "exitCondition": "before auto-tick-78",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:04:18.527Z"
+    },
+    {
+      "id": "S078",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-78",
+      "entryCondition": "after auto-tick-77",
+      "exitCondition": "before auto-tick-79",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:04:33.601Z"
+    },
+    {
+      "id": "S079",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-79",
+      "entryCondition": "after auto-tick-78",
+      "exitCondition": "before auto-tick-80",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:04:48.677Z"
+    },
+    {
+      "id": "S080",
+      "kind": "transitional",
+      "checkpoint": "auto-tick-80",
+      "entryCondition": "after auto-tick-79",
+      "exitCondition": "before auto-final",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:05:03.755Z"
+    },
+    {
+      "id": "S081",
+      "kind": "candidate_terminal",
+      "checkpoint": "auto-final",
+      "entryCondition": "after auto-tick-80",
+      "exitCondition": "capture ended",
+      "failureModes": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "recoveryBehavior": "requires subsequent checkpoint with reduced errors and successful API transitions",
+      "requiredFieldsMissing": [],
+      "stateHash": "d5ae6a335a3882335fd8",
+      "ts": "2026-02-28T03:05:03.821Z"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "T001",
+      "from": "S000",
+      "to": "S001",
+      "trigger": "auto-tick-1",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T002",
+      "from": "S001",
+      "to": "S002",
+      "trigger": "auto-tick-2",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T003",
+      "from": "S002",
+      "to": "S003",
+      "trigger": "auto-tick-3",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T004",
+      "from": "S003",
+      "to": "S004",
+      "trigger": "auto-tick-4",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T005",
+      "from": "S004",
+      "to": "S005",
+      "trigger": "auto-tick-5",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T006",
+      "from": "S005",
+      "to": "S006",
+      "trigger": "auto-tick-6",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T007",
+      "from": "S006",
+      "to": "S007",
+      "trigger": "auto-tick-7",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T008",
+      "from": "S007",
+      "to": "S008",
+      "trigger": "auto-tick-8",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T009",
+      "from": "S008",
+      "to": "S009",
+      "trigger": "auto-tick-9",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T010",
+      "from": "S009",
+      "to": "S010",
+      "trigger": "auto-tick-10",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T011",
+      "from": "S010",
+      "to": "S011",
+      "trigger": "auto-tick-11",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T012",
+      "from": "S011",
+      "to": "S012",
+      "trigger": "auto-tick-12",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T013",
+      "from": "S012",
+      "to": "S013",
+      "trigger": "auto-tick-13",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T014",
+      "from": "S013",
+      "to": "S014",
+      "trigger": "auto-tick-14",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T015",
+      "from": "S014",
+      "to": "S015",
+      "trigger": "auto-tick-15",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T016",
+      "from": "S015",
+      "to": "S016",
+      "trigger": "auto-tick-16",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T017",
+      "from": "S016",
+      "to": "S017",
+      "trigger": "auto-tick-17",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T018",
+      "from": "S017",
+      "to": "S018",
+      "trigger": "auto-tick-18",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T019",
+      "from": "S018",
+      "to": "S019",
+      "trigger": "auto-tick-19",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T020",
+      "from": "S019",
+      "to": "S020",
+      "trigger": "auto-tick-20",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T021",
+      "from": "S020",
+      "to": "S021",
+      "trigger": "auto-tick-21",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T022",
+      "from": "S021",
+      "to": "S022",
+      "trigger": "auto-tick-22",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T023",
+      "from": "S022",
+      "to": "S023",
+      "trigger": "auto-tick-23",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T024",
+      "from": "S023",
+      "to": "S024",
+      "trigger": "auto-tick-24",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T025",
+      "from": "S024",
+      "to": "S025",
+      "trigger": "auto-tick-25",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T026",
+      "from": "S025",
+      "to": "S026",
+      "trigger": "auto-tick-26",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T027",
+      "from": "S026",
+      "to": "S027",
+      "trigger": "auto-tick-27",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T028",
+      "from": "S027",
+      "to": "S028",
+      "trigger": "auto-tick-28",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T029",
+      "from": "S028",
+      "to": "S029",
+      "trigger": "auto-tick-29",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T030",
+      "from": "S029",
+      "to": "S030",
+      "trigger": "auto-tick-30",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T031",
+      "from": "S030",
+      "to": "S031",
+      "trigger": "auto-tick-31",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T032",
+      "from": "S031",
+      "to": "S032",
+      "trigger": "auto-tick-32",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T033",
+      "from": "S032",
+      "to": "S033",
+      "trigger": "auto-tick-33",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T034",
+      "from": "S033",
+      "to": "S034",
+      "trigger": "auto-tick-34",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T035",
+      "from": "S034",
+      "to": "S035",
+      "trigger": "auto-tick-35",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T036",
+      "from": "S035",
+      "to": "S036",
+      "trigger": "auto-tick-36",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T037",
+      "from": "S036",
+      "to": "S037",
+      "trigger": "auto-tick-37",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T038",
+      "from": "S037",
+      "to": "S038",
+      "trigger": "auto-tick-38",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T039",
+      "from": "S038",
+      "to": "S039",
+      "trigger": "auto-tick-39",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T040",
+      "from": "S039",
+      "to": "S040",
+      "trigger": "auto-tick-40",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T041",
+      "from": "S040",
+      "to": "S041",
+      "trigger": "auto-tick-41",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T042",
+      "from": "S041",
+      "to": "S042",
+      "trigger": "auto-tick-42",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T043",
+      "from": "S042",
+      "to": "S043",
+      "trigger": "auto-tick-43",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T044",
+      "from": "S043",
+      "to": "S044",
+      "trigger": "auto-tick-44",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T045",
+      "from": "S044",
+      "to": "S045",
+      "trigger": "auto-tick-45",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T046",
+      "from": "S045",
+      "to": "S046",
+      "trigger": "auto-tick-46",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T047",
+      "from": "S046",
+      "to": "S047",
+      "trigger": "auto-tick-47",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T048",
+      "from": "S047",
+      "to": "S048",
+      "trigger": "auto-tick-48",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T049",
+      "from": "S048",
+      "to": "S049",
+      "trigger": "auto-tick-49",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T050",
+      "from": "S049",
+      "to": "S050",
+      "trigger": "auto-tick-50",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T051",
+      "from": "S050",
+      "to": "S051",
+      "trigger": "auto-tick-51",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T052",
+      "from": "S051",
+      "to": "S052",
+      "trigger": "auto-tick-52",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T053",
+      "from": "S052",
+      "to": "S053",
+      "trigger": "auto-tick-53",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T054",
+      "from": "S053",
+      "to": "S054",
+      "trigger": "auto-tick-54",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T055",
+      "from": "S054",
+      "to": "S055",
+      "trigger": "auto-tick-55",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T056",
+      "from": "S055",
+      "to": "S056",
+      "trigger": "auto-tick-56",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T057",
+      "from": "S056",
+      "to": "S057",
+      "trigger": "auto-tick-57",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T058",
+      "from": "S057",
+      "to": "S058",
+      "trigger": "auto-tick-58",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T059",
+      "from": "S058",
+      "to": "S059",
+      "trigger": "auto-tick-59",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T060",
+      "from": "S059",
+      "to": "S060",
+      "trigger": "auto-tick-60",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T061",
+      "from": "S060",
+      "to": "S061",
+      "trigger": "auto-tick-61",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T062",
+      "from": "S061",
+      "to": "S062",
+      "trigger": "auto-tick-62",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T063",
+      "from": "S062",
+      "to": "S063",
+      "trigger": "auto-tick-63",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T064",
+      "from": "S063",
+      "to": "S064",
+      "trigger": "auto-tick-64",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T065",
+      "from": "S064",
+      "to": "S065",
+      "trigger": "auto-tick-65",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T066",
+      "from": "S065",
+      "to": "S066",
+      "trigger": "auto-tick-66",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T067",
+      "from": "S066",
+      "to": "S067",
+      "trigger": "auto-tick-67",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T068",
+      "from": "S067",
+      "to": "S068",
+      "trigger": "auto-tick-68",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T069",
+      "from": "S068",
+      "to": "S069",
+      "trigger": "auto-tick-69",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T070",
+      "from": "S069",
+      "to": "S070",
+      "trigger": "auto-tick-70",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T071",
+      "from": "S070",
+      "to": "S071",
+      "trigger": "auto-tick-71",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T072",
+      "from": "S071",
+      "to": "S072",
+      "trigger": "auto-tick-72",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T073",
+      "from": "S072",
+      "to": "S073",
+      "trigger": "auto-tick-73",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T074",
+      "from": "S073",
+      "to": "S074",
+      "trigger": "auto-tick-74",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T075",
+      "from": "S074",
+      "to": "S075",
+      "trigger": "auto-tick-75",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T076",
+      "from": "S075",
+      "to": "S076",
+      "trigger": "auto-tick-76",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T077",
+      "from": "S076",
+      "to": "S077",
+      "trigger": "auto-tick-77",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T078",
+      "from": "S077",
+      "to": "S078",
+      "trigger": "auto-tick-78",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T079",
+      "from": "S078",
+      "to": "S079",
+      "trigger": "auto-tick-79",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T080",
+      "from": "S079",
+      "to": "S080",
+      "trigger": "auto-tick-80",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    },
+    {
+      "id": "T081",
+      "from": "S080",
+      "to": "S081",
+      "trigger": "auto-final",
+      "deterministic": false,
+      "note": "no-observable-delta; requires API evidence for determinism"
+    }
+  ],
+  "mechanism": [
+    {
+      "id": "M003",
+      "ts": "2026-02-28T02:45:03.129Z",
+      "phase": "failure",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/project-templates?category=Waterfall&projectType=1&workspaceId=a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde&searchTerm=rf&sortBy=popularity&sortDirection=desc&pageNumber=1&pageSize=20",
+      "status": 500,
+      "requestPayload": null,
+      "responsePayload": "{\"success\":false,\"message\":\"An error occurred while retrieving templates: The LINQ expression 'DbSet<ProjectTemplate>()\\r\\n    .Where(p => !(p.IsDeleted))\\r\\n    .Where(p => !(p.IsDeleted))\\r\\n    .Where(p => p.Category.ToLower() == @ToLower)\\r\\n    .Where(p => (int)p.ProjectType == (int)@projectType_Value)\\r\\n    .Where(p => p.WorkspaceId == null || p.IsPublic || p.WorkspaceId == @workspaceId_Value)\\r\\n    .Where(p => p.Name.ToLower().Contains(@lowerSearchTerm) || p.Description.ToLower().Contains(@lowerSearchTerm) || p.Tags\\r\\n        .Contains(@lowerSearchTerm))' could not be translated. Additional information: Translation of method 'System.Linq.Enumerable.Contains' failed. If this method can be mapped to your custom function, see https://go.microsoft.com/fwlink/?linkid=2132413 for more information. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information.\",\"errors\":[],\"timestamp\":\"2026-02-28T02:45:02.2168763Z\"}",
+      "rationale": "API returned non-2xx for entity workflow/proposal path"
+    },
+    {
+      "id": "M004",
+      "ts": "2026-02-28T02:45:03.134Z",
+      "phase": "failure",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/project-templates?category=Waterfall&projectType=1&workspaceId=a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde&searchTerm=r&sortBy=popularity&sortDirection=desc&pageNumber=1&pageSize=20",
+      "status": 500,
+      "requestPayload": null,
+      "responsePayload": "{\"success\":false,\"message\":\"An error occurred while retrieving templates: The LINQ expression 'DbSet<ProjectTemplate>()\\r\\n    .Where(p => !(p.IsDeleted))\\r\\n    .Where(p => !(p.IsDeleted))\\r\\n    .Where(p => p.Category.ToLower() == @ToLower)\\r\\n    .Where(p => (int)p.ProjectType == (int)@projectType_Value)\\r\\n    .Where(p => p.WorkspaceId == null || p.IsPublic || p.WorkspaceId == @workspaceId_Value)\\r\\n    .Where(p => p.Name.ToLower().Contains(@lowerSearchTerm) || p.Description.ToLower().Contains(@lowerSearchTerm) || p.Tags\\r\\n        .Contains(@lowerSearchTerm))' could not be translated. Additional information: Translation of method 'System.Linq.Enumerable.Contains' failed. If this method can be mapped to your custom function, see https://go.microsoft.com/fwlink/?linkid=2132413 for more information. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information.\",\"errors\":[],\"timestamp\":\"2026-02-28T02:45:02.2185128Z\"}",
+      "rationale": "API returned non-2xx for entity workflow/proposal path"
+    },
+    {
+      "id": "M005",
+      "ts": "2026-02-28T02:45:03.163Z",
+      "phase": "failure",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/project-templates?category=Waterfall&projectType=1&workspaceId=a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde&searchTerm=rfa&sortBy=popularity&sortDirection=desc&pageNumber=1&pageSize=20",
+      "status": 500,
+      "requestPayload": null,
+      "responsePayload": "{\"success\":false,\"message\":\"An error occurred while retrieving templates: The LINQ expression 'DbSet<ProjectTemplate>()\\r\\n    .Where(p => !(p.IsDeleted))\\r\\n    .Where(p => !(p.IsDeleted))\\r\\n    .Where(p => p.Category.ToLower() == @ToLower)\\r\\n    .Where(p => (int)p.ProjectType == (int)@projectType_Value)\\r\\n    .Where(p => p.WorkspaceId == null || p.IsPublic || p.WorkspaceId == @workspaceId_Value)\\r\\n    .Where(p => p.Name.ToLower().Contains(@lowerSearchTerm) || p.Description.ToLower().Contains(@lowerSearchTerm) || p.Tags\\r\\n        .Contains(@lowerSearchTerm))' could not be translated. Additional information: Translation of method 'System.Linq.Enumerable.Contains' failed. If this method can be mapped to your custom function, see https://go.microsoft.com/fwlink/?linkid=2132413 for more information. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information.\",\"errors\":[],\"timestamp\":\"2026-02-28T02:45:02.2498522Z\"}",
+      "rationale": "API returned non-2xx for entity workflow/proposal path"
+    },
+    {
+      "id": "M006",
+      "ts": "2026-02-28T02:45:03.305Z",
+      "phase": "failure",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/project-templates?category=Waterfall&projectType=1&workspaceId=a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde&searchTerm=rfaf&sortBy=popularity&sortDirection=desc&pageNumber=1&pageSize=20",
+      "status": 500,
+      "requestPayload": null,
+      "responsePayload": "{\"success\":false,\"message\":\"An error occurred while retrieving templates: The LINQ expression 'DbSet<ProjectTemplate>()\\r\\n    .Where(p => !(p.IsDeleted))\\r\\n    .Where(p => !(p.IsDeleted))\\r\\n    .Where(p => p.Category.ToLower() == @ToLower)\\r\\n    .Where(p => (int)p.ProjectType == (int)@projectType_Value)\\r\\n    .Where(p => p.WorkspaceId == null || p.IsPublic || p.WorkspaceId == @workspaceId_Value)\\r\\n    .Where(p => p.Name.ToLower().Contains(@lowerSearchTerm) || p.Description.ToLower().Contains(@lowerSearchTerm) || p.Tags\\r\\n        .Contains(@lowerSearchTerm))' could not be translated. Additional information: Translation of method 'System.Linq.Enumerable.Contains' failed. If this method can be mapped to your custom function, see https://go.microsoft.com/fwlink/?linkid=2132413 for more information. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information.\",\"errors\":[],\"timestamp\":\"2026-02-28T02:45:02.3920009Z\"}",
+      "rationale": "API returned non-2xx for entity workflow/proposal path"
+    },
+    {
+      "id": "M007",
+      "ts": "2026-02-28T02:45:03.395Z",
+      "phase": "failure",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/project-templates?category=Waterfall&projectType=1&workspaceId=a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde&searchTerm=rfafa&sortBy=popularity&sortDirection=desc&pageNumber=1&pageSize=20",
+      "status": 500,
+      "requestPayload": null,
+      "responsePayload": "{\"success\":false,\"message\":\"An error occurred while retrieving templates: The LINQ expression 'DbSet<ProjectTemplate>()\\r\\n    .Where(p => !(p.IsDeleted))\\r\\n    .Where(p => !(p.IsDeleted))\\r\\n    .Where(p => p.Category.ToLower() == @ToLower)\\r\\n    .Where(p => (int)p.ProjectType == (int)@projectType_Value)\\r\\n    .Where(p => p.WorkspaceId == null || p.IsPublic || p.WorkspaceId == @workspaceId_Value)\\r\\n    .Where(p => p.Name.ToLower().Contains(@lowerSearchTerm) || p.Description.ToLower().Contains(@lowerSearchTerm) || p.Tags\\r\\n        .Contains(@lowerSearchTerm))' could not be translated. Additional information: Translation of method 'System.Linq.Enumerable.Contains' failed. If this method can be mapped to your custom function, see https://go.microsoft.com/fwlink/?linkid=2132413 for more information. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information.\",\"errors\":[],\"timestamp\":\"2026-02-28T02:45:02.4837524Z\"}",
+      "rationale": "API returned non-2xx for entity workflow/proposal path"
+    },
+    {
+      "id": "M008",
+      "ts": "2026-02-28T02:45:03.504Z",
+      "phase": "failure",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/project-templates?category=Waterfall&projectType=1&workspaceId=a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde&searchTerm=rfafaf&sortBy=popularity&sortDirection=desc&pageNumber=1&pageSize=20",
+      "status": 500,
+      "requestPayload": null,
+      "responsePayload": "{\"success\":false,\"message\":\"An error occurred while retrieving templates: The LINQ expression 'DbSet<ProjectTemplate>()\\r\\n    .Where(p => !(p.IsDeleted))\\r\\n    .Where(p => !(p.IsDeleted))\\r\\n    .Where(p => p.Category.ToLower() == @ToLower)\\r\\n    .Where(p => (int)p.ProjectType == (int)@projectType_Value)\\r\\n    .Where(p => p.WorkspaceId == null || p.IsPublic || p.WorkspaceId == @workspaceId_Value)\\r\\n    .Where(p => p.Name.ToLower().Contains(@lowerSearchTerm) || p.Description.ToLower().Contains(@lowerSearchTerm) || p.Tags\\r\\n        .Contains(@lowerSearchTerm))' could not be translated. Additional information: Translation of method 'System.Linq.Enumerable.Contains' failed. If this method can be mapped to your custom function, see https://go.microsoft.com/fwlink/?linkid=2132413 for more information. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information.\",\"errors\":[],\"timestamp\":\"2026-02-28T02:45:02.5917939Z\"}",
+      "rationale": "API returned non-2xx for entity workflow/proposal path"
+    },
+    {
+      "id": "M009",
+      "ts": "2026-02-28T02:45:03.581Z",
+      "phase": "failure",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/project-templates?category=Waterfall&projectType=1&workspaceId=a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde&searchTerm=rfafafa&sortBy=popularity&sortDirection=desc&pageNumber=1&pageSize=20",
+      "status": 500,
+      "requestPayload": null,
+      "responsePayload": "{\"success\":false,\"message\":\"An error occurred while retrieving templates: The LINQ expression 'DbSet<ProjectTemplate>()\\r\\n    .Where(p => !(p.IsDeleted))\\r\\n    .Where(p => !(p.IsDeleted))\\r\\n    .Where(p => p.Category.ToLower() == @ToLower)\\r\\n    .Where(p => (int)p.ProjectType == (int)@projectType_Value)\\r\\n    .Where(p => p.WorkspaceId == null || p.IsPublic || p.WorkspaceId == @workspaceId_Value)\\r\\n    .Where(p => p.Name.ToLower().Contains(@lowerSearchTerm) || p.Description.ToLower().Contains(@lowerSearchTerm) || p.Tags\\r\\n        .Contains(@lowerSearchTerm))' could not be translated. Additional information: Translation of method 'System.Linq.Enumerable.Contains' failed. If this method can be mapped to your custom function, see https://go.microsoft.com/fwlink/?linkid=2132413 for more information. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information.\",\"errors\":[],\"timestamp\":\"2026-02-28T02:45:02.66936Z\"}",
+      "rationale": "API returned non-2xx for entity workflow/proposal path"
+    },
+    {
+      "id": "M013",
+      "ts": "2026-02-28T02:45:19.088Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M014",
+      "ts": "2026-02-28T02:45:29.754Z",
+      "phase": "instantiate",
+      "method": "POST",
+      "url": "https://apis-veropm.veropm.app/api/v1/project",
+      "status": 201,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "POST on entity endpoint indicates creation/instantiation"
+    },
+    {
+      "id": "M028",
+      "ts": "2026-02-28T02:45:36.482Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/workflow/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M030",
+      "ts": "2026-02-28T02:45:41.082Z",
+      "phase": "instantiate",
+      "method": "POST",
+      "url": "https://apis-veropm.veropm.app/api/v1/workflow",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "POST on entity endpoint indicates creation/instantiation"
+    },
+    {
+      "id": "M031",
+      "ts": "2026-02-28T02:45:41.274Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/workflow/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M033",
+      "ts": "2026-02-28T02:45:49.228Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M035",
+      "ts": "2026-02-28T02:45:49.413Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/workflow/f7b4cf3b-1304-473c-93c1-c358e01ab2e3/versions",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M037",
+      "ts": "2026-02-28T02:45:57.131Z",
+      "phase": "instantiate",
+      "method": "POST",
+      "url": "https://apis-veropm.veropm.app/api/v1/automation",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "POST on entity endpoint indicates creation/instantiation"
+    },
+    {
+      "id": "M047",
+      "ts": "2026-02-28T02:46:06.932Z",
+      "phase": "instantiate",
+      "method": "POST",
+      "url": "https://apis-veropm.veropm.app/api/v1/portfolio/9acdbdab-b9ed-4e98-9d04-a1486f92671c/health/recalculate",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "POST on entity endpoint indicates creation/instantiation"
+    },
+    {
+      "id": "M048",
+      "ts": "2026-02-28T02:46:06.933Z",
+      "phase": "instantiate",
+      "method": "POST",
+      "url": "https://apis-veropm.veropm.app/api/v1/portfolio/e634e8c6-bf74-4b73-b1a1-2c080142d1e5/health/recalculate",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "POST on entity endpoint indicates creation/instantiation"
+    },
+    {
+      "id": "M049",
+      "ts": "2026-02-28T02:46:06.936Z",
+      "phase": "instantiate",
+      "method": "POST",
+      "url": "https://apis-veropm.veropm.app/api/v1/portfolio/a9c994e0-47ff-4577-a84b-4af20a5f3a9d/health/recalculate",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "POST on entity endpoint indicates creation/instantiation"
+    },
+    {
+      "id": "M050",
+      "ts": "2026-02-28T02:46:10.949Z",
+      "phase": "instantiate",
+      "method": "POST",
+      "url": "https://apis-veropm.veropm.app/api/v1/portfolio",
+      "status": 201,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "POST on entity endpoint indicates creation/instantiation"
+    },
+    {
+      "id": "M052",
+      "ts": "2026-02-28T02:46:11.532Z",
+      "phase": "instantiate",
+      "method": "POST",
+      "url": "https://apis-veropm.veropm.app/api/v1/portfolio/e634e8c6-bf74-4b73-b1a1-2c080142d1e5/health/recalculate",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "POST on entity endpoint indicates creation/instantiation"
+    },
+    {
+      "id": "M053",
+      "ts": "2026-02-28T02:46:11.533Z",
+      "phase": "instantiate",
+      "method": "POST",
+      "url": "https://apis-veropm.veropm.app/api/v1/portfolio/9acdbdab-b9ed-4e98-9d04-a1486f92671c/health/recalculate",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "POST on entity endpoint indicates creation/instantiation"
+    },
+    {
+      "id": "M054",
+      "ts": "2026-02-28T02:46:11.537Z",
+      "phase": "instantiate",
+      "method": "POST",
+      "url": "https://apis-veropm.veropm.app/api/v1/portfolio/a9c994e0-47ff-4577-a84b-4af20a5f3a9d/health/recalculate",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "POST on entity endpoint indicates creation/instantiation"
+    },
+    {
+      "id": "M055",
+      "ts": "2026-02-28T02:46:11.715Z",
+      "phase": "instantiate",
+      "method": "POST",
+      "url": "https://apis-veropm.veropm.app/api/v1/portfolio/e1077011-3b0b-482a-895c-fec37dadff9f/health/recalculate",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "POST on entity endpoint indicates creation/instantiation"
+    },
+    {
+      "id": "M065",
+      "ts": "2026-02-28T02:46:19.228Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M069",
+      "ts": "2026-02-28T02:46:49.232Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M071",
+      "ts": "2026-02-28T02:47:19.236Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M073",
+      "ts": "2026-02-28T02:47:49.248Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M075",
+      "ts": "2026-02-28T02:48:19.236Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M077",
+      "ts": "2026-02-28T02:48:49.239Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M079",
+      "ts": "2026-02-28T02:49:19.232Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M081",
+      "ts": "2026-02-28T02:49:49.244Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M084",
+      "ts": "2026-02-28T02:50:19.233Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M086",
+      "ts": "2026-02-28T02:50:49.231Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M088",
+      "ts": "2026-02-28T02:51:19.241Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M089",
+      "ts": "2026-02-28T02:51:49.233Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M094",
+      "ts": "2026-02-28T02:52:19.238Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M096",
+      "ts": "2026-02-28T02:52:49.236Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M098",
+      "ts": "2026-02-28T02:53:19.235Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M100",
+      "ts": "2026-02-28T02:53:49.235Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M102",
+      "ts": "2026-02-28T02:54:19.239Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M104",
+      "ts": "2026-02-28T02:54:49.241Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M107",
+      "ts": "2026-02-28T02:55:19.242Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M109",
+      "ts": "2026-02-28T02:55:49.229Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M111",
+      "ts": "2026-02-28T02:56:19.239Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M113",
+      "ts": "2026-02-28T02:56:49.239Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M115",
+      "ts": "2026-02-28T02:57:19.231Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M117",
+      "ts": "2026-02-28T02:57:49.231Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M118",
+      "ts": "2026-02-28T02:58:19.235Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M121",
+      "ts": "2026-02-28T02:58:49.239Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M123",
+      "ts": "2026-02-28T02:59:19.239Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M125",
+      "ts": "2026-02-28T02:59:49.236Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M128",
+      "ts": "2026-02-28T03:00:19.228Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M130",
+      "ts": "2026-02-28T03:00:49.233Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M131",
+      "ts": "2026-02-28T03:01:19.239Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M134",
+      "ts": "2026-02-28T03:01:49.239Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M136",
+      "ts": "2026-02-28T03:02:19.230Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M138",
+      "ts": "2026-02-28T03:02:49.236Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M140",
+      "ts": "2026-02-28T03:03:19.234Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M142",
+      "ts": "2026-02-28T03:03:49.241Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M144",
+      "ts": "2026-02-28T03:04:19.229Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    },
+    {
+      "id": "M146",
+      "ts": "2026-02-28T03:04:49.245Z",
+      "phase": "verify",
+      "method": "GET",
+      "url": "https://apis-veropm.veropm.app/api/v1/approvalworkflow/pending",
+      "status": 200,
+      "requestPayload": null,
+      "responsePayload": null,
+      "rationale": "Read-back request after mutation is used as persistence verification evidence"
+    }
+  ],
+  "assumptions": [
+    "No required-field failure checkpoint was captured.",
+    "Expected exactly one instantiation event; observed 11.",
+    "No initialization/defaulting event was provably captured.",
+    "No persistence update event was provably captured."
+  ],
+  "blockers": [
+    "No API persistence event was detected after entity creation.",
+    "Implicit assumptions remain. See assumptions list for unresolved semantics."
+  ]
+}

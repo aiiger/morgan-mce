@@ -43,7 +43,7 @@ export const TabNav: React.FC<TabNavProps> = ({
                     >
                         <Text
                             className={cn(
-                                "text-[13px] font-medium whitespace-nowrap transition-transform duration-300",
+                                "text-gov-body font-medium whitespace-nowrap transition-transform duration-300",
                                 isActive ? "scale-105 italic" : "group-hover:translate-x-0.5"
                             )}
                         >
@@ -52,7 +52,7 @@ export const TabNav: React.FC<TabNavProps> = ({
 
                         {tab.count !== undefined && (
                             <Box className={cn(
-                                "text-[9px] font-mono font-bold italic px-1.5 py-0.5 rounded-sm border transition-all duration-300",
+                                "text-gov-label font-mono font-bold italic px-1.5 py-0.5 rounded-sm border transition-all duration-300",
                                 isActive
                                     ? 'bg-[var(--morgan-teal)]/10 border-[var(--morgan-teal)]/20 text-[var(--morgan-teal)]'
                                     : 'bg-[var(--bg-layer)]/40 border-[var(--surface-border)] text-[var(--text-tertiary)] group-hover:text-[var(--text-secondary)]'

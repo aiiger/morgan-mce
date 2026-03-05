@@ -131,7 +131,14 @@ export function useDashboardData(searchQuery: string = '') {
   }, [projects, documents]);
 
   const combinedLoading = projectsLoading || tendersLoading || docsLoading || alertsLoading || auxLoading || poLoading;
-  const combinedError = projectsError || tendersError || docsError || alertsError || poError;
+  
+  // FAULT TOLERANCE: Only crash the dashboard if MISSION CRITICAL domains fail.
+  const missionCriticalError = projectsError || tendersError;
+  const auxiliaryError = docsError || alertsError || poError;
+
+  if (auxiliaryError && !missionCriticalError) {
+    logger.warn('AUXILIARY_SYSTEM_DRIFT', { error: auxiliaryError });
+  }
 
   return {
     documents,
@@ -140,7 +147,7 @@ export function useDashboardData(searchQuery: string = '') {
     chartData,
     statusData,
     loading: combinedLoading,
-    error: combinedError,
+    error: missionCriticalError, // Surface only mission-critical errors to the UI
     refetch: refetchAll,
     projects,
     tenders,

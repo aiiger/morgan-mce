@@ -22,19 +22,19 @@ const getStatusColor = (status: Milestone['status']) => {
     switch (status) {
         case 'Completed': return 'bg-emerald-500';
         case 'In Progress': return 'bg-sky-500 animate-pulse';
-        case 'Pending': return 'bg-zinc-600';
+        case 'Pending': return 'bg-gray-400';
         case 'Delayed': return 'bg-rose-500';
     }
 }
 
 export const ProjectTimeline: React.FC<ProjectTimelineProps> = ({ milestones, projectStartDate, projectEndDate }) => {
     if (!projectStartDate || !projectEndDate) {
-        return <GlassPanel className="p-6 text-center text-zinc-500">Project start or end date not set.</GlassPanel>;
+        return <GlassPanel className="p-6 text-center text-gray-500">Project start or end date not set.</GlassPanel>;
     }
     
     const totalDuration = new Date(projectEndDate).getTime() - new Date(projectStartDate).getTime();
     if (totalDuration <= 0) {
-         return <GlassPanel className="p-6 text-center text-zinc-500">Invalid project date range.</GlassPanel>;
+         return <GlassPanel className="p-6 text-center text-gray-500">Invalid project date range.</GlassPanel>;
     }
 
     return (
@@ -63,7 +63,7 @@ export const ProjectTimeline: React.FC<ProjectTimelineProps> = ({ milestones, pr
                             <div className={`h-full rounded-full ${getStatusColor(milestone.status)} transition-all duration-300 group-hover:scale-y-150 origin-center`} />
                              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 bg-[var(--bg-layer)] text-[var(--text-primary)] text-xs rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg border border-[var(--surface-border)]">
                                 <p className="font-bold italic">{milestone.title}</p>
-                                <p className="text-[var(--text-tertiary)] text-[10px]">{new Date(milestone.start_date).toLocaleDateString()} - {new Date(milestone.end_date).toLocaleDateString()}</p>
+                                <p className="text-[var(--text-tertiary)] text-caption">{new Date(milestone.start_date).toLocaleDateString()} - {new Date(milestone.end_date).toLocaleDateString()}</p>
                             </div>
                         </div>
                     )

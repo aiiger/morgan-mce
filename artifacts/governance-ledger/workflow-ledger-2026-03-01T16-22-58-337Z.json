@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-03-01T16:22:58.337Z",
+  "runs": [
+    {
+      "run": "run-2026-03-01T16-19-18-834Z",
+      "workflow": {
+        "captured": false,
+        "detail": "create=false, update=false"
+      },
+      "portfolio": {
+        "captured": true,
+        "detail": "POST https://apis-veropm.veropm.app/api/v1/portfolio/61c7d2a5-087d-4c07-978b-862b34d3c277/health/recalculate"
+      },
+      "approval": {
+        "captured": false,
+        "detail": "No approval mutation"
+      },
+      "documentsUpload": {
+        "captured": false,
+        "detail": "No document upload mutation"
+      },
+      "documentsUpdate": {
+        "captured": false,
+        "detail": "No document update mutation"
+      }
+    }
+  ]
+}

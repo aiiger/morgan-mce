@@ -57,7 +57,7 @@ export const Toast: React.FC<ToastProps> = ({ type, title, message, action, onCl
       bg, border, shadow
     )}>
       {/* Progress Bar Background */}
-      <div className="absolute bottom-0 left-0 h-[2px] bg-white/10 w-full" />
+      <div className="absolute bottom-0 left-0 h-[2px] bg-gray-50 w-full" />
       <div className={cn("absolute bottom-0 left-0 h-[2px] w-full origin-left animate-toast-progress", color.replace('text', 'bg'))} />
 
       <div className="flex items-start gap-3">
@@ -66,18 +66,18 @@ export const Toast: React.FC<ToastProps> = ({ type, title, message, action, onCl
         </div>
 
         <div className="flex-1 min-w-0">
-          <h4 className="text-[11px] font-bold italic tracking-widest text-white leading-tight">
+          <h4 className="text-gov-label font-bold italic tracking-widest text-gray-900 leading-tight">
             {title}
           </h4>
           {message && (
-            <p className="text-[10px] font-mono text-zinc-400 mt-1 leading-relaxed">
+            <p className="text-caption font-mono text-gray-500 mt-1 leading-relaxed">
               {message}
             </p>
           )}
           {action && (
             <button
               onClick={action.onClick}
-              className="mt-2 text-[10px] font-bold italic tracking-wider text-white underline decoration-white/30 hover:decoration-white/100 transition-all"
+              className="mt-2 text-caption font-bold italic tracking-wider text-gray-900 underline decoration-white/30 hover:decoration-white/100 transition-all"
             >
               {action.label}
             </button>
@@ -86,7 +86,7 @@ export const Toast: React.FC<ToastProps> = ({ type, title, message, action, onCl
 
         <button
           onClick={onClose}
-          className="shrink-0 text-zinc-600 hover:text-white transition-colors"
+          className="shrink-0 text-gray-500 hover:text-gray-900 transition-colors"
         >
           <X size={14} />
         </button>

@@ -16,7 +16,7 @@ export const ProjectionPulse: React.FC<ProjectionPulseProps> = ({
 }) => {
   return (
     <motion.div
-      className="h-[400px] bg-[var(--bg-surface)] backdrop-blur-md border border-[var(--border-subtle)] rounded-xl p-5 shadow-[0_0_30px_rgba(0,0,0,0.25)] relative overflow-hidden flex flex-col group"
+      className="h-[400px] bg-[var(--bg-surface)] backdrop-blur-md border border-[var(--border-subtle)] rounded-xl p-6 shadow-[0_0_30px_rgba(0,0,0,0.25)] relative overflow-hidden flex flex-col group"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -31,10 +31,10 @@ export const ProjectionPulse: React.FC<ProjectionPulseProps> = ({
       {/* Header */}
       <div className="mb-6 relative z-10">
         <div className="flex items-center gap-2 mb-1">
-          <h3 className="text-xl font-black italic text-[var(--text-primary)] tracking-tight uppercase">Projection Pulse</h3>
+          <h3 className="text-xl font-bold italic text-[var(--text-primary)] tracking-tight uppercase">Projection Pulse</h3>
           <div className="h-1.5 w-1.5 bg-[var(--brand-accent)] rounded-full animate-pulse" />
         </div>
-        <p className="text-[10px] font-bold italic text-[var(--text-secondary)] uppercase tracking-widest">Temporal Fiscal Clustering // AI Forecast</p>
+        <p className="text-caption font-bold italic text-[var(--text-secondary)] uppercase tracking-widest">Temporal Fiscal Clustering // AI Forecast</p>
       </div>
 
       {/* Chart Container */}
@@ -60,7 +60,7 @@ export const ProjectionPulse: React.FC<ProjectionPulseProps> = ({
               dataKey="month"
               stroke="rgba(255,255,255,0.1)"
               style={{ fill: 'var(--text-tertiary)' }}
-              className="text-[10px] text-[var(--text-tertiary)] tracking-wide"
+              className="text-caption text-[var(--text-tertiary)] tracking-wide"
               tickLine={false}
               axisLine={false}
               dy={10}

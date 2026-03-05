@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { GlassPanel } from '../ui/GlassPanel';
 import { TiltCard } from '../ui/TiltCard';
 import { Badge } from '../ui/Badge';
@@ -12,24 +12,18 @@ interface TenderKanbanProps {
 }
 
 const COLUMNS = [
-    { id: 'OPEN', label: 'Intake' },
-    { id: 'REVIEW', label: 'Go / No-Go' },
-    { id: 'SUBMITTED', label: 'Submission' },
-    { id: 'AWARDED', label: 'Awarded' }
+    { id: 'PRE_QUAL', label: 'Pre-Qual' },
+    { id: 'TECHNICAL_PREP', label: 'Technical Prep' },
+    { id: 'COMMERCIAL_PREP', label: 'Commercial Prep' },
+    { id: 'QUALITY_GATE', label: 'Quality Gate' },
+    { id: 'SUBMITTED', label: 'Submission' }
 ];
 
 export const TenderKanban: React.FC<TenderKanbanProps> = ({ tenders, onSelectTender, onUpdateStatus }) => {
     const [activeOverlay, setActiveOverlay] = React.useState<string | null>(null);
 
     const getColumnTenders = (status: string) => {
-        // Basic mapping - in production this would be more robust
-        return tenders.filter(t => {
-            if (status === 'OPEN') return t.status === 'OPEN' || t.status === 'ACTIVE';
-            if (status === 'REVIEW') return t.status === 'REVIEW' || t.status === 'PENDING';
-            if (status === 'SUBMITTED') return t.status === 'SUBMITTED';
-            if (status === 'AWARDED') return t.status === 'AWARDED';
-            return false;
-        });
+        return tenders.filter(t => t.status === status);
     };
 
     return (
@@ -46,19 +40,19 @@ export const TenderKanban: React.FC<TenderKanbanProps> = ({ tenders, onSelectTen
                                 <span className="text-xs font-bold italic tracking-widest text-[var(--text-secondary)] font-brand">
                                     {col.label}
                                 </span>
-                                <span className="bg-[var(--bg-layer)]/80 text-[var(--text-tertiary)] text-[9px] font-bold italic px-1.5 py-0.5 rounded-full border border-[var(--surface-border)]">
+                                <span className="bg-[var(--bg-layer)]/80 text-[var(--text-tertiary)] text-gov-label font-bold italic px-1.5 py-0.5 rounded-full border border-[var(--surface-border)]">
                                     {items.length}
                                 </span>
                             </div>
                             {totalValue > 0 && (
-                                <span className="text-[9px] font-mono text-[var(--color-success)]/80">
+                                <span className="text-gov-label font-mono text-[var(--color-success)]/80">
                                     {col.id === 'AWARDED' ? 'WON' : 'EST'}: ${(totalValue / 1000000).toFixed(1)}M
                                 </span>
                             )}
                         </GlassPanel>
 
                         {/* Draggable Area (Visual) */}
-                        <div className="flex-1 space-y-3 overflow-y-auto pr-1 custom-scrollbar">
+                        <div className="flex-1 space-y-3 overflow-y-auto pr-1 overflow-auto">
                             {items.map(tender => (
                                 <TiltCard
                                     key={tender.id}
@@ -68,13 +62,13 @@ export const TenderKanban: React.FC<TenderKanbanProps> = ({ tenders, onSelectTen
                                     scale={1.02}
                                 >
                                     <div
-                                        className="h-full bg-[var(--bg-surface)]/90 border border-[var(--surface-border)] rounded-lg px-4 py-3 cursor-pointer hover:border-[var(--morgan-teal)]/40 hover:shadow-md transition-all"
+                                        className="h-full bg-white border border-gray-200 rounded-lg px-4 py-3 cursor-pointer hover:border-blue-300 hover:shadow-sm transition-all"
                                     >
                                         <div className="flex justify-between items-start mb-2">
                                             <Badge status={tender.status}>{tender.status}</Badge>
                                             <div className="relative">
                                                 <button
-                                                    className={`text-zinc-600 hover:text-[var(--text-primary)] transition-colors p-1 rounded-md ${activeOverlay === tender.id ? 'bg-black/5 text-black' : ''}`}
+                                                    className={`text-gray-500 hover:text-[var(--text-primary)] transition-colors p-1 rounded-md ${activeOverlay === tender.id ? 'bg-gray-50 text-black' : ''}`}
                                                     onClick={(e) => {
                                                         e.stopPropagation();
                                                         setActiveOverlay(activeOverlay === tender.id ? null : tender.id);
@@ -85,14 +79,14 @@ export const TenderKanban: React.FC<TenderKanbanProps> = ({ tenders, onSelectTen
 
                                                 {/* Status Transition Overlay */}
                                                 {activeOverlay === tender.id && (
-                                                    <div className="absolute right-0 top-full mt-2 w-48 bg-white border border-zinc-200 rounded-lg shadow-xl z-[100] p-1 animate-in fade-in zoom-in duration-200">
-                                                        <div className="px-2 py-1.5 text-[10px] font-bold uppercase tracking-widest text-zinc-500 border-b border-zinc-100 mb-1">
-                                                            Change Status
+                                                    <div className="absolute right-0 top-full mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-2xl z-[100] p-1 animate-in fade-in zoom-in duration-200">
+                                                        <div className="px-2 py-1.5 text-caption font-bold uppercase tracking-widest text-gray-500 border-b border-gray-200 mb-1">
+                                                            Transition State
                                                         </div>
                                                         {COLUMNS.filter(c => c.id !== tender.status).map(col => (
                                                             <button
                                                                 key={col.id}
-                                                                className="w-full text-left px-2 py-2 text-[11px] font-bold text-zinc-600 hover:text-black hover:bg-zinc-100 rounded-md transition-all flex items-center justify-between group/item"
+                                                                className="w-full text-left px-2 py-2 text-gov-label font-bold text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-all flex items-center justify-between group/item"
                                                                 onClick={(e) => {
                                                                     e.stopPropagation();
                                                                     onUpdateStatus?.(tender.id, col.id);
@@ -100,7 +94,7 @@ export const TenderKanban: React.FC<TenderKanbanProps> = ({ tenders, onSelectTen
                                                                 }}
                                                             >
                                                                 {col.label}
-                                                                <ChevronRight size={10} className="opacity-0 group-hover/item:opacity-100 transition-opacity" />
+                                                                <ChevronRight size={10} className="opacity-0 group-hover/item:opacity-100 transition-opacity text-blue-600" />
                                                             </button>
                                                         ))}
                                                     </div>
@@ -124,9 +118,9 @@ export const TenderKanban: React.FC<TenderKanbanProps> = ({ tenders, onSelectTen
                                             </div>
 
                                             {tender.probability && (
-                                                <div className={`text-xs font-medium px-2 py-1 rounded-sm text-white ${tender.probability === 'High' ? 'bg-[var(--color-success)]' :
-                                                        tender.probability === 'Medium' ? 'bg-[var(--color-warning)]' :
-                                                            'bg-[var(--color-critical)]'
+                                                <div className={`text-xs font-medium px-2 py-1 rounded-sm text-gray-900 ${tender.probability === 'High' ? 'bg-[var(--color-success)]' :
+                                                    tender.probability === 'Medium' ? 'bg-[var(--color-warning)]' :
+                                                        'bg-[var(--color-critical)]'
                                                     }`}>
                                                     {tender.probability}
                                                 </div>

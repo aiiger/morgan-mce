@@ -53,7 +53,7 @@ export const OperationalLedger: React.FC<OperationalLedgerProps> = ({ projects, 
                         <Text variant="gov-metric" className="text-[var(--text-primary)] truncate group-hover:text-[var(--morgan-teal)] transition-colors">
                             {p.project_name}
                         </Text>
-                        <Text variant="gov-label" color="tertiary" className="text-[9px] tracking-widest uppercase">
+                        <Text variant="gov-label" color="tertiary" className="text-gov-label tracking-widest uppercase">
                             {p.client_name || 'Internal Protocol'} • {p.project_code || 'PRJ-SPEC'}
                         </Text>
                     </Box>
@@ -79,7 +79,7 @@ export const OperationalLedger: React.FC<OperationalLedgerProps> = ({ projects, 
                         >
                             {daysRemaining < 0 ? `-${Math.abs(daysRemaining)}D` : `${daysRemaining}D`}
                         </Text>
-                        <Text variant="gov-label" color="tertiary" className="text-[9px]">Countdown</Text>
+                        <Text variant="gov-label" color="tertiary" className="text-gov-label">Countdown</Text>
                     </Box>
                 );
             }

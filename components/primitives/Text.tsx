@@ -51,19 +51,19 @@ export const Text = React.forwardRef<HTMLElement, TextProps>(
         const variantStyles: Record<TextVariant, string> = {
             // Default variants now map to governance scale (tailwind.config.ts)
             // and apply the “strong cockpit” typographic character.
-            h1: "font-sans text-gov-hero font-bold italic uppercase tracking-[-0.01em]",
-            h2: "font-sans text-gov-title font-bold italic uppercase tracking-[-0.01em]",
-            h3: "font-sans text-gov-title font-bold italic uppercase tracking-[-0.01em]",
-            h4: "font-sans text-gov-header font-bold italic uppercase tracking-[-0.01em]",
+            h1: "font-sans text-gov-hero font-bold tracking-[-0.01em]",
+            h2: "font-sans text-gov-title font-bold tracking-[-0.01em]",
+            h3: "font-sans text-gov-title font-bold tracking-[-0.01em]",
+            h4: "font-sans text-gov-header font-bold tracking-[-0.01em]",
             body: "font-sans text-gov-body font-bold italic leading-relaxed tracking-tight",
-            label: "font-sans text-gov-label font-bold italic uppercase tracking-[0.15em]",
+            label: "font-sans text-gov-label font-bold tracking-[0.15em]",
             caption: "font-sans text-gov-table font-bold italic tracking-tight",
             mono: "font-mono text-gov-body font-bold italic tracking-tight",
 
-            'gov-hero': "text-gov-hero font-bold italic uppercase tracking-[-0.01em]",
-            'gov-title': "text-gov-title font-bold italic uppercase tracking-[-0.01em]",
-            'gov-header': "text-gov-header font-bold italic uppercase tracking-[0.15em]",
-            'gov-label': "text-gov-label font-bold italic uppercase tracking-[0.2em] opacity-70",
+            'gov-hero': "text-gov-hero font-bold tracking-[-0.01em]",
+            'gov-title': "text-gov-title font-bold tracking-[-0.01em]",
+            'gov-header': "text-gov-header font-bold tracking-[0.15em]",
+            'gov-label': "text-gov-label font-bold tracking-[0.2em] opacity-70",
             'gov-body': "text-gov-body font-bold italic leading-relaxed tracking-tight",
             'gov-metric': "text-gov-metric font-mono font-bold italic tracking-tight",
             'gov-table': "text-gov-table font-bold italic tracking-tight",

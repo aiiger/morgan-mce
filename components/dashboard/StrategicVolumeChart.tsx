@@ -15,13 +15,13 @@ export const StrategicVolumeChart: React.FC<StrategicVolumeChartProps> = ({ data
             {/* 1. Metric Context Area */}
             <Box className="absolute top-4 left-4 z-20">
                 <Box className="flex items-baseline gap-1.5">
-                    <Text variant="gov-hero" className="text-4xl text-white drop-shadow-[0_0_15px_rgba(56,189,248,0.5)]">
+                    <Text variant="gov-hero" className="text-4xl text-gray-900">
                         {activeUnits}
                     </Text>
-                    <Text variant="gov-label" color="secondary" className="mb-1 text-xs font-black italic">ACTIVE_UNITS</Text>
+                    <Text variant="gov-label" color="secondary" className="mb-1 text-xs font-bold italic">ACTIVE_UNITS</Text>
                 </Box>
                 <Box className="flex items-center space-x-2 mt-2">
-                    <span className="text-[9px] font-black italic text-zinc-400 bg-zinc-500/10 px-2 py-0.5 rounded border border-zinc-500/20 tracking-wider shadow-[0_0_10px_rgba(113,113,122,0.2)]">NETWORK_STABLE</span>
+                    <span className="text-gov-label font-bold italic text-gray-500 bg-gray-100 px-2 py-0.5 rounded border border-gray-200 tracking-wider">NETWORK_STABLE</span>
                 </Box>
             </Box>
 
@@ -32,7 +32,7 @@ export const StrategicVolumeChart: React.FC<StrategicVolumeChartProps> = ({ data
                         <defs>
                             <linearGradient id="prismBar" x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="0%" stopColor="var(--brand-accent)" stopOpacity={1} />
-                                <stop offset="20%" stopColor="#ffffff" stopOpacity={0.4} /> {/* Specular Highlight */}
+                                <stop offset="20%" stopColor="var(--white)" stopOpacity={0.4} /> {/* Specular Highlight */}
                                 <stop offset="50%" stopColor="var(--brand-accent)" stopOpacity={0.4} />
                                 <stop offset="100%" stopColor="var(--brand-accent)" stopOpacity={0.05} />
                             </linearGradient>
@@ -83,23 +83,23 @@ export const StrategicVolumeChart: React.FC<StrategicVolumeChartProps> = ({ data
                 <Box className="flex items-center space-x-8">
                     <Box className="flex flex-col">
                         <Text variant="gov-metric" className="text-sm">{activeUnits}</Text>
-                        <Text variant="gov-label" color="tertiary" className="text-[7px] font-bold tracking-widest">LIVE_NODE</Text>
+                        <Text variant="gov-label" color="tertiary" className="text-caption font-bold tracking-widest">LIVE_NODE</Text>
                     </Box>
                     <Box className="flex flex-col">
-                        <Text variant="gov-metric" className={criticalUnits > 0 ? 'text-rose-500 animate-pulse text-sm' : 'text-zinc-500 text-sm'}>
+                        <Text variant="gov-metric" className={criticalUnits > 0 ? 'text-rose-500 animate-pulse text-sm' : 'text-gray-500 text-sm'}>
                             {criticalUnits.toString().padStart(2, '0')}
                         </Text>
-                        <Text variant="gov-label" color="tertiary" className="text-[7px] font-bold tracking-widest text-opacity-50">CRITICAL_PATH</Text>
+                        <Text variant="gov-label" color="tertiary" className="text-caption font-bold tracking-widest text-opacity-50">CRITICAL_PATH</Text>
                     </Box>
                 </Box>
                 <Box className="flex items-center space-x-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-zinc-500 shadow-[0_0_8px_rgba(113,113,122,0.8)] animate-pulse" />
-                    <Text variant="gov-label" color="tertiary" className="text-[8px] font-mono">STREAM_0x44</Text>
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-pulse" />
+                    <Text variant="gov-label" color="tertiary" className="text-caption font-mono">STREAM_0x44</Text>
                 </Box>
             </Box>
 
             {/* Holographic Edge Highlight */}
-            <div className="absolute inset-0 border border-white/5 rounded-xl pointer-events-none z-30 ring-1 ring-white/5" />
+            <div className="absolute inset-0 border border-gray-200 rounded-xl pointer-events-none z-30" />
         </div>
     );
 };

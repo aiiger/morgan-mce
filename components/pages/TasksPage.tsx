@@ -74,18 +74,18 @@ export const TasksPage: React.FC<TasksPageProps> = ({ projects = [], onSelectPro
   ];
 
   return (
-    <div className="flex h-screen overflow-hidden -mx-8 -mt-2 bg-black/20 animate-fade-in relative">
+    <div className="flex h-screen overflow-hidden -mx-8 -mt-2 bg-gray-50 animate-fade-in relative">
       {/* Overlay Header when in specialized views */}
 
 
 
       {/* INTERNAL TODOTRACKER SIDEBAR */}
-      <aside className="w-56 border-r border-glass bg-[var(--bg-surface)]/60 backdrop-blur-xl flex flex-col p-8 shadow-2xl">
+      <aside className="w-56 border-r border-gray-200 bg-white flex flex-col p-8 shadow-sm">
         <div className="mb-12 px-2">
-          <h2 className="text-2xl font-bold italic text-white tracking-tighter flex items-center gap-3">
+          <h2 className="text-2xl font-bold italic text-gray-900 tracking-tighter flex items-center gap-3">
             <CheckSquare className="text-emerald-500" size={24} /> Matrix
           </h2>
-          <p className="text-[7px] font-mono font-bold italic text-zinc-700 tracking-[0.5em] mt-2">Core_Protocol_v2.0</p>
+          <p className="text-caption font-mono font-bold italic text-gray-400 tracking-[0.5em] mt-2">Core_Protocol_v2.0</p>
         </div>
 
         <nav className="flex-1 space-y-1">
@@ -94,26 +94,26 @@ export const TasksPage: React.FC<TasksPageProps> = ({ projects = [], onSelectPro
               key={item.id}
               onClick={() => setView(item.id as any)}
               className={`w-full flex items-center justify-between px-6 py-4 rounded-xl transition-all group ${view === item.id
-                ? 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 shadow-lg'
-                : 'text-zinc-600 hover:text-zinc-300 hover:bg-glass border border-transparent'
+                ? 'bg-blue-50 text-blue-700 border border-blue-200 shadow-sm'
+                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 border border-transparent'
                 }`}
             >
               <div className="flex items-center gap-4">
                 <item.icon size={16} strokeWidth={view === item.id ? 3 : 2} />
-                <span className="text-[10px] font-bold italic tracking-widest">{item.label}</span>
+                <span className="text-caption font-bold italic tracking-widest">{item.label}</span>
               </div>
             </button>
           ))}
         </nav>
 
-        <div className="pt-8 border-t border-glass space-y-2">
-          <button onClick={() => setCurrentTab('archived')} className="w-full flex items-center gap-4 px-6 py-3 text-zinc-700 hover:text-zinc-400 transition-colors">
+          <div className="pt-8 border-t border-gray-200 space-y-2">
+          <button onClick={() => setCurrentTab('archived')} className="w-full flex items-center gap-4 px-6 py-3 text-gray-500 hover:text-gray-700 transition-colors">
             <Archive size={14} />
-            <span className="text-[9px] font-bold italic tracking-widest">Archive_Vault</span>
+            <span className="text-gov-label font-bold italic tracking-widest">Archive_Vault</span>
           </button>
-          <button onClick={() => setCurrentTab('trash')} className="w-full flex items-center gap-4 px-6 py-3 text-zinc-700 hover:text-rose-500 transition-colors">
+          <button onClick={() => setCurrentTab('trash')} className="w-full flex items-center gap-4 px-6 py-3 text-gray-500 hover:text-rose-500 transition-colors">
             <Trash2 size={14} />
-            <span className="text-[9px] font-bold italic tracking-widest">Deleted_Nodes</span>
+            <span className="text-gov-label font-bold italic tracking-widest">Deleted_Nodes</span>
           </button>
         </div>
       </aside>
@@ -128,7 +128,7 @@ export const TasksPage: React.FC<TasksPageProps> = ({ projects = [], onSelectPro
                 setEditingTask(undefined);
                 setShowTaskModal(true);
               }}
-              className="px-6 py-2 rounded-xl text-[10px] font-bold italic tracking-widest shadow-glow-emerald"
+              className="px-6 py-2 rounded-xl text-caption font-bold italic tracking-widest shadow-glow-emerald"
             >
               Initialize Node
             </GlassButton>
@@ -139,7 +139,7 @@ export const TasksPage: React.FC<TasksPageProps> = ({ projects = [], onSelectPro
           {loading ? (
             <div className="flex flex-col items-center justify-center h-[60vh] space-y-6">
               <Zap className="animate-pulse text-emerald-500" size={48} />
-              <p className="text-[10px] font-bold italic tracking-[0.4em] text-zinc-700 font-mono">Syncing_Clusters...</p>
+              <p className="text-caption font-bold italic tracking-[0.4em] text-gray-700 font-mono">Syncing_Clusters...</p>
             </div>
           ) : (
             <div className="animate-in fade-in duration-700">

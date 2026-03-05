@@ -15,8 +15,8 @@ export const SystemHealthStrip: React.FC<SystemHealthStripProps> = ({ confidence
                 </div>
                 <p className="text-section-header opacity-50 mb-1">System</p>
                 <div className="flex items-center gap-2">
-                    <span className="text-sm font-bold italic text-zinc-200">{status}</span>
-                    <div className="h-1 flex-1 bg-glass rounded-full overflow-hidden max-w-[40px]">
+                    <span className="text-sm font-bold italic text-gray-700">{status}</span>
+                    <div className="h-1 flex-1 bg-gray-200 rounded-full overflow-hidden max-w-[40px]">
                         <div
                             className={`h-full transition-all duration-500 rounded-full ${status === 'Active' ? 'bg-[var(--color-success)] shadow-[0_0_8px_var(--color-success)] w-full' :
                                 status === 'Degraded' ? 'bg-[var(--color-warning)] shadow-[0_0_8px_var(--color-warning)] w-2/3' :

@@ -74,7 +74,7 @@ export const MetricTile: React.FC<MetricTileProps> = ({ metric, icon: Icon, colo
       whileHover={{ y: -2, scale: 1.01 }}
       onClick={onClick}
       className={cn(
-        "relative flex flex-col p-5 rounded-xl border transition-all duration-300 h-full overflow-hidden",
+        "relative flex flex-col p-6 rounded-xl border transition-all duration-300 h-full overflow-hidden",
         "bg-[var(--kpi-bg)] border-[var(--kpi-border)] shadow-[var(--kpi-shadow)]",
         onClick ? "cursor-pointer" : ""
       )}
@@ -84,7 +84,7 @@ export const MetricTile: React.FC<MetricTileProps> = ({ metric, icon: Icon, colo
 
       {/* Label Row */}
       <div className="flex items-center justify-between mb-4 relative z-10">
-        <span className="text-[10px] font-black italic uppercase tracking-[0.2em] text-[var(--kpi-text-label)]">
+        <span className="text-caption font-bold tracking-[0.2em] text-[var(--kpi-text-label)]">
           {metric.label}
         </span>
         <Icon size={14} className="text-[var(--kpi-text-primary)] opacity-40" strokeWidth={2.5} />
@@ -92,9 +92,9 @@ export const MetricTile: React.FC<MetricTileProps> = ({ metric, icon: Icon, colo
 
       {/* Value Row */}
       <div className="flex flex-col items-start gap-1 relative z-10 mb-2">
-        <span className="text-4xl font-black italic tracking-tighter font-oswald leading-none text-[var(--kpi-text-primary)]">
+        <span className="text-4xl font-bold italic tracking-tighter font-oswald leading-none text-[var(--kpi-text-primary)]">
           <AnimatedCounter value={formattedValue} isNumber={typeof metric.value === 'number'} />
-          {metric.isCurrency && <span className="text-[14px] align-top ml-1 opacity-60">AED</span>}
+          {metric.isCurrency && <span className="text-sm align-top ml-1 opacity-60">AED</span>}
         </span>
       </div>
 
@@ -102,13 +102,13 @@ export const MetricTile: React.FC<MetricTileProps> = ({ metric, icon: Icon, colo
       {(metric.status || metric.trend) && (
         <div className="flex items-center justify-between mt-auto pt-3 border-t border-[var(--surface-border)] relative z-10">
           {metric.status && (
-            <span className="text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded-sm border bg-[var(--brand-accent)]/5 text-[var(--brand-accent)] border-[var(--brand-accent)]/20">
+            <span className="text-gov-label font-bold uppercase tracking-widest px-2 py-0.5 rounded-sm border bg-[var(--brand-accent)]/5 text-[var(--brand-accent)] border-[var(--brand-accent)]/20">
               {metric.status}
             </span>
           )}
           {metric.trend && (
             <span className={cn(
-              "text-[10px] font-black italic font-oswald uppercase flex items-center gap-1",
+              "text-caption font-bold italic font-oswald uppercase flex items-center gap-1",
               metric.trendSentiment === 'positive' ? "text-emerald-600" : "text-[var(--mce-red)]"
             )}>
               {metric.trendSentiment === 'positive' ? '↑' : '↓'} {metric.trend}

@@ -14,22 +14,44 @@ export interface Project {
   budget?: string;
   created_at: string;
 
-  // projects_master-compatible fields (current UI)
-  project_name?: string;
-  project_code?: string;
-  project_status?: string;
-  client_name?: string;
-  contract_value_excl_vat?: number;
-  project_commencement_date?: string;
-  project_completion_date_planned?: string;
-  dlp_end_date?: string;
-  delivery_risk_rating?: string;
-  flag_for_ceo_attention?: boolean;
+  // VeroPM Parity Fields (Audited 2026-02-26)
+  portfolio?: string;
+  project_priority?: 'Low' | 'Medium' | 'High' | 'Critical';
+  project_type?: 'Agile' | 'Waterfall' | 'Hybrid';
+  project_visibility?: 'Public' | 'Team' | 'Private';
+  project_logo_url?: string;
+
+  // Insurance & Compliance (New 2026-02-26)
+  pi_insurance_required?: boolean;
+  pi_policy_expiry_date?: string;
+  pi_sum_insured?: number;
+  pi_policy_number?: string;
+  third_party_liability_sum?: number;
+  wps_compliance_status?: string;
+  qhse_incidents_count?: number;
+  qhse_nonconformities_open?: number;
+  hse_plan_approved_date?: string;
+  site_access_permits_required?: boolean;
+  site_hse_induction_required?: boolean;
+
+  // Legacy & Compatibility
   updated_at?: string;
   completion_percent?: number;
   compliance_status?: string;
   project_location_city?: string;
   doc_control_platform?: string;
+
+  // Database-first compatibility aliases (snake_case)
+  project_name?: string;
+  project_code?: string;
+  project_status?: string;
+  client_name?: string;
+  contract_value_excl_vat?: number;
+  delivery_risk_rating?: 'Low' | 'Medium' | 'High' | 'Critical' | string;
+  flag_for_ceo_attention?: boolean;
+  project_completion_date_planned?: string;
+  dlp_end_date?: string;
+  project_commencement_date?: string;
 }
 
 export interface DocumentItem {
@@ -95,6 +117,11 @@ export interface Tender {
   probability?: 'High' | 'Medium' | 'Low';
   created_at: string;
   submission_deadline?: string;
+
+  // VeroPM Parity Fields (Audited 2026-02-26)
+  lead_source?: string;
+  expected_close_date?: string;
+  priority?: 'Low' | 'Medium' | 'High' | 'Critical';
 }
 
 export interface StatusData {

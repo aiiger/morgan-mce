@@ -106,14 +106,14 @@ export const ExecutiveCockpit: React.FC<CockpitProps> = ({ projects: propProject
                      key={tab.id}
                      onClick={() => setActiveTab(tab.id)}
                      className={cn(
-                        "px-5 py-2.5 rounded-lg transition-all duration-300 group",
+                        "px-6 py-2.5 rounded-lg transition-all duration-300 group",
                         activeTab === tab.id
                            ? 'bg-[var(--bg-active)] text-[var(--text-primary)] shadow-sm border border-[var(--surface-border-strong)]'
                            : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-hover)]/40 border border-transparent'
                      )}
                   >
                      <Text variant="gov-header" className={cn(
-                        "text-[10px] transition-all",
+                        "text-caption transition-all",
                         activeTab === tab.id ? "scale-105 italic text-[var(--text-primary)]" : "text-[var(--text-tertiary)]"
                      )}>
                         {tab.label}

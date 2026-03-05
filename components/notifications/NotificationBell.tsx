@@ -50,12 +50,12 @@ const NotificationItem = ({ notification }: { notification: Notification }) => {
     };
 
   return (
-    <div className="px-4 py-3 border-b border-[var(--surface-border)] hover:bg-white/5 transition-colors cursor-pointer">
+    <div className="px-4 py-3 border-b border-[var(--surface-border)] hover:bg-gray-50 transition-colors cursor-pointer">
       <div className="flex items-start">
         <div className={`w-1 h-1 rounded-full mr-3 mt-1.5 ${getSeverityColor(notification.severity).replace('text-', 'bg-')} shadow-[0_0_8px]`} />
         <div className="flex-1">
-          <p className="text-xs text-zinc-200 leading-relaxed">{notification.message}</p>
-          <div className="flex items-center text-zinc-500 text-[10px] mt-1.5">
+          <p className="text-xs text-gray-700 leading-relaxed">{notification.message}</p>
+          <div className="flex items-center text-gray-500 text-caption mt-1.5">
             <Clock size={10} className="mr-1.5" />
             <span>{getTimeAgo(notification.created_at)}</span>
           </div>
@@ -86,21 +86,21 @@ export const NotificationBell: React.FC<NotificationBellProps> = ({ notification
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-label={`View ${unreadCount} Notifications`}
-        className={`p-2 transition-colors relative text-zinc-500 hover:text-[var(--color-critical)] ${isOpen ? 'text-[var(--color-critical)] bg-rose-500/5 rounded' : ''}`}
+        className={`p-2 transition-colors relative text-gray-500 hover:text-[var(--color-critical)] ${isOpen ? 'text-[var(--color-critical)] bg-rose-500/5 rounded' : ''}`}
         title="Signals"
       >
         <Bell size={14} />
         {unreadCount > 0 && (
-          <span className="absolute -top-1 -right-1 flex items-center justify-center min-w-[14px] h-[14px] bg-[var(--color-critical)] text-[8px] font-bold italic text-white rounded-full px-0.5 shadow-[0_0_5px_var(--color-critical)]">
+          <span className="absolute -top-1 -right-1 flex items-center justify-center min-w-[14px] h-[14px] bg-[var(--color-critical)] text-caption font-bold italic text-gray-900 rounded-full px-0.5 shadow-[0_0_5px_var(--color-critical)]">
             {unreadCount > 9 ? '9+' : unreadCount}
           </span>
         )}
       </button>
 
       {isOpen && (
-        <div className="absolute top-full right-0 mt-2 w-80 bg-[var(--surface-base)] border border-[var(--surface-border)] rounded-md shadow-2xl z-50 overflow-hidden">
+        <div className="absolute top-full right-0 mt-2 w-80 bg-white border border-[var(--surface-border)] rounded-md shadow-2xl z-50 overflow-hidden">
           <div className="px-4 py-2 border-b border-[var(--surface-border)] flex justify-between items-center">
-            <h3 className="text-xs font-bold italic text-white tracking-wider">Notifications</h3>
+            <h3 className="text-xs font-bold italic text-gray-900 tracking-wider">Notifications</h3>
             <Badge variant={unreadCount > 0 ? 'danger' : 'default'}>{unreadCount} New</Badge>
           </div>
           
@@ -108,7 +108,7 @@ export const NotificationBell: React.FC<NotificationBellProps> = ({ notification
             {notifications.length > 0 ? (
               notifications.map(n => <NotificationItem key={n.id} notification={n} />)
             ) : (
-              <div className="text-center py-8 text-zinc-500 text-xs">
+              <div className="text-center py-8 text-gray-500 text-xs">
                 <CheckCircle size={24} className="mx-auto mb-2" />
                 All caught up!
               </div>
@@ -116,8 +116,8 @@ export const NotificationBell: React.FC<NotificationBellProps> = ({ notification
           </div>
 
           <div className="px-4 py-2 bg-[var(--surface-layer)] border-t border-[var(--surface-border)] flex justify-between text-xs">
-            <button onClick={onMarkAllRead} className="font-bold italic text-zinc-400 hover:text-white transition-colors">Mark All Read</button>
-            <button onClick={onNavigateToNotifications} className="font-bold italic text-zinc-400 hover:text-white transition-colors">View All</button>
+            <button onClick={onMarkAllRead} className="font-bold italic text-gray-500 hover:text-gray-900 transition-colors">Mark All Read</button>
+            <button onClick={onNavigateToNotifications} className="font-bold italic text-gray-500 hover:text-gray-900 transition-colors">View All</button>
           </div>
         </div>
       )}

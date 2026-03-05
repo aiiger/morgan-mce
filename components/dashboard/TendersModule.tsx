@@ -10,7 +10,7 @@ interface TendersModuleProps {
 export const TendersModule: React.FC<TendersModuleProps> = ({ tenders = [] }) => {
   return (
     <Card className="h-full bg-[var(--bg-surface)]/80 backdrop-blur-md border-[var(--surface-border)]" padding="none">
-      <CardHeader className="px-5 py-3 border-b border-[var(--surface-border)] bg-[var(--bg-surface)]/50">
+      <CardHeader className="px-6 py-3 border-b border-[var(--surface-border)] bg-[var(--bg-surface)]/50">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <FileText size={14} className="text-[var(--text-secondary)]" />
@@ -52,7 +52,7 @@ export const TendersModule: React.FC<TendersModuleProps> = ({ tenders = [] }) =>
                         {tender.title}
                       </h4>
                       <div className="flex items-center gap-2 mt-1">
-                        <span className="text-[9px] text-[var(--text-tertiary)] uppercase tracking-wider font-oswald">
+                        <span className="text-gov-label text-[var(--text-tertiary)] uppercase tracking-wider font-oswald">
                           {tender.client}
                         </span>
                         {tender.status && (
@@ -66,7 +66,7 @@ export const TendersModule: React.FC<TendersModuleProps> = ({ tenders = [] }) =>
                                     tender.status === 'Tender Stage' ? 'var(--color-warning)' : 'var(--color-critical)'
                                 }}
                               />
-                              <span className="text-[9px] font-mono text-[var(--text-tertiary)] uppercase">
+                              <span className="text-gov-label font-mono text-[var(--text-tertiary)] uppercase">
                                 {tender.status}
                               </span>
                             </div>
@@ -78,10 +78,10 @@ export const TendersModule: React.FC<TendersModuleProps> = ({ tenders = [] }) =>
                     {/* Value Badge */}
                     {tender.value && (
                       <div className="shrink-0 px-2 py-1 rounded-md bg-[var(--bg-layer)]/50 border border-[var(--surface-border)]">
-                        <div className="text-xs font-mono font-black italic text-[var(--text-primary)] group-hover:text-[var(--morgan-teal)] transition-colors">
+                        <div className="text-xs font-mono font-bold italic text-[var(--text-primary)] group-hover:text-[var(--morgan-teal)] transition-colors">
                           {(tender.value / 1000000).toFixed(1)}M
                         </div>
-                        <div className="text-[8px] text-[var(--text-tertiary)] uppercase tracking-wider">AED</div>
+                        <div className="text-caption text-[var(--text-tertiary)] uppercase tracking-wider">AED</div>
                       </div>
                     )}
                   </div>
@@ -91,19 +91,19 @@ export const TendersModule: React.FC<TendersModuleProps> = ({ tenders = [] }) =>
                     {/* Team Avatars */}
                     <div className="flex items-center gap-2">
                       <div className="flex -space-x-1.5">
-                        <div className="w-5 h-5 rounded-full bg-[var(--bg-layer)] border border-[var(--surface-border)] flex items-center justify-center text-[9px] font-bold text-[var(--text-tertiary)]">
+                        <div className="w-5 h-5 rounded-full bg-[var(--bg-layer)] border border-[var(--surface-border)] flex items-center justify-center text-gov-label font-bold text-[var(--text-tertiary)]">
                           AB
                         </div>
-                        <div className="w-5 h-5 rounded-full bg-[var(--bg-layer)] border border-[var(--surface-border)] flex items-center justify-center text-[9px] font-bold text-[var(--text-tertiary)]">
+                        <div className="w-5 h-5 rounded-full bg-[var(--bg-layer)] border border-[var(--surface-border)] flex items-center justify-center text-gov-label font-bold text-[var(--text-tertiary)]">
                           MC
                         </div>
                       </div>
-                      <span className="text-[9px] text-[var(--text-tertiary)] font-bold italic">+3</span>
+                      <span className="text-gov-label text-[var(--text-tertiary)] font-bold italic">+3</span>
                     </div>
 
                     {/* Probability Badge */}
                     <div
-                      className="px-2 py-0.5 rounded-md text-[9px] font-bold italic uppercase tracking-wider border"
+                      className="px-2 py-0.5 rounded-md text-gov-label font-bold tracking-wider border"
                       style={{
                         backgroundColor: `${probColor}15`,
                         borderColor: `${probColor}30`,

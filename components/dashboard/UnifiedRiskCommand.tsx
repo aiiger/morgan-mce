@@ -68,7 +68,7 @@ export const UnifiedRiskCommand: React.FC<UnifiedRiskCommandProps> = ({
                 e.stopPropagation();
                 onToggle();
             }}
-            className="p-1 hover:bg-glass rounded text-zinc-500 hover:text-white transition-colors"
+            className="p-1 hover:bg-gray-100 rounded text-gray-500 hover:text-gray-900 transition-colors"
         >
             {isExpanded ? <Minimize2 size={12} /> : <Maximize2 size={12} />}
         </button>
@@ -90,7 +90,7 @@ export const UnifiedRiskCommand: React.FC<UnifiedRiskCommandProps> = ({
                 <div className="flex flex-col h-full">
 
                     {/* Top Section: Heatmap Visualization */}
-                    <div className="p-5 border-b border-border-subtle shrink-0">
+                    <div className="p-6 border-b border-border-subtle shrink-0">
 
                         {/* Status Header */}
                         <div className="flex items-center justify-between mb-4">
@@ -134,12 +134,12 @@ export const UnifiedRiskCommand: React.FC<UnifiedRiskCommandProps> = ({
                                     <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
                                     <div
-                                        className="text-3xl font-oswald font-black italic leading-none mb-2 group-hover:scale-110 transition-transform duration-300"
+                                        className="text-3xl font-oswald font-bold italic leading-none mb-2 group-hover:scale-110 transition-transform duration-300"
                                         style={{ color: `var(${stat.colorVar})` }}
                                     >
                                         {stat.value}
                                     </div>
-                                    <div className="text-[9px] text-[var(--text-tertiary)] font-oswald font-black italic tracking-[0.12em] uppercase">
+                                    <div className="text-gov-label text-[var(--text-tertiary)] font-oswald font-bold italic tracking-[0.12em] uppercase">
                                         {stat.label}
                                     </div>
 
@@ -155,7 +155,7 @@ export const UnifiedRiskCommand: React.FC<UnifiedRiskCommandProps> = ({
 
                     {/* Bottom Section: Signal Feed - Only show full list if expanded or ample height */}
                     <div className="flex-1 bg-bg-surface flex flex-col min-h-0">
-                        <div className="px-5 py-3 border-b border-border-subtle bg-bg-surface/50 flex items-center justify-between shrink-0">
+                        <div className="px-6 py-3 border-b border-border-subtle bg-bg-surface/50 flex items-center justify-between shrink-0">
                             <span className="text-xs font-bold italic text-text-secondary">Live Signals</span>
                             <Activity size={12} className="text-text-tertiary" />
                         </div>
@@ -174,7 +174,7 @@ export const UnifiedRiskCommand: React.FC<UnifiedRiskCommandProps> = ({
                                         {(mode === 'compact' ? alerts.slice(0, 3) : alerts).map((alert, i) => (
                                             <motion.div
                                                 key={i}
-                                                className="px-5 py-3 border-b border-border-subtle hover:bg-bg-hover/20 transition-colors cursor-pointer group"
+                                                className="px-6 py-3 border-b border-border-subtle hover:bg-bg-hover/20 transition-colors cursor-pointer group"
                                                 variants={{
                                                     hidden: { opacity: 0, x: -10 },
                                                     visible: { opacity: 1, x: 0 }

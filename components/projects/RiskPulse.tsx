@@ -16,7 +16,7 @@ export const RiskPulse: React.FC<RiskPulseProps> = ({ status = 'UNKNOWN', score 
       case 'CRITICAL': return 'text-rose-500 bg-rose-500/10 border-rose-500/20 shadow-[0_0_15px_rgba(244,63,94,0.3)] animate-pulse-fast';
       case 'WARNING': return 'text-amber-500 bg-amber-500/10 border-amber-500/20';
       case 'STABLE': return 'text-emerald-500 bg-emerald-500/10 border-emerald-500/20';
-      default: return 'text-zinc-500 bg-white/[0.02] border-white/5';
+      default: return 'text-gray-500 bg-bg-surface border-gray-200';
     }
   };
 
@@ -24,7 +24,7 @@ export const RiskPulse: React.FC<RiskPulseProps> = ({ status = 'UNKNOWN', score 
 
   return (
     <div className={cn(
-      "flex items-center gap-2 px-3 py-1 rounded-full border text-[9px] font-bold italic tracking-[0.15em] transition-all duration-500",
+      "flex items-center gap-2 px-3 py-1 rounded-full border text-gov-label font-bold italic tracking-[0.15em] transition-all duration-500",
       getColors(),
       className
     )}>

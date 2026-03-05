@@ -30,14 +30,14 @@ const RedactionPage = () => {
                 <div>
                     <h3 className="text-lg font-bold italic mb-2">Original Text</h3>
                     <textarea 
-                        className="w-full h-64 bg-zinc-800 border border-zinc-700 rounded-md p-4 text-white"
+                        className="w-full h-64 bg-gray-50 border border-gray-200 rounded-md p-4 text-gray-900"
                         value={inputText}
                         onChange={e => setInputText(e.target.value)}
                     />
                 </div>
                 <div>
                      <h3 className="text-lg font-bold italic mb-2">Redacted Text</h3>
-                    <div className="w-full h-64 bg-zinc-900 border border-zinc-700 rounded-md p-4 text-zinc-400">
+                    <div className="w-full h-64 bg-gray-50 border border-gray-200 rounded-md p-4 text-gray-500">
                         {redactedText}
                     </div>
                 </div>
@@ -45,7 +45,7 @@ const RedactionPage = () => {
             <button 
                 onClick={handleRedact}
                 disabled={loading}
-                className="px-6 py-3 bg-rose-600 text-white font-bold italic rounded-lg disabled:bg-zinc-600"
+                className="px-6 py-3 bg-rose-600 text-white font-bold italic rounded-lg disabled:bg-gray-300"
             >
                 {loading ? 'Redacting...' : 'Redact Text'}
             </button>

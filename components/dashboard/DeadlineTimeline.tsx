@@ -72,11 +72,11 @@ export const DeadlineTimeline: React.FC<DeadlineTimelineProps> = ({ deadlines })
       <div className="flex items-center justify-between mb-6 w-full">
         <div className="flex items-center gap-2">
           <Clock size={14} className="text-[var(--text-tertiary)]" />
-          <span className="text-[10px] font-black italic font-oswald uppercase tracking-[0.2em] text-[var(--text-tertiary)]">
+          <span className="text-caption font-bold italic font-oswald uppercase tracking-[0.2em] text-[var(--text-tertiary)]">
             Mission_Chronology
           </span>
         </div>
-        <div className="flex items-center gap-4 text-[8px] font-black italic font-oswald uppercase tracking-widest text-[var(--text-tertiary)] opacity-60">
+        <div className="flex items-center gap-4 text-caption font-bold italic font-oswald uppercase tracking-widest text-[var(--text-tertiary)] opacity-60">
           <div className="flex items-center gap-1.5">
             <div className="w-1.5 h-1.5 rounded-full bg-[var(--mce-red)]" />
             <span>CRITICAL</span>
@@ -104,7 +104,7 @@ export const DeadlineTimeline: React.FC<DeadlineTimelineProps> = ({ deadlines })
               <div
                 key={deadline.id}
                 className={cn(
-                  "relative flex flex-col w-[280px] p-5 rounded-xl border-2 transition-all duration-300 group hover:shadow-2xl hover:-translate-y-1",
+                  "relative flex flex-col w-[280px] p-6 rounded-xl border-2 transition-all duration-300 group hover:shadow-2xl hover:-translate-y-1",
                   style.bg, style.border
                 )}
               >
@@ -114,22 +114,22 @@ export const DeadlineTimeline: React.FC<DeadlineTimelineProps> = ({ deadlines })
                 {/* Days Display */}
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex flex-col">
-                    <span className={cn("text-4xl font-black italic font-oswald tracking-tighter leading-none", style.text)}>
+                    <span className={cn("text-4xl font-bold italic font-oswald tracking-tighter leading-none", style.text)}>
                       {isPast ? Math.abs(days) : days}
                       <span className="text-sm ml-1 uppercase">{isPast ? 'D_AGO' : 'DAYS'}</span>
                     </span>
                   </div>
-                  <div className={cn("px-2 py-0.5 rounded-sm text-[8px] font-black italic uppercase tracking-widest text-white", style.accent)}>
+                  <div className={cn("px-2 py-0.5 rounded-sm text-caption font-bold tracking-widest text-white", style.accent)}>
                     {style.label}
                   </div>
                 </div>
 
                 {/* Event Details */}
                 <div className="flex-1 mb-4 min-w-0">
-                  <h5 className="text-xs font-black italic uppercase tracking-wide text-[var(--text-primary)] group-hover:text-[var(--brand-accent)] transition-colors line-clamp-2 font-oswald leading-snug">
+                  <h5 className="text-xs font-bold tracking-wide text-[var(--text-primary)] group-hover:text-[var(--brand-accent)] transition-colors line-clamp-2 font-oswald leading-snug">
                     {deadline.title}
                   </h5>
-                  <p className="text-[9px] font-bold text-[var(--text-tertiary)] uppercase tracking-widest mt-1 truncate">
+                  <p className="text-gov-label font-bold text-[var(--text-tertiary)] uppercase tracking-widest mt-1 truncate">
                     {deadline.project}
                   </p>
                 </div>
@@ -137,8 +137,8 @@ export const DeadlineTimeline: React.FC<DeadlineTimelineProps> = ({ deadlines })
                 {/* Technical Meta Footer */}
                 <div className="pt-3 border-t border-[var(--surface-border)] flex items-center justify-between w-full">
                   <div className="flex flex-col">
-                    <span className="text-[7px] font-bold text-[var(--text-tertiary)] uppercase opacity-40 leading-none mb-1 text-left">Target_Date</span>
-                    <span className="text-[10px] font-mono font-black italic text-[var(--text-secondary)]">
+                    <span className="text-caption font-bold text-[var(--text-tertiary)] uppercase opacity-40 leading-none mb-1 text-left">Target_Date</span>
+                    <span className="text-caption font-mono font-bold italic text-[var(--text-secondary)]">
                       {new Date(deadline.dueDate).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase()}
                     </span>
                   </div>

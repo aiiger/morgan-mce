@@ -35,7 +35,7 @@ export const SkeletonLoader: React.FC<SkeletonLoaderProps> = ({
 };
 
 export const CardSkeleton: React.FC = () => (
-  <div className="space-y-4 p-6 bg-white/[0.02] border border-white/[0.05] rounded-xl">
+  <div className="space-y-4 p-6 bg-bg-surface border border-border-base rounded-xl">
     <SkeletonLoader height="h-6" width="w-3/4" />
     <SkeletonLoader count={3} height="h-4" />
     <div className="flex gap-3 pt-4">
@@ -88,7 +88,7 @@ export const QueueSkeleton: React.FC<{ variant?: 'project' | 'tender', count?: n
           </div>
         ) : (
           // Tender Row Skeleton (simpler flex)
-          <div key={i} className="p-4 border-l-2 border-transparent relative bg-white/[0.01]">
+          <div key={i} className="p-4 border-l-2 border-transparent relative bg-bg-surface">
             <div className="flex justify-between mb-2">
               <div className="flex gap-3">
                 <SkeletonLoader height="h-8" width="w-8" />

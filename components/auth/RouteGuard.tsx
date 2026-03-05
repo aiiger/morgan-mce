@@ -38,7 +38,7 @@ export const RouteGuard: React.FC<RouteGuardProps> = ({
           <div className="animate-spin">
             <div className="w-12 h-12 border-4 border-[var(--surface-border)] border-t-white rounded-full"></div>
           </div>
-          <p className="text-zinc-500 text-sm font-bold italic tracking-wide">
+          <p className="text-gray-500 text-sm font-bold italic tracking-wide">
             Loading permissions...
           </p>
         </div>
@@ -57,38 +57,38 @@ export const RouteGuard: React.FC<RouteGuardProps> = ({
             <h1 className="text-2xl font-bold italic tracking-tight text-white font-bold italic text-white tracking-tight">
               Access Denied
             </h1>
-            <p className="text-zinc-400 text-sm font-bold italic max-w-md">
+            <p className="text-gray-500 text-sm font-bold italic max-w-md">
               You need{' '}
               <span className="font-bold italic text-white">{requiredTier}</span>
               {' '}permission or higher to access this page.
             </p>
           </div>
 
-          <div className="mt-8 p-4 bg-white/5 border border-white/10 rounded-lg max-w-md">
-            <h3 className="text-xs font-bold italic tracking-widest text-zinc-400 mb-3">
+          <div className="mt-8 p-4 bg-gray-50 border border-gray-200 rounded-lg max-w-md">
+            <h3 className="text-xs font-bold italic tracking-widest text-gray-500 mb-3">
               Permission Tiers
             </h3>
-            <ul className="space-y-2 text-[11px]">
+            <ul className="space-y-2 text-gov-label">
               <li className="flex items-center space-x-2">
                 <span className="w-2 h-2 rounded-full bg-green-500"></span>
-                <span className="text-zinc-300">L1 - All Users</span>
+                <span className="text-gray-600">L1 - All Users</span>
               </li>
               <li className="flex items-center space-x-2">
                 <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-                <span className="text-zinc-300">L2 - Coordinators</span>
+                <span className="text-gray-600">L2 - Coordinators</span>
               </li>
               <li className="flex items-center space-x-2">
                 <span className="w-2 h-2 rounded-full bg-purple-500"></span>
-                <span className="text-zinc-300">L3 - Executives</span>
+                <span className="text-gray-600">L3 - Executives</span>
               </li>
               <li className="flex items-center space-x-2">
                 <span className="w-2 h-2 rounded-full bg-red-500"></span>
-                <span className="text-zinc-300">L4 - Super Admin</span>
+                <span className="text-gray-600">L4 - Super Admin</span>
               </li>
             </ul>
           </div>
 
-          <p className="text-[10px] text-zinc-500 font-bold italic mt-4">
+          <p className="text-caption text-gray-500 font-bold italic mt-4">
             Contact your administrator if you believe this is an error.
           </p>
         </div>

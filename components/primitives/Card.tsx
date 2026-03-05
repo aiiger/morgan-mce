@@ -19,7 +19,7 @@ export const Card = React.forwardRef<HTMLElement, CardProps>(
         const variants = {
             base: "bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-[var(--shadow-sm)]",
             hover: "bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:bg-[var(--bg-hover)] transition-all duration-200 cursor-pointer shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)]",
-            glass: "bg-zinc-950/40 border border-white/5 backdrop-blur-xl shadow-[var(--shadow-lg)]",
+            glass: "bg-gray-50 border border-gray-200 backdrop-blur-xl shadow-[var(--shadow-lg)]",
         };
 
         const paddings = {

@@ -15,55 +15,55 @@
     --white: #ffffff;
 
     /* =========================================================================
-     DARK MODE (GOLDEN STATE DEFAULT) - RESTORED
+     LIGHT MODE — Default (dark mode not supported)
      ========================================================================= */
-    --bg-base: #050505;
-    --bg-surface: #050505;
-    --bg-layer: #0e0e0e;
-    --bg-hover: #121212;
-    --bg-active: #18181b;
-    --bg-input: #080808;
+    --bg-base: #ffffff;
+    --bg-surface: #ffffff;
+    --bg-layer: #f8f9fa;
+    --bg-hover: #f1f3f5;
+    --bg-active: rgba(81, 162, 168, 0.1);
+    --bg-input: #ffffff;
 
-    /* Surface Aliases - DARK */
-    --surface-base: var(--bg-base);
-    --surface-elevated: var(--bg-surface);
+    /* Surface Aliases */
+    --surface-base: #ffffff;
+    --surface-elevated: var(--bg-layer);
 
-    --text-primary: #f5f5f7;
-    --text-secondary: #a1a1aa;
+    --text-primary: var(--mce-gray);
+    --text-secondary: #5a6c7d;
     --text-tertiary: #71717a;
-    --text-disabled: #52525b;
+    --text-disabled: #aab5be;
     --text-link: var(--mce-teal);
 
-    --surface-border: rgba(255, 255, 255, 0.05);
-    --surface-border-strong: rgba(255, 255, 255, 0.1);
+    --surface-border: rgba(0, 0, 0, 0.08);
+    --surface-border-strong: rgba(0, 0, 0, 0.12);
 
-    /* Sidebar - DARK (Neutral black for clean aesthetic) */
-    --sidebar-bg: #0a0a0a;
-    --sidebar-text: #ffffff;
-    --sidebar-text-muted: #98a2ac;
-    --sidebar-hover: rgba(255, 255, 255, 0.1);
+    /* Sidebar - PANTONE LIGHT BLUE */
+    --sidebar-bg: #a0d0d7;
+    --sidebar-text: #444444;
+    --sidebar-text-muted: rgba(68, 68, 68, 0.6);
+    --sidebar-hover: rgba(255, 255, 255, 0.4);
 
-    /* KPI Cards - DARK (Neutral) */
-    --kpi-bg: #0a0a0a;
-    --kpi-border: rgba(255, 255, 255, 0.05);
-    --kpi-text-primary: #f5f5f7;
-    --kpi-text-label: #a1a1aa;
-    --kpi-accent-bar: transparent;
-    --kpi-shadow: none;
+    /* KPI Cards - White/Teal */
+    --kpi-bg: #ffffff;
+    --kpi-border: rgba(81, 162, 168, 0.2);
+    --kpi-text-primary: #444444;
+    --kpi-text-label: #71717a;
+    --kpi-accent-bar: var(--mce-teal);
+    --kpi-shadow: 0 4px 12px rgba(81, 162, 168, 0.05);
     
-    /* Frame - DARK (Neutral) */
-    --frame-bg: #0a0a0a;
-    --frame-border: rgba(255, 255, 255, 0.05);
-    --frame-shadow: none;
+    /* Frame - Teal */
+    --frame-bg: #ffffff;
+    --frame-border: var(--mce-teal);
+    --frame-shadow: 0 30px 60px -12px rgba(81, 162, 168, 0.2);
 
-    /* Header Glow - DARK (Subtle) */
-    --header-title-glow: 0 0 10px rgba(255, 255, 255, 0.1);
+    /* Header Glow - Vibrant Teal */
+    --header-title-glow: 0 0 15px rgba(81, 162, 168, 0.3);
 
-    /* Semantic Colors - DARK */
+    /* Semantic Colors */
     --morgan-teal: var(--mce-teal);
-    --color-critical: var(--mce-red-accent);
-    --color-warning: #f59e0b;
-    --color-success: #10b981;
+    --color-critical: #dc2626;
+    --color-warning: #d97706;
+    --color-success: #059669;
     --color-info: var(--mce-teal);
 
     --font-sans: 'Inter', system-ui, sans-serif;

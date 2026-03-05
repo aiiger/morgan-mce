@@ -1,12 +1,143 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
-@import './styles/tokens-2026.css';
+@config "./tailwind.config.ts";
+
+/**
+ * MCE COMMAND CENTER 2026 - DESIGN TOKENS (inlined)
+ */
+
+:root {
+    /* =========================================================================
+     PANTONE BRAND PALETTE
+     ========================================================================= */
+    --mce-red: #c21719;
+    --mce-red-accent: #ef5146;
+    --mce-teal: #51a2a8;
+    --mce-teal-soft: #a0d0d7;
+    --mce-gray: #444444;
+    --mce-blue-deep: #1a2a3a;
+    --white: #ffffff;
+
+    /* =========================================================================
+     LIGHT MODE — Default (dark mode not supported)
+     ========================================================================= */
+    --bg-base: #ffffff;
+    --bg-surface: #ffffff;
+    --bg-layer: #f8f9fa;
+    --bg-hover: #f1f3f5;
+    --bg-active: rgba(81, 162, 168, 0.1);
+    --bg-input: #ffffff;
+
+    /* Surface Aliases */
+    --surface-base: #ffffff;
+    --surface-elevated: var(--bg-layer);
+
+    --text-primary: var(--mce-gray);
+    --text-secondary: #5a6c7d;
+    --text-tertiary: #71717a;
+    --text-disabled: #aab5be;
+    --text-link: var(--mce-teal);
+
+    --surface-border: rgba(0, 0, 0, 0.08);
+    --surface-border-strong: rgba(0, 0, 0, 0.12);
+
+    /* Sidebar - PANTONE LIGHT BLUE */
+    --sidebar-bg: #a0d0d7;
+    --sidebar-text: #444444;
+    --sidebar-text-muted: rgba(68, 68, 68, 0.6);
+    --sidebar-hover: rgba(255, 255, 255, 0.4);
+
+    /* KPI Cards - White/Teal */
+    --kpi-bg: #ffffff;
+    --kpi-border: rgba(81, 162, 168, 0.2);
+    --kpi-text-primary: #444444;
+    --kpi-text-label: #71717a;
+    --kpi-accent-bar: var(--mce-teal);
+    --kpi-shadow: 0 4px 12px rgba(81, 162, 168, 0.05);
+    
+    /* Frame - Teal */
+    --frame-bg: #ffffff;
+    --frame-border: var(--mce-teal);
+    --frame-shadow: 0 30px 60px -12px rgba(81, 162, 168, 0.2);
+
+    /* Header Glow - Vibrant Teal */
+    --header-title-glow: 0 0 15px rgba(81, 162, 168, 0.3);
+
+    /* Semantic Colors */
+    --morgan-teal: var(--mce-teal);
+    --color-critical: #dc2626;
+    --color-warning: #d97706;
+    --color-success: #059669;
+    --color-info: var(--mce-teal);
+
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-oswald: 'Oswald', sans-serif;
+    --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 20px; --space-6: 24px; --space-8: 32px;
+    --radius-lg: 12px;
+    --gov-s3: var(--space-3);
+    --gov-radius: var(--radius-lg);
+    --brand-accent: var(--mce-teal);
+}
+
+/* =========================================================================
+   ENHANCED LIGHT MODE - Applied only via data-theme="light"
+   ========================================================================= */
+[data-theme="light"] {
+    --bg-base: #ffffff;
+    --bg-surface: var(--white);
+    --bg-layer: #f8f9fa;
+    --bg-hover: #f1f3f5;
+    --bg-active: rgba(81, 162, 168, 0.1);
+    --bg-input: var(--white);
+
+    /* Surface Aliases - LIGHT */
+    --surface-base: var(--white);
+    --surface-elevated: var(--bg-layer);
+
+    --text-primary: var(--mce-gray);
+    --text-secondary: #5a6c7d;
+    --text-tertiary: #71717a;
+    --text-disabled: #aab5be;
+
+    --surface-border: rgba(0, 0, 0, 0.08);
+    --surface-border-strong: rgba(0, 0, 0, 0.12);
+
+    /* Sidebar - PANTONE LIGHT BLUE (#a0d0d7) ENHANCEMENT */
+    --sidebar-bg: #a0d0d7;
+    --sidebar-text: #444444;
+    --sidebar-text-muted: rgba(68, 68, 68, 0.6);
+    --sidebar-hover: rgba(255, 255, 255, 0.4);
+
+    /* KPI Cards - LIGHT REFINEMENT (White/Teal Border) */
+    --kpi-bg: var(--white);
+    --kpi-border: rgba(81, 162, 168, 0.2);
+    --kpi-text-primary: #444444;
+    --kpi-text-label: #71717a;
+    --kpi-accent-bar: var(--mce-teal);
+    --kpi-shadow: 0 4px 12px rgba(81, 162, 168, 0.05);
+    
+    /* Frame - TEAL FRAME ENHANCEMENT */
+    --frame-bg: var(--white);
+    --frame-border: var(--mce-teal);
+    --frame-shadow: 0 30px 60px -12px rgba(81, 162, 168, 0.2);
+
+    /* Header Glow - LIGHT (Vibrant Teal) */
+    --header-title-glow: 0 0 15px rgba(81, 162, 168, 0.3);
+    --brand-accent: var(--mce-teal);
+
+    /* Semantic Colors - LIGHT (Higher contrast for readability) */
+    --morgan-teal: var(--mce-teal);
+    --color-critical: #dc2626;
+    --color-warning: #d97706;
+    --color-success: #059669;
+    --color-info: var(--mce-teal);
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@theme {
+@theme extend {
     --color-border-base: var(--surface-border);
     --color-bg-base: var(--bg-base);
     --color-text-primary: var(--text-primary);
@@ -14,30 +145,41 @@
 
 @layer base {
     :root {
-        --background: 240 10% 3.9%;
-        --foreground: 0 0% 98%;
-        --card: 240 10% 3.9%;
-        --card-foreground: 0 0% 98%;
-        --popover: 240 10% 3.9%;
-        --popover-foreground: 0 0% 98%;
-        --primary: 0 0% 98%;
-        --primary-foreground: 240 5.9% 10%;
-        --secondary: 240 3.7% 15.9%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 240 3.7% 15.9%;
-        --muted-foreground: 240 5% 64.9%;
-        --accent: 240 3.7% 15.9%;
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 85.7% 97.3%;
-        --border: 240 3.7% 15.9%;
-        --input: 240 3.7% 15.9%;
-        --ring: 240 4.9% 83.9%;
-        --radius: 0.5rem;
+        /* ShadCN base variables - light-only defaults */
+        --background: 0 0% 100%;
+        --foreground: 210 40% 16%;
+        --card: 0 0% 100%;
+        --card-foreground: 210 40% 16%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 210 40% 16%;
+        --primary: 184 35% 48%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 40 18% 92%;
+        --secondary-foreground: 210 40% 16%;
+        --muted: 40 18% 92%;
+        --muted-foreground: 215 15% 42%;
+        --accent: 40 18% 92%;
+        --accent-foreground: 210 40% 16%;
+        --destructive: 355 78% 42%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 210 29% 24% 0.1;
+        --input: 210 29% 24% 0.1;
+        --ring: 184 35% 48%;
+        --radius: 0.75rem;
+
+        /* Void Black Specifics (light-only — no dark overrides) */
+        --void-black: #000000;
+        --neon-cyan: #00f5ff;
+        --glass-border: rgba(0, 0, 0, 0.05);
+        --glass-surface: rgba(255, 255, 255, 0.7);
+        --laser-glow: 0 0 15px var(--mce-teal);
     }
 
     /* Morgan System Light mode mapping for Shadcn consistency */
     [data-theme='light'] {
+        /* Re-assert brand light surfaces */
+        --bg-base: #ffffff;
+        --bg-surface: #ffffff;
         --background: 0 0% 100%;
         /* Matches pure white brand spec */
         --foreground: 210 40% 16%;
@@ -66,12 +208,20 @@
     }
 
     * {
-        @apply border-border-base;
+        border-color: var(--surface-border);
     }
 
     body {
-        @apply bg-bg-base text-text-primary antialiased selection:bg-zinc-700;
+        background-color: var(--bg-base);
+        color: var(--text-primary);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
         font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+    }
+
+    ::selection {
+        background-color: var(--bg-hover);
+        color: var(--text-primary);
     }
 
     /* Golden State DNA Typographic Defaults */
@@ -81,13 +231,58 @@
     h4,
     h5,
     h6 {
-        @apply font-black italic tracking-tighter uppercase;
+        font-weight: 700;
+        letter-spacing: -0.015em;
     }
+}
+
+.neon-border-cyan {
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    box-shadow: 0 0 10px rgba(0, 245, 255, 0.1);
+}
+
+.laser-progress {
+    position: relative;
+    overflow: hidden;
+}
+
+.laser-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.4), transparent);
+    animation: laser-sweep 2s infinite linear;
+}
+
+@keyframes laser-sweep {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.text-neon-cyan {
+    color: #00f5ff;
+    text-shadow: 0 0 8px rgba(0, 245, 255, 0.3);
+}
+
+.glass-panel-mace {
+    background: var(--glass-surface);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
 }
 
 @layer utilities {
     .bg-glass {
-        @apply backdrop-blur-md border border-white/[0.05];
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--surface-border);
         background-color: var(--bg-surface);
     }
 
@@ -114,11 +309,20 @@
     }
 
     .custom-scrollbar::-webkit-scrollbar-thumb {
-        @apply bg-zinc-800 rounded-full hover:bg-zinc-700;
+        background-color: var(--bg-hover);
+        border-radius: 9999px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background-color: var(--bg-active);
     }
 
     [data-theme='light'] .custom-scrollbar::-webkit-scrollbar-thumb {
-        @apply bg-zinc-300 hover:bg-zinc-400;
+        background-color: var(--bg-input);
+    }
+
+    [data-theme='light'] .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background-color: var(--bg-hover);
     }
 
     /* Phantom Red Watermark Effect */
@@ -129,5 +333,13 @@
         letter-spacing: -0.05em;
         pointer-events: none;
         user-select: none;
+    }
+
+    .void-black {
+        background-color: var(--void-black) !important;
+    }
+
+    .border-neon-cyan {
+        border-color: var(--neon-cyan) !important;
     }
 }

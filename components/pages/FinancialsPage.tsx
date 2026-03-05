@@ -67,7 +67,7 @@ export const FinancialsPage: React.FC<FinancialsPageProps> = ({
       revenue: safeInvoices.reduce((sum, inv) => sum + (inv.status === 'Paid' ? Number(inv.amount || 0) : 0), 0),
       receivables: safeInvoices.reduce((sum, inv) => sum + (inv.status !== 'Paid' ? Number(inv.amount || 0) : 0), 0),
       portfolio: safeProjects.reduce((sum, p) => sum + (Number(p.contract_value_excl_vat || 0)), 0),
-      burn: 42.5 // Simulated for visual
+      burn: safeInvoices.length > 0 ? Number(((safeInvoices.reduce((s, inv) => s + Number(inv.amount || 0), 0) / safeProjects.reduce((s, p) => s + Number(p.contract_value_excl_vat || 1), 1)) * 100).toFixed(1)) : 0
    }), [safeInvoices, safeProjects]);
 
    const combinedLedger = useMemo(() => {
@@ -113,10 +113,10 @@ export const FinancialsPage: React.FC<FinancialsPageProps> = ({
                   {item.type === 'INVOICE' ? <FileText size={14} /> : <DollarSign size={14} />}
                </Box>
                <Box className="min-w-0 flex flex-col">
-                  <Text className="truncate text-[13px] font-oswald font-black italic text-[var(--text-primary)] uppercase tracking-wide group-hover:text-[var(--brand-accent)] transition-colors">
+                  <Text className="truncate text-gov-body font-oswald font-bold italic text-[var(--text-primary)] uppercase tracking-wide group-hover:text-[var(--brand-accent)] transition-colors">
                      {item.identification}
                   </Text>
-                  <Text className="text-[10px] font-bold text-[var(--text-tertiary)] uppercase tracking-widest opacity-60">
+                  <Text className="text-caption font-bold text-[var(--text-tertiary)] uppercase tracking-widest opacity-60">
                      {item.client} • {item.project_code}
                   </Text>
                </Box>
@@ -133,12 +133,12 @@ export const FinancialsPage: React.FC<FinancialsPageProps> = ({
             return (
                <Box className="flex flex-col items-center">
                   <Text className={cn(
-                     "text-[13px] font-black font-oswald italic",
+                     "text-gov-body font-bold font-oswald italic",
                      item.status === 'Paid' ? "text-emerald-500" : (daysLeft !== null && daysLeft < 0 ? "text-[var(--mce-red)]" : "text-[var(--brand-accent)]")
                   )}>
                      {item.status === 'Paid' ? 'CLOSED' : (daysLeft !== null ? `${daysLeft}D` : '--')}
                   </Text>
-                  <Text className="text-[8px] font-black uppercase tracking-widest text-[var(--text-tertiary)] opacity-40">Countdown</Text>
+                  <Text className="text-caption font-bold uppercase tracking-widest text-[var(--text-tertiary)] opacity-40">Countdown</Text>
                </Box>
             )
          }
@@ -150,7 +150,7 @@ export const FinancialsPage: React.FC<FinancialsPageProps> = ({
          accessor: (item: any) => (
             <Badge 
                variant={item.status === 'Paid' || item.status === 'Active' ? 'success' : 'outline'} 
-               className="text-[9px] px-3 py-1 font-black italic uppercase tracking-widest"
+               className="text-gov-label px-3 py-1 font-bold tracking-widest"
             >
                {item.status || 'PENDING'}
             </Badge>
@@ -163,12 +163,12 @@ export const FinancialsPage: React.FC<FinancialsPageProps> = ({
          accessor: (item: any) => (
             <Box className="flex flex-col items-end">
                <Box className="flex items-baseline gap-1">
-                  <Text className="text-[9px] font-black italic text-[var(--brand-accent)] opacity-40">AED</Text>
-                  <Text className="text-[13px] font-black font-oswald italic text-[var(--brand-accent)]">
+                  <Text className="text-gov-label font-bold italic text-[var(--brand-accent)] opacity-40">AED</Text>
+                  <Text className="text-gov-body font-bold font-oswald italic text-[var(--brand-accent)]">
                      {((item.value || 0) / 1000000).toFixed(1)}M
                   </Text>
                </Box>
-               <Text className="text-[8px] font-black uppercase tracking-widest text-[var(--text-tertiary)] opacity-60 italic">
+               <Text className="text-caption font-bold uppercase tracking-widest text-[var(--text-tertiary)] opacity-60 italic">
                   {item.type} ENTRY
                </Text>
             </Box>
@@ -207,14 +207,14 @@ export const FinancialsPage: React.FC<FinancialsPageProps> = ({
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
                         className={cn(
-                           "px-5 py-2.5 rounded-lg transition-all duration-300 group",
+                           "px-6 py-2.5 rounded-lg transition-all duration-300 group",
                            activeTab === tab.id
                               ? 'bg-[var(--bg-active)] text-[var(--text-primary)] shadow-sm border border-[var(--surface-border-strong)]'
                               : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-hover)]/40 border border-transparent'
                         )}
                      >
                         <Text variant="gov-header" className={cn(
-                           "text-[10px] font-black italic uppercase tracking-[0.1em] transition-all",
+                           "text-caption font-bold tracking-[0.1em] transition-all",
                            activeTab === tab.id ? "scale-105 text-[var(--text-primary)]" : "text-[var(--text-tertiary)]"
                         )}>
                            {tab.label}
@@ -231,13 +231,13 @@ export const FinancialsPage: React.FC<FinancialsPageProps> = ({
                         placeholder="FISCAL QUERY..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="bg-white border border-[var(--surface-border)] rounded-lg pl-9 pr-4 py-2 text-[10px] font-bold italic font-oswald text-[var(--text-primary)] w-48 focus:outline-none focus:border-[var(--brand-accent)]/30 transition-all placeholder:text-[var(--text-tertiary)]/40"
+                        className="bg-white border border-[var(--surface-border)] rounded-lg pl-9 pr-4 py-2 text-caption font-bold italic font-oswald text-[var(--text-primary)] w-48 focus:outline-none focus:border-[var(--brand-accent)]/30 transition-all placeholder:text-[var(--text-tertiary)]/40"
                      />
                   </div>
                   <button onClick={() => safeExportToCSV(combinedLedger, 'MCE_Fiscal_Ledger')} className="p-2 text-[var(--text-tertiary)] hover:text-[var(--brand-accent)] transition-colors">
                      <Download size={16} />
                   </button>
-                  <GlassButton onClick={() => setIsFormOpen(true)} className="px-4 py-2 rounded-lg text-[9px] font-bold tracking-widest bg-[var(--brand-accent)] text-white hover:opacity-90">
+                  <GlassButton onClick={() => setIsFormOpen(true)} className="px-4 py-2 rounded-lg text-gov-label font-bold tracking-widest bg-[var(--brand-accent)] text-white hover:opacity-90">
                      <Plus size={14} className="mr-2" /> Register Entry
                   </GlassButton>
                </div>
@@ -250,7 +250,7 @@ export const FinancialsPage: React.FC<FinancialsPageProps> = ({
             <div className="lg:col-span-2 flex flex-col h-full overflow-hidden">
                <div className="px-8 py-3 border-b border-[var(--surface-border)] bg-[var(--bg-layer)]/30 flex items-center">
                   <TrendingUp size={12} className="text-[var(--brand-accent)] mr-2" />
-                  <span className="text-[10px] font-black italic font-oswald text-[var(--text-tertiary)] uppercase tracking-widest">Unified Fiscal Ledger • Verified Records</span>
+                  <span className="text-caption font-bold italic font-oswald text-[var(--text-tertiary)] uppercase tracking-widest">Unified Fiscal Ledger • Verified Records</span>
                </div>
                <div className="flex-1 overflow-hidden">
                   {combinedLedger.length > 0 ? (
@@ -281,8 +281,8 @@ export const FinancialsPage: React.FC<FinancialsPageProps> = ({
                {safePOs.length > 0 && (
                   <div className="space-y-4">
                      <div className="flex justify-between items-center px-1">
-                        <h3 className="text-[10px] font-black italic font-oswald text-[var(--text-tertiary)] uppercase tracking-[0.2em]">Purchase Order Control</h3>
-                        <span className="text-[9px] font-mono font-bold text-[var(--brand-accent)]">{safePOs.length} ACTIVE</span>
+                        <h3 className="text-caption font-bold italic font-oswald text-[var(--text-tertiary)] uppercase tracking-[0.2em]">Purchase Order Control</h3>
+                        <span className="text-gov-label font-mono font-bold text-[var(--brand-accent)]">{safePOs.length} ACTIVE</span>
                      </div>
                      <div className="grid grid-cols-1 gap-3">
                         {safePOs.map(po => (
@@ -291,14 +291,14 @@ export const FinancialsPage: React.FC<FinancialsPageProps> = ({
                               po.remaining_balance < 0 ? "border-[var(--mce-red)] shadow-[0_0_15px_rgba(194,23,25,0.1)]" : "border-[var(--surface-border)] hover:border-[var(--brand-accent)]/30"
                            )}>
                               <div className="flex justify-between items-start mb-2">
-                                 <span className="text-[9px] font-bold text-[var(--text-tertiary)] font-mono tracking-tighter opacity-60">{po.po_number}</span>
+                                 <span className="text-gov-label font-bold text-[var(--text-tertiary)] font-mono tracking-tighter opacity-60">{po.po_number}</span>
                                  {po.remaining_balance < 0 && <AlertCircle size={12} className="text-[var(--mce-red)] animate-pulse" />}
                               </div>
-                              <h4 className="text-[11px] font-black italic font-oswald text-[var(--text-primary)] uppercase truncate mb-2">{po.vendor_name}</h4>
+                              <h4 className="text-gov-label font-bold italic font-oswald text-[var(--text-primary)] uppercase truncate mb-2">{po.vendor_name}</h4>
                               <div className="flex justify-between items-baseline pt-2 border-t border-[var(--surface-border)]/50">
-                                 <span className="text-[8px] font-bold text-[var(--text-tertiary)] uppercase">Remaining Balance</span>
+                                 <span className="text-caption font-bold text-[var(--text-tertiary)] uppercase">Remaining Balance</span>
                                  <span className={cn(
-                                    "text-[12px] font-black font-mono italic",
+                                    "text-xs font-bold font-mono italic",
                                     po.remaining_balance < 0 ? "text-[var(--mce-red)]" : "text-emerald-600"
                                  )}>AED {Number(po.remaining_balance).toLocaleString()}</span>
                               </div>

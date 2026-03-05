@@ -1,0 +1,21 @@
+{
+  "runId": "2026-03-01T16-47-28-967Z",
+  "createdAt": "2026-03-01T16:55:32.175Z",
+  "targetUrl": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/dashboard",
+  "snapshotCount": 34,
+  "requiredCheckpoints": [
+    "baseline-loaded",
+    "creation-entry-opened",
+    "minimum-fields-populated",
+    "submit-invoked",
+    "persistence-verified",
+    "failure-path-observed"
+  ],
+  "files": [
+    "manifest.json",
+    "snapshots.json",
+    "events.jsonl",
+    "network.har",
+    "trace.zip"
+  ]
+}

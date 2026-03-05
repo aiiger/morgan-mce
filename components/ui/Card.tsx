@@ -9,16 +9,16 @@ interface CardProps {
 }
 
 const variantStyles = {
-  default: 'bg-glass-subtle border border-glass shadow-sm backdrop-blur-md',
-  elevated: 'bg-glass shadow-lg border border-glass-strong backdrop-blur-xl',
-  outlined: 'bg-transparent border-2 border-glass',
+  default: 'bg-gray-50/80 border border-gray-200 shadow-sm backdrop-blur-md',
+  elevated: 'bg-white shadow-lg border border-gray-200-strong backdrop-blur-xl',
+  outlined: 'bg-transparent border-2 border-gray-200',
   interactive: `
-    bg-glass-subtle border border-glass
+    bg-gray-50/80 border border-gray-200
     transition-all duration-300 ease-out
-    hover:border-brand-500/40 hover:bg-glass-elevated hover:shadow-glow-strong hover:-translate-y-1 hover:scale-[1.01]
+    hover:border-brand-500/40 hover:bg-white-elevated hover:shadow-glow-strong hover:-translate-y-1 hover:scale-[1.01]
     cursor-pointer group
   `,
-  matte: 'matte-surface border border-glass'
+  matte: 'matte-surface border border-gray-200'
 };
 
 const paddingStyles = {
@@ -41,7 +41,7 @@ export function CardHeader({ children, className }: { children: React.ReactNode;
 }
 
 export function CardTitle({ children, className }: { children: React.ReactNode; className?: string }) {
-  return <h3 className={cn('text-sm font-bold italic text-white min-w-0 truncate flex-1', className)}>{children}</h3>;
+  return <h3 className={cn('text-sm font-bold italic text-gray-900 min-w-0 truncate flex-1', className)}>{children}</h3>;
 }
 
 export function CardContent({ children, className }: { children: React.ReactNode; className?: string }) {

@@ -1,0 +1,80 @@
+NexusCopilot.tsx L152: 
+NexusCopilot.tsx L153: 
+NexusCopilot.tsx L154: 
+RouteGuard.tsx L41: 
+RouteGuard.tsx L60: 
+RouteGuard.tsx L67: 
+RouteGuard.tsx L68: 
+RouteGuard.tsx L74: 
+RouteGuard.tsx L78: 
+RouteGuard.tsx L82: 
+RouteGuard.tsx L86: 
+RouteGuard.tsx L91: 
+DailyBriefingCard.tsx L31: 
+DailyBriefingCard.tsx L32: 
+DeadlineQueueList.tsx L37: <div className="p-8 text-center text-zinc-500 text-xs font-bold italic opacity-50">No Pending Tasks<
+DocumentsModule.tsx L62: 
+DocumentsModule.tsx L69: className="flex items-center space-x-2 text-xs font-bold italic text-zinc-500 hover:text-zinc-300 tr
+DocumentsModule.tsx L80: 
+LiabilityTracker.tsx L98: 
+NotificationsModule.tsx L11: 
+NotificationsModule.tsx L13: 
+ProjectList.tsx L43: <Box className="grid grid-cols-12 gap-4 px-8 py-3 bg-[var(--brand-accent)] border-b border-white/10 
+ProjectsModule.tsx L96: <div className={`w-1.5 h-1.5 rounded-full animate-pulse ${(project.completion_percentage || project.
+RiskHeatmap.tsx L37: 
+RiskHeatmap.tsx L38: 
+RiskHeatmap.tsx L46: <div className="bg-zinc-500 h-full transition-all duration-1000 opacity-60" style={{ width: getWidth
+RiskHeatmap.tsx L55: 
+RiskHeatmap.tsx L62: 
+RiskHeatmap.tsx L68: 
+RiskHeatmap.tsx L69: 
+RiskHeatmap.tsx L76: 
+RiskHeatmapV2.tsx L312: 
+StrategicVolumeChart.tsx L89: <Text variant="gov-metric" className={criticalUnits > 0 ? 'text-rose-500 animate-pulse text-sm' : 't
+SystemStatusConsole.tsx L61: 
+SystemStatusConsole.tsx L104: <div key={i} className={`text-xs font-mono truncate ${i === 0 ? 'text-emerald-400' : 'text-zinc-600'
+TenderList.tsx L13: 
+TenderList.tsx L37: 
+DocumentsPage.tsx L117: <div className="grid grid-cols-12 gap-4 px-8 py-3 bg-[var(--brand-accent)] border-b border-white/10 
+FieldOperationsPage.tsx L151: { l: 'Management', v: manpower?.management.present || 0, t: manpower?.management.planned || 0, c: 'b
+IntegrationsPage.tsx L132: 
+IntegrationsPage.tsx L167: 
+LiabilityDashboard.tsx L136: 
+LiabilityDashboard.tsx L145: 
+LiabilityDashboard.tsx L146: 
+LiabilityDashboard.tsx L173: 
+LiabilityDashboard.tsx L174: 
+LiabilityDashboard.tsx L175: 
+NotificationsPage.tsx L140: 
+ProjectsPage.tsx L89: <img src={p.project_logo_url} alt="Logo" className="w-8 h-8 rounded object-cover border border-white
+ProjectsPage.tsx L118: 
+ProjectsPage.tsx L132: 
+ProjectsPage.tsx L145: 
+ProjectsPage.tsx L201: 
+ProjectsPage.tsx L204: 
+ProjectsPage.tsx L240: <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-600 group-focus-within:text-em
+ReportsPage.tsx L207: <div className="grid grid-cols-12 gap-4 px-8 py-3 bg-[var(--brand-accent)] border-b border-white/10"
+SettingsPage.tsx L21: 
+SettingsPage.tsx L73: <h3 className="text-xs font-bold italic text-zinc-500 tracking-[0.2em] mb-1">Administrative Audit Tr
+SettingsPage.tsx L74: <p className="text-caption text-zinc-400">Live monitoring of all ledger and resource interactions.</
+SettingsPage.tsx L85: 
+SettingsPage.tsx L86: 
+SettingsPage.tsx L87: 
+SettingsPage.tsx L88: 
+SettingsPage.tsx L89: 
+SettingsPage.tsx L90: 
+SettingsPage.tsx L95: 
+SettingsPage.tsx L96: 
+SettingsPage.tsx L104: 
+SettingsPage.tsx L112: 
+SettingsPage.tsx L115: 
+SettingsPage.tsx L122: 
+SettingsPage.tsx L136: 
+SettingsPage.tsx L143: 
+ProjectTimeline.tsx L25: 
+ProjectTimeline.tsx L32: return <GlassPanel className="p-6 text-center text-zinc-500">Project start or end date not set.</Gla
+ProjectTimeline.tsx L37: return <GlassPanel className="p-6 text-center text-zinc-500">Invalid project date range.</GlassPanel
+TaskKanbanView.tsx L20: 
+StatusBadge.tsx L45: 
+StatusBadge.tsx L54: 
+StatusBadge.tsx L55: 

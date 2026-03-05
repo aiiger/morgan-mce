@@ -12,15 +12,22 @@ interface CategoryModalProps {
 }
 
 const colors = [
-    '#EF4444', '#F97316', '#F59E0B', '#10B981',
-    '#3B82F6', '#6366F1', '#8B5CF6', '#EC4899',
-    '#64748B', '#71717A'
+    'var(--color-critical)',
+    'var(--color-warning)',
+    'var(--color-success)',
+    'var(--brand-accent)',
+    'var(--mce-red)',
+    'var(--mce-red-accent)',
+    'var(--mce-teal)',
+    'var(--mce-teal-soft)',
+    'var(--text-secondary)',
+    'var(--text-tertiary)'
 ];
 
 export const CategoryModal: React.FC<CategoryModalProps> = ({ onClose, categories, onUpdate, category }) => {
     const { getClient } = useSupabase();
     const [newName, setNewName] = useState(category?.name || '');
-    const [newColor, setNewColor] = useState(category?.color || '#3B82F6');
+    const [newColor, setNewColor] = useState(category?.color || 'var(--brand-accent)');
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -71,14 +78,14 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({ onClose, categorie
     };
 
     return (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-[500] p-4">
-            <div className="bg-[#0f172a] border border-white/10 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl animate-in zoom-in duration-300">
-                <div className="p-6 border-b border-white/5 flex justify-between items-center bg-white/5">
-                    <h2 className="text-xl font-bold italic text-white tracking-tight flex items-center">
+        <div className="fixed inset-0 bg-white/30 backdrop-blur-sm flex items-center justify-center z-[500] p-4">
+            <div className="bg-bg-base border border-gray-200 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl animate-in zoom-in duration-300">
+                <div className="p-6 border-b border-gray-200 flex justify-between items-center bg-gray-50">
+                    <h2 className="text-xl font-bold italic text-gray-900 tracking-tight flex items-center">
                         <Tag className="mr-3 text-[var(--color-info)]" size={20} />
                         MANAGE CATEGORIES
                     </h2>
-                    <button onClick={onClose} className="text-slate-400 hover:text-white transition-colors">
+                    <button onClick={onClose} className="text-slate-400 hover:text-gray-900 transition-colors">
                         <X size={24} />
                     </button>
                 </div>
@@ -86,18 +93,18 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({ onClose, categorie
                 <div className="p-6 space-y-6">
                     {/* Create/Edit */}
                     <div className="space-y-4">
-                        <label className="text-[10px] font-bold italic tracking-widest text-slate-500">{category ? 'Update' : 'Create New'} Category</label>
+                        <label className="text-caption font-bold italic tracking-widest text-slate-500">{category ? 'Update' : 'Create New'} Category</label>
                         <div className="flex gap-2">
                             <input
                                 value={newName}
                                 onChange={e => setNewName(e.target.value)}
                                 placeholder="Category name..."
-                                className="flex-1 bg-slate-900 border border-white/10 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-[var(--color-info)]/50 transition-all"
+                                className="flex-1 bg-white border border-gray-200 rounded-xl px-4 py-2 text-sm text-gray-900 focus:outline-none focus:border-[var(--color-info)]/50 transition-all"
                             />
                             <button
                                 onClick={handleSave}
                                 disabled={loading || !newName.trim()}
-                                className="bg-[var(--color-info)] text-[#0f172a] px-4 py-2 rounded-xl font-bold italic hover:bg-[#20B2AA] transition-all disabled:opacity-50"
+                                className="bg-[var(--color-info)] text-slate-900 px-4 py-2 rounded-xl font-bold italic hover:bg-teal-500 transition-all disabled:opacity-50"
                             >
                                 {category ? <Save size={20} /> : <Plus size={20} />}
                             </button>
@@ -114,14 +121,14 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({ onClose, categorie
                         </div>
                     </div>
 
-                    <div className="border-t border-white/5 pt-6">
-                        <label className="text-[10px] font-bold italic tracking-widest text-slate-500 block mb-4">Existing Categories</label>
-                        <div className="space-y-2 max-h-[200px] overflow-y-auto custom-scrollbar pr-2">
+                    <div className="border-t border-gray-200 pt-6">
+                        <label className="text-caption font-bold italic tracking-widest text-slate-500 block mb-4">Existing Categories</label>
+                        <div className="space-y-2 max-h-[200px] overflow-y-auto overflow-auto pr-2">
                             {categories.map(cat => (
-                                <div key={cat.id} className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/5 group">
+                                <div key={cat.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-200 group">
                                     <div className="flex items-center">
                                         <div className="w-3 h-3 rounded-full mr-3" style={{ backgroundColor: cat.color }} />
-                                        <span className="text-sm font-bold italic text-white tracking-wide">{cat.name}</span>
+                                        <span className="text-sm font-bold italic text-gray-900 tracking-wide">{cat.name}</span>
                                     </div>
                                     <button
                                         onClick={() => handleDelete(cat.id)}
@@ -138,10 +145,10 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({ onClose, categorie
                     </div>
                 </div>
 
-                <div className="p-6 bg-white/5 border-t border-white/10 flex justify-end">
+                <div className="p-6 bg-gray-50 border-t border-gray-200 flex justify-end">
                     <button
                         onClick={onClose}
-                        className="px-6 py-2 bg-white/5 text-white rounded-xl font-bold italic hover:bg-white/10 transition-all"
+                        className="px-6 py-2 bg-gray-50 text-gray-900 rounded-xl font-bold italic hover:bg-gray-50 transition-all"
                     >
                         Close
                     </button>

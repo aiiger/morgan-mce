@@ -194,7 +194,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           {!collapsed && (
             <span
               className={cn(
-                "ml-4 transition-colors whitespace-nowrap flex-1 text-left text-[11px] font-oswald font-bold italic uppercase tracking-[0.15em]",
+                "ml-4 transition-colors whitespace-nowrap flex-1 text-left text-gov-label font-oswald font-bold tracking-[0.15em]",
                 isActive ? 'text-[var(--color-text-primary)]' : 'text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)]'
               )}
             >
@@ -230,7 +230,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           style={{ paddingLeft: collapsed ? 'var(--sidebar-collapsed-logo-pl)' : 'var(--sidebar-logo-pl)' }}
           className="flex items-center transition-all duration-300"
         >
-          <span className="font-oswald italic font-black text-[22px] tracking-tight select-none text-[var(--sidebar-text)]">
+          <span className="font-oswald italic font-bold text-xl tracking-tight select-none text-[var(--sidebar-text)]">
             {collapsed ? 'M' : 'Morgan'}
           </span>
         </div>
@@ -258,7 +258,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   className="w-full flex items-center justify-between pr-4 mb-[var(--space-2)] group/section hover:bg-[var(--sidebar-hover)] rounded-md transition-all cursor-pointer"
                 >
                   <h4
-                    className="flex-1 text-left text-[10px] text-text-tertiary uppercase tracking-[0.2em] font-oswald font-bold italic group-hover/section:text-[var(--text-secondary)] transition-colors"
+                    className="flex-1 text-left text-caption text-text-tertiary uppercase tracking-[0.2em] font-oswald font-bold italic group-hover/section:text-[var(--text-secondary)] transition-colors"
                   >
                     {group.title}
                   </h4>
@@ -292,7 +292,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <div className="w-4 flex justify-center shrink-0">
             <Users size={14} strokeWidth={1.5} />
           </div>
-          {!collapsed && <span className="ml-4 text-[11px] font-oswald font-bold italic uppercase tracking-[0.15em]">Profile</span>}
+          {!collapsed && <span className="ml-4 text-gov-label font-oswald font-bold tracking-[0.15em]">Profile</span>}
         </button>
 
         <button
@@ -303,7 +303,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <div className="w-4 flex justify-center shrink-0">
             <Settings size={14} strokeWidth={1.5} />
           </div>
-          {!collapsed && <span className="ml-4 text-[11px] font-oswald font-bold italic uppercase tracking-[0.15em]">Settings</span>}
+          {!collapsed && <span className="ml-4 text-gov-label font-oswald font-bold tracking-[0.15em]">Settings</span>}
         </button>
 
         <div className="h-1" />
@@ -316,7 +316,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <div className="w-4 flex justify-center shrink-0">
             <LogOut size={14} strokeWidth={1.5} />
           </div>
-          {!collapsed && <span className="ml-4 text-[11px] font-oswald font-bold italic uppercase tracking-[0.15em]">Terminal</span>}
+          {!collapsed && <span className="ml-4 text-gov-label font-oswald font-bold tracking-[0.15em]">Terminal</span>}
         </button>
       </div>
 

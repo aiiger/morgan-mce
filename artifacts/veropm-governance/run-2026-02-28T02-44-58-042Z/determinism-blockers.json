@@ -1,0 +1,6 @@
+{
+  "blockers": [
+    "No API persistence event was detected after entity creation.",
+    "Implicit assumptions remain. See assumptions list for unresolved semantics."
+  ]
+}

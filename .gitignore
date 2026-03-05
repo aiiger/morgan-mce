@@ -47,13 +47,48 @@ tsconfig.tsbuildinfo
 .env.local
 ai_service/.env
 
-# Local scratch
+# Local scratch & logs
 lint_log.txt
 nul
+n
+*.log
+dev-server.log
+debug-storybook.log
+build-storybook.log
+models_dump.txt
+chat.json
+migration_payload.json
 
-
+# Storybook
 *storybook.log
-storybook-static
+storybook-static/
+
+# Build outputs
+dist/
+test-results/
+reports/
+tsconfig.tsbuildinfo
+
+# Binary / non-code files (should not be in repo)
+*.exe
+*.msi
+*.pdf
+*.xlsx
+*.xls
+*.png
+*.jpg
+*.jpeg
+!public/**
+
+# Editor & AI-agent tool caches
+.gemini-clipboard/
+.gemini-guides/
+.ruff_cache/
+.sisyphus/
+.serena/
+.ralph-tui/
 
 # Private Management Scripts
 *.bat
+*.bak
+remove-blue-colors.ps1

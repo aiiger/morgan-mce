@@ -42,7 +42,7 @@ export const MetricBlock: React.FC<MetricBlockProps> = ({
         <motion.div
             whileHover={{ y: -2, scale: 1.01 }}
             className={cn(
-                "relative group flex flex-col p-5 rounded-xl border transition-all duration-300",
+                "relative group flex flex-col p-6 rounded-xl border transition-all duration-300",
                 "bg-[var(--kpi-bg)] border-[var(--kpi-border)] shadow-[var(--kpi-shadow)]",
                 className
             )}
@@ -52,19 +52,19 @@ export const MetricBlock: React.FC<MetricBlockProps> = ({
 
             {/* Label Row */}
             <Box className="flex justify-between items-start mb-4">
-                <Text className="text-[10px] font-black italic uppercase tracking-[0.2em] text-[var(--kpi-text-label)]">
+                <Text className="text-caption font-bold tracking-[0.2em] text-[var(--kpi-text-label)]">
                     {label}
                 </Text>
             </Box>
 
             {/* Value Row */}
             <Box className="flex items-baseline gap-1.5 mb-1">
-                <Text className="text-4xl font-black italic tracking-tighter font-oswald leading-none text-[var(--kpi-text-primary)]">
-                    {isCurrency && <span className="text-[14px] align-top mr-0.5 opacity-60">AED</span>}
+                <Text className="text-4xl font-bold italic tracking-tighter font-oswald leading-none text-[var(--kpi-text-primary)]">
+                    {isCurrency && <span className="text-sm align-top mr-0.5 opacity-60">AED</span>}
                     {formattedValue}
                 </Text>
                 {unit && !isCurrency && (
-                    <Text className="text-[10px] font-black italic uppercase tracking-widest text-[var(--kpi-text-label)] opacity-60">
+                    <Text className="text-caption font-bold tracking-widest text-[var(--kpi-text-label)] opacity-60">
                         {unit}
                     </Text>
                 )}
@@ -74,18 +74,18 @@ export const MetricBlock: React.FC<MetricBlockProps> = ({
             <Box className="mt-auto pt-3 flex items-center justify-between border-t border-[var(--surface-border)]">
                 {trend ? (
                     <Box className={cn(
-                        "flex items-center gap-1 text-[10px] font-black italic font-oswald uppercase",
+                        "flex items-center gap-1 text-caption font-bold italic font-oswald uppercase",
                         trend.type === 'up' ? "text-emerald-500" : "text-[var(--mce-red)]"
                     )}>
                         {trend.type === 'up' ? '↑' : '↓'} {trend.value}%
-                        <span className="text-[8px] opacity-40 font-sans tracking-tight ml-1 font-normal not-italic">vs prev</span>
+                        <span className="text-caption opacity-40 font-sans tracking-tight ml-1 font-normal not-italic">vs prev</span>
                     </Box>
                 ) : (
                     <div />
                 )}
 
                 {lastAudited && (
-                    <Text className="text-[8px] text-[var(--kpi-text-label)] font-bold uppercase tracking-widest opacity-40">
+                    <Text className="text-caption text-[var(--kpi-text-label)] font-bold uppercase tracking-widest opacity-40">
                         LOCK_{lastAudited}
                     </Text>
                 )}

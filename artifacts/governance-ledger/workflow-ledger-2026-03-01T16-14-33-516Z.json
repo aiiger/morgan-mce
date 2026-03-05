@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-03-01T16:14:33.516Z",
+  "runs": [
+    {
+      "run": "run-2026-03-01T16-13-22-693Z",
+      "workflow": {
+        "captured": false,
+        "detail": "create=false, update=false"
+      },
+      "portfolio": {
+        "captured": false,
+        "detail": "No portfolio mutation"
+      },
+      "approval": {
+        "captured": false,
+        "detail": "No approval mutation"
+      },
+      "documentsUpload": {
+        "captured": false,
+        "detail": "No document upload mutation"
+      },
+      "documentsUpdate": {
+        "captured": false,
+        "detail": "No document update mutation"
+      }
+    }
+  ]
+}

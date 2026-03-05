@@ -33,7 +33,7 @@ export const DeadlineList: React.FC<DeadlineListProps> = ({ tasks = [] }) => {
 
     return (
         <Card className="h-full bg-[var(--bg-surface)]/80 backdrop-blur-md border-[var(--surface-border)]" padding="none">
-            <CardHeader className="px-5 py-3 border-b border-[var(--surface-border)] bg-[var(--bg-surface)]/50">
+            <CardHeader className="px-6 py-3 border-b border-[var(--surface-border)] bg-[var(--bg-surface)]/50">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                         <Clock size={14} className="text-[var(--text-secondary)]" />
@@ -65,12 +65,12 @@ export const DeadlineList: React.FC<DeadlineListProps> = ({ tasks = [] }) => {
                                         <h4 className="text-xs font-bold italic text-[var(--text-primary)] group-hover:text-[var(--morgan-teal)] transition-colors line-clamp-2">
                                             {task.title}
                                         </h4>
-                                        <span className="text-[9px] text-[var(--text-tertiary)] uppercase tracking-wider font-oswald">
+                                        <span className="text-gov-label text-[var(--text-tertiary)] uppercase tracking-wider font-oswald">
                                             {task.project}
                                         </span>
                                     </div>
                                     <div className={`flex flex-col items-end shrink-0 ml-3 ${isUrgent ? 'animate-pulse' : ''}`}>
-                                        <span className={`text-2xl font-mono font-black italic leading-none ${days < 0 ? 'text-[var(--color-critical)]' :
+                                        <span className={`text-2xl font-mono font-bold italic leading-none ${days < 0 ? 'text-[var(--color-critical)]' :
                                             isUrgent ? 'text-[var(--color-critical)]' :
                                             days <= 7 ? 'text-[var(--color-warning)]' : 'text-[var(--color-success)]'
                                             }`}>

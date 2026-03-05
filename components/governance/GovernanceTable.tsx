@@ -105,7 +105,7 @@ export function GovernanceTable<T>({
                                                     {colIdx === 0 && auditLabel && (
                                                         <Box className="flex items-center gap-2 mt-1.5 opacity-50">
                                                             <Box className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
-                                                            <Text variant="gov-label" color="success" className="text-[8px] tracking-tight">
+                                                            <Text variant="gov-label" color="success" className="text-caption tracking-tight">
                                                                 VERIFIED: {auditLabel}
                                                             </Text>
                                                         </Box>

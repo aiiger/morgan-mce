@@ -32,16 +32,16 @@ export const DeadlineQueueList: React.FC<DeadlineQueueListProps> = ({ tasks = []
     }
 
     return (
-        <div className="divide-y divide-white/[0.05] flex-col h-full">
+        <div className="divide-y divide-border-base flex-col h-full">
             {sortedTasks.length === 0 ? (
-                <div className="p-8 text-center text-zinc-500 text-xs font-bold italic opacity-50">No Pending Tasks</div>
+                <div className="p-8 text-center text-gray-500 text-xs font-bold italic opacity-50">No Pending Tasks</div>
             ) : (
                 (limit ? sortedTasks.slice(0, limit) : sortedTasks).map((task) => {
                     const days = getDaysRemaining(task.dueDate);
                     const isUrgent = days <= 3;
 
                     return (
-                        <div key={task.id} className="p-4 hover:bg-glass-subtle transition-colors group cursor-pointer relative overflow-hidden">
+                        <div key={task.id} className="p-4 hover:bg-gray-50 transition-colors group cursor-pointer relative overflow-hidden">
                             {isUrgent && (
                                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-rose-500 to-amber-600 opacity-80" />
                             )}
@@ -49,7 +49,7 @@ export const DeadlineQueueList: React.FC<DeadlineQueueListProps> = ({ tasks = []
                             <div className="flex items-start justify-between mb-1.5 pl-2">
                                 <div className="flex flex-col gap-0.5">
                                     <Badge>{task.project}</Badge>
-                                    <h4 className="text-[13px] font-bold italic text-text-primary group-hover:text-text-primary transition-colors line-clamp-1">
+                                    <h4 className="text-gov-body font-bold italic text-text-primary group-hover:text-text-primary transition-colors line-clamp-1">
                                         {task.title}
                                     </h4>
                                 </div>

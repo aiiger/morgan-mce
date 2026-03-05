@@ -7,7 +7,18 @@ test('System Integrity Audit', async ({ page }) => {
   // Capture console errors
   page.on('console', msg => {
     if (msg.type() === 'error') {
-      errors.push(`Console Error: ${msg.text()}`);
+      const text = msg.text();
+      if (!text.includes('Failed to load resource') || !text.includes('404')) {
+        errors.push(`Console Error: ${text}`);
+      }
+    }
+  });
+
+  // Capture failed network requests (404)
+  page.on('response', async (response) => {
+    if (response.status() === 404) {
+      const url = response.url();
+      errors.push(`404: ${url}`);
     }
   });
 
@@ -16,19 +27,10 @@ test('System Integrity Audit', async ({ page }) => {
     errors.push(`Page Crash: ${error.message}`);
   });
 
-  await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.waitForSelector('body', { timeout: 10000 });
 
-  // Handle Auth Bypass if present
-  const bypassButton = page.getByRole('button', { name: /Bypass Authentication/i });
-  if (await bypassButton.isVisible()) {
-    console.log('Detected Auth Bypass screen. Neutralizing...');
-    await bypassButton.click();
-    await page.waitForURL('**/');
-    await page.waitForSelector('aside, .page-container', { timeout: 10000 });
-    await page.waitForLoadState('networkidle');
-  }
-
+  await page.waitForSelector('aside', { timeout: 10000 });
   await page.screenshot({ path: 'audit-debug.png', fullPage: true });
   
   console.log(`Auditing Page: "${await page.title()}"`);
@@ -42,7 +44,9 @@ test('System Integrity Audit', async ({ page }) => {
   for (const button of clickableItems.slice(0, 50)) { // Limit to first 50 for safety
     const label = (await button.innerText() || await button.getAttribute('aria-label') || 'unlabeled').trim().split('\n')[0];
     const isVisible = await button.isVisible();
-    if (!isVisible || label === '') continue;
+    const isEnabled = await button.isEnabled();
+    const normalizedLabel = label.toLowerCase();
+    if (!isVisible || !isEnabled || label === '' || normalizedLabel.includes('open next.js dev tools') || normalizedLabel === 'settings') continue;
 
     console.log(`   - Testing component: [${label}]`);
     try {

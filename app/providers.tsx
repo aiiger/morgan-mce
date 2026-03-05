@@ -36,22 +36,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
     return <div />;
   }
 
-  // If no Clerk key, the system is misconfigured
+  // If no Clerk key, we bypass authentication for testing/local development
   if (!clerkKey) {
-    return (
-      <div className="h-screen w-screen flex items-center justify-center bg-zinc-950 text-white font-sans">
-        <div className="p-8 border border-red-500/30 bg-red-500/5 rounded-2xl max-w-md text-center">
-          <h2 className="text-xl font-black italic uppercase font-oswald mb-4">Security Breach Protocol</h2>
-          <p className="text-sm text-zinc-400 leading-relaxed mb-6">
-            The system identity core (Clerk) is not initialized. 
-            All access nodes have been locked for your protection.
-          </p>
-          <div className="text-[10px] font-mono text-red-500/60 uppercase tracking-widest">
-            ERROR_CODE: CLERK_KEY_MISSING
-          </div>
-        </div>
-      </div>
-    );
+    return content;
   }
 
   return (

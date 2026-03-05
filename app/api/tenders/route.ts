@@ -23,8 +23,8 @@ export async function GET(request: Request) {
     if (error) throw error;
 
     return NextResponse.json(data);
-  } catch (error: any) {
-    logger.error('TENDERS_LIST_FAILURE', { error: error.message });
+  } catch (error: unknown) {
+    logger.error('TENDERS_LIST_FAILURE', { error: error instanceof Error ? error.message : 'Unknown error' });
     return NextResponse.json({ error: 'Failed to fetch tenders' }, { status: 500 });
   }
 }
@@ -67,8 +67,9 @@ export async function POST(request: Request) {
 
     logger.info('TENDER_CREATED', { id: data.id, userId });
     return NextResponse.json(data, { status: 201 });
-  } catch (error: any) {
-    logger.error('TENDER_CREATE_FAILURE', { error: error.message });
-    return NextResponse.json({ error: error.message || 'Failed to create tender' }, { status: 500 });
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : 'Failed to create tender';
+    logger.error('TENDER_CREATE_FAILURE', { error: msg });
+    return NextResponse.json({ error: msg }, { status: 500 });
   }
 }

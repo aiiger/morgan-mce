@@ -41,7 +41,7 @@ export const DashboardFrame: React.FC<DashboardFrameProps> = ({
 
             {/* 1. Header Section (Restored) */}
             <header className="mb-6 shrink-0 w-full min-w-0">
-                <h1 className="text-3xl font-black italic uppercase tracking-tighter font-oswald text-[var(--text-primary)]">
+                <h1 className="text-3xl font-bold tracking-tighter font-oswald text-[var(--text-primary)]">
                     {title}
                 </h1>
                 {subtitle && (
@@ -69,7 +69,7 @@ export const DashboardFrame: React.FC<DashboardFrameProps> = ({
             <main className={cn(
                 "relative rounded-[var(--gov-radius)] transition-all duration-500 w-full min-w-0 overflow-hidden",
                 "bg-[var(--frame-bg)] border-[4px] border-[var(--frame-border)] shadow-[var(--frame-shadow)]",
-                "before:absolute before:inset-0 before:border before:border-white/20 before:pointer-events-none before:z-50"
+                "before:absolute before:inset-0 before:border before:border-gray-200 before:pointer-events-none before:z-50"
             )}>
                 <div className={cn(
                     "w-full transition-all duration-700 ease-in-out",
@@ -93,7 +93,7 @@ export const DashboardFrame: React.FC<DashboardFrameProps> = ({
                                     transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                                     className="w-8 h-8 border-2 border-[var(--brand-accent)]/20 border-t-[var(--brand-accent)] rounded-full"
                                 />
-                                <span className="text-[8px] font-black italic text-[var(--brand-accent)]/60 tracking-[0.3em] font-oswald uppercase">Neural_Syncing...</span>
+                                <span className="text-caption font-bold italic text-[var(--brand-accent)]/60 tracking-[0.3em] font-oswald uppercase">Neural_Syncing...</span>
                             </div>
                         </motion.div>
                     )}

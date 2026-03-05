@@ -32,7 +32,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
 };
 
 export const TableRowSkeleton: React.FC = () => (
-  <div className="flex items-center gap-4 px-6 py-4 border-b border-glass">
+  <div className="flex items-center gap-4 px-6 py-4 border-b border-gray-200">
     <Skeleton variant="rectangular" width={40} height={40} className="rounded-xl" />
     <div className="flex-1 space-y-2">
       <Skeleton variant="text" width="40%" />
@@ -47,7 +47,7 @@ export const TableRowSkeleton: React.FC = () => (
 export const ProjectPageSkeleton: React.FC = () => (
   <div className="flex flex-col h-full bg-gov-bg">
     {/* Header Skeleton */}
-    <div className="p-8 border-b border-glass">
+    <div className="p-8 border-b border-gray-200">
       <Skeleton variant="text" width="200px" height={24} className="mb-2" />
       <Skeleton variant="text" width="150px" height={12} />
     </div>
@@ -55,7 +55,7 @@ export const ProjectPageSkeleton: React.FC = () => (
     {/* Metrics Skeleton */}
     <div className="grid grid-cols-5 gap-4 p-8">
       {[1, 2, 3, 4, 5].map((i) => (
-        <div key={i} className="p-4 border border-glass rounded-xl bg-glass-subtle">
+        <div key={i} className="p-4 border border-gray-200 rounded-xl bg-gray-50/80">
           <Skeleton variant="text" width="60%" height={10} className="mb-3" />
           <Skeleton variant="text" width="80%" height={24} />
         </div>

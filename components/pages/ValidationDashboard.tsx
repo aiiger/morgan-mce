@@ -32,62 +32,16 @@ export const ValidationDashboard: React.FC = () => {
   const runValidation = async () => {
     setIsValidating(true);
     try {
-      // Simulate validation results
-      await new Promise(r => setTimeout(r, 1500));
-      
-      const results: ValidationResult[] = [
-        {
-          component: 'Database Schema',
-          status: 'PASS',
-          message: 'Structural alignment verified across 12 core tables.',
-          details: [
-            '✓ projects_master table (14 columns)',
-            '✓ documents table (12 columns)',
-            '✓ team_members table (15 columns)'
-          ]
-        },
-        {
-          component: 'RLS Coverage',
-          status: 'PASS',
-          message: 'Neural access control active on 100% of sensitive vectors.',
-          details: [
-            '✓ Tier-based document access enforced',
-            '✓ PM-level project editing restricted',
-            '✓ System-wide audit log protection'
-          ]
-        },
-        {
-          component: 'Automation Functions',
-          status: 'PASS',
-          message: '6 strategic procedures loaded and calibrated.',
-          details: [
-            '✓ sweep_alarm_rules()',
-            '✓ process_escalations()',
-            '✓ match_documents_hybrid()'
-          ]
-        },
-        {
-          component: 'Temporal Pulse',
-          status: 'WARN',
-          message: 'Drift detection active, but latency detected in cron execution.',
-          details: [
-            '✓ T-Minus timing sequence active',
-            '⚠ Last sweep executed 12m ago (Target: 5m)',
-            '✓ Escalation logic waiting for triggers'
-          ]
-        },
-        {
-          component: 'Neural Stability',
-          status: 'PASS',
-          message: 'Vector dimensions locked at 1536. Zero mismatches.',
-          details: [
-            '✓ Gemini text-embedding-004 link OK',
-            '✓ ivfflat indexing verified',
-            '✓ Hybrid search weights calibrated'
-          ]
-        }
-      ];
-
+      const res = await fetch('/api/admin/validation/report');
+      if (!res.ok) throw new Error('Failed to fetch validation report');
+      const data = await res.json();
+      const checks = Array.isArray(data.checks) ? data.checks : [];
+      const results: ValidationResult[] = checks.map((c: { name: string; status: string; message: string }) => ({
+        component: c.name,
+        status: (c.status as 'PASS' | 'WARN' | 'FAIL') || 'PASS',
+        message: c.message || '',
+        details: [],
+      }));
       setValidationResults(results);
       setLastValidation(new Date().toLocaleTimeString());
     } catch (error) {
@@ -127,13 +81,13 @@ export const ValidationDashboard: React.FC = () => {
       <div className="p-8 space-y-8">
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-1">
-            <h2 className="text-sm font-bold italic text-white tracking-widest flex items-center gap-2">
+            <h2 className="text-sm font-bold italic text-gray-900 tracking-widest flex items-center gap-2">
               <Shield size={16} className="text-emerald-500" /> Integrity Assessment
             </h2>
-            <p className="text-[10px] font-mono text-zinc-500">Last sweep: {lastValidation || 'NEVER'}</p>
+            <p className="text-caption font-mono text-gray-500">Last sweep: {lastValidation || 'NEVER'}</p>
           </div>
           
-          <GlassButton onClick={runValidation} disabled={isValidating} className="px-6 py-2 text-[9px]">
+          <GlassButton onClick={runValidation} disabled={isValidating} className="px-6 py-2 text-gov-label">
             <RefreshCw size={14} className={`mr-2 ${isValidating ? 'animate-spin' : ''}`} />
             Run Full Validation
           </GlassButton>
@@ -149,18 +103,18 @@ export const ValidationDashboard: React.FC = () => {
                 }`} />
                 <div className="p-6 flex-1">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xs font-bold italic text-white tracking-[0.2em]">{result.component}</h3>
+                    <h3 className="text-xs font-bold italic text-gray-900 tracking-[0.2em]">{result.component}</h3>
                     <Badge variant={result.status === 'PASS' ? 'success' : result.status === 'WARN' ? 'warning' : 'danger'}>
                       {result.status}
                     </Badge>
                   </div>
                   
-                  <p className="text-[11px] font-mono text-zinc-400 mb-4">{result.message}</p>
+                  <p className="text-gov-label font-mono text-gray-600 mb-4">{result.message}</p>
                   
                   {result.details && (
-                    <div className="space-y-1 bg-black/20 p-3 rounded-lg border border-glass">
+                    <div className="space-y-1 bg-gray-50 p-3 rounded-lg border border-gray-200">
                       {result.details.map((detail, i) => (
-                        <div key={i} className="text-[9px] font-mono text-zinc-600 flex items-center gap-2">
+                        <div key={i} className="text-gov-label font-mono text-gray-500 flex items-center gap-2">
                           <span className="text-emerald-500/50">•</span>
                           {detail}
                         </div>
@@ -179,15 +133,15 @@ export const ValidationDashboard: React.FC = () => {
               <Zap size={20} />
             </div>
             <div>
-              <h3 className="text-xs font-bold italic text-white tracking-widest mb-2">Neural Recommendations</h3>
+              <h3 className="text-xs font-bold italic text-gray-900 tracking-widest mb-2">Neural Recommendations</h3>
               <ul className="space-y-2">
-                <li className="text-[10px] text-zinc-500 font-bold italic flex items-center gap-2">
+                <li className="text-caption text-gray-500 font-bold italic flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-emerald-500" />
                   System identified optimal RLS coverage. Deployment risk: <span className="text-emerald-500">LOW</span>
                 </li>
-                <li className="text-[10px] text-zinc-500 font-bold italic flex items-center gap-2">
+                <li className="text-caption text-gray-500 font-bold italic flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-amber-500" />
-                  Consider secondary indexing on <span className="text-zinc-300">notifications.created_at</span> for ledger velocity.
+                  Consider secondary indexing on <span className="text-gray-700">notifications.created_at</span> for ledger velocity.
                 </li>
               </ul>
             </div>

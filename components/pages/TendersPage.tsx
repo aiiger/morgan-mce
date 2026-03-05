@@ -60,10 +60,10 @@ export const TendersPage: React.FC<TendersPageProps> = ({
             <Target size={14} />
           </Box>
           <Box className="min-w-0 flex flex-col">
-            <Text className="truncate text-[13px] font-oswald font-black italic text-[var(--text-primary)] uppercase tracking-wide group-hover:text-[var(--brand-accent)] transition-colors">
+            <Text className="truncate text-gov-body font-oswald font-bold italic text-[var(--text-primary)] uppercase tracking-wide group-hover:text-[var(--brand-accent)] transition-colors">
               {item.title}
             </Text>
-            <Text className="text-[10px] font-bold text-[var(--text-tertiary)] uppercase tracking-widest opacity-60">
+            <Text className="text-caption font-bold text-[var(--text-tertiary)] uppercase tracking-widest opacity-60">
               {item.client || 'MCE INTERNAL'} • REF_{item.id.slice(0, 4).toUpperCase()}
             </Text>
           </Box>
@@ -75,7 +75,7 @@ export const TendersPage: React.FC<TendersPageProps> = ({
       width: '15%',
       align: 'center' as const,
       accessor: (item: any) => (
-        <Badge variant={item.status === 'Active' ? 'success' : 'outline'} className="text-[9px] px-3 py-1 font-black italic uppercase tracking-widest">
+        <Badge variant={item.status === 'Active' ? 'success' : 'outline'} className="text-gov-label px-3 py-1 font-bold tracking-widest">
           {item.status}
         </Badge>
       )
@@ -86,10 +86,10 @@ export const TendersPage: React.FC<TendersPageProps> = ({
       align: 'center' as const,
       accessor: (item: any) => (
         <Box className="flex flex-col items-center">
-          <Text className="text-[12px] font-black font-oswald italic text-[var(--text-primary)] uppercase">
+          <Text className="text-xs font-bold font-oswald italic text-[var(--text-primary)] uppercase">
             {item.submissionDate || 'PENDING'}
           </Text>
-          <Text className="text-[8px] font-black uppercase tracking-widest text-[var(--text-tertiary)] opacity-40">Submission_Date</Text>
+          <Text className="text-caption font-bold uppercase tracking-widest text-[var(--text-tertiary)] opacity-40">Submission_Date</Text>
         </Box>
       )
     },
@@ -100,13 +100,13 @@ export const TendersPage: React.FC<TendersPageProps> = ({
       accessor: (item: any) => (
         <Box className="flex flex-col items-end">
           <Box className="flex items-baseline gap-1">
-            <Text className="text-[9px] font-black italic text-[var(--brand-accent)] opacity-40">AED</Text>
-            <Text className="text-[13px] font-black font-oswald italic text-[var(--brand-accent)]">
+            <Text className="text-gov-label font-bold italic text-[var(--brand-accent)] opacity-40">AED</Text>
+            <Text className="text-gov-body font-bold font-oswald italic text-[var(--brand-accent)]">
               {item.value ? (Number(String(item.value).replace(/[^0-9.-]+/g, "")) / 1000000).toFixed(1) + 'M' : '0.0M'}
             </Text>
           </Box>
           <Text className={cn(
-            "text-[8px] font-black uppercase tracking-widest italic",
+            "text-caption font-bold uppercase tracking-widest italic",
             item.probability === 'High' ? 'text-emerald-500' : 'text-amber-500'
           )}>
             {item.probability || 'MEDIUM'} PROBABILITY
@@ -149,10 +149,10 @@ export const TendersPage: React.FC<TendersPageProps> = ({
                 placeholder="QUERY PIPELINE..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="bg-white border border-[var(--surface-border)] rounded-lg pl-9 pr-4 py-2 text-[10px] font-bold italic font-oswald text-[var(--text-primary)] w-48 focus:outline-none focus:border-[var(--brand-accent)]/30 transition-all placeholder:text-[var(--text-tertiary)]/40"
+                className="bg-white border border-[var(--surface-border)] rounded-lg pl-9 pr-4 py-2 text-caption font-bold italic font-oswald text-[var(--text-primary)] w-48 focus:outline-none focus:border-[var(--brand-accent)]/30 transition-all placeholder:text-[var(--text-tertiary)]/40"
               />
             </div>
-            <GlassButton onClick={() => setIsFormOpen(true)} className="px-4 py-2 rounded-lg text-[9px] font-bold tracking-widest bg-[var(--brand-accent)] text-white hover:opacity-90">
+            <GlassButton onClick={() => setIsFormOpen(true)} className="px-4 py-2 rounded-lg text-gov-label font-bold tracking-widest bg-[var(--brand-accent)] text-white hover:opacity-90">
               <Plus size={14} className="mr-2" /> Initialize Node
             </GlassButton>
           </div>
@@ -195,7 +195,7 @@ export const TendersPage: React.FC<TendersPageProps> = ({
           <div className="px-8 py-3 border-b border-[var(--surface-border)] bg-[var(--bg-layer)]/30 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Zap size={12} className="text-[var(--brand-accent)] animate-pulse" />
-              <span className="text-[10px] font-black italic font-oswald text-[var(--text-tertiary)] uppercase tracking-widest">{filteredTenders.length} Opportunity nodes tracked</span>
+              <span className="text-caption font-bold italic font-oswald text-[var(--text-tertiary)] uppercase tracking-widest">{filteredTenders.length} Opportunity nodes tracked</span>
             </div>
           </div>
           

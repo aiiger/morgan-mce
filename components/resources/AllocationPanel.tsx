@@ -21,10 +21,10 @@ export default function AllocationPanel({ allocations, onRefresh }: AllocationPa
       width: '25%',
       accessor: (alloc: any) => (
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-zinc-500">
+          <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-500">
             <User size={14} />
           </div>
-          <span className="text-[12px] font-bold italic text-white">{alloc.team_member_name || 'Unknown'}</span>
+          <span className="text-xs font-bold italic text-gray-900">{alloc.team_member_name || 'Unknown'}</span>
         </div>
       )
     },
@@ -33,10 +33,10 @@ export default function AllocationPanel({ allocations, onRefresh }: AllocationPa
       width: '25%',
       accessor: (alloc: any) => (
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-zinc-500">
+          <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-500">
             <Briefcase size={14} />
           </div>
-          <span className="text-[12px] font-bold italic text-zinc-400 truncate">{alloc.project_name || 'Unknown'}</span>
+          <span className="text-xs font-bold italic text-gray-500 truncate">{alloc.project_name || 'Unknown'}</span>
         </div>
       )
     },
@@ -44,7 +44,7 @@ export default function AllocationPanel({ allocations, onRefresh }: AllocationPa
       header: 'Strategic Role',
       width: '20%',
       accessor: (alloc: any) => (
-        <Badge variant="outline" className="text-[9px] font-bold italic tracking-widest px-2">
+        <Badge variant="outline" className="text-gov-label font-bold italic tracking-widest px-2">
           {alloc.role_in_project || 'Team Member'}
         </Badge>
       )
@@ -63,12 +63,12 @@ export default function AllocationPanel({ allocations, onRefresh }: AllocationPa
       align: 'right' as const,
       accessor: (alloc: any) => (
         <div className="flex flex-col items-end">
-          <div className="flex items-center gap-2 text-[11px] font-mono text-zinc-300">
+          <div className="flex items-center gap-2 text-gov-label font-mono text-gray-700">
             {new Date(alloc.start_date).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
             <span className="opacity-20">→</span>
             {alloc.end_date ? new Date(alloc.end_date).toLocaleDateString(undefined, { month: 'short', day: 'numeric' }) : 'ONGOING'}
           </div>
-          <span className="text-[8px] font-bold italic text-zinc-600 tracking-widest mt-1">Assignment Window</span>
+          <span className="text-caption font-bold italic text-gray-500 tracking-widest mt-1">Assignment Window</span>
         </div>
       )
     }
@@ -76,10 +76,10 @@ export default function AllocationPanel({ allocations, onRefresh }: AllocationPa
 
   return (
     <Card variant="matte" padding="none">
-      <CardHeader className="px-8 py-6 border-b border-white/5 bg-white/[0.01]">
+      <CardHeader className="px-8 py-6 border-b border-gray-200 bg-bg-surface">
         <div className="flex flex-col gap-1">
           <CardTitle>Resource Allocation Ledger</CardTitle>
-          <p className="text-[10px] font-mono text-zinc-500 tracking-widest">
+          <p className="text-caption font-mono text-gray-500 tracking-widest">
             {activeAllocations.length} Active System Bindings
           </p>
         </div>

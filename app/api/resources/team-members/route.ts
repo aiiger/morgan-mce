@@ -23,8 +23,8 @@ export async function GET() {
     if (error) throw error;
 
     return NextResponse.json(data);
-  } catch (error: any) {
-    logger.error('TEAM_MEMBERS_LIST_FAILURE', { error: error.message });
+  } catch (error: unknown) {
+    logger.error('TEAM_MEMBERS_LIST_FAILURE', { error: error instanceof Error ? error.message : 'Unknown error' });
     return NextResponse.json({ error: 'Failed to fetch team members' }, { status: 500 });
   }
 }

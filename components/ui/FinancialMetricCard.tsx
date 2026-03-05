@@ -36,7 +36,7 @@ export const FinancialMetricCard: React.FC<FinancialMetricCardProps> = ({
 
   return (
     <motion.div
-      className={`relative overflow-hidden rounded-2xl p-6 backdrop-blur-xl border border-white/10 group cursor-pointer`}
+      className={`relative overflow-hidden rounded-2xl p-6 backdrop-blur-xl border border-gray-200 group cursor-pointer`}
       style={{
         background: `linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%)`
       }}
@@ -62,14 +62,14 @@ export const FinancialMetricCard: React.FC<FinancialMetricCardProps> = ({
         <div className="flex items-center gap-3">
           {icon && (
             <motion.div
-              className="p-2 rounded-lg bg-white/5"
+              className="p-2 rounded-lg bg-gray-50"
               animate={isHovered ? { scale: 1.1, rotate: 5 } : { scale: 1, rotate: 0 }}
               transition={{ duration: 0.3 }}
             >
               {icon}
             </motion.div>
           )}
-          <span className="text-sm font-bold italic text-zinc-400 group-hover:text-zinc-300 transition-colors">
+          <span className="text-sm font-bold italic text-gray-500 group-hover:text-gray-700 transition-colors">
             {label}
           </span>
         </div>
@@ -81,7 +81,7 @@ export const FinancialMetricCard: React.FC<FinancialMetricCardProps> = ({
                 ? 'text-emerald-400'
                 : trend.type === 'down'
                 ? 'text-rose-400'
-                : 'text-zinc-400'
+                : 'text-gray-500'
             }`}
             animate={isHovered ? { x: 2 } : { x: 0 }}
           >
@@ -99,15 +99,15 @@ export const FinancialMetricCard: React.FC<FinancialMetricCardProps> = ({
         transition={{ duration: 0.3 }}
       >
         <div className="flex items-baseline gap-2">
-          {prefix && <span className="text-lg text-zinc-500">{prefix}</span>}
-          <span className="text-4xl font-bold italic text-white tracking-tight">
+          {prefix && <span className="text-lg text-gray-500">{prefix}</span>}
+          <span className="text-4xl font-bold italic text-gray-900 tracking-tight">
             <AnimatedCounter
               value={value}
               format={format}
               decimals={format === 'currency' ? 1 : 2}
             />
           </span>
-          {suffix && <span className="text-lg text-zinc-500">{suffix}</span>}
+          {suffix && <span className="text-lg text-gray-500">{suffix}</span>}
         </div>
       </motion.div>
 
@@ -124,7 +124,7 @@ export const FinancialMetricCard: React.FC<FinancialMetricCardProps> = ({
 
       {/* Bottom Row - Additional Info */}
       <motion.div
-        className="relative z-10 text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors"
+        className="relative z-10 text-xs text-gray-500 group-hover:text-gray-500 transition-colors"
         animate={isHovered ? { opacity: 1 } : { opacity: 0.7 }}
       >
         <div className="flex justify-between items-center">

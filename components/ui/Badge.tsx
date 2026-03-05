@@ -60,7 +60,7 @@ export const Badge: React.FC<BadgeProps> = ({ status = '', variant, className = 
 
   return (
     <motion.span
-      className={`px-2.5 py-1 rounded-lg text-[10px] uppercase tracking-[0.15em] font-bold italic border flex items-center gap-1.5 ${getStyles()} font-sans ${className}`}
+      className={`px-2.5 py-1 rounded-lg text-caption uppercase tracking-[0.15em] font-bold italic border flex items-center gap-1.5 ${getStyles()} font-sans ${className}`}
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{
         opacity: 1,

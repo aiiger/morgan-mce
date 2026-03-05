@@ -34,7 +34,7 @@ export const Shell: React.FC<ShellProps> = ({
     const sidebarCollapsed = config.sidebarOptimized;
 
     return (
-        <div className="flex h-screen bg-[var(--mce-grey)] overflow-hidden font-sans text-zinc-300 relative">
+        <div className="flex h-screen bg-gray-50 overflow-hidden font-sans text-gray-700 relative">
             {/* Background Watermark */}
             <Watermark opacity={0.05} text="MORGAN" />
 
@@ -56,7 +56,7 @@ export const Shell: React.FC<ShellProps> = ({
                 />
 
                 <main className={`flex-1 overflow-y-auto pb-20 custom-scrollbar bg-[var(--surface-base)] ${config.density === 'executive' ? 'p-2' : 'p-6'} pt-0 relative z-10`}>
-                    <div className="text-zinc-300 min-h-full transition-all duration-500">
+                    <div className="text-gray-700 min-h-full transition-all duration-500">
                         {children}
                     </div>
                 </main>

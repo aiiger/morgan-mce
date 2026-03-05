@@ -1,107 +1,129 @@
 import React, { useState } from 'react';
-import { X, Save } from 'lucide-react';
-import { useSupabase } from '../../hooks/useSupabase';
-import { supabase } from '../../lib/supabase';
+import { X, Loader2, UserPlus } from 'lucide-react';
 
 interface ResourceFormProps {
   onClose: () => void;
   onSuccess: () => void;
 }
 
+/* ─── VeraPM-parity: light modal with blue accents ────────────────── */
 export const ResourceForm: React.FC<ResourceFormProps> = ({ onClose, onSuccess }) => {
-  const { getClient } = useSupabase();
   const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({
+  const [error, setError] = useState<string | null>(null);
+  const [form, setForm] = useState({
     full_name: '',
     role: '',
     department: 'Projects',
-    hourly_rate: 0
+    hourly_rate: '',
   });
+
+  const set = (k: string, v: string) => setForm(prev => ({ ...prev, [k]: v }));
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError(null);
     try {
-      const client = await getClient();
-      const { error } = await (client.from('resources' as any) as any).insert([formData]);
-      if (error) throw error;
+      const payload = {
+        name: form.full_name,
+        role: form.role,
+        department: form.department,
+        hourly_rate: parseFloat(form.hourly_rate) || 0,
+      };
+      const res = await fetch('/api/morgan/resources', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) {
+        const d = await res.json().catch(() => ({}));
+        throw new Error(d.error || 'Failed to add resource');
+      }
       onSuccess();
       onClose();
-    } catch (error) {
-      console.error(error);
-      alert('Error adding resource');
+    } catch (err: any) {
+      setError(err.message);
     } finally {
       setLoading(false);
     }
   };
 
+  const inputCls = 'w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-900 bg-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-100 focus:border-blue-400 transition-all';
+  const selectCls = 'w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-100 focus:border-blue-400 transition-all appearance-none cursor-pointer';
+  const labelCls = 'block text-[13px] font-medium text-gray-700 mb-1.5';
+  const req = <span className="text-red-500 ml-0.5">*</span>;
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-      <div className="bg-[#0b0c10] border border-white/10 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
-        <div className="flex justify-between items-center p-6 border-b border-white/10 bg-[#0A0F2C]">
-          <h3 className="text-lg font-bold italic text-white">Add New Resource</h3>
-          <button onClick={onClose} className="text-white/70 hover:text-white transition-colors">
-            <X size={20} />
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/30 backdrop-blur-sm p-4" onClick={onClose}>
+      <div className="w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden" onClick={e => e.stopPropagation()}>
+        {/* Header */}
+        <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <div className="size-10 rounded-xl bg-violet-50 flex items-center justify-center">
+              <UserPlus className="size-5 text-violet-600" />
+            </div>
+            <div>
+              <h2 className="text-lg font-bold text-gray-900">Add Resource</h2>
+              <p className="text-xs text-gray-500">Register a new team member</p>
+            </div>
+          </div>
+          <button type="button" onClick={onClose} className="size-8 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors">
+            <X className="size-4 text-gray-400" />
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6 space-y-4">
+        {/* Body */}
+        <form onSubmit={handleSubmit} className="px-6 py-5 space-y-5">
+          {error && (
+            <div className="p-3 bg-red-50 border border-red-200 text-red-600 text-sm rounded-lg flex items-center gap-2">
+              <div className="size-1.5 rounded-full bg-red-500 animate-pulse shrink-0" />
+              {error}
+            </div>
+          )}
+
+          {/* Full Name */}
           <div>
-            <label className="block text-xs font-bold italic text-slate-400 tracking-wider mb-1">Full Name</label>
-            <input
-              required
-              type="text"
-              className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-[var(--color-info)]"
-              value={formData.full_name}
-              onChange={(e) => setFormData({ ...formData, full_name: e.target.value })}
-            />
+            <label className={labelCls}>Full Name {req}</label>
+            <input required autoFocus placeholder="e.g. Ahmed Al Mansoori" className={inputCls}
+              value={form.full_name} onChange={e => set('full_name', e.target.value)} />
           </div>
 
+          {/* Role + Department */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold italic text-slate-400 tracking-wider mb-1">Role</label>
-              <input
-                required
-                type="text"
-                className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-[var(--color-info)]"
-                value={formData.role}
-                onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-              />
+              <label className={labelCls}>Role {req}</label>
+              <input required placeholder="e.g. Senior Engineer" className={inputCls}
+                value={form.role} onChange={e => set('role', e.target.value)} />
             </div>
             <div>
-              <label className="block text-xs font-bold italic text-slate-400 tracking-wider mb-1">Department</label>
-              <select
-                className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-[var(--color-info)]"
-                value={formData.department}
-                onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-              >
+              <label className={labelCls}>Department</label>
+              <select className={selectCls} value={form.department} onChange={e => set('department', e.target.value)}>
                 <option>Projects</option>
                 <option>Engineering</option>
                 <option>Finance</option>
                 <option>HR</option>
+                <option>Operations</option>
               </select>
             </div>
           </div>
 
+          {/* Hourly Rate */}
           <div>
-            <label className="block text-xs font-bold italic text-slate-400 tracking-wider mb-1">Hourly Rate (AED)</label>
-            <input
-              required
-              type="number"
-              className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-[var(--color-info)]"
-              value={formData.hourly_rate}
-              onChange={(e) => setFormData({ ...formData, hourly_rate: Number(e.target.value) })}
-            />
+            <label className={labelCls}>Hourly Rate (AED) {req}</label>
+            <input required type="number" placeholder="e.g. 350" className={`${inputCls} font-mono`}
+              value={form.hourly_rate} onChange={e => set('hourly_rate', e.target.value)} />
           </div>
 
-          <div className="pt-4 flex justify-end space-x-3">
-            <button type="button" onClick={onClose} className="px-4 py-2 text-sm font-bold italic text-slate-400 hover:text-white">Cancel</button>
-            <button
-              type="submit"
-              disabled={loading}
-              className="bg-[var(--color-info)] text-[#0A0F2C] px-6 py-2 rounded-lg text-sm font-bold italic shadow-[0_0_15px_rgba(0,255,255,0.4)] hover:bg-[var(--color-info)]/80 transition-all flex items-center"
-            >
-              {loading ? 'Saving...' : <><Save size={16} className="mr-2" /> Save Resource</>}
+          {/* Actions */}
+          <div className="pt-4 flex gap-3 border-t border-gray-100">
+            <button type="button" onClick={onClose}
+              className="flex-1 px-5 py-2.5 rounded-lg text-sm font-medium text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 transition-colors">
+              Cancel
+            </button>
+            <button type="submit" disabled={loading}
+              className="flex-1 px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 disabled:opacity-50">
+              {loading ? <Loader2 className="size-4 animate-spin" /> : null}
+              {loading ? 'Saving...' : 'Save Resource'}
             </button>
           </div>
         </form>

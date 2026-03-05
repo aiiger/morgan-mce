@@ -57,8 +57,19 @@ export default function ManpowerImporter() {
 
     for (const row of importData) {
       try {
-        // Simulate API call for each row
-        await new Promise(r => setTimeout(r, 100)); // Fast mock
+        const res = await fetch('/api/morgan/resources', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: row.name,
+            email: row.email,
+            role: row.role,
+            department: row.department,
+            skills: row.skills ? row.skills.split(',').map(s => s.trim()) : [],
+            allocation_percent: row.allocation_percent ? Number(row.allocation_percent) : null,
+          }),
+        });
+        if (!res.ok) throw new Error(await res.text());
         success++;
         setLogs(prev => [`[IMPORT] ✅ Node synchronized: ${row.name}`, ...prev.slice(0, 10)]);
       } catch (err) {
@@ -75,7 +86,7 @@ export default function ManpowerImporter() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <Card variant="matte" padding="none">
-        <CardHeader className="px-8 py-6 border-b border-white/5">
+        <CardHeader className="px-8 py-6 border-b border-gray-200">
           <div className="flex items-center gap-3">
             <Upload size={20} className="text-brand-500" />
             <CardTitle>Manpower Ingestion Gate</CardTitle>
@@ -84,7 +95,7 @@ export default function ManpowerImporter() {
         <CardContent className="p-8 space-y-6">
           <div 
             onClick={() => fileInput.current?.click()}
-            className="border-2 border-dashed border-white/5 rounded-2xl p-12 text-center hover:border-brand-500/30 hover:bg-white/[0.01] transition-all cursor-pointer group"
+            className="border-2 border-dashed border-gray-200 rounded-2xl p-12 text-center hover:border-brand-500/30 hover:bg-bg-surface transition-all cursor-pointer group"
           >
             <input 
               type="file" 
@@ -93,19 +104,19 @@ export default function ManpowerImporter() {
               accept=".csv" 
               onChange={handleFileUpload} 
             />
-            <FileText size={48} className="mx-auto mb-4 text-zinc-700 group-hover:text-brand-500 transition-colors" />
-            <h4 className="text-sm font-bold italic text-zinc-300 tracking-tight">Drop Manpower CSV</h4>
-            <p className="text-[10px] font-mono text-zinc-600 mt-2">Maximum payload: 10MB • Format: UTF-8</p>
+            <FileText size={48} className="mx-auto mb-4 text-gray-700 group-hover:text-brand-500 transition-colors" />
+            <h4 className="text-sm font-bold italic text-gray-700 tracking-tight">Drop Manpower CSV</h4>
+            <p className="text-caption font-mono text-gray-500 mt-2">Maximum payload: 10MB • Format: UTF-8</p>
           </div>
 
           {(importStatus === 'preview' || importStatus === 'importing') && (
             <div className="space-y-4 animate-in fade-in slide-in-from-bottom-2">
-              <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
-                <span className="text-[9px] font-bold italic text-zinc-500 tracking-widest block mb-2">Payload Preview</span>
-                <div className="max-h-[200px] overflow-auto text-[10px] font-mono text-zinc-400">
+              <div className="p-4 bg-bg-surface border border-gray-200 rounded-xl">
+                <span className="text-gov-label font-bold italic text-gray-500 tracking-widest block mb-2">Payload Preview</span>
+                <div className="max-h-[200px] overflow-auto text-caption font-mono text-gray-500">
                   <table className="w-full text-left">
                     <thead>
-                      <tr className="text-zinc-600">
+                      <tr className="text-gray-500">
                         <th className="pb-2">NAME</th>
                         <th className="pb-2">ROLE</th>
                         <th className="pb-2">DEPT</th>
@@ -122,7 +133,7 @@ export default function ManpowerImporter() {
                     </tbody>
                   </table>
                   {importData.length > 5 && (
-                    <div className="pt-2 text-zinc-700">... and {importData.length - 5} more records</div>
+                    <div className="pt-2 text-gray-700">... and {importData.length - 5} more records</div>
                   )}
                 </div>
               </div>
@@ -142,14 +153,14 @@ export default function ManpowerImporter() {
       </Card>
 
       <Card variant="outlined" padding="none">
-        <CardHeader className="px-6 py-4 border-b border-white/5">
+        <CardHeader className="px-6 py-4 border-b border-gray-200">
           <div className="flex items-center gap-2">
             <Terminal size={14} className="text-emerald-500" />
             <CardTitle className="text-xs">Activity Stream</CardTitle>
           </div>
         </CardHeader>
         <CardContent className="p-0">
-          <div className="bg-black/60 font-mono text-[10px] p-6 h-[450px] overflow-auto space-y-1 text-zinc-500">
+          <div className="bg-gray-50 font-mono text-caption p-6 h-[450px] overflow-auto space-y-1 text-gray-500">
             {logs.length > 0 ? logs.map((log, i) => (
               <div key={i} className={log.includes('❌') ? 'text-rose-500' : log.includes('✅') ? 'text-emerald-500' : ''}>
                 {log}

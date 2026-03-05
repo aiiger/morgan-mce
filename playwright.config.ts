@@ -8,6 +8,7 @@ export default defineConfig({
     baseURL: 'http://localhost:3000',
     trace: 'on-first-retry',
   },
+  workers: 1,
   projects: [
     {
       name: 'chromium',
@@ -17,8 +18,12 @@ export default defineConfig({
   webServer: {
     command: 'npm run dev',
     url: 'http://localhost:3000',
-    reuseExistingServer: true,
+    reuseExistingServer: false,
+    timeout: 180000,
     stdout: 'pipe',
     stderr: 'pipe',
+    env: {
+      NEXT_PUBLIC_DISABLE_AUTH: 'true',
+    },
   },
 });

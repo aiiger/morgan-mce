@@ -42,8 +42,8 @@ export const StatusBadge: React.FC<StatusBadgeProps> = ({
         success: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
         warning: "bg-amber-500/10 text-amber-500 border-amber-500/20",
         critical: "bg-rose-500/10 text-rose-500 border-rose-500/20 cursor-alert",
-        info: "bg-zinc-500/10 text-zinc-400 border-zinc-500/20",
-        inactive: "bg-zinc-800/40 text-zinc-500 border-zinc-700/30",
+        info: "bg-gray-100 text-gray-500 border-zinc-500/20",
+        inactive: "bg-gray-100/40 text-gray-500 border-gray-200/30",
     };
 
     const dotColors = {
@@ -51,14 +51,14 @@ export const StatusBadge: React.FC<StatusBadgeProps> = ({
         success: "bg-emerald-500",
         warning: "bg-amber-500",
         critical: "bg-rose-500",
-        info: "bg-zinc-500",
-        inactive: "bg-zinc-500",
+        info: "bg-gray-400",
+        inactive: "bg-gray-400",
     };
 
     const sizes = {
-        sm: "px-2 py-0.5 text-[10px]",
-        md: "px-2.5 py-1 text-[11px]",
-        lg: "px-3 py-1.5 text-[12px]",
+        sm: "px-2 py-0.5 text-caption",
+        md: "px-2.5 py-1 text-gov-label",
+        lg: "px-3 py-1.5 text-xs",
     };
 
     return (

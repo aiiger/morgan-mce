@@ -21,7 +21,7 @@ export const StyleTuner: React.FC = () => {
 
    const Section = ({ label, children }: { label: string, children: React.ReactNode }) => (
       <div className="space-y-3">
-         <h4 className="text-[9px] font-bold text-zinc-500 tracking-[0.2em] flex items-center uppercase">
+         <h4 className="text-gov-label font-bold text-gray-500 tracking-[0.2em] flex items-center uppercase">
             <ChevronRight size={10} className="mr-1 text-[var(--color-critical)]" />
             {label}
          </h4>
@@ -34,21 +34,21 @@ export const StyleTuner: React.FC = () => {
    const SliderSection = ({ label, value, min, max, onChange, icon: Icon }: any) => (
       <div className="space-y-3">
          <div className="flex justify-between items-center">
-            <h4 className="text-[9px] font-bold text-zinc-500 tracking-[0.2em] flex items-center uppercase">
+            <h4 className="text-gov-label font-bold text-gray-500 tracking-[0.2em] flex items-center uppercase">
                <ChevronRight size={10} className="mr-1 text-[var(--color-critical)]" />
                {label}
             </h4>
-            <span className="text-[9px] font-mono text-zinc-400 bg-white/5 px-1 rounded">{value}px</span>
+            <span className="text-gov-label font-mono text-gray-500 bg-gray-50 px-1 rounded">{value}px</span>
          </div>
          <div className="flex items-center space-x-3 bg-[var(--bg-layer)] p-2 rounded border border-[var(--surface-border)]">
-            {Icon && <Icon size={12} className="text-zinc-500" />}
+            {Icon && <Icon size={12} className="text-gray-500" />}
             <input 
                type="range" 
                min={min} 
                max={max} 
                value={value} 
                onChange={(e) => onChange(parseInt(e.target.value))}
-               className="flex-1 accent-[var(--color-critical)] h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer"
+               className="flex-1 accent-[var(--color-critical)] h-1 bg-gray-100 rounded-lg appearance-none cursor-pointer"
             />
          </div>
       </div>
@@ -57,12 +57,12 @@ export const StyleTuner: React.FC = () => {
    const ToggleBtn = ({ active, onClick, label, icon: Icon }: any) => (
       <button
          onClick={onClick}
-         className={`p-3 rounded border text-[10px] font-bold tracking-widest text-left flex items-center space-x-3 transition-all ${active
-            ? 'bg-[var(--brand-accent)] border-none text-white shadow-lg'
-            : 'bg-[var(--bg-layer)] border-[var(--surface-border)] text-zinc-500 hover:border-zinc-700 hover:text-zinc-300'
+         className={`p-3 rounded border text-caption font-bold tracking-widest text-left flex items-center space-x-3 transition-all ${active
+            ? 'bg-[var(--brand-accent)] border-none text-gray-900 shadow-lg'
+            : 'bg-[var(--bg-layer)] border-[var(--surface-border)] text-gray-500 hover:border-gray-200 hover:text-gray-700'
             }`}
       >
-         {Icon && <Icon size={12} className={active ? 'text-white' : 'opacity-50'} />}
+         {Icon && <Icon size={12} className={active ? 'text-gray-900' : 'opacity-50'} />}
          <span>{label}</span>
       </button>
    );
@@ -78,7 +78,7 @@ export const StyleTuner: React.FC = () => {
             } : {}}
             transition={{ duration: 1.5, repeat: Infinity }}
             onClick={() => setIsOpen(!isOpen)}
-            className={`p-4 rounded-full shadow-[0_0_20px_rgba(0,0,0,0.3)] border-2 transition-all duration-300 ${isOpen ? 'bg-white border-zinc-200 text-black' : 'bg-[var(--mce-red)] border-white/20 text-white'}`}
+            className={`p-4 rounded-full shadow-[0_0_20px_rgba(0,0,0,0.3)] border-2 transition-all duration-300 ${isOpen ? 'bg-white border-zinc-200 text-black' : 'bg-[var(--mce-red)] border-gray-200 text-gray-900'}`}
             title="Precision Tuner (Shift+D)"
          >
             {isOpen ? <X size={24} /> : <Sliders size={24} />}
@@ -86,20 +86,20 @@ export const StyleTuner: React.FC = () => {
 
          {/* Panel */}
          {isOpen && (
-            <div className="absolute bottom-16 right-0 bg-zinc-950 border border-zinc-800 p-6 rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.5)] w-80 animate-in slide-in-from-bottom-4 duration-300 backdrop-blur-3xl ring-1 ring-white/10">
-               <div className="flex justify-between items-center mb-8 border-b border-white/5 pb-4">
+            <div className="absolute bottom-16 right-0 bg-gray-50 border border-gray-200 p-6 rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.5)] w-80 animate-in slide-in-from-bottom-4 duration-300 backdrop-blur-3xl ring-1 ring-white/10">
+               <div className="flex justify-between items-center mb-8 border-b border-gray-200 pb-4">
                   <div>
-                     <h3 className="text-[10px] font-black italic text-white flex items-center tracking-[0.3em] font-oswald uppercase">
+                     <h3 className="text-caption font-bold italic text-gray-900 flex items-center tracking-[0.3em] font-oswald uppercase">
                         Precision_Tuner
                      </h3>
-                     <p className="text-[9px] text-zinc-600 font-bold tracking-wider mt-1 font-mono uppercase">Shift + D to Toggle</p>
+                     <p className="text-gov-label text-gray-500 font-bold tracking-wider mt-1 font-mono uppercase">Shift + D to Toggle</p>
                   </div>
-                  <button onClick={resetToBaseline} className="text-[9px] text-zinc-500 hover:text-white underline decoration-dotted transition-colors font-mono">
+                  <button onClick={resetToBaseline} className="text-gov-label text-gray-500 hover:text-gray-900 underline decoration-dotted transition-colors font-mono">
                      RESET
                   </button>
                </div>
 
-               <div className="space-y-8 max-h-[60vh] overflow-y-auto custom-scrollbar pr-2">
+               <div className="space-y-8 max-h-[60vh] overflow-y-auto overflow-auto pr-2">
 
                   {/* 1. Sidebar Precision Alignment */}
                   <SliderSection 

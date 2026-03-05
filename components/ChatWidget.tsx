@@ -90,7 +90,7 @@ export const ChatWidget: React.FC = () => {
     return (
       <button 
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-tr from-blue-600 to-blue-500 rounded-full shadow-lg shadow-blue-500/30 flex items-center justify-center text-white hover:scale-105 transition-transform z-50"
+        className="fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-tr from-blue-600 to-blue-500 rounded-full shadow-lg shadow-blue-500/30 flex items-center justify-center text-gray-900 hover:scale-105 transition-transform z-50"
       >
         <MessageSquare size={24} />
       </button>
@@ -104,18 +104,18 @@ export const ChatWidget: React.FC = () => {
       <div className="bg-gradient-to-r from-slate-900 to-slate-800 p-4 flex items-center justify-between shrink-0">
         <div className="flex items-center space-x-3">
           <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-            <Bot size={18} className="text-white" />
+            <Bot size={18} className="text-gray-900" />
           </div>
           <div>
-            <h3 className="text-sm font-bold italic text-white">Nexus Assistant</h3>
-            <p className="text-[10px] text-blue-200">Powered by Gemini 3 Pro</p>
+            <h3 className="text-sm font-bold italic text-gray-900">Nexus Assistant</h3>
+            <p className="text-caption text-blue-200">Powered by Gemini 3 Pro</p>
           </div>
         </div>
         <div className="flex items-center space-x-2 text-slate-200">
-          <button onClick={() => setIsMinimized(!isMinimized)} className="hover:text-white transition-colors">
+          <button onClick={() => setIsMinimized(!isMinimized)} className="hover:text-gray-900 transition-colors">
             {isMinimized ? <Maximize2 size={16} /> : <Minimize2 size={16} />}
           </button>
-          <button onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">
+          <button onClick={() => setIsOpen(false)} className="hover:text-gray-900 transition-colors">
             <X size={18} />
           </button>
         </div>
@@ -130,7 +130,7 @@ export const ChatWidget: React.FC = () => {
                 <div 
                   className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
                     msg.role === 'user' 
-                      ? 'bg-blue-600 text-white rounded-br-none shadow-md shadow-blue-500/10' 
+                      ? 'bg-blue-600 text-gray-900 rounded-br-none shadow-md shadow-blue-500/10' 
                       : 'bg-white text-slate-700 border border-slate-100 rounded-bl-none shadow-sm'
                   }`}
                 >
@@ -164,7 +164,7 @@ export const ChatWidget: React.FC = () => {
               <button 
                 onClick={handleSend}
                 disabled={!input.trim() || isLoading}
-                className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:hover:bg-blue-600 transition-colors"
+                className="p-2 bg-blue-600 text-gray-900 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:hover:bg-blue-600 transition-colors"
               >
                 <Send size={14} />
               </button>

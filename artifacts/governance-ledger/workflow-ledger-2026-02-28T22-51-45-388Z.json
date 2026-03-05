@@ -1,0 +1,74 @@
+{
+  "generatedAt": "2026-02-28T22:51:45.388Z",
+  "runs": [
+    {
+      "run": "run-2026-02-28T06-44-24-032Z",
+      "workflow": {
+        "captured": true,
+        "detail": "POST https://apis-veropm.veropm.app/api/v1/workflow/version"
+      },
+      "portfolio": {
+        "captured": true,
+        "detail": "POST https://apis-veropm.veropm.app/api/v1/portfolio/61c7d2a5-087d-4c07-978b-862b34d3c277/health/recalculate"
+      },
+      "approval": {
+        "captured": true,
+        "detail": "POST https://apis-veropm.veropm.app/api/v1/resourcerequest/bulk-action | success=false failure=true"
+      },
+      "documentsUpload": {
+        "captured": true,
+        "detail": "POST https://apis-veropm.veropm.app/api/v1/documents/18e9d1d9-fd46-46c0-a46f-2983e8c019c4/upload"
+      },
+      "documentsUpdate": {
+        "captured": false,
+        "detail": "No document update mutation"
+      }
+    },
+    {
+      "run": "run-2026-02-28T07-30-58-445Z",
+      "workflow": {
+        "captured": false,
+        "detail": "create=false, update=false"
+      },
+      "portfolio": {
+        "captured": false,
+        "detail": "No portfolio mutation"
+      },
+      "approval": {
+        "captured": false,
+        "detail": "No approval mutation"
+      },
+      "documentsUpload": {
+        "captured": false,
+        "detail": "No document upload mutation"
+      },
+      "documentsUpdate": {
+        "captured": true,
+        "detail": "PUT https://apis-veropm.veropm.app/api/v1/documents/f7b65ebe-6e89-4816-bbfd-01ec4d65d473 | status=200"
+      }
+    },
+    {
+      "run": "run-2026-02-28T22-46-00-745Z",
+      "workflow": {
+        "captured": false,
+        "detail": "create=false, update=false"
+      },
+      "portfolio": {
+        "captured": true,
+        "detail": "POST https://apis-veropm.veropm.app/api/v1/portfolio/61c7d2a5-087d-4c07-978b-862b34d3c277/health/recalculate"
+      },
+      "approval": {
+        "captured": false,
+        "detail": "No approval mutation"
+      },
+      "documentsUpload": {
+        "captured": false,
+        "detail": "No document upload mutation"
+      },
+      "documentsUpdate": {
+        "captured": false,
+        "detail": "No document update mutation"
+      }
+    }
+  ]
+}

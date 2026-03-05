@@ -110,7 +110,7 @@ export default function DeltaGateAlert({
               {has_critical_changes ? 'Neural Delta Detected: Critical Variance' : 'Requirement Shift Detected'}
             </h3>
 
-            <p className="text-[10px] font-mono mt-1 opacity-80 tracking-widest">
+            <p className="text-caption font-mono mt-1 opacity-80 tracking-widest">
               {changes.length} Logical change{changes.length !== 1 ? 's' : ''} identified since last maturation.
             </p>
 
@@ -119,21 +119,21 @@ export default function DeltaGateAlert({
                 {changes.map((change: DocumentChangeEvent, idx: number) => (
                   <div
                     key={idx}
-                    className="p-3 rounded-lg bg-black/20 border border-white/5 space-y-1"
+                    className="p-3 rounded-lg bg-white border border-gray-200 space-y-1"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="text-[9px] font-bold italic tracking-widest text-white/60">
+                      <span className="text-gov-label font-bold italic tracking-widest text-gray-500">
                         Field: {change.field_changed}
                       </span>
-                      <span className={`text-[8px] font-bold italic px-1.5 py-0.5 rounded border ${
-                        change.impact_level === 'CRITICAL' ? 'border-rose-500/30 bg-rose-500/10' : 'border-white/10'
+                      <span className={`text-caption font-bold italic px-1.5 py-0.5 rounded border ${
+                        change.impact_level === 'CRITICAL' ? 'border-rose-500/30 bg-rose-500/10' : 'border-gray-200'
                       }`}>
                         {change.impact_level}
                       </span>
                     </div>
-                    <div className="grid grid-cols-2 gap-4 text-[10px] font-mono">
+                    <div className="grid grid-cols-2 gap-4 text-caption font-mono">
                       <div className="opacity-40">FROM: {change.old_value || 'NULL'}</div>
-                      <div className="text-white">TO: {change.new_value}</div>
+                      <div className="text-gray-900">TO: {change.new_value}</div>
                     </div>
                   </div>
                 ))}
@@ -145,7 +145,7 @@ export default function DeltaGateAlert({
         <div className="flex items-center gap-2">
           <button
             onClick={() => setExpanded(!expanded)}
-            className="p-1.5 hover:bg-white/5 rounded-lg transition-colors"
+            className="p-1.5 hover:bg-gray-50 rounded-lg transition-colors"
           >
             <ChevronDown
               size={14}
@@ -154,7 +154,7 @@ export default function DeltaGateAlert({
           </button>
           <button
             onClick={onClose}
-            className="p-1.5 hover:bg-white/5 rounded-lg transition-colors"
+            className="p-1.5 hover:bg-gray-50 rounded-lg transition-colors"
           >
             <X size={14} />
           </button>
@@ -162,7 +162,7 @@ export default function DeltaGateAlert({
       </div>
 
       {requires_acknowledgment && (
-        <div className="mt-4 flex gap-2 border-t border-white/5 pt-4">
+        <div className="mt-4 flex gap-2 border-t border-gray-200 pt-4">
           <Button
             variant="danger"
             size="xs"
@@ -173,7 +173,7 @@ export default function DeltaGateAlert({
           </Button>
           <button
             onClick={onClose}
-            className="text-[9px] font-bold italic tracking-widest text-zinc-500 hover:text-white transition-colors px-3"
+            className="text-gov-label font-bold italic tracking-widest text-gray-500 hover:text-gray-900 transition-colors px-3"
           >
             Dismiss
           </button>

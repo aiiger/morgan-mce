@@ -55,23 +55,23 @@ export const QueueCard: React.FC<QueueCardProps> = ({
                 transition: isHovering && !isExpanded ? 'none' : 'transform 0.5s ease-out'
             }}
             className={cn(
-                "flex flex-col bg-glass backdrop-blur-xl border border-glass rounded-[var(--gov-radius)] shadow-lg overflow-hidden group transition-all duration-300",
-                isExpanded ? "h-[640px] z-50 relative" : "h-auto hover:border-white/20",
+                "flex flex-col bg-white border border-gray-200 rounded-[var(--gov-radius)] shadow-lg overflow-hidden group transition-all duration-300",
+                isExpanded ? "h-[640px] z-50 relative" : "h-auto hover:border-gray-300",
                 className
             )}
         >
 
             {/* Header: Fixed Height (40px spec) */}
             <div className={cn(
-                "flex items-center justify-between px-4 min-h-[44px] py-1.5 border-b border-glass bg-glass-subtle gap-4",
+                "flex items-center justify-between px-4 min-h-[44px] py-1.5 border-b border-gray-200 bg-gray-50 gap-4",
                 headerClassName
             )}>
                 <div className="flex items-center gap-3 min-w-0 flex-1">
-                    <h3 className="text-xs font-bold italic text-zinc-500 font-sans truncate min-w-0">
+                    <h3 className="text-xs font-bold italic text-gray-500 font-sans truncate min-w-0">
                         {title}
                     </h3>
                     {count !== undefined && (
-                        <span className="px-1.5 py-0.5 rounded-md text-xs font-mono font-bold italic bg-glass text-zinc-500 border border-glass tabular-nums shrink-0">
+                        <span className="px-1.5 py-0.5 rounded-md text-xs font-mono font-bold italic bg-gray-100 text-gray-500 border border-gray-200 tabular-nums shrink-0">
                             {count}
                         </span>
                     )}
@@ -87,7 +87,7 @@ export const QueueCard: React.FC<QueueCardProps> = ({
                                 e.stopPropagation();
                                 onToggle();
                             }}
-                            className="p-1.5 rounded-md hover:bg-glass text-zinc-500 hover:text-white transition-colors"
+                            className="p-1.5 rounded-md hover:bg-gray-100 text-gray-500 hover:text-gray-900 transition-colors"
                         >
                             {isExpanded ? <Minimize2 size={12} /> : <Maximize2 size={12} />}
                         </button>

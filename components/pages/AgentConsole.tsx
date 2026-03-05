@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { Cpu, Terminal, Zap, ShieldCheck, Activity, CheckCircle2, RefreshCcw, Database, Globe, Bot } from 'lucide-react';
+import { Cpu, Terminal, Zap, ShieldCheck, Activity, CheckCircle2, RefreshCcw, Database, Globe, Bot, Send } from 'lucide-react';
 import { agentRegistry } from '../../utils/agent';
 import { useSupabase } from '../../hooks/useSupabase';
+import { useToast } from '@/lib/toast-context';
 
 interface AgentConsoleProps {
   activity: any[];
@@ -13,8 +14,12 @@ import { PageHeader } from '../ui/PageHeader';
 export const AgentConsole: React.FC<AgentConsoleProps> = ({ activity, auditLogs }) => {
   const [activeTab, setActiveTab] = useState<'mesh' | 'audit' | 'intelligence'>('mesh');
   const [isScanning, setIsScanning] = useState(false);
+  const [scanResult, setScanResult] = useState<{ p5: any; s1: any } | null>(null);
+  const [intelInput, setIntelInput] = useState('');
+  const [intelResult, setIntelResult] = useState<{ answer: string; citations: string[] } | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const { getClient } = useSupabase();
+  const toast = useToast();
 
   const getAgentMetrics = (agentId: string) => {
     const recent = activity.filter(a => a.agent_id.includes(agentId));
@@ -39,44 +44,36 @@ export const AgentConsole: React.FC<AgentConsoleProps> = ({ activity, auditLogs 
 
   const handleGlobalScan = async () => {
     setIsScanning(true);
+    setScanResult(null);
     try {
       const client = await getClient();
       const results = await Promise.all([
         agentRegistry.p5.run(client, 'GLOBAL_PORTFOLIO'),
         agentRegistry.s1.run(client)
       ]);
-
       const p5Result = results[0] as any;
       const s1Result = results[1] as any;
-
-      alert(`SYSTEM WIDE SCAN COMPLETE\n\n` +
-        `RISK ENGINE (P5):\n` +
-        `- Projects: ${p5Result.total_projects}\n` +
-        `- Risk Level: ${p5Result.risk_level}\n` +
-        `- Breaches: ${p5Result.budget_breaches}\n\n` +
-        `SECURITY GUARD (S1):\n` +
-        `- Integrity Score: ${s1Result.integrity_score}%\n` +
-        `- Violations: ${s1Result.violations_detected}\n` +
-        `- Critical Alerts: ${s1Result.critical_alerts}`);
-
+      setScanResult({ p5: p5Result, s1: s1Result });
+      toast.success('Scan Complete', `Risk: ${p5Result.risk_level} · Integrity: ${s1Result.integrity_score}%`);
     } catch (error) {
       console.error('Scan failed:', error);
-      alert('Neural Scan Interrupted: System Gateway Timeout.');
+      toast.error('Scan Interrupted', 'System gateway timeout — check AI service.');
     } finally {
       setIsScanning(false);
     }
   };
 
   const handleP9Query = async () => {
-    const query = prompt("Enter Knowledge Base Query:");
-    if (!query) return;
+    if (!intelInput.trim()) return;
     setIsScanning(true);
+    setIntelResult(null);
     try {
       const client = await getClient();
-      const result = await agentRegistry.knowledge.query(client, query);
-      alert(`INTELLIGENCE CORE RESPONSE:\n\n${result.answer}\n\nCitations: ${result.citations.join(', ')}`);
+      const result = await agentRegistry.knowledge.query(client, intelInput.trim());
+      setIntelResult({ answer: result.answer, citations: result.citations || [] });
+      setActiveTab('intelligence');
     } catch (error) {
-      alert("Intelligence Core Timeout.");
+      toast.error('Intelligence Core Timeout', 'Knowledge query failed — check AI service.');
     } finally {
       setIsScanning(false);
     }
@@ -100,32 +97,41 @@ export const AgentConsole: React.FC<AgentConsoleProps> = ({ activity, auditLogs 
               onClick={handleGlobalScan}
               disabled={isScanning}
               aria-label={isScanning ? "Neural Scan in progress" : "Execute Global Compliance Neural Scan"}
-              className={`bg-emerald-500 text-black px-6 py-2 rounded-xl text-[10px] font-bold italic tracking-widest flex items-center gap-2 transition-all ${isScanning ? 'animate-pulse opacity-50' : 'hover:bg-emerald-400'}`}
+              className={`bg-emerald-500 text-black px-6 py-2 rounded-xl text-caption font-bold italic tracking-widest flex items-center gap-2 transition-all ${isScanning ? 'animate-pulse opacity-50' : 'hover:bg-emerald-400'}`}
             >
               <ShieldCheck size={14} strokeWidth={3} />
               {isScanning ? 'Scanning Cluster...' : 'Execute Compliance Scan'}
             </button>
-            <button
-              onClick={handleP9Query}
-              disabled={isScanning}
-              aria-label="Ask Knowledge Core"
-              className={`bg-[#0ea5e9] text-black px-4 py-2 rounded-xl text-[10px] font-bold italic tracking-widest flex items-center gap-2 transition-all ${isScanning ? 'opacity-50' : 'hover:bg-[#38bdf8]'}`}
-            >
-              <Zap size={14} strokeWidth={3} />
-              Intel Query
-            </button>
-            <div className="px-4 py-2 bg-black/40 border border-glass rounded-xl flex items-center gap-3">
+            <div className="flex items-center gap-2">
+              <input
+                value={intelInput}
+                onChange={e => setIntelInput(e.target.value)}
+                onKeyDown={e => e.key === 'Enter' && handleP9Query()}
+                placeholder="Enter intel query..."
+                className="bg-white border border-gray-200 rounded-xl px-4 py-2 text-caption font-mono text-gray-700 w-52 focus:outline-none focus:border-blue-400 transition-all placeholder:text-gray-400"
+              />
+              <button
+                onClick={handleP9Query}
+                disabled={isScanning || !intelInput.trim()}
+                aria-label="Ask Knowledge Core"
+                className={`bg-blue-500 text-white px-4 py-2 rounded-xl text-caption font-bold italic tracking-widest flex items-center gap-2 transition-all ${isScanning || !intelInput.trim() ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-400'}`}
+              >
+                <Send size={13} strokeWidth={3} />
+                Query
+              </button>
+            </div>
+            <div className="px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl flex items-center gap-3">
               <div className="flex space-x-1">
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse [animation-delay:0.2s]"></div>
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse [animation-delay:0.4s]"></div>
               </div>
-              <span className="text-[10px] font-mono font-bold italic text-zinc-500 tracking-widest">Neural Link: SECURE</span>
+              <span className="text-caption font-mono font-bold italic text-gray-500 tracking-widest">Neural Link: SECURE</span>
             </div>
             <button
               onClick={() => window.location.reload()}
               aria-label="Refresh Agent Console Data"
-              className="p-3 bg-glass border border-white/10 rounded-xl hover:bg-white/10 transition-all text-zinc-400 shadow-lg"
+              className="p-3 bg-gray-50 border border-gray-200 rounded-xl hover:bg-gray-100 transition-all text-gray-500 shadow-sm"
             >
               <RefreshCcw size={16} />
             </button>
@@ -135,7 +141,7 @@ export const AgentConsole: React.FC<AgentConsoleProps> = ({ activity, auditLogs 
 
 
       {/* COMMAND NAVIGATION */}
-      <div className="flex space-x-2 p-1.5 bg-black/40 backdrop-blur-xl rounded-xl border border-glass w-fit mb-10 shadow-2xl">
+      <div className="flex space-x-2 p-1.5 bg-gray-50 rounded-xl border border-gray-200 w-fit mb-10">
         {[
           { id: 'mesh', label: 'NEURAL_MESH', icon: Bot, aria: "View Neural Agent Mesh" },
           { id: 'intelligence', label: 'INTELLIGENCE_STREAM', icon: Zap, aria: "View Intelligence Stats" },
@@ -145,9 +151,9 @@ export const AgentConsole: React.FC<AgentConsoleProps> = ({ activity, auditLogs 
             key={tab.id}
             onClick={() => setActiveTab(tab.id as any)}
             aria-label={tab.aria}
-            className={`px-6 py-2.5 text-[10px] font-bold italic tracking-[0.2em] rounded-xl transition-all flex items-center gap-3 ${activeTab === tab.id
-              ? 'bg-emerald-500 text-black shadow-[0_0_20px_rgba(16,185,129,0.3)]'
-              : 'text-zinc-500 hover:text-zinc-300 hover:bg-glass'
+            className={`px-6 py-2.5 text-caption font-bold italic tracking-[0.2em] rounded-xl transition-all flex items-center gap-3 ${activeTab === tab.id
+              ? 'bg-blue-600 text-white shadow-sm'
+              : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'
               }`}
           >
             <tab.icon size={14} strokeWidth={2.5} />
@@ -160,30 +166,30 @@ export const AgentConsole: React.FC<AgentConsoleProps> = ({ activity, auditLogs 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 animate-in slide-in-from-bottom-4 duration-500">
           <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
             {agents.map((agent) => (
-              <div key={agent.id} className="bg-black/40 backdrop-blur-3xl border border-glass rounded-[2rem] p-8 shadow-2xl hover:border-emerald-500/20 transition-all group relative overflow-hidden">
+              <div key={agent.id} className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm hover:border-emerald-500/20 transition-all group relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-20 transition-opacity">
                   <Cpu size={80} />
                 </div>
                 <div className="flex justify-between items-start mb-8 relative z-10">
-                  <div className={`p-3 rounded-xl bg-glass border border-white/10 ${agent.color}`}>
+                  <div className={`p-3 rounded-xl bg-gray-50 border border-gray-200 ${agent.color}`}>
                     <Cpu size={20} strokeWidth={2.5} />
                   </div>
                   <div className="flex flex-col items-end">
-                    <span className="text-[9px] font-bold italic text-zinc-600 tracking-widest mb-1">{agent.model}</span>
-                    <span className={`text-[8px] font-bold italic px-2 py-0.5 rounded-full border ${agent.status === 'Active' ? 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' : 'bg-zinc-800 text-zinc-500 border-zinc-700'
+                    <span className="text-gov-label font-bold italic text-gray-400 tracking-widest mb-1">{agent.model}</span>
+                    <span className={`text-caption font-bold italic px-2 py-0.5 rounded-full border ${agent.status === 'Active' ? 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' : 'bg-gray-100 text-gray-500 border-gray-200'
                       }`}>{agent.status}</span>
                   </div>
                 </div>
-                <h3 className="text-xl font-bold italic text-white tracking-tight mb-6 relative z-10">
-                  <span className="text-zinc-600 mr-2 font-mono">[{agent.id}]</span>
+                <h3 className="text-xl font-bold italic text-gray-900 tracking-tight mb-6 relative z-10">
+                  <span className="text-gray-400 mr-2 font-mono">[{agent.id}]</span>
                   {agent.name}
                 </h3>
                 <div className="space-y-3 relative z-10">
                   <div className="flex items-end justify-between">
-                    <span className="text-[9px] text-zinc-500 font-bold italic tracking-widest">Cognitive Load</span>
-                    <span className="text-[12px] font-mono font-bold italic text-emerald-500">{agent.load}</span>
+                    <span className="text-gov-label text-gray-500 font-bold italic tracking-widest">Cognitive Load</span>
+                    <span className="text-xs font-mono font-bold italic text-emerald-500">{agent.load}</span>
                   </div>
-                  <div className="w-full bg-glass rounded-full h-1 overflow-hidden shadow-inner">
+                  <div className="w-full bg-gray-100 rounded-full h-1 overflow-hidden shadow-inner">
                     <div className="bg-emerald-500 h-full transition-all duration-[2000ms] shadow-[0_0_15px_var(--color-success)]" style={{ width: agent.load }}></div>
                   </div>
                 </div>
@@ -192,14 +198,14 @@ export const AgentConsole: React.FC<AgentConsoleProps> = ({ activity, auditLogs 
           </div>
 
           {/* Live Terminal */}
-          <div className="lg:col-span-5 bg-[var(--bg-layer)] border border-white/10 rounded-[2rem] overflow-hidden flex flex-col h-[600px] shadow-3xl">
-            <div className="px-6 py-4 border-b border-glass bg-black/40 flex justify-between items-center">
+          <div className="lg:col-span-5 bg-gray-50 border border-gray-200 rounded-2xl overflow-hidden flex flex-col h-[600px] shadow-sm">
+            <div className="px-6 py-4 border-b border-gray-200 bg-gray-50 flex justify-between items-center">
               <div className="flex items-center gap-3">
                 <Terminal size={14} className="text-emerald-500" />
-                <h3 className="text-[10px] font-bold italic text-zinc-400 tracking-[0.3em] font-mono">live_stream.sh</h3>
+                <h3 className="text-caption font-bold italic text-gray-500 tracking-[0.3em] font-mono">live_stream.sh</h3>
               </div>
             </div>
-            <div ref={scrollRef} className="flex-1 overflow-y-auto p-8 font-mono text-[10px] leading-relaxed custom-scrollbar">
+            <div ref={scrollRef} className="flex-1 overflow-y-auto p-8 font-mono text-caption leading-relaxed custom-scrollbar">
               {activity.length === 0 ? (
                 <div className="h-full flex items-center justify-center opacity-20 flex-col gap-4">
                   <Activity size={40} className="animate-pulse" />
@@ -208,14 +214,14 @@ export const AgentConsole: React.FC<AgentConsoleProps> = ({ activity, auditLogs 
               ) : (
                 <div className="space-y-3">
                   {activity.map((log, i) => (
-                    <div key={i} className="flex gap-4 group border-l border-glass pl-4 hover:border-emerald-500/30 transition-colors">
-                      <span className="text-zinc-700 whitespace-nowrap">[{new Date(log.created_at || Date.now()).toLocaleTimeString()}]</span>
+                    <div key={i} className="flex gap-4 group border-l border-gray-200 pl-4 hover:border-emerald-500/30 transition-colors">
+                      <span className="text-gray-400 whitespace-nowrap">[{new Date(log.created_at || Date.now()).toLocaleTimeString()}]</span>
                       <div className="flex flex-col gap-1">
                         <div className="flex items-center gap-3">
                           <span className="text-emerald-500 font-bold italic tracking-tighter">❯ {log.agent_id}</span>
-                          <span className="text-zinc-200 font-bold italic tracking-widest text-[9px]">{log.action_type}</span>
+                          <span className="text-gray-800 font-bold italic tracking-widest text-gov-label">{log.action_type}</span>
                         </div>
-                        <div className="text-zinc-500 break-all bg-glass-subtle p-2 rounded border border-glass group-hover:text-zinc-300">
+                        <div className="text-gray-500 break-all bg-gray-50 p-2 rounded border border-gray-200 group-hover:text-gray-700">
                           {JSON.stringify(log.payload || {})}
                         </div>
                       </div>
@@ -229,40 +235,51 @@ export const AgentConsole: React.FC<AgentConsoleProps> = ({ activity, auditLogs 
       )}
 
       {activeTab === 'intelligence' && (
-        <div className="bg-black/40 backdrop-blur-3xl border border-white/10 rounded-[2rem] p-12 min-h-[500px] flex flex-col items-center justify-center text-center space-y-6 animate-in zoom-in-95 duration-500">
+        <div className="bg-white border border-gray-200 rounded-2xl p-12 min-h-[500px] flex flex-col items-center justify-center text-center space-y-6 animate-in zoom-in-95 duration-500">
           <Zap size={48} className="text-[var(--color-info)] animate-pulse" />
-          <h2 className="text-2xl font-bold italic text-white tracking-tighter">Intelligence Engine // Sonnet V4.5</h2>
-          <p className="text-zinc-500 text-sm max-w-xl leading-relaxed tracking-widest font-bold italic">
+          <h2 className="text-2xl font-bold italic text-gray-900 tracking-tighter">Intelligence Engine // Sonnet V4.5</h2>
+          <p className="text-gray-500 text-sm max-w-xl leading-relaxed tracking-widest font-bold italic">
             Real-time reasoning over the project ledger. Every query is filtered through the RAG Hybrid pipeline and verified against the Iron Dome financial barrier.
           </p>
-          <div className="grid grid-cols-3 gap-12 w-full max-w-3xl pt-12 border-t border-glass">
-            <div className="space-y-2">
-              <p className="text-[10px] font-bold italic text-zinc-600 tracking-widest">Model Precision</p>
-              <p className="text-3xl font-bold italic text-white font-mono tracking-tighter">99.2%</p>
+          {intelResult && (
+            <div className="w-full max-w-2xl bg-gray-50 border border-blue-200 rounded-xl p-6 text-left space-y-3">
+              <div className="text-xs font-mono font-bold text-blue-600 uppercase tracking-widest">Intelligence Core Response</div>
+              <p className="text-sm text-gray-700 leading-relaxed">{intelResult.answer}</p>
+              {intelResult.citations.length > 0 && (
+                <div className="text-caption text-gray-400 font-mono">Citations: {intelResult.citations.join(', ')}</div>
+              )}
             </div>
-            <div className="space-y-2">
-              <p className="text-[10px] font-bold italic text-zinc-600 tracking-widest">Reasoning Hops</p>
-              <p className="text-3xl font-bold italic text-emerald-500 font-mono tracking-tighter">15-T</p>
+          )}
+          {scanResult && (
+            <div className="w-full max-w-2xl grid grid-cols-2 gap-4">
+              <div className="bg-gray-50 border border-emerald-200 rounded-xl p-5 space-y-2">
+                <div className="text-caption font-mono font-bold text-emerald-600 uppercase tracking-widest">Risk Engine [P5]</div>
+                <div className="text-sm text-gray-700">Projects: <strong>{scanResult.p5?.total_projects ?? '–'}</strong></div>
+                <div className="text-sm text-gray-700">Risk Level: <strong>{scanResult.p5?.risk_level ?? '–'}</strong></div>
+                <div className="text-sm text-gray-700">Breaches: <strong>{scanResult.p5?.budget_breaches ?? '–'}</strong></div>
+              </div>
+              <div className="bg-gray-50 border border-blue-200 rounded-xl p-5 space-y-2">
+                <div className="text-caption font-mono font-bold text-blue-600 uppercase tracking-widest">Security Guard [S1]</div>
+                <div className="text-sm text-gray-700">Integrity: <strong>{scanResult.s1?.integrity_score ?? '–'}%</strong></div>
+                <div className="text-sm text-gray-700">Violations: <strong>{scanResult.s1?.violations_detected ?? '–'}</strong></div>
+                <div className="text-sm text-gray-700">Critical Alerts: <strong>{scanResult.s1?.critical_alerts ?? '–'}</strong></div>
+              </div>
             </div>
-            <div className="space-y-2">
-              <p className="text-[10px] font-bold italic text-zinc-600 tracking-widest">Latency (P95)</p>
-              <p className="text-3xl font-bold italic text-blue-500 font-mono tracking-tighter">1.2s</p>
-            </div>
-          </div>
+          )}
         </div>
       )}
 
       {activeTab === 'audit' && (
-        <div className="bg-black/40 backdrop-blur-3xl border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl animate-in fade-in duration-500">
-          <div className="px-8 py-6 border-b border-white/10 bg-black/20 flex justify-between items-center">
-            <h3 className="text-xs font-bold italic text-zinc-400 tracking-[0.4em] font-mono flex items-center gap-3">
+        <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm animate-in fade-in duration-500">
+          <div className="px-8 py-6 border-b border-gray-200 bg-gray-50 flex justify-between items-center">
+            <h3 className="text-xs font-bold italic text-gray-600 tracking-[0.4em] font-mono flex items-center gap-3">
               <ShieldCheck size={16} className="text-emerald-500" /> Immutable_System_Ledger
             </h3>
-            <span className="text-[10px] font-mono text-zinc-600 tracking-widest bg-glass px-3 py-1 rounded-full">{auditLogs.length} Records Identity Verified</span>
+            <span className="text-caption font-mono text-gray-500 tracking-widest bg-gray-100 px-3 py-1 rounded-full">{auditLogs.length} Records Identity Verified</span>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-left border-collapse">
-              <thead className="text-[9px] font-bold italic text-zinc-500 tracking-[0.2em] bg-black/40 border-b border-glass">
+              <thead className="text-gov-label font-bold italic text-gray-500 tracking-[0.2em] bg-gray-50 border-b border-gray-200">
                 <tr>
                   <th className="px-8 py-4 font-mono">Temporal_Signature</th>
                   <th className="px-8 py-4">Actor_ID</th>
@@ -270,18 +287,18 @@ export const AgentConsole: React.FC<AgentConsoleProps> = ({ activity, auditLogs 
                   <th className="px-8 py-4 text-right pr-8 font-mono">Ref_Hash</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5 text-xs text-zinc-400 font-mono">
+              <tbody className="divide-y divide-gray-100 text-xs text-gray-500 font-mono">
                 {auditLogs.map((log) => (
-                  <tr key={log.id} className="hover:bg-glass-subtle transition-colors group">
-                    <td className="px-8 py-5 text-zinc-600 group-hover:text-emerald-500 transition-colors">{new Date(log.created_at).toISOString()}</td>
-                    <td className="px-8 py-5 font-bold italic text-zinc-300 tracking-tighter">{log.actor_id || 'SYSTEM_DAEMON'}</td>
-                    <td className="px-8 py-5">
-                      <span className={`px-2 py-1 rounded text-[9px] font-bold italic border tracking-widest ${log.action === 'INSERT' ? 'text-emerald-500 border-emerald-500/20 bg-emerald-500/5' :
+                  <tr key={log.id} className="hover:bg-gray-50 transition-colors group">
+                    <td className="px-8 py-4 text-gray-400 group-hover:text-blue-600 transition-colors">{new Date(log.created_at).toISOString()}</td>
+                    <td className="px-8 py-4 font-bold italic text-gray-700 tracking-tighter">{log.actor_id || 'SYSTEM_DAEMON'}</td>
+                    <td className="px-8 py-4">
+                      <span className={`px-2 py-1 rounded text-gov-label font-bold italic border tracking-widest ${log.action === 'INSERT' ? 'text-emerald-500 border-emerald-500/20 bg-emerald-500/5' :
                         log.action === 'UPDATE' ? 'text-blue-500 border-blue-500/20 bg-blue-500/5' :
                           'text-rose-500 border-rose-500/20 bg-rose-500/5'
                         }`}>{log.action}</span>
                     </td>
-                    <td className="px-8 py-5 text-right pr-8 text-zinc-700 group-hover:text-zinc-500">{(log.entity_id || '0000').substring(0, 12)}</td>
+                    <td className="px-8 py-4 text-right pr-8 text-gray-400 group-hover:text-gray-600">{(log.entity_id || '0000').substring(0, 12)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -292,26 +309,26 @@ export const AgentConsole: React.FC<AgentConsoleProps> = ({ activity, auditLogs 
 
       {/* Workflow Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12">
-        <div className="bg-emerald-500/5 border border-emerald-500/10 rounded-[2rem] p-8 relative overflow-hidden">
+        <div className="bg-emerald-500/5 border border-emerald-500/10 rounded-2xl p-8 relative overflow-hidden">
           <Zap className="absolute -right-4 -bottom-4 w-24 h-24 text-emerald-500/5" />
-          <p className="text-zinc-500 text-[10px] font-bold italic tracking-[0.2em] mb-2">Total Operations</p>
-          <h4 className="text-4xl font-bold italic text-white tracking-tighter font-mono shadow-[0_0_15px_rgba(16,185,129,0.2)]">1,402</h4>
-          <p className="text-emerald-500 text-[10px] font-bold italic mt-4 tracking-widest">↑ 12% VELOCITY INCREASE</p>
+          <p className="text-gray-500 text-caption font-bold italic tracking-[0.2em] mb-2">Total Operations</p>
+          <h4 className="text-4xl font-bold italic text-gray-900 tracking-tighter font-mono">1,402</h4>
+          <p className="text-emerald-500 text-caption font-bold italic mt-4 tracking-widest">↑ 12% VELOCITY INCREASE</p>
         </div>
-        <div className="bg-black/40 border border-glass rounded-[2rem] p-8">
-          <p className="text-zinc-500 text-[10px] font-bold italic tracking-[0.2em] mb-2">Success Rate</p>
-          <h4 className="text-4xl font-bold italic text-white tracking-tighter font-mono shadow-[0_0_15px_rgba(255,255,255,0.1)]">99.8%</h4>
-          <div className="flex items-center space-x-2 mt-4 text-zinc-500">
+        <div className="bg-white border border-gray-200 rounded-2xl p-8">
+          <p className="text-gray-500 text-caption font-bold italic tracking-[0.2em] mb-2">Success Rate</p>
+          <h4 className="text-4xl font-bold italic text-gray-900 tracking-tighter font-mono">99.8%</h4>
+          <div className="flex items-center space-x-2 mt-4 text-gray-500">
             <CheckCircle2 size={12} className="text-emerald-500" />
-            <span className="text-[9px] font-bold italic tracking-widest">Exceeding SLA Baseline</span>
+            <span className="text-gov-label font-bold italic tracking-widest">Exceeding SLA Baseline</span>
           </div>
         </div>
-        <div className="bg-black/40 border border-glass rounded-[2rem] p-8">
-          <p className="text-zinc-500 text-[10px] font-bold italic tracking-[0.2em] mb-2">Avg Latency</p>
-          <h4 className="text-4xl font-bold italic text-white tracking-tighter font-mono shadow-[0_0_15px_rgba(255,255,255,0.1)]">142ms</h4>
-          <div className="flex items-center space-x-2 mt-4 text-zinc-500">
+        <div className="bg-white border border-gray-200 rounded-2xl p-8">
+          <p className="text-gray-500 text-caption font-bold italic tracking-[0.2em] mb-2">Avg Latency</p>
+          <h4 className="text-4xl font-bold italic text-gray-900 tracking-tighter font-mono">142ms</h4>
+          <div className="flex items-center space-x-2 mt-4 text-gray-500">
             <Activity size={12} className="text-emerald-500" />
-            <span className="text-[9px] font-bold italic tracking-widest">Optimal Node Response</span>
+            <span className="text-gov-label font-bold italic tracking-widest">Optimal Node Response</span>
           </div>
         </div>
       </div>

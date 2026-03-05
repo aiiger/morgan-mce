@@ -23,6 +23,12 @@ interface MorganCommandCenterProps {
   alerts: Alert[];
   onSearch: (query: string) => void;
   onNavigate: (view: string) => void;
+   onProjectUpdate?: (id: string, patch: Partial<Project>) => Promise<void>;
+   onProjectDelete?: (id: string) => Promise<void>;
+   onTenderUpdate?: (id: string, patch: Partial<Tender>) => Promise<void>;
+   onTenderDelete?: (id: string) => Promise<void>;
+   onTaskAdd?: (status: string) => void;
+   onTaskClick?: (task: any) => void;
   onSelectProject?: (id: string) => void;
   user?: { name: string; role: string };
   agentActivity?: any[];
@@ -48,13 +54,13 @@ const MorganWhisper = ({ context }: { context: string }) => {
       transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
       className="w-full max-w-7xl mx-auto mb-6 overflow-hidden"
     >
-      <div className="flex items-center gap-3 px-5 py-2.5 bg-[var(--bg-surface)] border border-[var(--brand-accent)]/20 rounded-full w-fit shadow-[0_0_20px_rgba(81,162,168,0.15)] backdrop-blur-md">
+      <div className="flex items-center gap-3 px-6 py-2.5 bg-[var(--bg-surface)] border border-[var(--brand-accent)]/20 rounded-full w-fit shadow-[0_0_20px_rgba(81,162,168,0.15)] backdrop-blur-md">
         <div className="relative">
            <div className="w-2 h-2 rounded-full bg-[var(--brand-accent)] animate-pulse" />
            <div className="absolute inset-0 w-2 h-2 rounded-full bg-[var(--brand-accent)] animate-ping opacity-50" />
         </div>
-        <span className="text-[10px] font-black italic uppercase tracking-widest text-[var(--brand-accent)]">Mr. Morgan:</span>
-        <span className="text-[11px] font-medium text-[var(--text-primary)] tracking-wide font-mono">
+        <span className="text-caption font-bold tracking-widest text-[var(--brand-accent)]">Mr. Morgan:</span>
+        <span className="text-gov-label font-medium text-[var(--text-primary)] tracking-wide font-mono">
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -101,7 +107,7 @@ const TacticalDock = ({
           onClick={() => onNavigate('command')}
           className={cn("p-3 rounded-full transition-all scale-110", currentMode === 'command' ? "bg-[var(--brand-accent)] text-white shadow-glow" : "bg-[var(--bg-hover)] text-[var(--text-secondary)]")}
         >
-          <span className="font-oswald font-black italic text-lg">M.</span>
+          <span className="font-oswald font-bold italic text-lg">M.</span>
         </button>
 
         <button 
@@ -260,11 +266,11 @@ const CommandLine = ({
 
         <div className="flex items-center gap-2">
            {query && navMap[query.toLowerCase().trim()] && (
-            <Badge variant="outline" className="text-[9px] bg-[var(--brand-accent)]/10 text-[var(--brand-accent)] border-[var(--brand-accent)]/20 animate-pulse">
+            <Badge variant="outline" className="text-gov-label bg-[var(--brand-accent)]/10 text-[var(--brand-accent)] border-[var(--brand-accent)]/20 animate-pulse">
               SWITCH TO {navMap[query.toLowerCase().trim()].toUpperCase()}
             </Badge>
           )}
-          <div className="hidden sm:flex items-center gap-1.5 px-2 py-1 rounded bg-[var(--bg-hover)] border border-[var(--surface-border)] text-[10px] font-mono text-[var(--text-tertiary)]">
+          <div className="hidden sm:flex items-center gap-1.5 px-2 py-1 rounded bg-[var(--bg-hover)] border border-[var(--surface-border)] text-caption font-mono text-[var(--text-tertiary)]">
             <Command size={10} />
             <span>K</span>
           </div>
@@ -277,7 +283,15 @@ const CommandLine = ({
 /**
  * Micro-View: Projects
  */
-const ProjectsView = ({ projects }: { projects: Project[] }) => (
+const ProjectsView = ({
+   projects,
+   onUpdate,
+   onDelete,
+}: {
+   projects: Project[];
+   onUpdate?: (id: string, patch: Partial<Project>) => Promise<void>;
+   onDelete?: (id: string) => Promise<void>;
+}) => (
   <motion.div 
     initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
     className="w-full max-w-7xl mx-auto"
@@ -288,25 +302,41 @@ const ProjectsView = ({ projects }: { projects: Project[] }) => (
           <div className="flex justify-between items-start mb-3">
             <div className="flex items-center gap-2">
               <Building2 size={14} className="text-[var(--brand-accent)]" />
-              <span className="text-[10px] font-mono text-[var(--text-tertiary)] uppercase">{p.project_code || 'PRJ-000'}</span>
+              <span className="text-caption font-mono text-[var(--text-tertiary)] uppercase">{p.project_code || 'PRJ-000'}</span>
             </div>
             <Badge variant="outline" className={cn(
-              "text-[9px] border-none",
+              "text-gov-label border-none",
               p.delivery_risk_rating === 'Critical' ? "text-[var(--mce-red)] bg-[var(--mce-red)]/10" : "text-emerald-600 bg-emerald-500/10"
             )}>
               {p.delivery_risk_rating || 'NOMINAL'}
             </Badge>
           </div>
-          <h4 className="text-sm font-black italic uppercase font-oswald text-[var(--text-primary)] mb-1 truncate">{p.project_name}</h4>
+          <h4 className="text-sm font-bold font-oswald text-[var(--text-primary)] mb-1 truncate">{p.project_name}</h4>
           <p className="text-xs text-[var(--text-secondary)] mb-4">{p.client_name}</p>
           
           <div className="flex items-center justify-between pt-3 border-t border-[var(--surface-border)]">
              <div className="flex flex-col">
-                <span className="text-[9px] text-[var(--text-tertiary)] uppercase tracking-wider">Completion</span>
+                <span className="text-gov-label text-[var(--text-tertiary)] uppercase tracking-wider">Completion</span>
                 <span className="text-xs font-mono text-[var(--text-secondary)]">{p.project_completion_date_planned || 'TBD'}</span>
              </div>
-             <div className="h-1.5 w-16 bg-[var(--bg-hover)] rounded-full overflow-hidden">
-                <div className="h-full bg-[var(--brand-accent)] w-[65%]" />
+                   <div className="flex items-center gap-2">
+                        <button
+                           type="button"
+                           onClick={() => onUpdate?.(p.id, { delivery_risk_rating: p.delivery_risk_rating === 'Critical' ? 'Low' : 'Critical' })}
+                           className="px-2 py-1 rounded bg-[var(--bg-hover)] text-caption font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                        >
+                           Toggle Risk
+                        </button>
+                        <button
+                           type="button"
+                           onClick={() => onDelete?.(p.id)}
+                           className="px-2 py-1 rounded bg-[var(--mce-red)]/10 text-caption font-semibold text-[var(--mce-red)]"
+                        >
+                           Delete
+                        </button>
+                        <div className="h-1.5 w-16 bg-[var(--bg-hover)] rounded-full overflow-hidden">
+                           <div className="h-full bg-[var(--brand-accent)] w-[65%]" />
+                        </div>
              </div>
           </div>
         </div>
@@ -318,7 +348,15 @@ const ProjectsView = ({ projects }: { projects: Project[] }) => (
 /**
  * Micro-View: Tenders
  */
-const TendersView = ({ tenders }: { tenders: Tender[] }) => (
+const TendersView = ({
+   tenders,
+   onUpdate,
+   onDelete,
+}: {
+   tenders: Tender[];
+   onUpdate?: (id: string, patch: Partial<Tender>) => Promise<void>;
+   onDelete?: (id: string) => Promise<void>;
+}) => (
   <motion.div 
     initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
     className="w-full max-w-7xl mx-auto"
@@ -331,7 +369,7 @@ const TendersView = ({ tenders }: { tenders: Tender[] }) => (
                <Briefcase size={14} />
             </div>
             <div className="min-w-0">
-               <h4 className="text-sm font-black italic uppercase font-oswald text-[var(--text-primary)] truncate">{t.title}</h4>
+               <h4 className="text-sm font-bold font-oswald text-[var(--text-primary)] truncate">{t.title}</h4>
                <p className="text-xs text-[var(--text-tertiary)]">{t.client || 'Unknown Client'} • REF_{t.id.slice(0,4)}</p>
             </div>
           </div>
@@ -339,10 +377,24 @@ const TendersView = ({ tenders }: { tenders: Tender[] }) => (
           <div className="flex items-center gap-8 shrink-0">
              <div className="text-right hidden sm:block">
                 <div className="text-sm font-mono font-bold text-[var(--text-primary)]">AED {(t.value ? t.value / 1000000 : 0).toFixed(1)}M</div>
-                <div className="text-[9px] text-[var(--text-tertiary)] uppercase tracking-wider">Valuation</div>
+                <div className="text-gov-label text-[var(--text-tertiary)] uppercase tracking-wider">Valuation</div>
              </div>
+             <button
+                type="button"
+                onClick={() => onUpdate?.(t.id, { probability: t.probability === 'High' ? 'Medium' : 'High' })}
+                className="px-2 py-1 rounded bg-[var(--bg-hover)] text-caption font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+             >
+                Boost Prob
+             </button>
+             <button
+                type="button"
+                onClick={() => onDelete?.(t.id)}
+                className="px-2 py-1 rounded bg-[var(--mce-red)]/10 text-caption font-semibold text-[var(--mce-red)]"
+             >
+                Delete
+             </button>
              <Badge variant="outline" className={cn(
-                "w-24 justify-center text-[9px] py-1 border-[var(--surface-border)] bg-[var(--bg-hover)]",
+                "w-24 justify-center text-gov-label py-1 border-[var(--surface-border)] bg-[var(--bg-hover)]",
                 t.probability === 'High' ? "text-emerald-600" : "text-amber-600"
              )}>
                 {t.probability || 'MEDIUM'} PROB
@@ -365,11 +417,11 @@ const RiskView = ({ projects, alerts }: { projects: Project[], alerts: Alert[] }
       className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8"
     >
       <div className="space-y-4">
-         <h3 className="text-lg font-black italic uppercase font-oswald text-[var(--mce-red)] flex items-center gap-2">
+         <h3 className="text-lg font-bold font-oswald text-[var(--mce-red)] flex items-center gap-2">
             <ShieldAlert size={18} /> Critical Hazards
          </h3>
          {critical.length > 0 ? critical.map(p => (
-            <div key={p.id} className="p-5 rounded-lg bg-[var(--mce-red)]/5 border border-[var(--mce-red)]/20 flex justify-between items-center shadow-sm">
+            <div key={p.id} className="p-6 rounded-lg bg-[var(--mce-red)]/5 border border-[var(--mce-red)]/20 flex justify-between items-center shadow-sm">
                <div>
                   <h4 className="text-sm font-bold text-[var(--text-primary)]">{p.project_name}</h4>
                   <p className="text-xs text-[var(--mce-red)] mt-1 font-medium">Delivery Timeline Breach imminent.</p>
@@ -384,7 +436,7 @@ const RiskView = ({ projects, alerts }: { projects: Project[], alerts: Alert[] }
       </div>
 
       <div className="space-y-4">
-         <h3 className="text-lg font-black italic uppercase font-oswald text-[var(--text-primary)] flex items-center gap-2">
+         <h3 className="text-lg font-bold font-oswald text-[var(--text-primary)] flex items-center gap-2">
             <Activity size={18} className="text-[var(--brand-accent)]" /> Active Signals
          </h3>
          <div className="space-y-2">
@@ -393,7 +445,7 @@ const RiskView = ({ projects, alerts }: { projects: Project[], alerts: Alert[] }
                   <div className={cn("w-1.5 rounded-full", a.priority === 'critical' ? 'bg-[var(--mce-red)]' : 'bg-amber-500')} />
                   <div>
                      <p className="text-xs font-bold text-[var(--text-primary)]">{a.title}</p>
-                     <p className="text-[10px] text-[var(--text-tertiary)] mt-0.5">{a.timestamp}</p>
+                     <p className="text-caption text-[var(--text-tertiary)] mt-0.5">{a.timestamp}</p>
                   </div>
                </div>
             ))}
@@ -414,7 +466,7 @@ const FinancialsView = ({ kpis }: { kpis: KPIMetric[] }) => (
      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {kpis.filter(k => k.isCurrency).length > 0 ? (
            kpis.filter(k => k.isCurrency).map((k, i) => (
-              <div key={i} className="p-10 rounded-[2.5rem] bg-[var(--bg-surface)] border border-[var(--surface-border)] flex flex-col relative overflow-hidden group shadow-2xl transition-all hover:border-[var(--brand-accent)]/40">
+              <div key={i} className="p-10 rounded-2xl bg-[var(--bg-surface)] border border-[var(--surface-border)] flex flex-col relative overflow-hidden group shadow-2xl transition-all hover:border-[var(--brand-accent)]/40">
                  {/* Sparkline Momentum Mockup */}
                  <div className="absolute bottom-0 left-0 w-full h-24 opacity-10 group-hover:opacity-20 transition-opacity pointer-events-none">
                     <svg className="w-full h-full" preserveAspectRatio="none">
@@ -422,13 +474,13 @@ const FinancialsView = ({ kpis }: { kpis: KPIMetric[] }) => (
                     </svg>
                  </div>
 
-                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[var(--text-tertiary)] mb-6 italic">Fiscal_Intelligence_Node_{i + 1}</span>
+                 <span className="text-caption font-bold uppercase tracking-[0.3em] text-[var(--text-tertiary)] mb-6 italic">Fiscal_Intelligence_Node_{i + 1}</span>
                  
                  <div className="mb-2">
                     <span className="text-xs font-bold text-[var(--brand-accent)] uppercase tracking-widest">{k.label}</span>
                  </div>
 
-                 <span className="text-6xl font-black italic font-oswald text-[var(--text-primary)] mb-4 tracking-tighter">
+                 <span className="text-6xl font-bold italic font-oswald text-[var(--text-primary)] mb-4 tracking-tighter">
                     <span className="text-xl align-top opacity-40 font-sans mr-1 not-italic">AED</span>
                     {k.value}
                  </span>
@@ -442,7 +494,7 @@ const FinancialsView = ({ kpis }: { kpis: KPIMetric[] }) => (
               </div>
            ))
         ) : (
-           <div className="col-span-3 p-20 text-center rounded-[2.5rem] border border-dashed border-[var(--surface-border)] bg-[var(--bg-surface)]/50 backdrop-blur-md">
+           <div className="col-span-3 p-20 text-center rounded-2xl border border-dashed border-[var(--surface-border)] bg-[var(--bg-surface)]/50 backdrop-blur-md">
               <DollarSign size={48} className="mx-auto text-[var(--text-tertiary)] mb-4 opacity-20" />
               <h3 className="text-xl font-bold italic text-[var(--text-secondary)] uppercase">Fiscal Stream Unavailable</h3>
               <p className="text-sm text-[var(--text-tertiary)] mt-2 italic">Reconnect the neural ledger to synchronize transaction nodes.</p>
@@ -467,7 +519,7 @@ const AgentsView = ({ activity }: { activity?: any[] }) => (
            { id: 'P9', name: 'Knowledge Core', model: 'Gemini 1.5', color: 'var(--brand-accent)' },
            { id: 'S1', name: 'Security Guard', model: 'RLS-Engine', color: 'rose' },
         ].map((agent, i) => (
-           <div key={i} className="p-8 rounded-[2rem] bg-[var(--bg-surface)] border border-[var(--surface-border)] shadow-xl relative overflow-hidden group">
+           <div key={i} className="p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--surface-border)] shadow-xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
                  <Zap size={64} style={{ color: agent.color }} />
               </div>
@@ -475,13 +527,13 @@ const AgentsView = ({ activity }: { activity?: any[] }) => (
                  <div className="w-10 h-10 rounded-xl bg-[var(--bg-hover)] flex items-center justify-center border border-[var(--surface-border)]">
                     <Bot size={20} style={{ color: agent.color }} />
                  </div>
-                 <Badge variant="outline" className="text-[8px] font-mono">{agent.model}</Badge>
+                 <Badge variant="outline" className="text-caption font-mono">{agent.model}</Badge>
               </div>
-              <h4 className="text-lg font-black italic uppercase font-oswald text-[var(--text-primary)] mb-1">[{agent.id}] {agent.name}</h4>
-              <p className="text-[10px] font-bold text-[var(--text-tertiary)] uppercase tracking-widest mb-6 text-left">Status: Standby</p>
+              <h4 className="text-lg font-bold font-oswald text-[var(--text-primary)] mb-1">[{agent.id}] {agent.name}</h4>
+              <p className="text-caption font-bold text-[var(--text-tertiary)] uppercase tracking-widest mb-6 text-left">Status: Standby</p>
               
               <div className="space-y-2">
-                 <div className="flex justify-between text-[8px] font-black uppercase tracking-widest text-[var(--text-tertiary)]">
+                 <div className="flex justify-between text-caption font-bold uppercase tracking-widest text-[var(--text-tertiary)]">
                     <span>Cognitive_Load</span>
                     <span>12%</span>
                  </div>
@@ -503,10 +555,10 @@ const IntegrationsView = () => (
     initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
     className="w-full max-w-7xl mx-auto"
   >
-     <div className="rounded-[2.5rem] bg-[var(--bg-surface)] border border-[var(--surface-border)] overflow-hidden shadow-2xl">
+     <div className="rounded-2xl bg-[var(--bg-surface)] border border-[var(--surface-border)] overflow-hidden shadow-2xl">
         <div className="px-8 py-6 border-b border-[var(--surface-border)] bg-[var(--bg-hover)]/30 flex justify-between items-center">
-           <h3 className="text-xl font-black italic uppercase font-oswald text-[var(--text-primary)]">System_Integrations</h3>
-           <Badge variant="outline" className="text-[9px] bg-emerald-500/10 text-emerald-500 border-none">9 Nodes Connected</Badge>
+           <h3 className="text-xl font-bold font-oswald text-[var(--text-primary)]">System_Integrations</h3>
+           <Badge variant="outline" className="text-gov-label bg-emerald-500/10 text-emerald-500 border-none">9 Nodes Connected</Badge>
         </div>
         <div className="divide-y divide-[var(--surface-border)]">
            {[
@@ -521,13 +573,13 @@ const IntegrationsView = () => (
                        <Zap size={20} />
                     </div>
                     <div>
-                       <div className="text-lg font-black font-oswald italic text-[var(--text-primary)] uppercase">{int.name}</div>
-                       <div className="text-[10px] font-bold text-[var(--text-tertiary)] uppercase tracking-widest">{int.type} • 12ms Latency</div>
+                       <div className="text-lg font-bold font-oswald italic text-[var(--text-primary)] uppercase">{int.name}</div>
+                       <div className="text-caption font-bold text-[var(--text-tertiary)] uppercase tracking-widest">{int.type} • 12ms Latency</div>
                     </div>
                  </div>
                  <div className="flex items-center gap-4">
                     <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
-                    <span className="text-xs font-black italic uppercase text-emerald-500 tracking-widest">{int.status}</span>
+                    <span className="text-xs font-bold text-emerald-500 tracking-widest">{int.status}</span>
                  </div>
               </div>
            ))}
@@ -554,12 +606,12 @@ const StrategicView = ({ projects, kpis }: { projects: Project[], kpis: KPIMetri
      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         
         {/* Left: Interconnected Intelligence Map */}
-        <div className="lg:col-span-7 p-8 rounded-[2.5rem] bg-[var(--bg-surface)] border border-[var(--surface-border)] shadow-2xl relative overflow-hidden flex flex-col min-h-[500px]">
+        <div className="lg:col-span-7 p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--surface-border)] shadow-2xl relative overflow-hidden flex flex-col min-h-[500px]">
            <div className="flex items-center justify-between mb-8 relative z-10">
-              <h3 className="text-xl font-black italic uppercase font-oswald text-[var(--text-primary)]">
+              <h3 className="text-xl font-bold font-oswald text-[var(--text-primary)]">
                  {isSimulating ? <span className="text-[var(--mce-red)] animate-pulse">WAR_GAME_ACTIVE</span> : "Neural_Strategic_Mesh"}
               </h3>
-              <Badge variant="outline" className={cn("text-[9px] border-none animate-pulse", isSimulating ? "bg-[var(--mce-red)]/10 text-[var(--mce-red)]" : "bg-emerald-500/10 text-emerald-500")}>
+              <Badge variant="outline" className={cn("text-gov-label border-none animate-pulse", isSimulating ? "bg-[var(--mce-red)]/10 text-[var(--mce-red)]" : "bg-emerald-500/10 text-emerald-500")}>
                  {isSimulating ? "SIMULATION_MODE" : "Live_Sync_Active"}
               </Badge>
            </div>
@@ -595,7 +647,7 @@ const StrategicView = ({ projects, kpis }: { projects: Project[], kpis: KPIMetri
                           <div className="absolute -inset-2 rounded-full blur-md opacity-20 group-hover:opacity-100 transition-opacity" style={{ backgroundColor: n.c }} />
                           <div className="w-4 h-4 rounded-full border-2 border-white shadow-xl relative z-10" style={{ backgroundColor: n.c }} />
                        </div>
-                       <span className="text-[9px] font-black uppercase tracking-widest text-[var(--text-primary)] opacity-40 group-hover:opacity-100 transition-opacity">{n.t}</span>
+                       <span className="text-gov-label font-bold uppercase tracking-widest text-[var(--text-primary)] opacity-40 group-hover:opacity-100 transition-opacity">{n.t}</span>
                     </motion.div>
                  ))}
                  
@@ -634,7 +686,7 @@ const StrategicView = ({ projects, kpis }: { projects: Project[], kpis: KPIMetri
            {/* Simulation Control Interface */}
            <div className="pt-6 border-t border-[var(--surface-border)] relative z-10 flex items-center gap-6">
               <div className="flex-1">
-                 <div className="flex justify-between text-[10px] font-black uppercase tracking-widest mb-2">
+                 <div className="flex justify-between text-caption font-bold uppercase tracking-widest mb-2">
                     <span className="text-[var(--text-tertiary)]">Market Shock Simulation</span>
                     <span className={isSimulating ? "text-[var(--mce-red)]" : "text-[var(--brand-accent)]"}>{simIntensity}% Stress</span>
                  </div>
@@ -647,8 +699,8 @@ const StrategicView = ({ projects, kpis }: { projects: Project[], kpis: KPIMetri
                  />
               </div>
               <div className="text-right">
-                 <div className="text-[9px] font-mono text-[var(--text-tertiary)]">PREDICTIVE_IMPACT</div>
-                 <div className={cn("text-xl font-black font-oswald italic", isSimulating ? "text-[var(--mce-red)]" : "text-[var(--text-primary)]")}>
+                 <div className="text-gov-label font-mono text-[var(--text-tertiary)]">PREDICTIVE_IMPACT</div>
+                 <div className={cn("text-xl font-bold font-oswald italic", isSimulating ? "text-[var(--mce-red)]" : "text-[var(--text-primary)]")}>
                     AED -{(simIntensity * 0.4).toFixed(1)}M
                  </div>
               </div>
@@ -657,8 +709,8 @@ const StrategicView = ({ projects, kpis }: { projects: Project[], kpis: KPIMetri
 
         {/* Right: Portfolio Saturation Gauge */}
         <div className="lg:col-span-5 flex flex-col gap-8">
-           <div className="p-8 rounded-[2.5rem] bg-[var(--bg-surface)] border border-[var(--surface-border)] relative overflow-hidden group shadow-2xl flex-1">
-              <h3 className="text-xl font-black italic uppercase font-oswald text-[var(--text-primary)] mb-8">Saturation_Engine</h3>
+           <div className="p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--surface-border)] relative overflow-hidden group shadow-2xl flex-1">
+              <h3 className="text-xl font-bold font-oswald text-[var(--text-primary)] mb-8">Saturation_Engine</h3>
               
               <div className="flex flex-col items-center gap-10">
                  <div className="relative w-56 h-56 flex items-center justify-center">
@@ -667,10 +719,10 @@ const StrategicView = ({ projects, kpis }: { projects: Project[], kpis: KPIMetri
                        <circle cx="112" cy="112" r="100" stroke={isSimulating ? "var(--mce-red)" : "var(--brand-accent)"} strokeWidth="16" fill="transparent" strokeDasharray="628" strokeDashoffset={120 + (simIntensity * 2)} className={cn("drop-shadow-[0_0_12px_var(--brand-accent)] transition-all duration-500", isSimulating && "drop-shadow-[0_0_20px_var(--mce-red)]")} />
                     </svg>
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
-                       <span className={cn("text-5xl font-black italic font-oswald transition-colors duration-300", isSimulating ? "text-[var(--mce-red)]" : "text-[var(--text-primary)]")}>
+                       <span className={cn("text-5xl font-bold italic font-oswald transition-colors duration-300", isSimulating ? "text-[var(--mce-red)]" : "text-[var(--text-primary)]")}>
                           {82 - Math.floor(simIntensity / 3)}%
                        </span>
-                       <span className="text-[10px] font-black uppercase text-[var(--text-tertiary)] tracking-widest">Efficiency</span>
+                       <span className="text-caption font-bold uppercase text-[var(--text-tertiary)] tracking-widest">Efficiency</span>
                     </div>
                  </div>
                  
@@ -708,12 +760,20 @@ const StrategicView = ({ projects, kpis }: { projects: Project[], kpis: KPIMetri
 /**
  * Micro-View: Tasks (Mission Control)
  */
-const TasksView = ({ tasks }: { tasks: any[] }) => (
+const TasksView = ({
+   tasks,
+   onAddTask,
+   onTaskClick,
+}: {
+   tasks: any[];
+   onAddTask?: (status: string) => void;
+   onTaskClick?: (task: any) => void;
+}) => (
   <div className="w-full max-w-7xl mx-auto">
      <TaskKanbanView 
         tasks={tasks} 
-        onAddTask={(s) => console.log('Add Task:', s)} 
-        onTaskClick={(t) => console.log('Task Click:', t)} 
+            onAddTask={(s) => onAddTask?.(s)} 
+            onTaskClick={(t) => onTaskClick?.(t)} 
      />
   </div>
 );
@@ -747,31 +807,31 @@ const ReportsView = () => (
            { title: 'Depth Analysis', desc: 'Granular project-by-project financial and technical audit.', icon: Database, status: 'SECURE', color: 'amber' },
            { title: 'Audit Ledger', desc: 'Deterministic calculation logs and system integrity verification.', icon: Lock, status: 'LOCKED', color: 'rose' }
         ].map((profile, i) => (
-           <div key={i} className="group relative p-10 rounded-[3rem] bg-[var(--bg-surface)] border border-[var(--surface-border)] hover:border-[var(--brand-accent)]/40 transition-all duration-700 shadow-2xl overflow-hidden cursor-pointer">
+           <div key={i} className="group relative p-10 rounded-2xl bg-[var(--bg-surface)] border border-[var(--surface-border)] hover:border-[var(--brand-accent)]/40 transition-all duration-700 shadow-2xl overflow-hidden cursor-pointer">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--brand-accent)]/5 blur-[100px] group-hover:bg-[var(--brand-accent)]/15 transition-all duration-700" />
               
               <div className="flex items-start justify-between mb-12">
-                 <div className="w-20 h-20 rounded-[1.5rem] bg-[var(--bg-hover)] flex items-center justify-center border border-[var(--surface-border)] group-hover:scale-110 group-hover:rotate-3 transition-transform duration-700 shadow-inner">
+                 <div className="w-20 h-20 rounded-2xl bg-[var(--bg-hover)] flex items-center justify-center border border-[var(--surface-border)] group-hover:scale-110 group-hover:rotate-3 transition-transform duration-700 shadow-inner">
                     <profile.icon size={32} className="text-[var(--brand-accent)]" />
                  </div>
                  <div className="flex flex-col items-end">
                     <Badge variant="outline" className="text-xs px-4 py-1.5 border-[var(--surface-border)] bg-[var(--bg-hover)]/50 font-mono tracking-[0.2em] mb-3">{profile.status}</Badge>
                     <div className="flex items-center gap-2">
                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
-                       <span className="text-[9px] font-black text-[var(--text-tertiary)] uppercase tracking-[0.3em]">LOCKED_ON</span>
+                       <span className="text-gov-label font-bold text-[var(--text-tertiary)] uppercase tracking-[0.3em]">LOCKED_ON</span>
                     </div>
                  </div>
               </div>
 
-              <h3 className="text-4xl font-black italic uppercase font-oswald text-[var(--text-primary)] mb-5 tracking-tighter">{profile.title}</h3>
+              <h3 className="text-4xl font-bold font-oswald text-[var(--text-primary)] mb-5 tracking-tighter">{profile.title}</h3>
               <p className="text-lg text-[var(--text-secondary)] leading-relaxed max-w-sm font-medium opacity-80">{profile.desc}</p>
               
               <div className="mt-16 flex items-center gap-8">
-                 <button className="flex items-center gap-4 px-10 py-4 rounded-full bg-[var(--brand-accent)] text-white text-xs font-black uppercase tracking-[0.2em] hover:scale-105 hover:shadow-[0_0_30px_rgba(81,162,168,0.5)] transition-all">
+                 <button className="flex items-center gap-4 px-10 py-4 rounded-full bg-[var(--brand-accent)] text-white text-xs font-bold uppercase tracking-[0.2em] hover:scale-105 hover:shadow-[0_0_30px_rgba(81,162,168,0.5)] transition-all">
                     GENERATE_INTEL <ArrowRight size={16} />
                  </button>
                  <div className="flex-1 h-px bg-[var(--surface-border)] opacity-30" />
-                 <div className="text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest">TEMPORAL_ID: 2026_04_A</div>
+                 <div className="text-caption font-mono text-[var(--text-tertiary)] uppercase tracking-widest">TEMPORAL_ID: 2026_04_A</div>
               </div>
            </div>
         ))}
@@ -779,14 +839,14 @@ const ReportsView = () => (
 
 
      {/* Cutting Edge: Ledger Health Gauge */}
-     <div className="p-12 rounded-[3.5rem] bg-gradient-to-br from-[var(--bg-surface)] to-[var(--bg-hover)] border border-[var(--surface-border)] shadow-3xl relative overflow-hidden">
+     <div className="p-12 rounded-2xl bg-gradient-to-br from-[var(--bg-surface)] to-[var(--bg-hover)] border border-[var(--surface-border)] shadow-3xl relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--brand-accent)]/40 to-transparent" />
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
            <div className="max-w-xl">
-              <div className="inline-flex items-center gap-3 px-4 py-1 rounded-full bg-[var(--brand-accent)]/10 border border-[var(--brand-accent)]/20 text-[10px] font-black uppercase tracking-[0.3em] text-[var(--brand-accent)] mb-6">
+              <div className="inline-flex items-center gap-3 px-4 py-1 rounded-full bg-[var(--brand-accent)]/10 border border-[var(--brand-accent)]/20 text-caption font-bold uppercase tracking-[0.3em] text-[var(--brand-accent)] mb-6">
                  <Lock size={12} /> Deterministic_Security_Core
               </div>
-              <h4 className="text-3xl font-black italic uppercase font-oswald text-[var(--text-primary)] mb-6 tracking-tight">Integrity_Pulse_v2.4</h4>
+              <h4 className="text-3xl font-bold font-oswald text-[var(--text-primary)] mb-6 tracking-tight">Integrity_Pulse_v2.4</h4>
               <p className="text-base text-[var(--text-secondary)] leading-relaxed font-medium opacity-90">
                  Every ledger posting is cross-verified against real-time field telemetry and contractual obligations. The Morgan neural mesh ensures 100% calculation fidelity with zero drift tolerance.
               </p>
@@ -798,8 +858,8 @@ const ReportsView = () => (
                  { l: 'Trust Score', v: 'AAA+' }
               ].map((m, i) => (
                  <div key={i} className="text-center group">
-                    <div className="text-5xl font-black italic font-oswald text-[var(--brand-accent)] mb-3 group-hover:scale-110 transition-transform">{m.v}</div>
-                    <div className="text-[10px] font-black uppercase tracking-[0.3em] text-[var(--text-tertiary)]">{m.l}</div>
+                    <div className="text-5xl font-bold italic font-oswald text-[var(--brand-accent)] mb-3 group-hover:scale-110 transition-transform">{m.v}</div>
+                    <div className="text-caption font-bold uppercase tracking-[0.3em] text-[var(--text-tertiary)]">{m.l}</div>
                  </div>
               ))}
            </div>
@@ -822,33 +882,33 @@ const DocumentsView = () => (
            { label: 'Technical Spec', count: '89 Files', icon: Database },
            { label: 'Financial Record', count: '214 Files', icon: DollarSign }
         ].map((c, i) => (
-           <div key={i} className="p-6 rounded-[2rem] bg-[var(--bg-surface)] border border-[var(--surface-border)] shadow-xl group hover:border-[var(--brand-accent)]/30 transition-all">
+           <div key={i} className="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--surface-border)] shadow-xl group hover:border-[var(--brand-accent)]/30 transition-all">
               <div className="flex items-center gap-4">
                  <div className="w-12 h-12 rounded-2xl bg-[var(--bg-hover)] flex items-center justify-center text-[var(--brand-accent)] shadow-inner">
                     <c.icon size={20} />
                  </div>
                  <div>
-                    <div className="text-lg font-black font-oswald italic text-[var(--text-primary)] uppercase">{c.label}</div>
-                    <div className="text-[10px] font-bold text-[var(--text-tertiary)] uppercase tracking-widest">{c.count}</div>
+                    <div className="text-lg font-bold font-oswald italic text-[var(--text-primary)] uppercase">{c.label}</div>
+                    <div className="text-caption font-bold text-[var(--text-tertiary)] uppercase tracking-widest">{c.count}</div>
                  </div>
               </div>
            </div>
         ))}
      </div>
 
-     <div className="rounded-[2.5rem] bg-[var(--bg-surface)] border border-[var(--surface-border)] overflow-hidden shadow-2xl">
-        <div className="px-8 py-5 border-b border-[var(--surface-border)] bg-[var(--bg-hover)]/30 flex justify-between items-center">
-           <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--text-tertiary)] italic">Temporal_Registry_Sync</span>
+     <div className="rounded-2xl bg-[var(--bg-surface)] border border-[var(--surface-border)] overflow-hidden shadow-2xl">
+        <div className="px-8 py-4 border-b border-[var(--surface-border)] bg-[var(--bg-hover)]/30 flex justify-between items-center">
+           <span className="text-caption font-bold uppercase tracking-[0.2em] text-[var(--text-tertiary)] italic">Temporal_Registry_Sync</span>
            <div className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-[9px] font-black text-[var(--text-tertiary)] uppercase">Live_Updates_Active</span>
+              <span className="text-gov-label font-bold text-[var(--text-tertiary)] uppercase">Live_Updates_Active</span>
            </div>
         </div>
         <div className="divide-y divide-[var(--surface-border)]">
            {[1,2,3,4,5,6].map(i => (
               <div key={i} className="px-8 py-4 flex items-center justify-between hover:bg-[var(--bg-hover)] transition-colors cursor-pointer group">
-                 <div className="flex items-center gap-5">
-                    <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center text-[var(--text-tertiary)] group-hover:text-[var(--brand-accent)] transition-colors">
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-bg-surface border border-gray-200 flex items-center justify-center text-[var(--text-tertiary)] group-hover:text-[var(--brand-accent)] transition-colors">
                        <FileText size={18} />
                     </div>
                     <div>
@@ -861,8 +921,8 @@ const DocumentsView = () => (
                  </div>
                  <div className="flex items-center gap-8">
                     <div className="text-right">
-                       <div className="text-[10px] font-bold text-[var(--text-primary)]">04 FEB 2026</div>
-                       <div className="text-[8px] text-[var(--text-tertiary)] uppercase tracking-tighter">Last Modified</div>
+                       <div className="text-caption font-bold text-[var(--text-primary)]">04 FEB 2026</div>
+                       <div className="text-caption text-[var(--text-tertiary)] uppercase tracking-tighter">Last Modified</div>
                     </div>
                     <ArrowRight size={16} className="text-[var(--text-tertiary)] opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-1" />
                  </div>
@@ -886,11 +946,11 @@ class ErrorBoundary extends React.Component<{ children: React.ReactNode, onReset
   render() {
     if (this.state.hasError) {
       return (
-        <div className="flex flex-col items-center justify-center h-full p-12 text-center bg-[var(--bg-surface)] rounded-[2rem] border border-[var(--mce-red)]/20 shadow-2xl">
+        <div className="flex flex-col items-center justify-center h-full p-12 text-center bg-[var(--bg-surface)] rounded-2xl border border-[var(--mce-red)]/20 shadow-2xl">
            <div className="w-16 h-16 rounded-full bg-[var(--mce-red)]/10 flex items-center justify-center mb-6 animate-pulse">
               <AlertTriangle size={32} className="text-[var(--mce-red)]" />
            </div>
-           <h3 className="text-2xl font-black italic uppercase font-oswald text-[var(--text-primary)] mb-2">System Malfunction</h3>
+           <h3 className="text-2xl font-bold font-oswald text-[var(--text-primary)] mb-2">System Malfunction</h3>
            <p className="text-sm text-[var(--text-secondary)] max-w-md mx-auto mb-8 font-medium">
               The Nexus Core encountered an unrecoverable error. Diagnostics have been logged.
            </p>
@@ -899,7 +959,7 @@ class ErrorBoundary extends React.Component<{ children: React.ReactNode, onReset
                  this.setState({ hasError: false });
                  this.props.onReset();
               }}
-              className="px-8 py-3 rounded-xl bg-[var(--brand-accent)] text-white text-xs font-black uppercase tracking-widest hover:scale-105 transition-all shadow-glow"
+              className="px-8 py-3 rounded-xl bg-[var(--brand-accent)] text-white text-xs font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-glow"
            >
               Reboot System
            </button>
@@ -911,7 +971,24 @@ class ErrorBoundary extends React.Component<{ children: React.ReactNode, onReset
 }
 
 export const MorganCommandCenter: React.FC<MorganCommandCenterProps & { initialView?: ViewMode }> = ({
-  kpis, projects, tenders, tasks, alerts, onSearch, onNavigate, onSelectProject, user, initialView = 'command', agentActivity, auditLogs
+   kpis,
+   projects,
+   tenders,
+   tasks,
+   alerts,
+   onSearch,
+   onNavigate,
+   onProjectUpdate,
+   onProjectDelete,
+   onTenderUpdate,
+   onTenderDelete,
+   onTaskAdd,
+   onTaskClick,
+   onSelectProject,
+   user,
+   initialView = 'command',
+   agentActivity,
+   auditLogs
 }) => {
   const [viewMode, setViewMode] = useState<ViewMode>(initialView);
 
@@ -974,7 +1051,7 @@ export const MorganCommandCenter: React.FC<MorganCommandCenterProps & { initialV
               animate={{ opacity: 1, y: 0 }}
               className="mb-2"
             >
-              <span className="text-6xl md:text-8xl font-black font-oswald italic text-[var(--text-primary)] tracking-tighter select-none drop-shadow-[0_0_15px_rgba(81,162,168,0.25)]">
+              <span className="text-6xl md:text-8xl font-bold font-oswald italic text-[var(--text-primary)] tracking-tighter select-none drop-shadow-[0_0_15px_rgba(81,162,168,0.25)]">
                 Morgan<span className="text-[var(--mce-red)]">.</span>
               </span>
             </motion.div>
@@ -982,7 +1059,7 @@ export const MorganCommandCenter: React.FC<MorganCommandCenterProps & { initialV
             {viewMode === 'command' && (
               <motion.h1 
                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                className="text-5xl md:text-7xl font-black italic uppercase tracking-tighter font-oswald text-[var(--text-primary)] mb-4"
+                className="text-5xl md:text-7xl font-bold tracking-tighter font-oswald text-[var(--text-primary)] mb-4"
               >
                 Designing Excellence
               </motion.h1>
@@ -991,14 +1068,14 @@ export const MorganCommandCenter: React.FC<MorganCommandCenterProps & { initialV
             {viewMode !== 'command' && (
                <motion.h2
                   initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                  className="text-3xl font-black italic uppercase tracking-tighter font-oswald text-[var(--text-primary)] mb-4"
+                  className="text-3xl font-bold tracking-tighter font-oswald text-[var(--text-primary)] mb-4"
                >
                   {viewMode === 'strategic' ? 'STRATEGIC COMMAND' : viewMode === 'integrations' ? 'MESH SYNC' : viewMode.toUpperCase() + ' COMMAND'}
                </motion.h2>
             )}
 
             {/* System Status Badge - Relocated Under Heading */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--surface-border)] text-[10px] font-mono uppercase tracking-[0.2em] text-[var(--brand-accent)] shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--surface-border)] text-caption font-mono uppercase tracking-[0.2em] text-[var(--brand-accent)] shadow-sm">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <span onClick={() => setViewMode('command')} className="cursor-pointer hover:text-[var(--text-primary)] transition-colors font-bold italic">
                 BETA RELEASE V1.0
@@ -1031,11 +1108,11 @@ export const MorganCommandCenter: React.FC<MorganCommandCenterProps & { initialV
                       {/* Metrics Row */}
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                          {kpis.slice(0, 4).map((m, i) => (
-                            <div key={i} className="p-5 rounded-lg bg-[var(--bg-surface)] border border-[var(--surface-border)] hover:border-[var(--brand-accent)]/30 transition-all text-center group shadow-sm">
-                               <div className="text-[10px] font-black uppercase tracking-widest text-[var(--text-tertiary)] mb-2">{m.label}</div>
-                               <div className="text-3xl font-black italic font-oswald text-[var(--text-primary)]">{m.value}</div>
+                            <div key={i} className="p-6 rounded-lg bg-[var(--bg-surface)] border border-[var(--surface-border)] hover:border-[var(--brand-accent)]/30 transition-all text-center group shadow-sm">
+                               <div className="text-caption font-bold uppercase tracking-widest text-[var(--text-tertiary)] mb-2">{m.label}</div>
+                               <div className="text-3xl font-bold italic font-oswald text-[var(--text-primary)]">{m.value}</div>
                                {m.trend && (
-                                  <div className={cn("text-[9px] font-bold mt-1", m.trendSentiment === 'positive' ? 'text-emerald-500' : 'text-amber-500')}>
+                                  <div className={cn("text-gov-label font-bold mt-1", m.trendSentiment === 'positive' ? 'text-emerald-500' : 'text-amber-500')}>
                                      {m.trend}
                                   </div>
                                )}
@@ -1045,13 +1122,13 @@ export const MorganCommandCenter: React.FC<MorganCommandCenterProps & { initialV
                       
                       {/* Live Feed Preview */}
                       <div className="border-t border-[var(--surface-border)] pt-8 text-center">
-                         <h3 className="text-xs font-black uppercase tracking-[0.2em] text-[var(--text-tertiary)] mb-6">Recent Intelligence</h3>
+                         <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--text-tertiary)] mb-6">Recent Intelligence</h3>
                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                             {alerts.slice(0, 3).map((a, i) => (
                                <div key={i} className="text-left p-3 rounded border border-[var(--surface-border)] bg-[var(--bg-surface)] hover:bg-[var(--bg-hover)] cursor-pointer shadow-sm" onClick={() => handleInternalNavigate('risk')}>
                                   <div className="flex items-center gap-2 mb-1">
                                      <div className={cn("w-1.5 h-1.5 rounded-full", a.priority === 'critical' ? "bg-[var(--mce-red)]" : "bg-[var(--brand-accent)]")} />
-                                     <span className="text-[9px] font-mono text-[var(--text-tertiary)]">{a.timestamp}</span>
+                                     <span className="text-gov-label font-mono text-[var(--text-tertiary)]">{a.timestamp}</span>
                                   </div>
                                   <p className="text-xs font-medium text-[var(--text-primary)] line-clamp-2">{a.title}</p>
                                </div>
@@ -1064,12 +1141,12 @@ export const MorganCommandCenter: React.FC<MorganCommandCenterProps & { initialV
                 {/* Inject Whisper for operational views */}
                 {viewMode !== 'command' && <MorganWhisper context={viewMode} />}
 
-                {viewMode === 'projects' && <ProjectsView key="projects" projects={projects} />}
-                {viewMode === 'tenders' && <TendersView key="tenders" tenders={tenders} />}
+                {viewMode === 'projects' && <ProjectsView key="projects" projects={projects} onUpdate={onProjectUpdate} onDelete={onProjectDelete} />}
+                {viewMode === 'tenders' && <TendersView key="tenders" tenders={tenders} onUpdate={onTenderUpdate} onDelete={onTenderDelete} />}
                 {viewMode === 'risk' && <RiskView key="risk" projects={projects} alerts={alerts} />}
                 {viewMode === 'financials' && <FinancialsView key="financials" kpis={kpis} />}
                 {viewMode === 'reports' && <ReportsView key="reports" />}
-                {viewMode === 'tasks' && <TasksView key="tasks" tasks={tasks} />}
+                {viewMode === 'tasks' && <TasksView key="tasks" tasks={tasks} onAddTask={onTaskAdd} onTaskClick={onTaskClick} />}
                 {viewMode === 'calendar' && <CalendarView key="calendar" tasks={tasks} projects={projects} onSelectProject={onSelectProject} />}
                 {viewMode === 'strategic' && <StrategicView key="strategic" projects={projects} kpis={kpis} />}
                 {viewMode === 'documents' && <DocumentsView key="documents" />}

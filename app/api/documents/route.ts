@@ -32,8 +32,8 @@ export async function GET(request: Request) {
     if (error) throw error;
 
     return NextResponse.json(data);
-  } catch (error: any) {
-    logger.error('DOCUMENTS_LIST_FAILURE', { error: error.message });
+  } catch (error: unknown) {
+    logger.error('DOCUMENTS_LIST_FAILURE', { error: error instanceof Error ? error.message : 'Unknown error' });
     return NextResponse.json({ error: 'Failed to fetch documents' }, { status: 500 });
   }
 }

@@ -14,38 +14,38 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 const variantStyles = {
   primary: `
-    bg-brand-500 text-white border border-brand-600
+    bg-brand-500 text-gray-900 border border-brand-600
     hover:bg-brand-600 hover:shadow-lg
     active:bg-brand-700
-    disabled:bg-zinc-800 disabled:text-zinc-500 disabled:border-zinc-800
+    disabled:bg-gray-100 disabled:text-gray-500 disabled:border-gray-200
     focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-black
   `,
   secondary: `
-    bg-glass text-zinc-200 border border-glass-strong
-    hover:bg-glass-elevated hover:border-white/20
-    active:bg-white/[0.1]
+    bg-white text-gray-700 border border-gray-200-strong
+    hover:bg-white-elevated hover:border-gray-200
+    active:bg-bg-active
     disabled:opacity-50
     focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-black
   `,
   tertiary: `
-    bg-zinc-900 text-zinc-400 border border-transparent
-    hover:bg-zinc-800 hover:text-white
-    active:bg-zinc-700
+    bg-gray-100 text-gray-500 border border-transparent
+    hover:bg-gray-100 hover:text-gray-900
+    active:bg-gray-200
   `,
   danger: `
     bg-rose-500/10 text-rose-500 border border-rose-500/20
-    hover:bg-rose-500 hover:text-white
+    hover:bg-rose-500 hover:text-gray-900
     active:bg-rose-600
   `,
   ghost: `
-    bg-transparent text-zinc-500 border border-transparent
-    hover:bg-glass hover:text-zinc-200
-    active:bg-white/10
+    bg-transparent text-gray-500 border border-transparent
+    hover:bg-white hover:text-gray-700
+    active:bg-gray-100
   `,
   glass: `
-    bg-glass backdrop-blur-md text-white border border-glass-strong
-    hover:bg-glass-elevated hover:border-white/20 hover:shadow-lg
-    active:bg-glass-elevated
+    bg-white backdrop-blur-md text-gray-900 border border-gray-200-strong
+    hover:bg-white-elevated hover:border-gray-200 hover:shadow-lg
+    active:bg-white-elevated
   `
 };
 

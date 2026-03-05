@@ -1,0 +1,2216 @@
+[
+  {
+    "ts": "2026-02-28T02:44:58.091Z",
+    "checkpoint": "auto-baseline",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/projects",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:45:13.177Z",
+    "checkpoint": "auto-tick-1",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/projects/create",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:45:28.291Z",
+    "checkpoint": "auto-tick-2",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/projects/create",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:45:43.419Z",
+    "checkpoint": "auto-tick-3",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/workflows",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:45:58.484Z",
+    "checkpoint": "auto-tick-4",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:46:13.542Z",
+    "checkpoint": "auto-tick-5",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/portfolios/9acdbdab-b9ed-4e98-9d04-a1486f92671c",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:46:28.598Z",
+    "checkpoint": "auto-tick-6",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:46:43.658Z",
+    "checkpoint": "auto-tick-7",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:46:58.716Z",
+    "checkpoint": "auto-tick-8",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:47:13.778Z",
+    "checkpoint": "auto-tick-9",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:47:28.822Z",
+    "checkpoint": "auto-tick-10",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:47:43.883Z",
+    "checkpoint": "auto-tick-11",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:47:58.931Z",
+    "checkpoint": "auto-tick-12",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:48:13.981Z",
+    "checkpoint": "auto-tick-13",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:48:29.039Z",
+    "checkpoint": "auto-tick-14",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:48:44.087Z",
+    "checkpoint": "auto-tick-15",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:48:59.132Z",
+    "checkpoint": "auto-tick-16",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:49:14.175Z",
+    "checkpoint": "auto-tick-17",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:49:29.239Z",
+    "checkpoint": "auto-tick-18",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:49:44.290Z",
+    "checkpoint": "auto-tick-19",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:49:59.351Z",
+    "checkpoint": "auto-tick-20",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:50:14.413Z",
+    "checkpoint": "auto-tick-21",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:50:29.462Z",
+    "checkpoint": "auto-tick-22",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:50:44.524Z",
+    "checkpoint": "auto-tick-23",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:50:59.574Z",
+    "checkpoint": "auto-tick-24",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:51:14.618Z",
+    "checkpoint": "auto-tick-25",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:51:29.676Z",
+    "checkpoint": "auto-tick-26",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:51:44.735Z",
+    "checkpoint": "auto-tick-27",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:51:59.796Z",
+    "checkpoint": "auto-tick-28",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/automation",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:52:14.863Z",
+    "checkpoint": "auto-tick-29",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:52:29.935Z",
+    "checkpoint": "auto-tick-30",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:52:45.017Z",
+    "checkpoint": "auto-tick-31",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:53:00.096Z",
+    "checkpoint": "auto-tick-32",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:53:15.168Z",
+    "checkpoint": "auto-tick-33",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:53:30.247Z",
+    "checkpoint": "auto-tick-34",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:53:45.317Z",
+    "checkpoint": "auto-tick-35",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:54:00.399Z",
+    "checkpoint": "auto-tick-36",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:54:15.471Z",
+    "checkpoint": "auto-tick-37",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:54:30.539Z",
+    "checkpoint": "auto-tick-38",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:54:45.618Z",
+    "checkpoint": "auto-tick-39",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:55:00.703Z",
+    "checkpoint": "auto-tick-40",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:55:15.779Z",
+    "checkpoint": "auto-tick-41",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:55:30.860Z",
+    "checkpoint": "auto-tick-42",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:55:45.930Z",
+    "checkpoint": "auto-tick-43",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:56:01.008Z",
+    "checkpoint": "auto-tick-44",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:56:16.078Z",
+    "checkpoint": "auto-tick-45",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:56:31.158Z",
+    "checkpoint": "auto-tick-46",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:56:46.237Z",
+    "checkpoint": "auto-tick-47",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:57:01.314Z",
+    "checkpoint": "auto-tick-48",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:57:16.385Z",
+    "checkpoint": "auto-tick-49",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:57:31.456Z",
+    "checkpoint": "auto-tick-50",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:57:46.542Z",
+    "checkpoint": "auto-tick-51",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:58:01.621Z",
+    "checkpoint": "auto-tick-52",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:58:16.699Z",
+    "checkpoint": "auto-tick-53",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:58:31.778Z",
+    "checkpoint": "auto-tick-54",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:58:46.854Z",
+    "checkpoint": "auto-tick-55",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:59:01.932Z",
+    "checkpoint": "auto-tick-56",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:59:17.009Z",
+    "checkpoint": "auto-tick-57",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:59:32.085Z",
+    "checkpoint": "auto-tick-58",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T02:59:47.171Z",
+    "checkpoint": "auto-tick-59",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:00:02.251Z",
+    "checkpoint": "auto-tick-60",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:00:17.325Z",
+    "checkpoint": "auto-tick-61",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:00:32.396Z",
+    "checkpoint": "auto-tick-62",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:00:47.470Z",
+    "checkpoint": "auto-tick-63",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:01:02.538Z",
+    "checkpoint": "auto-tick-64",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:01:17.614Z",
+    "checkpoint": "auto-tick-65",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:01:32.694Z",
+    "checkpoint": "auto-tick-66",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:01:47.765Z",
+    "checkpoint": "auto-tick-67",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:02:02.842Z",
+    "checkpoint": "auto-tick-68",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:02:17.914Z",
+    "checkpoint": "auto-tick-69",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:02:32.995Z",
+    "checkpoint": "auto-tick-70",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:02:48.071Z",
+    "checkpoint": "auto-tick-71",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:03:03.155Z",
+    "checkpoint": "auto-tick-72",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:03:18.222Z",
+    "checkpoint": "auto-tick-73",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:03:33.296Z",
+    "checkpoint": "auto-tick-74",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:03:48.370Z",
+    "checkpoint": "auto-tick-75",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:04:03.449Z",
+    "checkpoint": "auto-tick-76",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:04:18.527Z",
+    "checkpoint": "auto-tick-77",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:04:33.601Z",
+    "checkpoint": "auto-tick-78",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:04:48.677Z",
+    "checkpoint": "auto-tick-79",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:05:03.755Z",
+    "checkpoint": "auto-tick-80",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  },
+  {
+    "ts": "2026-02-28T03:05:03.821Z",
+    "checkpoint": "auto-final",
+    "url": "https://app.veropm.app/workspace/a5d2ddb4-6ae9-40d1-8f99-34fbd23fdbde/risks/heat-map",
+    "title": "Vero pm - Project Management",
+    "stateHash": "d5ae6a335a3882335fd8",
+    "evidence": {
+      "workflowName": "",
+      "description": "",
+      "bindToProject": "",
+      "templateType": "",
+      "active": null,
+      "isDefault": null,
+      "statuses": [],
+      "transitions": [],
+      "requiredFieldsMissing": [],
+      "visibleErrors": [
+        "snapshot-extraction-failed: page.evaluate: ReferenceError: __name is not defined\n    at eval (eval at evaluate (:290:30), <anonymous>:1:17)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "actionButtons": [],
+      "formFields": [],
+      "storage": {
+        "localStorage": {},
+        "sessionStorage": {}
+      }
+    }
+  }
+]

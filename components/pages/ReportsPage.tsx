@@ -54,7 +54,7 @@ export const ReportsPage: React.FC = () => {
                 <div key={key} className={cn(i === 0 ? "col-span-4" : "col-span-2", i === values.length - 1 && "text-right")}>
                   <Text className={cn(
                     "font-oswald italic uppercase",
-                    i === 0 ? "text-[13px] font-black text-[var(--text-primary)] group-hover:text-[var(--brand-accent)]" : "text-[11px] text-[var(--text-tertiary)]"
+                    i === 0 ? "text-gov-body font-bold text-[var(--text-primary)] group-hover:text-[var(--brand-accent)]" : "text-gov-label text-[var(--text-tertiary)]"
                   )}>
                     {String(val)}
                   </Text>
@@ -87,7 +87,7 @@ export const ReportsPage: React.FC = () => {
                 key={s}
                 onClick={() => setSource(s)}
                 className={cn(
-                  "px-4 py-1.5 rounded text-[10px] font-black italic uppercase tracking-widest transition-all",
+                  "px-4 py-1.5 rounded text-caption font-bold tracking-widest transition-all",
                   source === s ? "bg-[var(--brand-accent)] text-white" : "text-[var(--text-secondary)] hover:bg-[var(--bg-hover)]"
                 )}
               >
@@ -102,10 +102,10 @@ export const ReportsPage: React.FC = () => {
               <input
                 type="text"
                 placeholder="REPORT QUERY..."
-                className="bg-white border border-[var(--surface-border)] rounded-lg pl-9 pr-4 py-2 text-[10px] font-bold italic font-oswald text-[var(--text-primary)] w-48 focus:outline-none focus:border-[var(--brand-accent)]/30 transition-all placeholder:text-[var(--text-tertiary)]/40"
+                className="bg-white border border-[var(--surface-border)] rounded-lg pl-9 pr-4 py-2 text-caption font-bold italic font-oswald text-[var(--text-primary)] w-48 focus:outline-none focus:border-[var(--brand-accent)]/30 transition-all placeholder:text-[var(--text-tertiary)]/40"
               />
             </div>
-            <button onClick={() => handleExport('HTML')} className="px-4 py-2 rounded-lg text-[9px] font-black italic tracking-widest bg-[var(--brand-accent)] text-white uppercase shadow-lg">
+            <button onClick={() => handleExport('HTML')} className="px-4 py-2 rounded-lg text-gov-label font-bold italic tracking-widest bg-[var(--brand-accent)] text-white uppercase shadow-lg">
               Generate Report
             </button>
           </div>
@@ -119,7 +119,7 @@ export const ReportsPage: React.FC = () => {
           <Card className="lg:col-span-8 h-[350px] bg-white border-[4px] border-[var(--brand-accent)] shadow-2xl relative overflow-hidden" padding="none">
             <div className="absolute top-0 left-0 right-0 h-1 bg-[var(--brand-accent)]" />
             <div className="p-6 border-b border-[var(--surface-border)] flex justify-between items-center">
-              <Text className="text-[10px] font-black italic uppercase tracking-[0.2em] text-[var(--brand-accent)]">Temporal Velocity Analytics</Text>
+              <Text className="text-caption font-bold tracking-[0.2em] text-[var(--brand-accent)]">Temporal Velocity Analytics</Text>
               <TrendingUp size={14} className="text-[var(--brand-accent)] opacity-40" />
             </div>
             <div className="p-6 h-[calc(100%-60px)]">
@@ -143,7 +143,7 @@ export const ReportsPage: React.FC = () => {
 
           <Card className="lg:col-span-4 h-[350px] bg-white border border-[var(--surface-border)] shadow-sm relative overflow-hidden" padding="none">
             <div className="p-6 border-b border-[var(--surface-border)] flex justify-between items-center bg-[var(--bg-layer)]/30">
-              <Text className="text-[10px] font-black italic uppercase tracking-[0.2em] text-[var(--text-tertiary)]">Portfolio Distribution</Text>
+              <Text className="text-caption font-bold tracking-[0.2em] text-[var(--text-tertiary)]">Portfolio Distribution</Text>
               <BarChart3 size={14} className="text-[var(--text-tertiary)] opacity-40" />
             </div>
             <div className="p-6 h-[calc(100%-60px)]">
@@ -168,7 +168,7 @@ export const ReportsPage: React.FC = () => {
               key={p.id}
               onClick={() => { setProfile(p.id); setGroupBy(undefined); }}
               className={cn(
-                "relative flex flex-col p-5 rounded-xl border-2 transition-all duration-300 text-left group",
+                "relative flex flex-col p-6 rounded-xl border-2 transition-all duration-300 text-left group",
                 profile === p.id 
                   ? "bg-white border-[var(--brand-accent)] shadow-xl -translate-y-1" 
                   : "bg-white border-[var(--surface-border)] hover:border-[var(--brand-accent)]/30"
@@ -181,10 +181,10 @@ export const ReportsPage: React.FC = () => {
                 <p.icon size={14} />
               </div>
               <Text className={cn(
-                "text-[11px] font-black italic uppercase tracking-wider mb-1",
+                "text-gov-label font-bold tracking-wider mb-1",
                 profile === p.id ? "text-[var(--text-primary)]" : "text-[var(--text-secondary)]"
               )}>{p.label}</Text>
-              <Text className="text-[9px] text-[var(--text-tertiary)] leading-snug">{p.desc}</Text>
+              <Text className="text-gov-label text-[var(--text-tertiary)] leading-snug">{p.desc}</Text>
             </button>
           ))}
         </div>
@@ -194,22 +194,22 @@ export const ReportsPage: React.FC = () => {
           <div className="px-8 py-4 bg-[var(--bg-layer)]/30 border-b border-[var(--surface-border)] flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Database size={14} className="text-[var(--brand-accent)]" />
-              <Text className="text-[10px] font-black italic uppercase tracking-[0.2em] text-[var(--text-primary)]">Unified_Registry_Output</Text>
+              <Text className="text-caption font-bold tracking-[0.2em] text-[var(--text-primary)]">Unified_Registry_Output</Text>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 size={12} className="text-emerald-500" />
-              <Text className="text-[9px] font-bold text-emerald-600 uppercase">Verified Records Ready</Text>
+              <Text className="text-gov-label font-bold text-emerald-600 uppercase">Verified Records Ready</Text>
             </div>
           </div>
           
           <div className="w-full">
             {/* Table Header */}
             <div className="grid grid-cols-12 gap-4 px-8 py-3 bg-[var(--brand-accent)] border-b border-white/10">
-              <div className="col-span-4"><Text className="text-[9px] font-black italic uppercase text-white opacity-60">Identity Vector</Text></div>
-              <div className="col-span-2"><Text className="text-[9px] font-black italic uppercase text-white opacity-60">Metric A</Text></div>
-              <div className="col-span-2"><Text className="text-[9px] font-black italic uppercase text-white opacity-60">Metric B</Text></div>
-              <div className="col-span-2"><Text className="text-[9px] font-black italic uppercase text-white opacity-60">Status</Text></div>
-              <div className="col-span-2 text-right"><Text className="text-[9px] font-black italic uppercase text-white opacity-60">Valuation</Text></div>
+              <div className="col-span-4"><Text className="text-gov-label font-bold text-white opacity-60">Identity Vector</Text></div>
+              <div className="col-span-2"><Text className="text-gov-label font-bold text-white opacity-60">Metric A</Text></div>
+              <div className="col-span-2"><Text className="text-gov-label font-bold text-white opacity-60">Metric B</Text></div>
+              <div className="col-span-2"><Text className="text-gov-label font-bold text-white opacity-60">Status</Text></div>
+              <div className="col-span-2 text-right"><Text className="text-gov-label font-bold text-white opacity-60">Valuation</Text></div>
             </div>
             
             <div className="min-h-[300px]">

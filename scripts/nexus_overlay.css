@@ -1,0 +1,141 @@
+/* NEXUS NEURAL LINK - VOID BLACK AESTHETIC #000000 */
+:root {
+    --nexus-bg: rgba(0, 0, 0, 0.85);
+    --nexus-border: rgba(255, 255, 255, 0.1);
+    --nexus-accent: #00f2ff;
+    /* Cyber Cyan */
+    --nexus-glass: blur(20px);
+}
+
+#nexus-hub-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #000;
+    border: 1px solid var(--nexus-border);
+    border-radius: 50%;
+    z-index: 999999;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: var(--nexus-glass);
+}
+
+#nexus-hub-button:hover {
+    transform: scale(1.1) rotate(10deg);
+    border-color: var(--nexus-accent);
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.3);
+}
+
+#nexus-hub-button img {
+    width: 35px;
+    height: 35px;
+    filter: drop-shadow(0 0 5px var(--nexus-accent));
+}
+
+#nexus-dashboard {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 450px;
+    height: 650px;
+    background: var(--nexus-bg);
+    border: 1px solid var(--nexus-border);
+    border-radius: 20px;
+    backdrop-filter: var(--nexus-glass);
+    z-index: 999998;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    animation: nexusFadeIn 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+}
+
+@keyframes nexusFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.nexus-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--nexus-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.nexus-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--nexus-accent);
+    text-transform: uppercase;
+}
+
+.nexus-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.nexus-section {
+    margin-bottom: 25px;
+}
+
+.nexus-section h3 {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.nexus-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--nexus-border);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 10px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.nexus-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.nexus-card .title {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.nexus-card .meta {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 5px;
+}
+
+/* Custom Scrollbar */
+.nexus-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.nexus-content::-webkit-scrollbar-thumb {
+    background: var(--nexus-border);
+    border-radius: 10px;
+}

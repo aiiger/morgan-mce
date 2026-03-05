@@ -23,10 +23,10 @@ const sizeStyles = {
 };
 
 const statusColors = {
-  critical: 'bg-[#F94144]',
-  warning: 'bg-[#F3722C]',
-  nominal: 'bg-[#F9C74F]',
-  success: 'bg-[#90BE6D]',
+  critical: 'bg-critical',
+  warning: 'bg-warning',
+  nominal: 'bg-yellow-400',
+  success: 'bg-success',
 };
 
 const statusLabels = {
@@ -56,7 +56,7 @@ export function ProgressBar({
           <span className="text-sm font-semibold text-text-primary">{clampedPercentage}%</span>
         </div>
       )}
-      <div className={cn('w-full bg-[#A8DADC] rounded-full overflow-hidden', sizeStyles[size])}>
+      <div className={cn('w-full bg-gray-200 rounded-full overflow-hidden', sizeStyles[size])}>
         <div
           className={cn(
             'h-full rounded-full',

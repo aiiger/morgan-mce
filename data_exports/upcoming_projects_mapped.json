@@ -1,0 +1,38 @@
+[
+    {
+        "title": "Tawazun Industrial Park",
+        "client": "Tawazun",
+        "value": "13,573,000.00",
+        "status": "Prospecting",
+        "lead_source": "Pipeline Export",
+        "expected_close_date": "2026-01-01",
+        "priority": "High"
+    },
+    {
+        "title": "Facelift Enhancement Projects - SKMC & Tawam",
+        "client": "RAFED",
+        "value": "23,425,855.74",
+        "status": "Pre-Award",
+        "lead_source": "Pipeline Export",
+        "expected_close_date": "2026-03-01",
+        "priority": "Medium"
+    },
+    {
+        "title": "Abu Dhabi Plant Tissue Culture Lab",
+        "client": "Presidential Court",
+        "value": "4,753,600.00",
+        "status": "Pre-Award",
+        "lead_source": "Pipeline Export",
+        "expected_close_date": "2026-01-15",
+        "priority": "Medium"
+    },
+    {
+        "title": "New Hospital at Delma Island",
+        "client": "RAFED",
+        "value": "11,895,097.00",
+        "status": "Pre-Award",
+        "lead_source": "Pipeline Export",
+        "expected_close_date": "2026-03-15",
+        "priority": "High"
+    }
+]

@@ -40,8 +40,8 @@ export async function GET() {
     };
 
     return NextResponse.json(report);
-  } catch (error: any) {
-    logger.error('VALIDATION_REPORT_FAILURE', { error: error.message });
+  } catch (error: unknown) {
+    logger.error('VALIDATION_REPORT_FAILURE', { error: error instanceof Error ? error.message : 'Unknown error' });
     return NextResponse.json({ error: 'Failed to generate validation report' }, { status: 500 });
   }
 }

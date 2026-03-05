@@ -57,16 +57,16 @@ export const DocumentsModule: React.FC<DocumentsModuleProps> = ({ documents, loa
 
   return (
     <Card className="motion-entry" padding="none">
-      <CardHeader className="px-6 py-4 border-b border-glass">
+      <CardHeader className="px-6 py-4 border-b border-gray-200">
         <div className="flex items-center gap-2">
-          <FileText size={14} className="text-zinc-500" />
+          <FileText size={14} className="text-gray-500" />
           <CardTitle>Recent Document Flow</CardTitle>
         </div>
         <div className="flex items-center space-x-6">
           <div className="relative">
             <button
               onClick={() => setIsSortOpen(!isSortOpen)}
-              className="flex items-center space-x-2 text-xs font-bold italic text-zinc-500 hover:text-zinc-300 transition-colors"
+              className="flex items-center space-x-2 text-xs font-bold italic text-gray-500 hover:text-gray-600 transition-colors"
             >
               <SlidersHorizontal size={10} />
               <span>Ordering</span>
@@ -77,7 +77,7 @@ export const DocumentsModule: React.FC<DocumentsModuleProps> = ({ documents, loa
               <>
                 <div className="fixed inset-0 z-10" onClick={() => setIsSortOpen(false)} />
                 <div className="absolute right-0 top-full mt-2 w-48 bg-[var(--surface-base)] rounded border border-[var(--surface-border)] z-20 py-1 overflow-hidden shadow-2xl">
-                  <div className="px-3 py-2 text-xs font-bold italic text-zinc-600 bg-[var(--surface-layer)]">
+                  <div className="px-3 py-2 text-xs font-bold italic text-gray-500 bg-[var(--surface-layer)]">
                     Sequence Order
                   </div>
                   {[
@@ -91,7 +91,7 @@ export const DocumentsModule: React.FC<DocumentsModuleProps> = ({ documents, loa
                         setSortOrder(option.id as SortOption);
                         setIsSortOpen(false);
                       }}
-                      className={`w-full text-left px-4 py-2.5 text-xs flex items-center justify-between hover:bg-[var(--surface-layer)] transition-colors ${sortOrder === option.id ? 'text-zinc-50 font-bold italic bg-[var(--surface-layer)]' : 'text-zinc-500 font-bold italic'
+                      className={`w-full text-left px-4 py-2.5 text-xs flex items-center justify-between hover:bg-[var(--surface-layer)] transition-colors ${sortOrder === option.id ? 'text-gray-900 font-bold italic bg-[var(--surface-layer)]' : 'text-gray-600 font-bold italic'
                         }`}
                     >
                       <span className="uppercase">{option.label}</span>
@@ -103,7 +103,7 @@ export const DocumentsModule: React.FC<DocumentsModuleProps> = ({ documents, loa
             )}
           </div>
           <div className="h-3 w-[1px] bg-[var(--surface-border)]" />
-          <button className="text-xs text-zinc-500 hover:text-zinc-200 font-bold italic transition-colors">
+          <button className="text-xs text-gray-500 hover:text-gray-700 font-bold italic transition-colors">
             Expand Flow
           </button>
         </div>
@@ -116,24 +116,24 @@ export const DocumentsModule: React.FC<DocumentsModuleProps> = ({ documents, loa
         ) : sortedDocuments.map(doc => (
           <div
             key={doc.id}
-            className="px-8 py-4 hover:bg-glass transition-colors flex justify-between items-center group cursor-pointer"
+            className="px-8 py-4 hover:bg-gray-50 transition-colors flex justify-between items-center group cursor-pointer"
           >
             <div className="flex items-start space-x-5">
               <div className={`p-2 rounded border border-[var(--surface-border)] bg-[var(--surface-base)] ${doc.type === 'COMPLIANCE' ? 'text-[var(--color-warning)]' :
-                doc.type === 'CONTRACT' ? 'text-zinc-500' :
+                doc.type === 'CONTRACT' ? 'text-gray-500' :
                   doc.type === 'INVOICE' ? 'text-[var(--color-success)]' :
-                    'text-zinc-700'
+                    'text-gray-700'
                 }`}>
                 <FileText size={14} />
               </div>
               <div>
-                <h4 className="text-[13px] font-bold italic text-zinc-100 group-hover:text-white transition-colors tracking-tight font-brand">{doc.title}</h4>
+                <h4 className="text-gov-body font-bold italic text-gray-900 group-hover:text-[var(--brand-accent)] transition-colors tracking-tight font-brand">{doc.title}</h4>
                 <div className="flex items-center space-x-3 mt-1.5 font-brand">
-                  <span className="text-xs font-bold italic text-zinc-500">
+                  <span className="text-xs font-bold italic text-gray-500">
                     {doc.type}
                   </span>
                   <span className="w-1 h-1 rounded-full bg-[var(--surface-border)]"></span>
-                  <span className="text-xs text-zinc-600 font-bold italic tabular-nums font-mono">{doc.date}</span>
+                  <span className="text-xs text-gray-500 font-bold italic tabular-nums font-mono">{doc.date}</span>
                 </div>
               </div>
             </div>
@@ -143,7 +143,7 @@ export const DocumentsModule: React.FC<DocumentsModuleProps> = ({ documents, loa
                 <button
                   onClick={() => handleReview(doc.id)}
                   disabled={processingId === doc.id}
-                  className="text-xs bg-white text-zinc-950 px-3 py-1 rounded-sm font-bold italic hover:bg-[var(--surface-elevated)] hover:text-white transition-all disabled:opacity-50 shadow-lg font-brand"
+                  className="text-xs bg-[var(--brand-accent)] text-white px-3 py-1 rounded-sm font-bold italic hover:opacity-90 transition-all disabled:opacity-50 shadow-lg font-brand"
                 >
                   {processingId === doc.id && <Loader2 size={10} className="animate-spin mr-1.5" />}
                   Determination
@@ -151,14 +151,14 @@ export const DocumentsModule: React.FC<DocumentsModuleProps> = ({ documents, loa
               ) : (
                 <Badge status={doc.status}>{doc.status}</Badge>
               )}
-              <button className="text-zinc-700 hover:text-zinc-400 p-1 rounded transition-colors opacity-0 group-hover:opacity-100">
+              <button className="text-gray-500 hover:text-gray-700 p-1 rounded transition-colors opacity-0 group-hover:opacity-100">
                 <MoreHorizontal size={14} />
               </button>
             </div>
           </div>
         ))}
         {!loading && sortedDocuments.length === 0 && (
-          <div className="p-8 text-center text-zinc-600 font-bold italic text-xs bg-zinc-950/20">
+          <div className="p-8 text-center text-gray-400 font-bold italic text-xs bg-gray-100">
             [NULL-SET] / NO ACTIVE SIGNALS
           </div>
         )}

@@ -14,9 +14,9 @@ export const GlassButton = React.forwardRef<HTMLButtonElement, GlassButtonProps>
         const baseStyles = "group inline-flex items-center justify-center rounded-lg font-bold italic transition-all duration-300 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-2 focus:ring-[var(--mce-primary)]/50 border font-brand tracking-[0.15em] uppercase";
 
         const variants = {
-            primary: "bg-[var(--mce-primary)] border-[var(--mce-primary)] text-white hover:bg-[var(--mce-primary)]/90 shadow-[0_0_15px_rgba(194,23,25,0.4)] hover:shadow-[0_0_25px_rgba(194,23,25,0.6)]",
-            secondary: "bg-glass border-white/10 text-zinc-300 hover:bg-white/10 hover:text-white hover:border-white/20 backdrop-blur-md",
-            ghost: "bg-transparent border-transparent text-zinc-400 hover:text-white hover:bg-glass",
+            primary: "bg-[var(--mce-primary)] border-[var(--mce-primary)] text-gray-900 hover:bg-[var(--mce-primary)]/90 shadow-[0_0_15px_rgba(194,23,25,0.4)] hover:shadow-[0_0_25px_rgba(194,23,25,0.6)]",
+            secondary: "bg-white border-gray-200 text-gray-700 hover:bg-gray-50 hover:text-gray-900 hover:border-gray-200 backdrop-blur-md",
+            ghost: "bg-transparent border-transparent text-gray-500 hover:text-gray-900 hover:bg-white",
             critical: "bg-rose-500/10 border-rose-500/20 text-rose-500 hover:bg-rose-500/20 hover:border-rose-500/50 shadow-[0_0_10px_rgba(244,63,94,0.1)]"
         };
 

@@ -31,14 +31,14 @@ export const NotificationsAcksPanel: React.FC<NotificationsAcksPanelProps> = ({ 
     : 100;
 
   return (
-    <div className="bg-zinc-900/50 backdrop-blur-md border border-glass rounded-xl p-6 shadow-xl flex flex-col h-full">
+    <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm flex flex-col h-full">
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center gap-3">
           <Activity size={16} className="text-[var(--color-info)]" />
-          <h4 className="text-xs font-bold italic text-zinc-500">Response_Velocity</h4>
+          <h4 className="text-xs font-bold italic text-gray-500">Response_Velocity</h4>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-xs font-bold italic text-zinc-600">Ack Rate</span>
+          <span className="text-xs font-bold italic text-gray-500">Ack Rate</span>
           <span className={`text-xs font-bold italic font-mono px-2 py-0.5 rounded border ${ackRate >= 90 ? 'text-emerald-500 border-emerald-500/20 bg-emerald-500/10' : 'text-amber-500 border-amber-500/20 bg-amber-500/10'}`}>
             {ackRate}%
           </span>
@@ -49,7 +49,7 @@ export const NotificationsAcksPanel: React.FC<NotificationsAcksPanelProps> = ({ 
         {criticalSignals.length === 0 ? (
           <div className="h-full flex flex-col items-center justify-center opacity-30">
             <CheckCircle2 size={32} className="mb-4 text-emerald-500" />
-            <p className="text-xs font-bold italic text-zinc-600">All Signals Resolved</p>
+            <p className="text-xs font-bold italic text-gray-400">All Signals Resolved</p>
           </div>
         ) : (
           criticalSignals.map((n, i) => {
@@ -58,15 +58,15 @@ export const NotificationsAcksPanel: React.FC<NotificationsAcksPanelProps> = ({ 
             const ts = n.timestamp || n.created_at;
 
             return (
-              <div key={n.id || i} className="group cursor-default border-b border-glass pb-4 last:border-0 -mx-4 px-4 hover:bg-glass-subtle rounded-xl transition-all">
+              <div key={n.id || i} className="group cursor-default border-b border-gray-200 pb-4 last:border-0 -mx-4 px-4 hover:bg-gray-50 rounded-xl transition-all">
                 <div className="flex justify-between items-start">
                   <div className="flex items-start gap-3">
-                    <div className={`mt-0.5 w-1.5 h-1.5 rounded-full ${ackedAt ? 'bg-zinc-700' : 'bg-[var(--color-critical)] animate-pulse'}`} />
+                    <div className={`mt-0.5 w-1.5 h-1.5 rounded-full ${ackedAt ? 'bg-gray-300' : 'bg-[var(--color-critical)] animate-pulse'}`} />
                     <div>
-                      <h5 className={`text-xs font-bold italic tracking-wider ${ackedAt ? 'text-zinc-500' : 'text-white'}`}>
+                      <h5 className={`text-xs font-bold italic tracking-wider ${ackedAt ? 'text-gray-500' : 'text-gray-900'}`}>
                         {title}
                       </h5>
-                      <p className="text-xs font-bold italic text-zinc-600 mt-1">
+                      <p className="text-xs font-bold italic text-gray-400 mt-1">
                         {new Date(ts || Date.now()).toLocaleTimeString()}
                       </p>
                     </div>

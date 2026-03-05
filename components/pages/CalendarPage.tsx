@@ -154,7 +154,7 @@ export const CalendarPage: React.FC<CalendarPageProps> = ({
             <div className="grid grid-cols-7 gap-px bg-[var(--surface-border)] rounded-2xl overflow-hidden border border-[var(--surface-border)] shadow-2xl">
                 {/* Header */}
                 {weekDays.map((day) => (
-                    <div key={day} className="bg-[var(--bg-layer)]/80 p-4 text-center text-[10px] font-black italic text-[var(--text-tertiary)] uppercase tracking-[0.2em] border-b border-[var(--surface-border)]">
+                    <div key={day} className="bg-[var(--bg-layer)]/80 p-4 text-center text-caption font-bold italic text-[var(--text-tertiary)] uppercase tracking-[0.2em] border-b border-[var(--surface-border)]">
                         {day}
                     </div>
                 ))}
@@ -180,7 +180,7 @@ export const CalendarPage: React.FC<CalendarPageProps> = ({
                             {/* Day Number */}
                             <div className="flex justify-between items-start mb-3">
                                 <span
-                                    className={`text-lg font-black italic font-oswald w-8 h-8 flex items-center justify-center rounded-xl transition-all ${isCurrentDay
+                                    className={`text-lg font-bold italic font-oswald w-8 h-8 flex items-center justify-center rounded-xl transition-all ${isCurrentDay
                                             ? 'bg-[var(--brand-accent)] text-white shadow-[0_0_20px_rgba(162,162,168,0.4)] scale-110'
                                             : 'text-[var(--text-tertiary)] group-hover:text-[var(--text-primary)]'
                                         }`}
@@ -203,8 +203,8 @@ export const CalendarPage: React.FC<CalendarPageProps> = ({
                                         : ev.priority === 'high'
                                             ? 'bg-[var(--mce-red)]/10 border-[var(--mce-red)]/20 border-l-[var(--mce-red)] text-[var(--mce-red)]'
                                             : ev.priority === 'medium'
-                                                ? 'bg-amber-500/10 border-amber-500/20 border-l-amber-500 text-amber-200'
-                                                : 'bg-emerald-500/10 border-emerald-500/20 border-l-emerald-500 text-emerald-200';
+                                                ? 'bg-amber-500/10 border-amber-500/20 border-l-amber-500 text-amber-700'
+                                                : 'bg-emerald-500/10 border-emerald-500/20 border-l-emerald-500 text-emerald-700';
 
                                     return (
                                         <button
@@ -215,7 +215,7 @@ export const CalendarPage: React.FC<CalendarPageProps> = ({
                                                     onSelectProject?.(ev.projectId);
                                                 }
                                             }}
-                                            className={`w-full text-left text-[9px] font-bold italic px-2 py-2 rounded-lg border border-l-2 transition-all hover:scale-[1.03] active:scale-95 uppercase tracking-wide font-oswald ${colorClass} ${
+                                            className={`w-full text-left text-gov-label font-bold italic px-2 py-2 rounded-lg border border-l-2 transition-all hover:scale-[1.03] active:scale-95 uppercase tracking-wide font-oswald ${colorClass} ${
                                                 ev.kind === 'task' && ev.status === 'completed' ? 'opacity-40 grayscale' : ''
                                             }`}
                                             title={ev.title}
@@ -239,21 +239,21 @@ export const CalendarPage: React.FC<CalendarPageProps> = ({
                 subtitle="Temporal Lock // Sector 05"
                 actions={
                     <div className="flex items-center gap-4">
-                        <div className="flex bg-zinc-900 rounded-xl p-1 border border-zinc-800">
+                        <div className="flex bg-gray-50 rounded-xl p-1 border border-gray-200">
                             <button
                                 onClick={() => setViewMode('month')}
-                                className={`px-4 py-1.5 text-[10px] font-bold italic rounded-lg transition-all ${viewMode === 'month' ? 'bg-zinc-700 text-white shadow-sm' : 'text-zinc-500 hover:text-zinc-300'}`}
+                                className={`px-4 py-1.5 text-caption font-bold italic rounded-lg transition-all ${viewMode === 'month' ? 'bg-gray-200 text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
                             >
                                 Month
                             </button>
                             <button
                                 onClick={() => setViewMode('week')}
-                                className={`px-4 py-1.5 text-[10px] font-bold italic rounded-lg transition-all ${viewMode === 'week' ? 'bg-zinc-700 text-white shadow-sm' : 'text-zinc-500 hover:text-zinc-300'}`}
+                                className={`px-4 py-1.5 text-caption font-bold italic rounded-lg transition-all ${viewMode === 'week' ? 'bg-gray-200 text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
                             >
                                 Week
                             </button>
                         </div>
-                        <button onClick={jumpToToday} className="px-4 py-2 text-[10px] font-bold italic bg-zinc-800 text-zinc-300 hover:text-white rounded-xl border border-zinc-700 hover:bg-zinc-700 transition-all tracking-widest">
+                        <button onClick={jumpToToday} className="px-4 py-2 text-caption font-bold italic bg-gray-50 text-gray-600 hover:text-gray-900 rounded-xl border border-gray-200 hover:bg-gray-100 transition-all tracking-widest">
                             Today
                         </button>
                     </div>

@@ -23,13 +23,13 @@ export default function GlobalError({
     }, [error]);
 
     return (
-        <div className="min-h-screen bg-[#050505] text-[#e0e0e0] font-['Oswald'] flex items-center justify-center p-6 relative overflow-hidden">
+        <div className="min-h-screen bg-[var(--void-black)] text-[var(--white)] font-['Oswald'] flex items-center justify-center p-6 relative overflow-hidden">
             {/* Background Gradients */}
-            <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#00f0ff]/5 blur-[120px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-[#ff003c]/5 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[var(--neon-cyan)]/5 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-[var(--color-critical)]/5 blur-[120px] rounded-full pointer-events-none" />
 
             {/* Glass Panel Container */}
-            <div className="relative z-10 w-full max-w-lg bg-[#1a1a1a]/40 backdrop-blur-xl border border-white/5 shadow-2xl rounded-2xl p-8 md:p-10 flex flex-col items-center text-center space-y-6">
+            <div className="relative z-10 w-full max-w-lg bg-[var(--mce-blue-deep)]/40 backdrop-blur-xl border border-white/5 shadow-2xl rounded-2xl p-8 md:p-10 flex flex-col items-center text-center space-y-6">
 
                 {/* Icon */}
                 <div className="w-16 h-16 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center shadow-[0_0_15px_rgba(239,68,68,0.2)]">
@@ -67,7 +67,7 @@ export default function GlobalError({
                     <Link href="/" className="flex-1">
                         <Button
                             variant="primary"
-                            className="w-full bg-gradient-to-r from-[#00f0ff] to-[#0080ff] hover:brightness-110 text-black font-bold font-['JetBrains_Mono'] text-xs uppercase tracking-wider border-0 h-10"
+                            className="w-full bg-gradient-to-r from-[var(--neon-cyan)] to-[var(--brand-accent)] hover:brightness-110 text-black font-bold font-['JetBrains_Mono'] text-xs uppercase tracking-wider border-0 h-10"
                         >
                             <Home className="mr-2 w-3 h-3" />
                             Return to HQ

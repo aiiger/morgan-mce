@@ -24,11 +24,9 @@ export const LiabilityDashboard: React.FC = () => {
    const { items, stats, loading, error, scan } = useLiabilityData();
    const [filter, setFilter] = useState('All');
 
-   console.log('LiabilityDashboard Mounted. Scan Function Available:', !!scan, 'Items:', items?.length);
-
    const getTrafficLight = (dateStr: string, priority: string) => {
       const days = Math.ceil((new Date(dateStr).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24));
-      if (days < 0) return 'bg-zinc-800 border-zinc-700 text-zinc-500'; // Expired
+      if (days < 0) return 'bg-gray-100 border-gray-200 text-gray-400'; // Expired
       if (days < 30 || priority === 'CRITICAL') return 'bg-rose-500/10 border-rose-500/50 text-rose-500 animate-pulse-slow';
       if (days < 90) return 'bg-amber-500/10 border-amber-500/50 text-amber-500';
       return 'bg-emerald-500/10 border-emerald-500/50 text-emerald-500';
@@ -37,7 +35,7 @@ export const LiabilityDashboard: React.FC = () => {
    const categories = ['All', ...Array.from(new Set(items.map(i => i.category)))];
    const filteredItems = filter === 'All' ? items : items.filter(i => i.category === filter);
 
-   if (loading) return <div className="p-20 text-center text-zinc-500 font-mono animate-pulse">Scanning Corporate Registries...</div>;
+   if (loading) return <div className="p-20 text-center text-gray-400 font-mono animate-pulse">Scanning Corporate Registries...</div>;
 
    return (
       <div className="page-container pb-20 animate-in fade-in duration-700">
@@ -48,21 +46,21 @@ export const LiabilityDashboard: React.FC = () => {
             subtitle="MCE Governance System // Strategic Obligations"
             actions={
                <div className="flex gap-4">
-                  <div className="bg-zinc-900/50 backdrop-blur-md border border-glass px-5 py-2 rounded-xl flex items-center gap-4">
+                  <div className="bg-gray-50 border border-gray-200 px-6 py-2 rounded-xl flex items-center gap-4">
                      <div className="flex flex-col">
-                        <span className="text-[8px] text-zinc-500 font-bold italic">Critical</span>
+                        <span className="text-caption text-gray-500 font-bold italic">Critical</span>
                         <span className="text-xl font-bold italic text-rose-500 font-mono leading-none">{stats.critical}</span>
                      </div>
-                     <div className="w-px h-6 bg-glass" />
+                     <div className="w-px h-6 bg-gray-200" />
                      <div className="flex flex-col">
-                        <span className="text-[8px] text-zinc-500 font-bold italic">Expiring</span>
+                        <span className="text-caption text-gray-500 font-bold italic">Expiring</span>
                         <span className="text-xl font-bold italic text-amber-500 font-mono leading-none">{stats.expiring30}</span>
                      </div>
                   </div>
                   <GlassButton
                      onClick={scan}
                      disabled={loading}
-                     className="px-6 py-2 rounded-xl text-[10px] font-bold italic tracking-widest relative overflow-hidden"
+                     className="px-6 py-2 rounded-xl text-caption font-bold italic tracking-widest relative overflow-hidden"
                   >
                      {loading ? (
                         <div className="flex items-center gap-2">
@@ -81,21 +79,21 @@ export const LiabilityDashboard: React.FC = () => {
 
             {/* LEFT: FILTERS & SUMMARY */}
             <div className="lg:col-span-1 space-y-4">
-               <div className="bg-zinc-900/40 border border-glass rounded-xl p-4 sticky top-4">
-                  <h3 className="text-xs font-bold italic text-zinc-400 tracking-widest mb-4">Domains</h3>
+               <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 sticky top-4">
+                  <h3 className="text-xs font-bold italic text-gray-600 tracking-widest mb-4">Domains</h3>
                   <div className="space-y-1">
                      {categories.map(cat => (
                         <button
                            key={cat}
                            onClick={() => setFilter(cat)}
                            className={`w-full text-left px-4 py-3 rounded-xl text-sm font-bold italic transition-all ${filter === cat
-                              ? 'bg-white/10 text-white shadow-lg border border-white/10'
-                              : 'text-zinc-500 hover:bg-glass hover:text-zinc-300'
+                              ? 'bg-blue-50 text-blue-700 shadow-sm border border-blue-200'
+                              : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'
                               }`}
                         >
                            <div className="flex justify-between items-center">
                               <span>{cat}</span>
-                              {cat !== 'All' && <span className="text-[10px] bg-black/20 px-1.5 py-0.5 rounded text-zinc-600">
+                              {cat !== 'All' && <span className="text-caption bg-gray-100 px-1.5 py-0.5 rounded text-gray-400">
                                  {items.filter(i => i.category === cat).length}
                               </span>}
                            </div>
@@ -116,7 +114,7 @@ export const LiabilityDashboard: React.FC = () => {
                         label: "Clear Filters",
                         onClick: () => setFilter('All')
                      }}
-                     className="mt-8 border-dashed border-zinc-800 bg-zinc-900/20"
+                     className="mt-8 border-dashed border-gray-200 bg-gray-50"
                   />
                ) : (
                   filteredItems.map((item) => {
@@ -125,7 +123,7 @@ export const LiabilityDashboard: React.FC = () => {
                      const CategoryIcon = CATEGORY_ICONS[item.category] || FileText;
 
                      return (
-                        <div key={item.id} className="group relative bg-zinc-900/20 border border-glass hover:bg-glass-subtle hover:border-white/10 rounded-xl p-6 transition-all duration-300">
+                        <div key={item.id} className="group relative bg-white border border-gray-200 hover:bg-gray-50 rounded-xl p-6 transition-all duration-300">
                            {/* TRAFFIC LIGHT INDICATOR BAR */}
                            <div className={`absolute left-0 top-6 bottom-6 w-1 rounded-r-full ${item.priority === 'CRITICAL' ? 'bg-rose-500' :
                               daysLeft < 60 ? 'bg-amber-500' : 'bg-emerald-500'
@@ -135,17 +133,17 @@ export const LiabilityDashboard: React.FC = () => {
                               {/* INFO BLOCK */}
                               <div className="flex-1">
                                  <div className="flex items-center gap-2 mb-2">
-                                    <CategoryIcon size={14} className="text-zinc-500" />
-                                    <span className="text-[10px] tracking-wider text-zinc-500 font-bold italic">{item.category} • {item.sub_category || 'General'}</span>
+                                    <CategoryIcon size={14} className="text-gray-500" />
+                                    <span className="text-caption tracking-wider text-gray-500 font-bold italic">{item.category} • {item.sub_category || 'General'}</span>
                                     {item.priority === 'CRITICAL' && (
-                                       <span className="ml-2 px-1.5 py-0.5 rounded bg-rose-500/10 border border-rose-500/20 text-[9px] text-rose-500 font-bold italic tracking-wider">Critical</span>
+                                       <span className="ml-2 px-1.5 py-0.5 rounded bg-rose-500/10 border border-rose-500/20 text-gov-label text-rose-500 font-bold italic tracking-wider">Critical</span>
                                     )}
                                  </div>
-                                 <h3 className="text-lg font-bold italic text-zinc-200 group-hover:text-white transition-colors">
+                                 <h3 className="text-lg font-bold italic text-gray-900 group-hover:text-[var(--brand-accent)] transition-colors">
                                     {item.obligation_name}
                                  </h3>
-                                 <div className="mt-2 text-xs text-zinc-500 font-mono">
-                                    REF: <span className="text-zinc-400">{item.reference_number || 'N/A'}</span>
+                                 <div className="mt-2 text-xs text-gray-500 font-mono">
+                                    REF: <span className="text-gray-500">{item.reference_number || 'N/A'}</span>
                                  </div>
                               </div>
 
@@ -157,11 +155,11 @@ export const LiabilityDashboard: React.FC = () => {
                                        {daysLeft < 0 ? 'EXPIRED' : `${daysLeft} DAYS`}
                                     </span>
                                  </div>
-                                 <div className="text-[10px] text-zinc-600 tracking-wider font-bold italic text-right">
+                                 <div className="text-caption text-gray-500 tracking-wider font-bold italic text-right">
                                     Due: {item.expiry_date}
                                  </div>
                                  {item.annual_cost && item.annual_cost > 0 && (
-                                    <div className="mt-2 text-xs font-mono text-zinc-400">
+                                    <div className="mt-2 text-xs font-mono text-gray-500">
                                        AED {item.annual_cost.toLocaleString()}
                                     </div>
                                  )}
@@ -170,11 +168,11 @@ export const LiabilityDashboard: React.FC = () => {
 
                            {/* HOVER DETAILS (IMPACT) */}
                            {item.impact_description && (
-                              <div className="mt-4 pt-4 border-t border-glass opacity-60 group-hover:opacity-100 transition-opacity">
+                              <div className="mt-4 pt-4 border-t border-gray-100 opacity-70 group-hover:opacity-100 transition-opacity">
                                  <div className="flex gap-2 items-start">
-                                    <AlertTriangle size={12} className="text-zinc-500 mt-0.5" />
-                                    <p className="text-xs text-zinc-400 leading-relaxed">
-                                       <span className="font-bold italic text-zinc-500 not-italic text-[10px] mr-1">Impact:</span>
+                                    <AlertTriangle size={12} className="text-gray-500 mt-0.5" />
+                                    <p className="text-xs text-gray-500 leading-relaxed">
+                                       <span className="font-bold italic text-gray-500 not-italic text-caption mr-1">Impact:</span>
                                        {item.impact_description}
                                     </p>
                                  </div>

@@ -36,7 +36,7 @@ export const AppShell: React.FC<AppShellProps> = ({
     const collapsed = config.sidebarOptimized;
 
     return (
-        <div className="flex h-screen w-screen overflow-hidden font-sans text-white relative selection:bg-brand-500/30">
+        <div className="flex h-screen w-screen overflow-hidden font-sans text-gray-900 relative selection:bg-brand-500/30">
             {/* Background Watermark */}
             <Watermark opacity={0.03} text="MORGAN" />
 

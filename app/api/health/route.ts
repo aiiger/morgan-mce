@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { checkSupabaseHealth, supabaseAdmin } from '@/lib/supabase';
 import { createClient } from '@/lib/supabase/server';
 
 async function fetchWithTimeout(url: string, timeoutMs: number): Promise<Response> {
@@ -11,15 +12,15 @@ async function fetchWithTimeout(url: string, timeoutMs: number): Promise<Respons
   }
 }
 
-export async function GET(request: Request) {
-  const checks: Record<string, any> = {
+export async function GET() {
+  const checks: Record<string, unknown> = {
     timestamp: new Date().toISOString(),
     status: 'healthy',
   };
 
   try {
     // ---------------------------------------------------------------------
-    // Database health (ERP core)
+    // Database health — RLS-scoped client (ERP core tables)
     // ---------------------------------------------------------------------
     const supabase = await createClient();
 
@@ -35,6 +36,17 @@ export async function GET(request: Request) {
     } else {
       checks.database = { status: 'healthy' };
     }
+
+    // ---------------------------------------------------------------------
+    // Morgan admin health — service-role client (bypass RLS)
+    // ---------------------------------------------------------------------
+    const morgan = await checkSupabaseHealth(supabaseAdmin);
+    checks.morgan = {
+      connected: morgan.ok,
+      latencyMs: morgan.latencyMs,
+      error: morgan.error ?? null,
+    };
+    if (!morgan.ok) checks.status = 'degraded';
 
     // ---------------------------------------------------------------------
     // Bot runtime health (authoritative AI Gateway) — reflection only.
@@ -82,7 +94,7 @@ export async function GET(request: Request) {
 
     checks.monitoring = {
       system_load: 'optimal',
-      neural_links: checks.ai?.gateway_ready ? 'active' : 'down',
+      neural_links: (checks.ai as Record<string, unknown>)?.gateway_ready ? 'active' : 'down',
     };
 
     checks.alarms = {
@@ -90,11 +102,11 @@ export async function GET(request: Request) {
     };
 
     return NextResponse.json(checks, { status: checks.status === 'healthy' ? 200 : 503 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     return NextResponse.json(
       {
         status: 'error',
-        message: error.message,
+        message: error instanceof Error ? error.message : 'Unknown error',
         timestamp: new Date().toISOString(),
       },
       { status: 500 }

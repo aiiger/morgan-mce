@@ -11,7 +11,7 @@ interface SparklineProps {
 
 export const Sparkline: React.FC<SparklineProps> = ({
   data,
-  color = '#10b981',
+  color = 'var(--color-success)',
   height = 32,
   animationDuration = 1200,
   trend = 'up'

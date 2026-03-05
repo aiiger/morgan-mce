@@ -3,7 +3,7 @@
  * Loads system prompts and RAG documents for AI assistant
  */
 
-import { supabase } from '@/lib/supabase';
+import { hasSupabaseEnv, supabase } from '@/lib/supabase';
 
 export interface AssistantContext {
   systemPrompt: string;
@@ -16,16 +16,26 @@ export interface AssistantContext {
  */
 export async function buildAssistantContext(): Promise<AssistantContext> {
   try {
+    if (!hasSupabaseEnv()) {
+      return {
+        systemPrompt: `You are the MCE Enterprise Resource Planning Assistant.
+Help users with project management, tenders, documents, tasks, and reporting.
+When you don't know something, ask for clarification or admit limitations.`,
+        architectureGuides: '',
+        recentContext: undefined
+      };
+    }
+
     const { data: prompts, error } = await supabase
       .from('system_prompts')
       .select('prompt_key, title, content, category')
       .eq('is_active', true)
-      .order('category', { ascending: true });
+      .order('category', { ascending: true }) as { data: Array<{ prompt_key: string; title: string; content: string; category: string }> | null; error: { message: string } | null };
 
     if (error) throw error;
 
     const architectureGuides = (prompts || [])
-      .map(p => `## ${p.title}\n${p.content}`)
+      .map((p: { title: string; content: string }) => `## ${p.title}\n${p.content}`)
       .join('\n\n');
 
     const systemPrompt = `You are the MCE Enterprise Resource Planning Assistant.
@@ -56,7 +66,7 @@ Always explain your response in terms of the system's actual capabilities and li
       recentContext: undefined
     };
   } catch (error) {
-    console.error('Failed to build assistant context:', error);
+    console.warn('Failed to build assistant context:', error);
 
     const systemPrompt = `You are the MCE Enterprise Resource Planning Assistant.
 Help users with project management, tenders, documents, tasks, and reporting.
@@ -75,22 +85,24 @@ When you don't know something, ask for clarification or admit limitations.`;
  */
 export async function retrieveRelevantContext(query: string): Promise<string> {
   try {
+    if (!hasSupabaseEnv()) return '';
+
     const { data: prompts } = await supabase
       .from('system_prompts')
       .select('title, content')
-      .eq('is_active', true);
+      .eq('is_active', true) as { data: Array<{ title: string; content: string }> | null };
 
     if (!prompts || prompts.length === 0) return '';
 
     const queryLower = query.toLowerCase();
-    const relevant = (prompts || []).filter(p =>
+    const relevant = (prompts || []).filter((p: { title: string; content: string }) =>
       p.title.toLowerCase().includes(queryLower) ||
       p.content.toLowerCase().includes(queryLower)
     );
 
     return relevant
       .slice(0, 3)
-      .map(p => `${p.title}: ${p.content}`)
+      .map((p: { title: string; content: string }) => `${p.title}: ${p.content}`)
       .join('\n\n');
   } catch (error) {
     console.error('Failed to retrieve context:', error);
