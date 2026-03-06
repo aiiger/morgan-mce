@@ -104,30 +104,53 @@ const NAV_GROUPS: NavGroup[] = [
 ]
 
 // ── Sidebar ────────────────────────────────────────────────────────────────
-const Sidebar = ({ active, onChange, userName, userRole }: { active: SectionId; onChange: (s: SectionId) => void; userName?: string; userRole?: string }) => {
+const Sidebar = ({
+  active,
+  onChange,
+  userName,
+  userRole,
+  collapsed,
+  onToggle,
+}: {
+  active: SectionId;
+  onChange: (s: SectionId) => void;
+  userName?: string;
+  userRole?: string;
+  collapsed: boolean;
+  onToggle: () => void;
+}) => {
   const NavButton = ({ item }: { item: NavItem }) => {
     const isActive = active === item.id
     return (
       <button
         key={item.id}
         onClick={() => onChange(item.id)}
-        className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-gov-body transition-all ${
+        title={collapsed ? item.label : undefined}
+        className={`w-full flex items-center ${collapsed ? 'justify-center' : ''} gap-3 px-3 py-2 rounded-lg text-gov-body transition-all ${
           isActive
             ? 'bg-slate-50 text-slate-900 font-semibold shadow-sm'
             : 'text-slate-500 hover:bg-slate-50 hover:text-slate-700'
         }`}
       >
         <item.icon className="size-[18px] shrink-0" strokeWidth={1.6} />
-        <span className="truncate">{item.label}</span>
+        {!collapsed && <span className="truncate">{item.label}</span>}
       </button>
     )
   }
 
   return (
-    <aside className="w-[220px] bg-white border-r border-slate-100 flex flex-col shrink-0 h-full overflow-hidden">
+    <aside className={`${collapsed ? 'w-[72px]' : 'w-[220px]'} bg-white border-r border-slate-100 flex flex-col shrink-0 h-full overflow-hidden transition-all duration-200`}>
       {/* Workspace header — Morgan branding */}
-      <div className="px-4 py-5 border-b border-slate-100">
-        <img src="/morgan-logo.svg" alt="Morgan Consulting Engineers" className="h-9 w-auto" />
+      <div className={`py-4 border-b border-slate-100 flex items-center ${collapsed ? 'justify-center px-2' : 'justify-between px-4'}`}>
+        {!collapsed && <img src="/morgan-logo.svg" alt="Morgan Consulting Engineers" className="h-9 w-auto" />}
+        <button
+          onClick={onToggle}
+          className="p-2 rounded-lg text-slate-400 hover:bg-slate-50 hover:text-slate-700 transition-colors"
+          title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+        >
+          <ChevronRight className={`size-4 transition-transform ${collapsed ? '' : 'rotate-180'}`} />
+        </button>
       </div>
 
       {/* Navigation */}
@@ -136,37 +159,39 @@ const Sidebar = ({ active, onChange, userName, userRole }: { active: SectionId; 
 
         {NAV_GROUPS.map(group => (
           <div key={group.header} className="pt-4">
-            <div className="px-3 pb-1 text-[10px] font-semibold text-slate-400 uppercase tracking-wider">{group.header}</div>
+            {!collapsed && <div className="px-3 pb-1 text-[10px] font-semibold text-slate-400 uppercase tracking-wider">{group.header}</div>}
             {group.items.map(item => <NavButton key={item.id} item={item} />)}
           </div>
         ))}
 
         {/* Additional analytics links */}
         <div className="pt-4">
-          <button onClick={() => onChange('issue-analytics')} className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-gov-body transition-all ${active === 'issue-analytics' ? 'bg-slate-50 text-slate-900 font-semibold shadow-sm' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-700'}`}>
+          <button title={collapsed ? 'Issue Analytics' : undefined} onClick={() => onChange('issue-analytics')} className={`w-full flex items-center ${collapsed ? 'justify-center' : ''} gap-3 px-3 py-2 rounded-lg text-gov-body transition-all ${active === 'issue-analytics' ? 'bg-slate-50 text-slate-900 font-semibold shadow-sm' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-700'}`}>
             <BarChart3 className="size-[18px] shrink-0" strokeWidth={1.6} />
-            <span className="truncate">Issue Analytics</span>
+            {!collapsed && <span className="truncate">Issue Analytics</span>}
           </button>
-          <button onClick={() => onChange('lessons-learned')} className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-gov-body transition-all ${active === 'lessons-learned' ? 'bg-slate-50 text-slate-900 font-semibold shadow-sm' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-700'}`}>
+          <button title={collapsed ? 'Lessons Learned' : undefined} onClick={() => onChange('lessons-learned')} className={`w-full flex items-center ${collapsed ? 'justify-center' : ''} gap-3 px-3 py-2 rounded-lg text-gov-body transition-all ${active === 'lessons-learned' ? 'bg-slate-50 text-slate-900 font-semibold shadow-sm' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-700'}`}>
             <Eye className="size-[18px] shrink-0" strokeWidth={1.6} />
-            <span className="truncate">Lessons Learned</span>
+            {!collapsed && <span className="truncate">Lessons Learned</span>}
           </button>
-          <button onClick={() => onChange('settings')} className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-gov-body transition-all ${active === 'settings' ? 'bg-slate-50 text-slate-900 font-semibold shadow-sm' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-700'}`}>
+          <button title={collapsed ? 'Settings' : undefined} onClick={() => onChange('settings')} className={`w-full flex items-center ${collapsed ? 'justify-center' : ''} gap-3 px-3 py-2 rounded-lg text-gov-body transition-all ${active === 'settings' ? 'bg-slate-50 text-slate-900 font-semibold shadow-sm' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-700'}`}>
             <Settings className="size-[18px] shrink-0" strokeWidth={1.6} />
-            <span className="truncate">Settings</span>
+            {!collapsed && <span className="truncate">Settings</span>}
           </button>
         </div>
       </nav>
 
       {/* User footer */}
-      <div className="px-4 py-4 border-t border-slate-100 flex items-center gap-3">
+      <div className={`py-4 border-t border-slate-100 flex items-center ${collapsed ? 'justify-center px-2' : 'gap-3 px-4'}`}>
         <div className="size-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-[10px] text-white font-bold relative">
           {(userName ?? 'MC').split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
         </div>
-        <div className="flex flex-col min-w-0">
-          <span className="text-gov-label text-slate-900 truncate">{userName ?? 'MCE Admin'}</span>
-          <span className="text-caption text-slate-400">{userRole ?? 'Admin'}</span>
-        </div>
+        {!collapsed && (
+          <div className="flex flex-col min-w-0">
+            <span className="text-gov-label text-slate-900 truncate">{userName ?? 'MCE Admin'}</span>
+            <span className="text-caption text-slate-400">{userRole ?? 'Admin'}</span>
+          </div>
+        )}
       </div>
     </aside>
   )
@@ -212,6 +237,7 @@ function VeroPMDashboard() {
   const clerkUserRole = (user?.publicMetadata?.role as string) ?? undefined
   const [mounted, setMounted] = useState(false)
   const [activeSection, setActiveSection] = useState<SectionId>('dashboard')
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
   const [showProjectForm, setShowProjectForm] = useState(false)
   const [showTenderForm, setShowTenderForm] = useState(false)
   const [selectedProject, setSelectedProject] = useState<MorganProject | null>(null)
@@ -309,7 +335,14 @@ function VeroPMDashboard() {
 
   return (
     <div className="flex h-screen bg-bg-layer overflow-hidden font-sans text-slate-900 selection:bg-blue-100">
-      <Sidebar active={activeSection} onChange={setActiveSection} userName={clerkUserName} userRole={clerkUserRole} />
+      <Sidebar
+        active={activeSection}
+        onChange={setActiveSection}
+        userName={clerkUserName}
+        userRole={clerkUserRole}
+        collapsed={sidebarCollapsed}
+        onToggle={() => setSidebarCollapsed(prev => !prev)}
+      />
 
       <div className="flex-1 flex flex-col min-w-0">
         {/* Header */}

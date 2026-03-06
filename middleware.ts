@@ -14,7 +14,6 @@ const isAuthDisabled = process.env.NEXT_PUBLIC_DISABLE_AUTH === 'true';
 
 // Define public routes that do not require authentication.
 const isPublicRoute = createRouteMatcher([
-  '/',
   '/sign-in(.*)',
   '/sign-up(.*)',
 
@@ -65,6 +64,9 @@ const configuredMiddleware = clerkMiddleware(async (auth, req) => {
   if (isApi) {
     const { userId, sessionClaims } = await auth();
     if (!userId) {
+      if (isDev) {
+        return;
+      }
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
     const currentTier = tierScore(sessionClaims);

@@ -11,8 +11,9 @@ export interface TenantResolution {
 export async function resolveMorganTenantContext(request: Request, body?: any): Promise<TenantResolution> {
   const { userId, orgId } = await getSafeAuth();
   const isAuthDisabled = process.env.NEXT_PUBLIC_DISABLE_AUTH === 'true';
+  const isDev = process.env.NODE_ENV === 'development';
 
-  if (!userId && !isAuthDisabled) {
+  if (!userId && !isAuthDisabled && !isDev) {
     return {
       ok: false,
       context: null,
@@ -27,6 +28,8 @@ export async function resolveMorganTenantContext(request: Request, body?: any): 
     url.searchParams.get('workspaceId') ||
     request.headers.get('x-workspace-id') ||
     orgId ||
+    (userId ? `user:${userId}` : null) ||
+    (isDev ? 'local-dev' : null) ||
     (isAuthDisabled ? 'local-dev' : null);
 
   if (!workspaceId) {
