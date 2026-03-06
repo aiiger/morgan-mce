@@ -12,8 +12,6 @@ const isClerkConfigured = Boolean(
 const isDev = process.env.NODE_ENV === 'development';
 const isAuthDisabled = process.env.NEXT_PUBLIC_DISABLE_AUTH === 'true';
 
-const ALLOWED_EMAIL = 'mkhalil024@gmail.com';
-
 // Define public routes that do not require authentication.
 const isPublicRoute = createRouteMatcher([
   '/',
@@ -28,9 +26,6 @@ const isPublicRoute = createRouteMatcher([
   '/api/ai/ready',
   '/api/ai/health',
   '/api/ai/version',
-  
-  // Backdoor for stress testing
-  '/api/stress-test',
 ]);
 
 const adminRoute = createRouteMatcher([
@@ -63,55 +58,37 @@ const ensureTier = (requiredTier: number, currentTier: number) => currentTier >=
 const configuredMiddleware = clerkMiddleware(async (auth, req) => {
   if (isPublicRoute(req) || isAuthDisabled) return;
 
-  await auth.protect();
-  const { sessionClaims, userId } = await auth();
+  const isApi = req.nextUrl.pathname.startsWith('/api/');
 
-  // Hard lock to a single user for initial deployment
-  if (userId) {
-    let email = '';
-    // if email is in sessionClaims, use it
-    if (sessionClaims && (sessionClaims as any).email) {
-      email = (sessionClaims as any).email;
-    } else {
-      try {
-        const { clerkClient } = await import('@clerk/nextjs/server');
-        const client = await clerkClient();
-        const user = await client.users.getUser(userId);
-        email = user.emailAddresses.find((e: any) => e.id === user.primaryEmailAddressId)?.emailAddress || '';
-      } catch (e) {
-        console.error('Failed to fetch user email in middleware', e);
-      }
+  // ── API routes: NEVER redirect to Clerk sign-in (causes CORS errors) ──
+  // Instead, check auth manually and return JSON 401/403.
+  if (isApi) {
+    const { userId, sessionClaims } = await auth();
+    if (!userId) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
-
-    if (email && email.toLowerCase() !== ALLOWED_EMAIL.toLowerCase()) {
-      if (req.nextUrl.pathname.startsWith('/api/')) {
-          return NextResponse.json({ error: 'Access denied.' }, { status: 403 });
-      }
-      return new NextResponse('<h1>Access Denied</h1><p>This application is currently restricted.</p>', {
-        status: 403,
-        headers: { 'Content-Type': 'text/html' }
-      });
+    const currentTier = tierScore(sessionClaims);
+    if (adminRoute(req) && !ensureTier(4, currentTier)) {
+      return NextResponse.json({ error: 'Insufficient tier: L4 required.' }, { status: 403 });
     }
+    if (executiveRoute(req) && !ensureTier(3, currentTier)) {
+      return NextResponse.json({ error: 'Insufficient tier: L3 required.' }, { status: 403 });
+    }
+    return;
   }
 
+  // ── Page routes: standard Clerk protect (redirect to sign-in is OK) ──
+  await auth.protect();
+  const { sessionClaims } = await auth();
   const currentTier = tierScore(sessionClaims);
 
   if (adminRoute(req) && !ensureTier(4, currentTier)) {
-    if (req.nextUrl.pathname.startsWith('/api/')) {
-      return NextResponse.json({ error: 'Insufficient tier: L4 required.' }, { status: 403 });
-    }
     return NextResponse.redirect(new URL('/', req.url));
   }
 
   if (executiveRoute(req) && !ensureTier(3, currentTier)) {
-    if (req.nextUrl.pathname.startsWith('/api/')) {
-      return NextResponse.json({ error: 'Insufficient tier: L3 required.' }, { status: 403 });
-    }
     return NextResponse.redirect(new URL('/', req.url));
   }
-
-  // All authenticated users (L1+) can create, edit, and delete.
-  // The tier system only gates admin (L4) and executive/automation (L3) routes above.
 });
 
 const failClosedMiddleware = (req: NextRequest) => {

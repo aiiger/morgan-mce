@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
 @config "./tailwind.config.ts";
 
 /**
  * MCE COMMAND CENTER 2026 - DESIGN TOKENS (inlined)
+ * Note: Google Fonts loaded via next/font/google in layout.tsx instead of @import url() here
+ * because CSS spec requires all @import rules before other rules, and @theme must follow @import "tailwindcss"
  */
 
 :root {
@@ -133,14 +134,46 @@
     --color-info: var(--mce-teal);
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @theme extend {
-    --color-border-base: var(--surface-border);
+    /* Background tokens → generates bg-bg-base, bg-bg-surface, bg-bg-hover, etc. */
     --color-bg-base: var(--bg-base);
+    --color-bg-surface: var(--bg-surface);
+    --color-bg-layer: var(--bg-layer);
+    --color-bg-hover: var(--bg-hover);
+    --color-bg-active: var(--bg-active);
+    --color-bg-input: var(--bg-input);
+
+    /* Text tokens → generates text-text-primary, text-text-secondary, etc. */
     --color-text-primary: var(--text-primary);
+    --color-text-secondary: var(--text-secondary);
+    --color-text-tertiary: var(--text-tertiary);
+    --color-text-disabled: var(--text-disabled);
+    --color-text-link: var(--text-link);
+
+    /* Border tokens → generates border-border-base */
+    --color-border-base: var(--surface-border);
+    --color-border-strong: var(--surface-border-strong);
+
+    /* Semantic status → generates text-critical, bg-critical, etc. */
+    --color-critical: var(--color-critical);
+    --color-warning: var(--color-warning);
+    --color-success: var(--color-success);
+    --color-info: var(--color-info);
+
+    /* Brand */
+    --color-brand-accent: var(--brand-accent);
+    --color-morgan-teal: var(--morgan-teal);
+
+    /* Sidebar */
+    --color-sidebar-bg: var(--sidebar-bg);
+    --color-sidebar-text: var(--sidebar-text);
+
+    /* Shadow tokens */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
 @layer base {
