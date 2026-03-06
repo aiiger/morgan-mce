@@ -12,7 +12,7 @@ const isClerkConfigured = Boolean(
 const isDev = process.env.NODE_ENV === 'development';
 const isAuthDisabled = process.env.NEXT_PUBLIC_DISABLE_AUTH === 'true';
 
-const ALLOWED_EMAIL = 'hellomkhalil024@gmail.com';
+const ALLOWED_EMAIL = 'mkhalil024@gmail.com';
 
 // Define public routes that do not require authentication.
 const isPublicRoute = createRouteMatcher([
@@ -83,7 +83,7 @@ const configuredMiddleware = clerkMiddleware(async (auth, req) => {
       }
     }
 
-    if (email && email !== ALLOWED_EMAIL) {
+    if (email && email.toLowerCase() !== ALLOWED_EMAIL.toLowerCase()) {
       if (req.nextUrl.pathname.startsWith('/api/')) {
           return NextResponse.json({ error: 'Access denied.' }, { status: 403 });
       }
